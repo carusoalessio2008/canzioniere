@@ -1,10 +1,11 @@
 /**
  * Canzoniere Sant'Osvaldo e San Paolo - Core Logic
+ * Supporta sia formato "sections" che formato "lines" (t: h/c/l/s) e accordi minori con "-" (es. LA-, DO#-)
  */
 
 const STORAGE_KEYS = {
-  INDEX: 'canzoniere_sosp_index_v1',
-  SONG_PREFIX: 'canzoniere_sosp_song_',
+  INDEX: 'canzoniere_sosp_index_v2',
+  SONG_PREFIX: 'canzoniere_sosp_song_v2_',
   SETLISTS: 'canzoniere_sosp_setlists_v1'
 };
 
@@ -26,16 +27,26 @@ const NOTES_SHARP = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#',
 const NOTES_FLAT  = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
 
 const IT_TO_ENG = {
-  'Do': 'C', 'Do#': 'C#', 'Reb': 'Db',
-  'Re': 'D', 'Re#': 'D#', 'Mib': 'Eb',
-  'Mi': 'E',
-  'Fa': 'F', 'Fa#': 'F#', 'Solb': 'Gb',
-  'Sol': 'G', 'Sol#': 'G#', 'Lab': 'Ab',
-  'La': 'A', 'La#': 'A#', 'Sib': 'Bb',
-  'Si': 'B'
+  'Do': 'C', 'Do#': 'C#', 'Reb': 'Db', 'DO': 'C', 'DO#': 'C#', 'REb': 'Db',
+  'Re': 'D', 'Re#': 'D#', 'Mib': 'Eb', 'RE': 'D', 'RE#': 'D#', 'MIb': 'Eb',
+  'Mi': 'E', 'MI': 'E',
+  'Fa': 'F', 'Fa#': 'F#', 'Solb': 'Gb', 'FA': 'F', 'FA#': 'F#', 'SOLb': 'Gb',
+  'Sol': 'G', 'Sol#': 'G#', 'Lab': 'Ab', 'SOL': 'G', 'SOL#': 'G#', 'LAb': 'Ab',
+  'La': 'A', 'La#': 'A#', 'Sib': 'Bb', 'LA': 'A', 'LA#': 'A#', 'SIb': 'Bb',
+  'Si': 'B', 'SI': 'B'
 };
 
-const ENG_TO_IT = {
+const ENG_TO_IT_UPPER = {
+  'C': 'DO', 'C#': 'DO#', 'Db': 'REb',
+  'D': 'RE', 'D#': 'RE#', 'Eb': 'MIb',
+  'E': 'MI',
+  'F': 'FA', 'F#': 'FA#', 'Gb': 'SOLb',
+  'G': 'SOL', 'G#': 'SOL#', 'Ab': 'LAb',
+  'A': 'LA', 'A#': 'LA#', 'Bb': 'SIb',
+  'B': 'SI'
+};
+
+const ENG_TO_IT_TITLE = {
   'C': 'Do', 'C#': 'Do#', 'Db': 'Reb',
   'D': 'Re', 'D#': 'Re#', 'Eb': 'Mib',
   'E': 'Mi',
@@ -60,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (sharedSetlistId) {
     await importSharedSetlist(sharedSetlistId);
   } else if (songSlug) {
-    const songMeta = state.songsIndex.find(s => s.slug === songSlug);
+    const songMeta = state.songsIndex.find(s => s.slug === songSlug || s.id === songSlug);
     if (songMeta) loadSong(songMeta);
   }
 
@@ -85,8 +96,20 @@ async function loadSongsIndex() {
   try {
     const res = await fetch('canti/index.json?t=' + Date.now());
     if (!res.ok) throw new Error("Errore fetch index");
-    const freshData = await res.json();
-    
+    let freshData = await res.json();
+
+    // Normalizza i campi nel caso index.json usi "id" al posto di "slug" o "sub" al posto di "author"
+    freshData = freshData.map(item => {
+      const slug = item.slug || item.id || item.file.replace('.json', '');
+      return {
+        ...item,
+        slug,
+        author: item.author || item.sub || '',
+        file: item.file || `${slug}.json`,
+        categories: item.categories || (item.category ? [item.category] : [])
+      };
+    });
+
     freshData.sort((a, b) => a.title.localeCompare(b.title));
 
     if (JSON.stringify(freshData) !== cached) {
@@ -98,7 +121,7 @@ async function loadSongsIndex() {
   } catch (err) {
     console.warn("Modalità offline per indice:", err);
     if (!cached) {
-      document.getElementById('song-list').innerHTML = `<div class="p-4 text-center text-red-500 text-xs">Impossibile caricare i canti offline.</div>`;
+      document.getElementById('song-list').innerHTML = `<div class="p-4 text-center text-red-500 text-xs">Impossibile caricare canti/index.json. Verifica che il file esista.</div>`;
     }
   }
 }
@@ -130,7 +153,8 @@ function filterSongs() {
     const matchesText = !q || 
                         song.title.toLowerCase().includes(q) || 
                         (song.author && song.author.toLowerCase().includes(q)) ||
-                        (song.incipit && song.incipit.toLowerCase().includes(q));
+                        (song.incipit && song.incipit.toLowerCase().includes(q)) ||
+                        (song.search && song.search.toLowerCase().includes(q));
     return matchesCat && matchesText;
   });
 
@@ -188,11 +212,18 @@ async function loadSong(meta) {
   }
 
   if (!songData) {
-    showToast("Errore: canto non disponibile offline", "error");
+    showToast("Errore: canto non trovato in canti/" + meta.file, "error");
     return;
   }
 
-  state.currentSong = { ...meta, ...songData };
+  // Converte il formato "lines" (t: h/c/l/s) in "sections" se necessario
+  const normalizedData = normalizeSongFormat(songData);
+
+  state.currentSong = {
+    ...meta,
+    ...normalizedData,
+    author: normalizedData.author || normalizedData.sub || meta.author || ''
+  };
   state.transpose = 0;
   
   const url = new URL(window.location);
@@ -201,6 +232,65 @@ async function loadSong(meta) {
 
   renderSongView();
   renderSongList();
+}
+
+/* Converte i file JSON con array piatto "lines" (t: h, c, l, s) nella struttura a blocchi */
+function normalizeSongFormat(data) {
+  if (data.sections && Array.isArray(data.sections)) {
+    return data;
+  }
+
+  if (!data.lines || !Array.isArray(data.lines)) {
+    return { ...data, sections: [] };
+  }
+
+  const sections = [];
+  let currentSec = { type: 'strofa', label: '', lines: [] };
+  let pendingChords = null;
+
+  for (const item of data.lines) {
+    if (item.t === 's') {
+      if (pendingChords !== null) {
+        currentSec.lines.push({ chords: pendingChords, lyrics: '' });
+        pendingChords = null;
+      }
+      if (currentSec.label || currentSec.lines.length > 0) {
+        sections.push(currentSec);
+      }
+      currentSec = { type: 'strofa', label: '', lines: [] };
+    } else if (item.t === 'h') {
+      if (pendingChords !== null) {
+        currentSec.lines.push({ chords: pendingChords, lyrics: '' });
+        pendingChords = null;
+      }
+      if (currentSec.label || currentSec.lines.length > 0) {
+        sections.push(currentSec);
+      }
+      const lbl = item.v || '';
+      const isRit = lbl.toLowerCase().includes('ritornello') || lbl.toLowerCase().startsWith('rit');
+      currentSec = { type: isRit ? 'ritornello' : 'strofa', label: lbl, lines: [] };
+    } else if (item.t === 'c') {
+      if (pendingChords !== null) {
+        currentSec.lines.push({ chords: pendingChords, lyrics: '' });
+      }
+      pendingChords = item.v || '';
+    } else if (item.t === 'l') {
+      currentSec.lines.push({
+        chords: pendingChords || '',
+        lyrics: item.v || ''
+      });
+      pendingChords = null;
+    }
+  }
+
+  if (pendingChords !== null) {
+    currentSec.lines.push({ chords: pendingChords, lyrics: '' });
+  }
+  if (currentSec.label || currentSec.lines.length > 0) {
+    sections.push(currentSec);
+  }
+
+  return { ...data, sections };
 }
 
 /* --- VISUALIZZAZIONE E TRASPOSIZIONE --- */
@@ -246,7 +336,7 @@ function renderSongBody() {
       return `
         <div class="song-line">
           ${hasChords ? `<div class="chord-line font-mono-chord text-blue-700 font-bold text-[0.9em] leading-none mb-0.5 select-none whitespace-pre">${transposedChords}</div>` : ''}
-          <div class="lyric-line text-slate-800 leading-snug whitespace-pre-wrap ${isChorus ? 'font-semibold' : ''}">${line.lyrics || ' '}</div>
+          ${line.lyrics !== undefined && line.lyrics !== '' ? `<div class="lyric-line text-slate-800 leading-snug whitespace-pre-wrap ${isChorus ? 'font-semibold' : ''}">${line.lyrics}</div>` : ''}
         </div>
       `;
     }).join('');
@@ -272,7 +362,10 @@ function transpose(delta) {
 
 function transposeLine(line, semitones) {
   if (semitones === 0) return line;
-  return line.replace(/([A-G][#b]?|Do#?|Re[b#]?|Mi|Fa#?|Sol[b#]?|La[b#]?|Si[b]?)(m|maj|min|dim|aug|sus|add|7|9|11|13|6|4|2)*(\/[A-G][#b]?|\/(?:Do#?|Re[b#]?|Mi|Fa#?|Sol[b#]?|La[b#]?|Si[b]?))?/g, (match, root, suffix, bass) => {
+  // Supporta notazione anglosassone (A-G), italiana TitleCase (Do, Re...) e MAIUSCOLA (DO, RE, LA-, DO#-)
+  const regex = /(SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?)(-|m|maj|min|dim|aug|sus|add|7|9|11|13|6|4|2)*(\/(?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?))?/g;
+  
+  return line.replace(regex, (match, root, suffix, bass) => {
     const newRoot = transposeNote(root, semitones);
     let newBass = '';
     if (bass) {
@@ -284,8 +377,10 @@ function transposeLine(line, semitones) {
 }
 
 function transposeNote(note, semitones) {
-  const isItalian = !['A','B','C','D','E','F','G'].includes(note.charAt(0));
-  let engNote = isItalian ? (IT_TO_ENG[note] || note) : note;
+  const isEnglish = ['A','B','C','D','E','F','G'].includes(note.charAt(0)) && note.length <= 2 && note !== 'LA' && note !== 'MI' && note !== 'SI' && note !== 'RE' && note !== 'DO' && note !== 'FA';
+  const isUpperItalian = !isEnglish && note === note.toUpperCase();
+  
+  let engNote = isEnglish ? note : (IT_TO_ENG[note] || note);
   
   let idx = NOTES_SHARP.indexOf(engNote);
   if (idx === -1) idx = NOTES_FLAT.indexOf(engNote);
@@ -295,7 +390,8 @@ function transposeNote(note, semitones) {
   if (newIdx < 0) newIdx += 12;
 
   const newEng = NOTES_SHARP[newIdx];
-  return isItalian ? (ENG_TO_IT[newEng] || newEng) : newEng;
+  if (isEnglish) return newEng;
+  return isUpperItalian ? (ENG_TO_IT_UPPER[newEng] || newEng) : (ENG_TO_IT_TITLE[newEng] || newEng);
 }
 
 function changeFontSize(delta) {
