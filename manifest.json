@@ -1,0 +1,15 @@
+{
+  "name": "Canzoniere Sant'Osvaldo e San Paolo",
+  "short_name": "Canzoniere SO-SP",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
