@@ -1,6 +1,7 @@
 {
   "title": "Santo",
   "sub": "Classico",
+  "categories": ["Santo"],
   "capo": null,
   "key": {
     "note": "SOL",

@@ -1,6 +1,7 @@
 {
   "title": "Potente Sei Mio Signor",
   "sub": "Volendo, capo 2",
+  "categories": ["Comunione"],
   "capo": 2,
   "capoOptional": true,
   "compactRepeats": true,

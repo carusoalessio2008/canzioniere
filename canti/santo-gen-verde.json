@@ -1,6 +1,7 @@
 {
   "title": "Santo",
   "sub": "Gen Verde",
+  "categories": ["Santo"],
   "capo": null,
   "key": {
     "note": "SOL",
