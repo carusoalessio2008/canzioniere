@@ -1,4 +1,4 @@
-const CACHE_NAME = 'canzoniere-sosp-v1';
+const CACHE_NAME = 'canzoniere-sosp-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -27,15 +27,18 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-  if (e.request.url.includes('firestore.googleapis.com')) return;
+  if (e.request.method !== 'GET') return;
+  if (e.request.url.includes('firestore.googleapis.com') || e.request.url.includes('firebase')) return;
 
   e.respondWith(
     fetch(e.request)
       .then((res) => {
-        const resClone = res.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(e.request, resClone);
-        });
+        if (res && res.status === 200) {
+          const resClone = res.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(e.request, resClone);
+          });
+        }
         return res;
       })
       .catch(() => caches.match(e.request))
