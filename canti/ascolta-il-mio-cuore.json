@@ -20,11 +20,11 @@
       "v": "DO FA7+",
       "flowSegments": [
         {
-          "chord": "DO",
+          "chord": "  DO",
           "lyric": "Ascolta il mio cuore,"
         },
         {
-          "chord": "FA7+",
+          "chord": "  FA7+",
           "lyric": "rispondi al mio grido,"
         }
       ]
