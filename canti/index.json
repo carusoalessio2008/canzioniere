@@ -14,7 +14,7 @@
     "title": "Acclamate al Signore",
     "author": "Frisina",
     "categories": [
-      "Canti vari"
+      "Ingresso"
     ],
     "search": "Acclamate al Signore Frisina Ritornello Acclamate al Signore, voi tutti della terra e servitelo con gioia, andate a lui con lieti canti. Acclamate voi tutti al Signore. Strofa 1 Riconoscete che il Signore, che il Signore è Dio, Egli ci ha fatti siamo suoi, suo popolo e gregge del suo pascolo. Strofa 2 Entrate nelle sue porte con degli inni di grazia, i suoi atri nella lode, Benedite, lodate il suo nome. Strofa 3 Poiché buono è il Signore, eterna la sua misericordia, la sua fedeltà si estende sopra ogni generazione.",
     "file": "acclamate-al-signore-frisina.json"
@@ -34,7 +34,7 @@
     "title": "Acqua Siamo Noi",
     "author": "Cento",
     "categories": [
-      "Canti vari"
+      "Finale"
     ],
     "search": "Acqua Siamo Noi  Strofa 1 Acqua    siamo   noi  dall'antica   sorgente    veniamo, fiumi  siamo    noi  se i ruscelli si mettono     insieme, mari   siamo   noi  se i torrenti   si danno   la mano, vita  nuova    c'è se Gesù   è in  mezzo    a noi.  Ritornello E  allora  diamoci    la mano      e tutti  insieme   camminiamo      ed  un  oceano    di  pace   nascerà.      E  l'egoismo   cancelliamo      un  cuore   limpido    sentiamo      è Dio   che  bagna    del suo   amor l'umanità.  Strofa 2 Su  nel  cielo c'è Dio   Padre   che  vive  per   l'uomo Crea   tutti noi  e ci ama   di  amore    infinito, figli siamo   noi  e fratelli di  Cristo  Signore vita  nuova    c'è quando    Lui  è in  mezzo    a noi.  Finale",
     "file": "acqua-siamo-noi.json"
@@ -44,17 +44,17 @@
     "title": "Alleluia",
     "author": "Canto per Cristo",
     "categories": [
-      "Canti vari"
+      "Alleluia"
     ],
     "search": "Alleluia Canto per Cristo Ritornello Alleluia,  allelu,  alleluia,       alleluia,  alleluia       Alleluia,   allelu, alleluia,       alleluia,  alleluia!  Strofa 1                  Canto    per  Cristo  che  mi  libererà,                     quando    verrà   nella  gloria,                     quando    la vita  con   Lui rinascerà                     alleluia,    alleluia!  Strofa 2                  Canto    per  Cristo:  in  Lui rifiorirà                     Ogni   speranza    perduta,                     ogni  creatura   con   Lui risorgerà                     alleluia, alleluia!  Strofa 3                  Canto    per  Cristo:  un   giorno   tornerà!                     Festa  per  tutti gli amici,                     festa di  un  mondo     che  più  non   morirà,                     alleluia, alleluia!",
     "file": "alleluia-canto-per-cristo.json"
   },
   {
     "slug": "alleluia-e-poi",
-    "title": "Alleluia e Poi",
-    "author": "",
+    "title": "Alleluia",
+    "author": "E Poi",
     "categories": [
-      "Canti vari"
+      "Alleluia"
     ],
     "search": "Alleluia e Poi  Intro  Strofa 1    Chiama    ed  io  verrò  da   Te    Figlio  nel silenzio   mi  accoglierai.    Voce   e poi  la  libertà    nella  tua  parola   camminerò  Ritornello    Alleluia      Alleluia        Alleluia    Alleluia      Alle -    lu  -   ia    Alleluia      Alleluia        Alleluia    Alleluia      Alle -  lu - ia  Strofa 2    Danza    ed  io verrò   con  Te    Figlio  la tua  strada  comprenderò.    Luce  e  poi  nel tempo     Tuo    oltre il desiderio riposerò",
     "file": "alleluia-e-poi.json"
@@ -74,7 +74,7 @@
     "title": "Alleluia",
     "author": "Passeranno i cieli",
     "categories": [
-      "Canti vari"
+      "Alleluia"
     ],
     "search": "Alleluia Passeranno i cieli Ritornello Alle  - Alleluia,  alleluia,  alleluia,  alleluia, alleluia, alleluia,    alleluia!  Strofa         Passeranno     i cieli e passerà  la  terra: la sua  parola   non   passerà,         alleluia,     alleluia!  Ritornello Alle  - Alleluia,  alleluia,  alleluia,  alleluia, alleluia, alleluia,    alleluia!",
     "file": "alleluia-passeranno-i-cieli.json"
