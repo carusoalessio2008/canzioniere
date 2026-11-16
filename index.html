@@ -287,14 +287,30 @@
 
     // ⚠️ INCOLLA QUI I DATI DEL TUO NUOVO PROGETTO FIREBASE (console.firebase.google.com)
     // Finché lasci i segnaposto "INSERISCI_...", l'app funzionerà comunque in modalità Locale senza errori.
-    const firebaseConfig = {
-      apiKey: "INSERISCI_LA_TUA_API_KEY",
-      authDomain: "INSERISCI_IL_TUO_AUTH_DOMAIN",
-      projectId: "INSERISCI_IL_TUO_PROJECT_ID",
-      storageBucket: "INSERISCI_IL_TUO_STORAGE_BUCKET",
-      messagingSenderId: "INSERISCI_IL_TUO_SENDER_ID",
-      appId: "INSERISCI_IL_TUO_APP_ID"
-    };
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDi3gIlnMkNIY_clLT1fZ2rzm7VaJn1ITw",
+    authDomain: "canzoniere-1a7d4.firebaseapp.com",
+    databaseURL: "https://canzoniere-1a7d4-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "canzoniere-1a7d4",
+    storageBucket: "canzoniere-1a7d4.firebasestorage.app",
+    messagingSenderId: "659130119156",
+    appId: "1:659130119156:web:785bbc76300f4e88d0bfa1",
+    measurementId: "G-9K4KBJ3DQL"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 
     try {
       if (firebaseConfig.apiKey && !firebaseConfig.apiKey.includes("INSERISCI_")) {
