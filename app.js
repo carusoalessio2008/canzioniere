@@ -20,7 +20,8 @@ let state = {
   viewMode: 'chords',
   setlists: {},
   activeSetlistId: null,
-  activeSetlistIndex: -1
+  activeSetlistIndex: -1,
+  firebaseInitialized: false
 };
 
 const NOTES_SHARP = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
@@ -64,6 +65,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   loadLocalSetlists();
   await loadSongsIndex();
 
+  if (window.fb) {
+    initFirebaseSync();
+  }
+  window.addEventListener('firebase-ready', initFirebaseSync);
+
   const urlParams = new URLSearchParams(window.location.search);
   const sharedSetlistId = urlParams.get('scaletta');
   const songSlug = urlParams.get('canto');
@@ -80,8 +86,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('clear-search').classList.toggle('hidden', !state.searchQuery);
     filterSongs();
   });
-
-  setTimeout(initFirebaseSync, 800);
 });
 
 /* --- GESTIONE INDICE E CANTI --- */
@@ -361,7 +365,6 @@ function transposeLine(line, semitones) {
   if (semitones === 0) return line;
   const useFlats = [-1, -2, -3, -5, -7, 4, 5, 10].includes(semitones);
 
-  // Cattura accordi italiani (DO, RE, LA-, DO#-, SIb7) e inglesi (C, Am, F#m7) delimitati da spazi/inizio/fine/slash/parentesi
   const chordTokenRegex = /(^|[\s(\[|])((?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?)(?:[-m]|maj|min|dim|aug|sus|add|7|9|11|13|6|5|4|2)*)(\/(?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?))?(?=$|[\s)\].,;|])(\s*)/g;
 
   return line.replace(chordTokenRegex, (match, prefix, chordPart, bassPart, trailingSpaces) => {
@@ -380,7 +383,6 @@ function transposeLine(line, semitones) {
     const oldChordFull = chordPart + (bassPart || '');
     const newChordFull = newRoot + suffix + newBass;
 
-    // Compensa gli spazi successivi per mantenere l'allineamento verticale col testo
     let adjustedSpaces = trailingSpaces;
     const lenDiff = newChordFull.length - oldChordFull.length;
     if (lenDiff > 0 && trailingSpaces.length > 1) {
@@ -437,7 +439,7 @@ function toggleViewMode() {
   }
 }
 
-/* --- GESTIONE SCALETTE --- */
+/* --- GESTIONE SCALETTE E CLOUD SYNC --- */
 
 function loadLocalSetlists() {
   const saved = localStorage.getItem(STORAGE_KEYS.SETLISTS);
@@ -453,8 +455,10 @@ function saveLocalSetlists() {
 function updateSetlistBadge() {
   const count = Object.keys(state.setlists).length;
   const badge = document.getElementById('setlist-badge');
-  badge.innerText = count;
-  badge.classList.toggle('hidden', count === 0);
+  if (badge) {
+    badge.innerText = count;
+    badge.classList.toggle('hidden', count === 0);
+  }
 }
 
 function createNewSetlist() {
@@ -477,12 +481,13 @@ function createNewSetlist() {
   input.value = '';
   renderSetlistsIndex();
   openSetlistDetail(id);
-  showToast("Scaletta creata");
+  showToast("Scaletta creata e salvata nel Cloud");
 }
 
 function renderSetlistsIndex() {
   const container = document.getElementById('setlists-index');
-  const list = Object.values(state.setlists).sort((a, b) => b.updatedAt - a.updatedAt);
+  if (!container) return;
+  const list = Object.values(state.setlists).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
 
   if (list.length === 0) {
     container.innerHTML = `<div class="text-center p-6 text-slate-400 text-xs">Nessuna scaletta salvata.<br>Creane una qui sopra!</div>`;
@@ -493,7 +498,7 @@ function renderSetlistsIndex() {
     <div onclick="openSetlistDetail('${sl.id}')" class="p-3 bg-white border border-slate-200 rounded-xl hover:border-blue-400 cursor-pointer shadow-2xs transition flex justify-between items-center">
       <div>
         <h4 class="font-bold text-sm text-slate-800">${sl.name}</h4>
-        <p class="text-xs text-slate-500">${sl.songs.length} canti</p>
+        <p class="text-xs text-slate-500">${(sl.songs || []).length} canti</p>
       </div>
       <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
     </div>
@@ -503,15 +508,18 @@ function renderSetlistsIndex() {
 function openSetlistDetail(id) {
   state.activeSetlistId = id;
   const sl = state.setlists[id];
-  if (!sl) return;
+  if (!sl) {
+    closeSetlistDetail();
+    return;
+  }
 
   document.getElementById('setlists-index').classList.add('hidden');
   document.getElementById('active-setlist-view').classList.remove('hidden');
   document.getElementById('current-setlist-title').innerText = sl.name;
-  document.getElementById('current-setlist-meta').innerText = `${sl.songs.length} canti • ID: ${id}`;
+  document.getElementById('current-setlist-meta').innerText = `${(sl.songs || []).length} canti • Sincronizzato Cloud`;
 
   const container = document.getElementById('setlist-songs-container');
-  if (sl.songs.length === 0) {
+  if (!sl.songs || sl.songs.length === 0) {
     container.innerHTML = `<div class="p-6 text-center text-slate-400 text-xs">Scaletta vuota.<br>Apri un canto e clicca "+ Scaletta".</div>`;
     return;
   }
@@ -569,6 +577,7 @@ function addCurrentSongToSetlist(setlistId) {
   if (!state.currentSong || !state.setlists[setlistId]) return;
 
   const sl = state.setlists[setlistId];
+  if (!sl.songs) sl.songs = [];
   sl.songs.push(state.currentSong.slug);
   sl.updatedAt = Date.now();
   
@@ -604,7 +613,7 @@ function moveSongInSetlist(setlistId, index, direction) {
 
 function deleteCurrentSetlist() {
   if (!state.activeSetlistId) return;
-  if (!confirm("Eliminare questa scaletta?")) return;
+  if (!confirm("Eliminare questa scaletta per tutti?")) return;
 
   const id = state.activeSetlistId;
   delete state.setlists[id];
@@ -637,6 +646,7 @@ function updateSetlistNavBar() {
   const bar = document.getElementById('setlist-nav-bar');
   if (state.activeSetlistId && state.activeSetlistIndex >= 0) {
     const sl = state.setlists[state.activeSetlistId];
+    if (!sl) return;
     bar.classList.remove('hidden');
     document.getElementById('setlist-progress').innerText = `${sl.name} (${state.activeSetlistIndex + 1}/${sl.songs.length})`;
     document.getElementById('btn-prev-song').disabled = state.activeSetlistIndex === 0;
@@ -655,49 +665,79 @@ function nextSongInSetlist() {
   if (sl && state.activeSetlistIndex < sl.songs.length - 1) playSetlistSong(state.activeSetlistId, state.activeSetlistIndex + 1);
 }
 
-/* --- CLOUD SYNC (FIREBASE) --- */
+/* --- CLOUD SYNC GLOBALE (FIREBASE FIRESTORE) --- */
 
 function initFirebaseSync() {
-  if (!window.fb) return;
+  if (!window.fb || state.firebaseInitialized) return;
+  state.firebaseInitialized = true;
+
   const statusEl = document.getElementById('connection-status');
   statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Cloud Attivo`;
 
-  Object.keys(state.setlists).forEach(id => {
-    listenToSetlist(id);
+  // Carica eventuali scalette locali non ancora presenti su Cloud
+  Object.values(state.setlists).forEach(localSl => {
+    syncSetlistToCloud(localSl);
   });
+
+  // Ascolta in tempo reale TUTTE le scalette nella collezione "setlists"
+  window.fb.onSnapshot(
+    window.fb.collection(window.fb.db, "setlists"),
+    (querySnapshot) => {
+      let changed = false;
+      const remoteIds = new Set();
+
+      querySnapshot.forEach((docSnap) => {
+        const remoteData = docSnap.data();
+        const id = remoteData.id || docSnap.id;
+        remoteIds.add(id);
+
+        const localData = state.setlists[id];
+        if (!localData || (remoteData.updatedAt || 0) > (localData.updatedAt || 0)) {
+          state.setlists[id] = { ...remoteData, id };
+          changed = true;
+        }
+      });
+
+      if (changed) {
+        saveLocalSetlists();
+        renderSetlistsIndex();
+        if (state.activeSetlistId && state.setlists[state.activeSetlistId]) {
+          openSetlistDetail(state.activeSetlistId);
+        }
+      }
+    },
+    (error) => {
+      console.error("Errore permessi/rete Firestore:", error);
+      statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-500"></span> Errore Cloud`;
+      showToast("Controlla le regole di sicurezza su Firebase Firestore", "error");
+    }
+  );
 }
 
 function syncSetlistToCloud(setlist) {
   if (!window.fb) return;
   window.fb.setDoc(window.fb.doc(window.fb.db, "setlists", setlist.id), setlist)
-    .then(() => listenToSetlist(setlist.id))
-    .catch(err => console.warn("Sync offline:", err));
-}
-
-function listenToSetlist(id) {
-  if (!window.fb) return;
-  window.fb.onSnapshot(window.fb.doc(window.fb.db, "setlists", id), (docSnap) => {
-    if (docSnap.exists()) {
-      const remoteData = docSnap.data();
-      const localData = state.setlists[id];
-      if (!localData || remoteData.updatedAt > localData.updatedAt) {
-        state.setlists[id] = remoteData;
-        saveLocalSetlists();
-        if (state.activeSetlistId === id) openSetlistDetail(id);
-        renderSetlistsIndex();
-      }
-    }
-  });
+    .catch(err => {
+      console.error("Errore salvataggio Cloud:", err);
+      showToast("Errore salvataggio Cloud (controlla permessi Firebase)", "error");
+    });
 }
 
 function shareSetlist() {
   if (!state.activeSetlistId) return;
+  const sl = state.setlists[state.activeSetlistId];
+  if (sl) syncSetlistToCloud(sl);
+
   const url = `${window.location.origin}${window.location.pathname}?scaletta=${state.activeSetlistId}`;
-  navigator.clipboard.writeText(url).then(() => {
-    showToast("Link scaletta copiato!");
-  }).catch(() => {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(url).then(() => {
+      showToast("Link scaletta copiato!");
+    }).catch(() => {
+      prompt("Copia questo link per condividere:", url);
+    });
+  } else {
     prompt("Copia questo link per condividere:", url);
-  });
+  }
 }
 
 async function importSharedSetlist(id) {
@@ -708,7 +748,7 @@ async function importSharedSetlist(id) {
   }
 
   let attempts = 0;
-  while (!window.fb && attempts < 10) {
+  while (!window.fb && attempts < 20) {
     await new Promise(r => setTimeout(r, 200));
     attempts++;
   }
@@ -718,15 +758,15 @@ async function importSharedSetlist(id) {
       const snap = await window.fb.getDoc(window.fb.doc(window.fb.db, "setlists", id));
       if (snap.exists()) {
         const data = snap.data();
-        state.setlists[id] = data;
+        state.setlists[id] = { ...data, id };
         saveLocalSetlists();
-        listenToSetlist(id);
         openSetlistDetail(id);
         showToast(`Scaletta "${data.name}" importata!`);
       } else {
-        showToast("Scaletta non trovata", "error");
+        showToast("Scaletta non trovata sul Cloud", "error");
       }
     } catch (e) {
+      console.error("Errore importazione scaletta:", e);
       showToast("Errore caricamento scaletta", "error");
     }
   }
@@ -737,14 +777,23 @@ async function importSharedSetlist(id) {
 function toggleSidebar() {
   const sb = document.getElementById('sidebar');
   const bd = document.getElementById('sidebar-backdrop');
-  const isClosed = sb.classList.contains('-translate-x-full');
-  
-  if (isClosed) {
-    sb.classList.remove('-translate-x-full');
-    bd.classList.remove('hidden');
+  const main = document.getElementById('main-content');
+  const openBtn = document.getElementById('desktop-open-sidebar-btn');
+
+  if (window.innerWidth >= 768) {
+    const isClosed = sb.classList.toggle('md:-translate-x-full');
+    sb.classList.toggle('md:translate-x-0', !isClosed);
+    if (main) main.classList.toggle('md:pl-80', !isClosed);
+    if (openBtn) openBtn.classList.toggle('hidden', !isClosed);
   } else {
-    sb.classList.add('-translate-x-full');
-    bd.classList.add('hidden');
+    const isClosed = sb.classList.contains('-translate-x-full');
+    if (isClosed) {
+      sb.classList.remove('-translate-x-full');
+      if (bd) bd.classList.remove('hidden');
+    } else {
+      sb.classList.add('-translate-x-full');
+      if (bd) bd.classList.add('hidden');
+    }
   }
 }
 
