@@ -1,6 +1,6 @@
 /**
  * Canzoniere Sant'Osvaldo e San Paolo - Core Logic
- * Supporta sia formato "sections" che formato "lines" (t: h/c/l/s), parentesi quadre [ACCORDO] e accordi minori con "-"
+ * Supporta formato "sections", formato "lines" (t: h/c/l/s), [ACCORDO], accordi minori con "-" e Editor Visuale protetto
  */
 
 const STORAGE_KEYS = {
@@ -221,6 +221,21 @@ async function loadSong(meta) {
     return;
   }
 
+  if (editorState.cloudSongsOverrides[meta.slug]) {
+    songData = editorState.cloudSongsOverrides[meta.slug];
+  } else if (window.fb && window.fb.getDoc) {
+    try {
+      const cloudSnap = await window.fb.getDoc(window.fb.doc(window.fb.db, "songs", meta.slug));
+      if (cloudSnap.exists()) {
+        songData = cloudSnap.data();
+        editorState.cloudSongsOverrides[meta.slug] = songData;
+        localStorage.setItem(cacheKey, JSON.stringify(songData));
+      }
+    } catch (e) {
+      console.log("Nessuna override cloud per", meta.slug);
+    }
+  }
+
   const normalizedData = normalizeSongFormat(songData);
 
   state.currentSong = {
@@ -348,6 +363,7 @@ function renderSongView() {
     `<span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-semibold uppercase tracking-wide">${c}</span>`
   ).join('');
 
+  ensureEditButton();
   renderSongBody();
 }
 
@@ -369,11 +385,12 @@ function renderSongBody() {
     const linesHtml = sec.lines.map(line => {
       const hasChords = line.chords && line.chords.trim().length > 0;
       const transposedChords = hasChords ? transposeLine(line.chords, state.transpose) : '';
+      const monoStyle = hasChords ? 'font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0;' : '';
       
       return `
         <div class="song-line">
-          ${hasChords ? `<div class="chord-line font-mono-chord text-blue-700 font-bold text-[0.95em] leading-none mb-0.5 select-none whitespace-pre">${transposedChords}</div>` : ''}
-          ${line.lyrics !== undefined && line.lyrics !== '' ? `<div class="lyric-line ${hasChords ? 'font-mono-chord' : ''} text-slate-800 leading-snug whitespace-pre-wrap ${isChorus ? 'font-semibold' : ''}">${line.lyrics}</div>` : ''}
+          ${hasChords ? `<div class="chord-line text-blue-700 font-bold text-[0.95em] leading-none mb-0.5 select-none whitespace-pre" style="${monoStyle}">${transposedChords}</div>` : ''}
+          ${line.lyrics !== undefined && line.lyrics !== '' ? `<div class="lyric-line text-slate-800 leading-snug whitespace-pre-wrap ${isChorus ? 'font-semibold' : ''}" style="${monoStyle}">${line.lyrics}</div>` : ''}
         </div>
       `;
     }).join('');
@@ -731,9 +748,27 @@ function initFirebaseSync() {
   const statusEl = document.getElementById('connection-status');
   statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Cloud Attivo`;
 
+  window.fb.onSnapshot(
+    window.fb.collection(window.fb.db, "songs"),
+    (snap) => {
+      snap.docChanges().forEach((change) => {
+        if (change.type === "added" || change.type === "modified") {
+          const songDoc = change.doc.data();
+          const slug = songDoc.slug || change.doc.id;
+          editorState.cloudSongsOverrides[slug] = songDoc;
+          localStorage.setItem(STORAGE_KEYS.SONG_PREFIX + slug, JSON.stringify(songDoc));
+          if (state.currentSong && state.currentSong.slug === slug && !editorState.isOpen) {
+            state.currentSong = { ...state.currentSong, ...normalizeSongFormat(songDoc) };
+            renderSongView();
+          }
+        }
+      });
+    },
+    (err) => console.log("Sync canti cloud:", err)
+  );
+
   let isFirstSnapshot = true;
 
-  // Ascolta in tempo reale TUTTE le scalette (aggiunte, modifiche ed eliminazioni)
   window.fb.onSnapshot(
     window.fb.collection(window.fb.db, "setlists"),
     (querySnapshot) => {
@@ -933,4 +968,513 @@ function forceUpdateCache() {
   });
   showToast("Cache svuotata, ricarico...");
   setTimeout(() => window.location.reload(), 800);
+}
+
+/* --- EDITOR VISUALE PROTETTO DA PASSWORD --- */
+
+const EDITOR_PASSWORD = "SerAle2026.";
+
+let editorState = {
+  unlocked: sessionStorage.getItem('canzoniere_editor_unlocked') === '1',
+  isOpen: false,
+  draftSong: null,
+  selectedSecIdx: 0,
+  selectedLineIdx: 0,
+  selectedCharIdx: 0,
+  cloudSongsOverrides: {}
+};
+
+function cleanLegacySpaces(str) {
+  if (!str) return '';
+  return str.replace(/\s{2,}/g, ' ').trim();
+}
+
+function chordsStringToMap(chordsStr) {
+  const map = {};
+  if (!chordsStr) return map;
+  const regex = /\S+/g;
+  let match;
+  while ((match = regex.exec(chordsStr)) !== null) {
+    map[match.index] = match[0];
+  }
+  return map;
+}
+
+function mapToChordsString(map) {
+  const positions = Object.keys(map).map(Number).sort((a, b) => a - b);
+  if (positions.length === 0) return '';
+  let chars = [];
+  for (const pos of positions) {
+    const chord = map[pos];
+    let writePos = Math.max(pos, chars.length > 0 ? chars.length + 1 : 0);
+    while (chars.length < writePos) chars.push(' ');
+    for (let i = 0; i < chord.length; i++) {
+      chars[writePos + i] = chord[i];
+    }
+  }
+  return chars.join('');
+}
+
+function ensureEditButton() {
+  const addBtn = document.querySelector('[onclick="toggleAddToSetlistMenu()"]');
+  if (!addBtn) return;
+  let editBtn = document.getElementById('btn-open-song-editor');
+  if (!editBtn) {
+    editBtn = document.createElement('button');
+    editBtn.id = 'btn-open-song-editor';
+    editBtn.type = 'button';
+    editBtn.onclick = openSongEditor;
+    editBtn.className = 'px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold shadow-2xs transition flex items-center gap-1 shrink-0';
+    editBtn.innerHTML = '<span>✎</span><span>Modifica</span>';
+    addBtn.parentElement.insertBefore(editBtn, addBtn.nextSibling);
+  }
+}
+
+function openSongEditor() {
+  if (!state.currentSong) return;
+
+  if (!editorState.unlocked) {
+    const pwd = prompt("Inserisci la password per modificare il canto:");
+    if (pwd === null) return;
+    if (pwd !== EDITOR_PASSWORD) {
+      showToast("Password errata", "error");
+      return;
+    }
+    editorState.unlocked = true;
+    sessionStorage.setItem('canzoniere_editor_unlocked', '1');
+  }
+
+  const s = state.currentSong;
+  const draftSections = (s.sections || []).map(sec => ({
+    type: sec.type || 'strofa',
+    label: sec.label || '',
+    lines: (sec.lines || []).map(line => {
+      const cleanedLyrics = cleanLegacySpaces(line.lyrics || '');
+      return {
+        lyrics: cleanedLyrics,
+        chordMap: chordsStringToMap(line.chords || '')
+      };
+    })
+  }));
+
+  if (draftSections.length === 0) {
+    draftSections.push({
+      type: 'strofa',
+      label: 'STROFA 1',
+      lines: [{ lyrics: '', chordMap: {} }]
+    });
+  }
+
+  editorState.draftSong = {
+    slug: s.slug,
+    title: s.title || '',
+    author: s.author || '',
+    categories: [...(s.categories || [])],
+    sections: draftSections
+  };
+  editorState.selectedSecIdx = 0;
+  editorState.selectedLineIdx = 0;
+  editorState.selectedCharIdx = 0;
+  editorState.isOpen = true;
+
+  renderSongEditorModal();
+}
+
+function closeSongEditor() {
+  editorState.isOpen = false;
+  const modal = document.getElementById('song-visual-editor-modal');
+  if (modal) modal.remove();
+}
+
+function selectEditorCursor(secIdx, lineIdx, charIdx) {
+  editorState.selectedSecIdx = secIdx;
+  editorState.selectedLineIdx = lineIdx;
+  editorState.selectedCharIdx = Math.max(0, charIdx);
+  renderSongEditorModal();
+}
+
+function getSelectedLineObj() {
+  const sec = editorState.draftSong?.sections?.[editorState.selectedSecIdx];
+  if (!sec) return null;
+  return sec.lines?.[editorState.selectedLineIdx] || null;
+}
+
+function setChordAtCursor(chordValue) {
+  const line = getSelectedLineObj();
+  if (!line) return;
+  const cleanChord = (chordValue || '').trim();
+  if (!cleanChord) {
+    delete line.chordMap[editorState.selectedCharIdx];
+  } else {
+    line.chordMap[editorState.selectedCharIdx] = cleanChord;
+  }
+  renderSongEditorModal();
+}
+
+function appendChordModifier(mod) {
+  const line = getSelectedLineObj();
+  if (!line) return;
+  const current = line.chordMap[editorState.selectedCharIdx] || '';
+  if (!current) {
+    showToast("Seleziona prima una nota (es. DO, RE, MI...)", "error");
+    return;
+  }
+  line.chordMap[editorState.selectedCharIdx] = current + mod;
+  renderSongEditorModal();
+}
+
+function shiftChordAtCursor(delta) {
+  const line = getSelectedLineObj();
+  if (!line) return;
+  const curPos = editorState.selectedCharIdx;
+  const chord = line.chordMap[curPos];
+  if (!chord) return;
+
+  const newPos = Math.max(0, curPos + delta);
+  if (newPos === curPos) return;
+
+  delete line.chordMap[curPos];
+  line.chordMap[newPos] = chord;
+  editorState.selectedCharIdx = newPos;
+  renderSongEditorModal();
+}
+
+function updateDraftMeta(field, val) {
+  if (!editorState.draftSong) return;
+  editorState.draftSong[field] = val;
+}
+
+function updateSectionLabel(secIdx, val) {
+  const sec = editorState.draftSong?.sections?.[secIdx];
+  if (!sec) return;
+  sec.label = val;
+  const isRit = val.toLowerCase().includes('ritornello') || val.toLowerCase().startsWith('rit');
+  sec.type = isRit ? 'ritornello' : 'strofa';
+}
+
+function updateLineLyrics(secIdx, lineIdx, newLyrics) {
+  const line = editorState.draftSong?.sections?.[secIdx]?.lines?.[lineIdx];
+  if (!line) return;
+  line.lyrics = newLyrics;
+  renderSongEditorModal();
+}
+
+function addLineToSection(secIdx) {
+  const sec = editorState.draftSong?.sections?.[secIdx];
+  if (!sec) return;
+  sec.lines.push({ lyrics: '', chordMap: {} });
+  editorState.selectedSecIdx = secIdx;
+  editorState.selectedLineIdx = sec.lines.length - 1;
+  editorState.selectedCharIdx = 0;
+  renderSongEditorModal();
+}
+
+function removeLineFromSection(secIdx, lineIdx) {
+  const sec = editorState.draftSong?.sections?.[secIdx];
+  if (!sec) return;
+  sec.lines.splice(lineIdx, 1);
+  if (sec.lines.length === 0) {
+    sec.lines.push({ lyrics: '', chordMap: {} });
+  }
+  editorState.selectedSecIdx = secIdx;
+  editorState.selectedLineIdx = Math.min(lineIdx, sec.lines.length - 1);
+  editorState.selectedCharIdx = 0;
+  renderSongEditorModal();
+}
+
+function addNewSectionToDraft(isChorus = false) {
+  if (!editorState.draftSong) return;
+  editorState.draftSong.sections.push({
+    type: isChorus ? 'ritornello' : 'strofa',
+    label: isChorus ? 'RITORNELLO' : `STROFA ${editorState.draftSong.sections.length + 1}`,
+    lines: [{ lyrics: '', chordMap: {} }]
+  });
+  editorState.selectedSecIdx = editorState.draftSong.sections.length - 1;
+  editorState.selectedLineIdx = 0;
+  editorState.selectedCharIdx = 0;
+  renderSongEditorModal();
+}
+
+function removeSectionFromDraft(secIdx) {
+  if (!editorState.draftSong || editorState.draftSong.sections.length <= 1) return;
+  editorState.draftSong.sections.splice(secIdx, 1);
+  editorState.selectedSecIdx = Math.max(0, secIdx - 1);
+  editorState.selectedLineIdx = 0;
+  editorState.selectedCharIdx = 0;
+  renderSongEditorModal();
+}
+
+function buildFinalSongPayload() {
+  const d = editorState.draftSong;
+  const sections = d.sections.map(sec => ({
+    type: sec.type,
+    label: sec.label.trim(),
+    lines: sec.lines.map(l => ({
+      chords: mapToChordsString(l.chordMap),
+      lyrics: l.lyrics
+    }))
+  }));
+
+  return {
+    slug: d.slug,
+    title: d.title.trim(),
+    author: d.author.trim(),
+    categories: d.categories,
+    sections,
+    updatedAt: Date.now()
+  };
+}
+
+async function saveEditedSongToCloud() {
+  if (!editorState.draftSong) return;
+  const payload = buildFinalSongPayload();
+
+  const cacheKey = STORAGE_KEYS.SONG_PREFIX + payload.slug;
+  localStorage.setItem(cacheKey, JSON.stringify(payload));
+  editorState.cloudSongsOverrides[payload.slug] = payload;
+
+  const idxEntry = state.songsIndex.find(item => item.slug === payload.slug);
+  if (idxEntry) {
+    idxEntry.title = payload.title;
+    idxEntry.author = payload.author;
+    localStorage.setItem(STORAGE_KEYS.INDEX, JSON.stringify(state.songsIndex));
+    filterSongs();
+  }
+
+  state.currentSong = {
+    ...state.currentSong,
+    ...payload
+  };
+  renderSongView();
+
+  if (window.fb && window.fb.setDoc) {
+    try {
+      await window.fb.setDoc(window.fb.doc(window.fb.db, "songs", payload.slug), payload);
+      showToast("Canto salvato e sincronizzato nel Cloud!");
+      closeSongEditor();
+    } catch (err) {
+      console.error("Errore salvataggio canto su Firestore:", err);
+      showToast("Salvato in locale, errore permessi Cloud", "error");
+    }
+  } else {
+    showToast("Salvato in locale (Cloud non connesso)");
+    closeSongEditor();
+  }
+}
+
+function copyEditedSongJson() {
+  const payload = buildFinalSongPayload();
+  const { updatedAt, ...cleanJson } = payload;
+  const text = JSON.stringify(cleanJson, null, 2);
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => showToast("JSON copiato negli appunti!"));
+  } else {
+    prompt("Copia il JSON del canto:", text);
+  }
+}
+
+function downloadEditedSongJson() {
+  const payload = buildFinalSongPayload();
+  const { updatedAt, ...cleanJson } = payload;
+  const blob = new Blob([JSON.stringify(cleanJson, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `${payload.slug}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function renderSongEditorModal() {
+  let modal = document.getElementById('song-visual-editor-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'song-visual-editor-modal';
+    modal.className = 'fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-2 sm:p-4';
+    document.body.appendChild(modal);
+  }
+
+  const d = editorState.draftSong;
+  const activeLine = getSelectedLineObj();
+  const activeChord = activeLine ? (activeLine.chordMap[editorState.selectedCharIdx] || '') : '';
+
+  const notes = ['DO', 'RE', 'MI', 'FA', 'SOL', 'LA', 'SI'];
+  const modifiers = ['-', '#', 'b', '7', '4', 'sus4', 'add9', 'maj7', '/SOL', '/LA-', '/SI', '/DO', '/RE', '/MI', '/FA#'];
+
+  const sectionsHtml = d.sections.map((sec, sIdx) => {
+    const linesHtml = sec.lines.map((line, lIdx) => {
+      const isSelectedLine = (sIdx === editorState.selectedSecIdx && lIdx === editorState.selectedLineIdx);
+      const maxCol = Math.max(
+        line.lyrics.length + 4,
+        ...Object.keys(line.chordMap).map(k => Number(k) + (line.chordMap[k]?.length || 1) + 2),
+        16
+      );
+
+      let gridCellsHtml = '';
+      let col = 0;
+      while (col < maxCol) {
+        const chordHere = line.chordMap[col];
+        const isCursor = isSelectedLine && col === editorState.selectedCharIdx;
+
+        if (chordHere) {
+          const span = chordHere.length;
+          let charsUnder = '';
+          for (let k = 0; k < span; k++) {
+            const ch = line.lyrics[col + k] || ' ';
+            charsUnder += ch === ' ' ? '&nbsp;' : escapeHtml(ch);
+          }
+          gridCellsHtml += `
+            <button type="button"
+              onclick="selectEditorCursor(${sIdx}, ${lIdx}, ${col})"
+              style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;"
+              class="inline-flex flex-col items-start px-0.5 py-0.5 rounded transition text-left ${isCursor ? 'bg-amber-200 ring-2 ring-amber-500' : 'bg-blue-50 hover:bg-blue-100'}">
+              <span class="text-xs font-bold text-blue-700 leading-tight whitespace-pre">${escapeHtml(chordHere)}</span>
+              <span class="text-sm text-slate-800 leading-tight whitespace-pre">${charsUnder}</span>
+            </button>
+          `;
+          col += span;
+        } else {
+          const ch = line.lyrics[col] || ' ';
+          const displayCh = ch === ' ' ? '&nbsp;' : escapeHtml(ch);
+          gridCellsHtml += `
+            <button type="button"
+              onclick="selectEditorCursor(${sIdx}, ${lIdx}, ${col})"
+              style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;"
+              class="inline-flex flex-col items-center px-[1px] py-0.5 rounded transition ${isCursor ? 'bg-amber-200 ring-2 ring-amber-500' : 'hover:bg-slate-200/70'}">
+              <span class="text-xs font-bold text-transparent leading-tight select-none">&nbsp;</span>
+              <span class="text-sm text-slate-800 leading-tight whitespace-pre">${displayCh}</span>
+            </button>
+          `;
+          col += 1;
+        }
+      }
+
+      return `
+        <div class="p-2.5 rounded-xl border ${isSelectedLine ? 'border-amber-400 bg-amber-50/30' : 'border-slate-200 bg-white'} space-y-2">
+          <div class="flex items-center gap-2">
+            <input type="text"
+              value="${escapeHtml(line.lyrics)}"
+              onchange="updateLineLyrics(${sIdx}, ${lIdx}, this.value)"
+              placeholder="Scrivi qui il testo della riga..."
+              class="flex-1 text-xs sm:text-sm px-2.5 py-1.5 rounded-lg border border-slate-200 focus:border-blue-500 focus:outline-none bg-slate-50 focus:bg-white" />
+            <button type="button" onclick="removeLineFromSection(${sIdx}, ${lIdx})" title="Elimina riga"
+              class="px-2 py-1.5 text-xs text-red-500 hover:bg-red-50 rounded-lg font-semibold">✕</button>
+          </div>
+          <div class="overflow-x-auto pb-1">
+            <div class="inline-flex items-end min-w-full bg-slate-50/80 border border-slate-200/80 rounded-lg p-1.5">
+              ${gridCellsHtml}
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    return `
+      <div class="p-3 sm:p-4 rounded-2xl bg-slate-100/80 border border-slate-200 space-y-3">
+        <div class="flex items-center justify-between gap-2">
+          <input type="text"
+            value="${escapeHtml(sec.label)}"
+            onchange="updateSectionLabel(${sIdx}, this.value)"
+            placeholder="Nome sezione (es. RITORNELLO, STROFA 1)"
+            class="text-xs font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white text-slate-700 w-56" />
+          <div class="flex items-center gap-1.5">
+            <button type="button" onclick="addLineToSection(${sIdx})"
+              class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:border-blue-500 text-xs font-semibold text-slate-700">+ Riga</button>
+            ${d.sections.length > 1 ? `<button type="button" onclick="removeSectionFromDraft(${sIdx})" class="px-2 py-1 rounded-lg text-xs text-red-600 hover:bg-red-50 font-semibold">Elimina blocco</button>` : ''}
+          </div>
+        </div>
+        <div class="space-y-2.5">${linesHtml}</div>
+      </div>
+    `;
+  }).join('');
+
+  modal.innerHTML = `
+    <div class="bg-white w-full max-w-4xl max-h-[94vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-200">
+      <div class="px-4 py-3 bg-slate-900 text-white flex items-center justify-between gap-2 shrink-0">
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="px-2 py-0.5 rounded bg-amber-500 text-slate-950 text-[10px] font-extrabold uppercase">Editor Visuale</span>
+          <h3 class="font-bold text-sm sm:text-base truncate">${escapeHtml(d.title || 'Modifica Canto')}</h3>
+        </div>
+        <button type="button" onclick="closeSongEditor()" class="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white text-sm font-bold">✕ Chiudi</button>
+      </div>
+
+      <div class="px-3 py-2.5 bg-slate-50 border-b border-slate-200 space-y-2 shrink-0">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="text-[11px] font-semibold text-slate-500">Accordo su colonna ${editorState.selectedCharIdx + 1}:</span>
+            <input type="text" id="editor-custom-chord-input"
+              value="${escapeHtml(activeChord)}"
+              onchange="setChordAtCursor(this.value)"
+              placeholder="es. LA-"
+              class="w-20 px-2 py-1 text-xs font-bold text-blue-700 border border-slate-300 rounded-lg bg-white uppercase" />
+            <button type="button" onclick="shiftChordAtCursor(-1)" ${!activeChord ? 'disabled' : ''}
+              class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 disabled:opacity-30 text-xs font-bold" title="Sposta a sinistra">←</button>
+            <button type="button" onclick="shiftChordAtCursor(1)" ${!activeChord ? 'disabled' : ''}
+              class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 disabled:opacity-30 text-xs font-bold" title="Sposta a destra">→</button>
+            <button type="button" onclick="setChordAtCursor('')" ${!activeChord ? 'disabled' : ''}
+              class="px-2.5 py-1 rounded-lg bg-red-50 border border-red-200 text-red-600 hover:bg-red-100 disabled:opacity-30 text-xs font-semibold">Rimuovi</button>
+          </div>
+          <div class="text-[11px] text-slate-500 hidden sm:block">Clicca su una lettera qui sotto per posizionare l'accordo</div>
+        </div>
+
+        <div class="flex items-center gap-1 overflow-x-auto pb-0.5">
+          ${notes.map(n => `
+            <button type="button" onclick="setChordAtCursor('${n}')"
+              class="px-2.5 py-1 rounded-lg text-xs font-bold transition shrink-0 ${activeChord === n ? 'bg-blue-600 text-white' : 'bg-white border border-slate-300 text-slate-800 hover:border-blue-500'}">${n}</button>
+          `).join('')}
+          <span class="mx-1 text-slate-300">|</span>
+          ${modifiers.map(m => `
+            <button type="button" onclick="appendChordModifier('${m}')"
+              class="px-2 py-1 rounded-lg text-xs font-semibold bg-slate-200/80 hover:bg-slate-300 text-slate-800 shrink-0">${m}</button>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-500 mb-1">Titolo canto</label>
+            <input type="text" value="${escapeHtml(d.title)}" onchange="updateDraftMeta('title', this.value)"
+              class="w-full px-3 py-1.5 text-sm font-semibold border border-slate-300 rounded-lg" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-500 mb-1">Autore / Sottotitolo</label>
+            <input type="text" value="${escapeHtml(d.author)}" onchange="updateDraftMeta('author', this.value)"
+              class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" />
+          </div>
+        </div>
+
+        ${sectionsHtml}
+
+        <div class="flex flex-wrap gap-2 pt-1">
+          <button type="button" onclick="addNewSectionToDraft(false)"
+            class="px-3 py-2 rounded-xl border border-dashed border-slate-400 hover:border-blue-600 text-xs font-semibold text-slate-700">+ Aggiungi Strofa</button>
+          <button type="button" onclick="addNewSectionToDraft(true)"
+            class="px-3 py-2 rounded-xl border border-dashed border-blue-400 hover:border-blue-600 text-xs font-semibold text-blue-700">+ Aggiungi Ritornello</button>
+        </div>
+      </div>
+
+      <div class="px-4 py-3 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 shrink-0">
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="copyEditedSongJson()"
+            class="px-3 py-2 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 text-xs font-semibold text-slate-700">Copia JSON</button>
+          <button type="button" onclick="downloadEditedSongJson()"
+            class="px-3 py-2 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 text-xs font-semibold text-slate-700">Scarica .json</button>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="closeSongEditor()"
+            class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-200">Annulla</button>
+          <button type="button" onclick="saveEditedSongToCloud()"
+            class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm">✓ Salva nel Cloud</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
