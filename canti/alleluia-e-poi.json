@@ -1,6 +1,7 @@
 {
-  "title": "Alleluia e Poi",
-  "sub": "",
+  "title": "Alleluia",
+  "sub": "E Poi",
+  "categories": ["Alleluia"],
   "capo": null,
   "key": {
     "note": "DO",
