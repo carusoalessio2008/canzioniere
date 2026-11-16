@@ -1,6 +1,6 @@
 /**
  * Canzoniere Sant'Osvaldo e San Paolo - Core Logic
- * Supporta sia formato "sections" che formato "lines" (t: h/c/l/s) e accordi minori con "-" (es. LA-, DO#-)
+ * Supporta sia formato "sections" che formato "lines" (t: h/c/l/s), parentesi quadre [ACCORDO] e accordi minori con "-"
  */
 
 const STORAGE_KEYS = {
@@ -238,6 +238,39 @@ async function loadSong(meta) {
   renderSongList();
 }
 
+function parseInlineBrackets(existingChords, rawLyrics) {
+  if (!rawLyrics || !rawLyrics.includes('[')) {
+    return { chords: existingChords || '', lyrics: rawLyrics || '' };
+  }
+
+  let cleanLyrics = '';
+  let chordChars = (existingChords || '').split('');
+  let i = 0;
+
+  while (i < rawLyrics.length) {
+    if (rawLyrics[i] === '[') {
+      const closeIdx = rawLyrics.indexOf(']', i);
+      if (closeIdx !== -1) {
+        const chord = rawLyrics.slice(i + 1, closeIdx).trim();
+        const pos = cleanLyrics.length;
+        while (chordChars.length < pos) chordChars.push(' ');
+        for (let k = 0; k < chord.length; k++) {
+          chordChars[pos + k] = chord[k];
+        }
+        i = closeIdx + 1;
+        continue;
+      }
+    }
+    cleanLyrics += rawLyrics[i];
+    i++;
+  }
+
+  return {
+    chords: chordChars.join('').replace(/\s+$/, ''),
+    lyrics: cleanLyrics
+  };
+}
+
 function normalizeSongFormat(data) {
   if (data.sections && Array.isArray(data.sections)) {
     return data;
@@ -278,9 +311,10 @@ function normalizeSongFormat(data) {
       }
       pendingChords = item.v || '';
     } else if (item.t === 'l') {
+      const parsed = parseInlineBrackets(pendingChords, item.v || '');
       currentSec.lines.push({
-        chords: pendingChords || '',
-        lyrics: item.v || ''
+        chords: parsed.chords,
+        lyrics: parsed.lyrics
       });
       pendingChords = null;
     }
@@ -338,8 +372,8 @@ function renderSongBody() {
       
       return `
         <div class="song-line">
-          ${hasChords ? `<div class="chord-line font-mono-chord text-blue-700 font-bold text-[0.9em] leading-none mb-0.5 select-none whitespace-pre">${transposedChords}</div>` : ''}
-          ${line.lyrics !== undefined && line.lyrics !== '' ? `<div class="lyric-line text-slate-800 leading-snug whitespace-pre-wrap ${isChorus ? 'font-semibold' : ''}">${line.lyrics}</div>` : ''}
+          ${hasChords ? `<div class="chord-line font-mono-chord text-blue-700 font-bold text-[0.95em] leading-none mb-0.5 select-none whitespace-pre">${transposedChords}</div>` : ''}
+          ${line.lyrics !== undefined && line.lyrics !== '' ? `<div class="lyric-line ${hasChords ? 'font-mono-chord' : ''} text-slate-800 leading-snug whitespace-pre-wrap ${isChorus ? 'font-semibold' : ''}">${line.lyrics}</div>` : ''}
         </div>
       `;
     }).join('');
@@ -712,12 +746,10 @@ function initFirebaseSync() {
         Object.values(state.setlists).forEach(localSl => {
           if (!remoteIds.has(localSl.id)) {
             if (hasSyncedBefore || state.deletedSetlistIds.includes(localSl.id)) {
-              // Era già stata sincronizzata e poi eliminata da un altro dispositivo: rimuovila anche qui
               delete state.setlists[localSl.id];
               markSetlistDeleted(localSl.id);
               changed = true;
             } else {
-              // Prima migrazione da dispositivo locale mai sincronizzato prima
               syncSetlistToCloud(localSl);
             }
           }
@@ -744,7 +776,6 @@ function initFirebaseSync() {
             }
           }
         } else if (change.type === "added" || change.type === "modified") {
-          // Se questo dispositivo l'ha appena eliminata ma arriva un evento residuo, assicurati resti eliminata
           if (state.deletedSetlistIds.includes(id)) {
             if (window.fb && window.fb.deleteDoc) {
               window.fb.deleteDoc(window.fb.doc(window.fb.db, "setlists", id)).catch(() => {});
