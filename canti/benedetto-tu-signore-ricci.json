@@ -1,0 +1,372 @@
+{
+  "id": "benedetto-tu-signore-ricci",
+  "title": "Benedetto Tu, Signore",
+  "sub": "Ricci · versione San Marco",
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Benedetto Tu Signore Ricci versione San Marco Intro Ritornello Prendi da queste mani il pane che offriamo a Te fanne cibo che porterà la vita tua vino linfa eternità Queste nostre offerte accoglile Signore e saranno offerte pure Questo nostro mondo accogli o Signore e saranno cieli e terre che Tu farai nuovi cuore dono Finale",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Intro"
+    },
+    {
+      "t": "c",
+      "v": "| LA- SOL | FA |"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Benedetto" },
+        { "chord": "FA", "lyric": "Tu, Signore" }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Benedetto Tu, Signore"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Benedetto" },
+        { "chord": "FA", "lyric": "Tu, nei secoli" }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Benedetto Tu, nei secoli"
+    },
+    {
+      "t": "c",
+      "v": "DO FA DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Benedetto" },
+        { "chord": "FA", "lyric": "Tu," },
+        {
+          "parts": [
+            { "chord": "DO", "lyric": "Signo" },
+            { "chord": "FA", "lyric": "re" }
+          ]
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Benedetto Tu, Signore"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Prendi da queste mani" },
+        { "chord": "FA", "lyric": "il pane" }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Prendi da queste mani il pane"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "che offriamo" },
+        { "chord": "FA", "lyric": "a Te." }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "che offriamo a Te."
+    },
+    {
+      "t": "c",
+      "v": "LA- SOL FA",
+      "flowSegments": [
+        { "chord": "LA-", "lyric": "Fanne cibo" },
+        { "chord": "SOL", "lyric": "che porterà" },
+        { "chord": "FA", "lyric": "la vita tua." }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Fanne cibo che porterà la vita tua."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Benedetto" },
+        { "chord": "FA", "lyric": "Tu, Signore" }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Benedetto Tu, Signore"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Benedetto" },
+        { "chord": "FA", "lyric": "Tu, nei secoli" }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Benedetto Tu, nei secoli"
+    },
+    {
+      "t": "c",
+      "v": "DO FA DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Benedetto" },
+        { "chord": "FA", "lyric": "Tu," },
+        {
+          "parts": [
+            { "chord": "DO", "lyric": "Signo" },
+            { "chord": "FA", "lyric": "re" }
+          ]
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Benedetto Tu, Signore"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Prendi da queste mani" },
+        { "chord": "FA", "lyric": "il vino" }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Prendi da queste mani il vino"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "che offriamo" },
+        { "chord": "FA", "lyric": "a Te." }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "che offriamo a Te."
+    },
+    {
+      "t": "c",
+      "v": "LA- SOL FA",
+      "flowSegments": [
+        { "chord": "LA-", "lyric": "Fanne linfa" },
+        { "chord": "SOL", "lyric": "che porterà" },
+        { "chord": "FA", "lyric": "l'eternità." }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Fanne linfa che porterà l'eternità."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ponte"
+    },
+    {
+      "t": "c",
+      "v": "SOL FA DO",
+      "flowSegments": [
+        { "chord": "SOL", "lyric": "Queste nostre" },
+        { "chord": "FA", "lyric": "offerte" },
+        { "chord": "DO", "lyric": "accoglile, Signore" }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Queste nostre offerte accoglile, Signore"
+    },
+    {
+      "t": "c",
+      "v": "SOL FA DO",
+      "flowSegments": [
+        { "chord": "SOL", "lyric": "e saranno" },
+        { "chord": "FA", "lyric": "offerte" },
+        { "chord": "DO", "lyric": "pure." }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "e saranno offerte pure."
+    },
+    {
+      "t": "c",
+      "v": "SOL FA DO",
+      "flowSegments": [
+        { "chord": "SOL", "lyric": "Questo nostro" },
+        { "chord": "FA", "lyric": "mondo accogli," },
+        { "chord": "DO", "lyric": "o Signore" }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Questo nostro mondo accogli, o Signore"
+    },
+    {
+      "t": "c",
+      "v": "SOL FA FA SOL",
+      "flowSegments": [
+        { "chord": "SOL", "lyric": "e saranno" },
+        { "chord": "FA", "lyric": "cieli e terre" },
+        { "chord": "FA", "lyric": "che Tu farai" },
+        { "chord": "SOL", "lyric": "nuovi." }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "e saranno cieli e terre che Tu farai nuovi."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Benedetto" },
+        { "chord": "FA", "lyric": "Tu, Signore" }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Benedetto Tu, Signore"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Benedetto" },
+        { "chord": "FA", "lyric": "Tu, nei secoli" }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Benedetto Tu, nei secoli"
+    },
+    {
+      "t": "c",
+      "v": "DO FA DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Benedetto" },
+        { "chord": "FA", "lyric": "Tu," },
+        {
+          "parts": [
+            { "chord": "DO", "lyric": "Signo" },
+            { "chord": "FA", "lyric": "re" }
+          ]
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Benedetto Tu, Signore"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "Prendi da queste mani" },
+        { "chord": "FA", "lyric": "il cuore" }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Prendi da queste mani il cuore"
+    },
+    {
+      "t": "c",
+      "v": "DO FA",
+      "flowSegments": [
+        { "chord": "DO", "lyric": "che offriamo" },
+        { "chord": "FA", "lyric": "a Te." }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "che offriamo a Te."
+    },
+    {
+      "t": "c",
+      "v": "LA- SOL FA",
+      "flowSegments": [
+        { "chord": "LA-", "lyric": "Fanne dono" },
+        { "chord": "SOL", "lyric": "che porterà" },
+        { "chord": "FA", "lyric": "la vita tua." }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Fanne dono che porterà la vita tua."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Finale"
+    },
+    {
+      "t": "c",
+      "v": "| DO FA | DO |"
+    }
+  ]
+}

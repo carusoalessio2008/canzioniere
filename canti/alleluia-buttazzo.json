@@ -1,0 +1,202 @@
+{
+  "title": "Alleluia - chi ascolta",
+  "sub": "Buttazzo · Capo 3",
+  "capo": 3,
+  "key": {
+    "note": "RE",
+    "mode": "maggiore"
+  },
+  "search": "Alleluia - chi ascolta Buttazzo Intro  Ritornello    Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alle  - lu  - u -  ia  Strofa 1    Chi  ascolta  la parola    È come    uno   che    Attinge   acqua   alla sorgente    Che   lo disseterà  Strofa 2    Chi  accoglie   la parola    È come    uno   che    Ha  costruito   sulla  roccia    E mai   vacillerà  Finale     Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alle  - lu  - u -  ia    Alleluia,  Alleluia,        Alleluia!",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Intro"
+    },
+    {
+      "t": "c",
+      "v": "RE      SI-      SOL     LA"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "   RE         SI-       SOL    LA"
+    },
+    {
+      "t": "l",
+      "v": "   Alleluia,  Alleluia,  Alleluia"
+    },
+    {
+      "t": "c",
+      "v": "   RE         SI-       SOL    LA"
+    },
+    {
+      "t": "l",
+      "v": "   Alleluia,  Alleluia,  Alleluia"
+    },
+    {
+      "t": "c",
+      "v": "   RE         SI-       SOL    LA"
+    },
+    {
+      "t": "l",
+      "v": "   Alleluia,  Alleluia,  Alleluia"
+    },
+    {
+      "t": "c",
+      "v": "   RE         SI-       SOL      LA        RE"
+    },
+    {
+      "t": "l",
+      "v": "   Alleluia,  Alleluia,  Alle  - lu  - u -  ia"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "c",
+      "v": "     RE             SI-"
+    },
+    {
+      "t": "l",
+      "v": "Chi  ascolta  la parola"
+    },
+    {
+      "t": "c",
+      "v": "     MI-          LA"
+    },
+    {
+      "t": "l",
+      "v": "   È come    uno   che"
+    },
+    {
+      "t": "c",
+      "v": "           RE             SI-"
+    },
+    {
+      "t": "l",
+      "v": "   Attinge   acqua   alla sorgente"
+    },
+    {
+      "t": "c",
+      "v": "      MI-           LA"
+    },
+    {
+      "t": "l",
+      "v": "   Che   lo disseterà"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ripetere il ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "c",
+      "v": "     RE               SI-"
+    },
+    {
+      "t": "l",
+      "v": "Chi  accoglie   la parola"
+    },
+    {
+      "t": "c",
+      "v": "      MI-          LA"
+    },
+    {
+      "t": "l",
+      "v": "   È come    uno   che"
+    },
+    {
+      "t": "c",
+      "v": "             RE           SI-"
+    },
+    {
+      "t": "l",
+      "v": "   Ha  costruito   sulla  roccia"
+    },
+    {
+      "t": "c",
+      "v": "    MI-           LA      SI"
+    },
+    {
+      "t": "l",
+      "v": "   E mai   vacillerà"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ripetere il ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Finale"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "c",
+      "v": "   MI        DO#-        LA    SI"
+    },
+    {
+      "t": "l",
+      "v": "   Alleluia,  Alleluia,  Alleluia"
+    },
+    {
+      "t": "c",
+      "v": "   MI        DO#-        LA    SI"
+    },
+    {
+      "t": "l",
+      "v": "   Alleluia,  Alleluia,  Alleluia"
+    },
+    {
+      "t": "c",
+      "v": "   MI        DO#-        LA    SI"
+    },
+    {
+      "t": "l",
+      "v": "   Alleluia,  Alleluia,  Alleluia"
+    },
+    {
+      "t": "c",
+      "v": "   MI        DO#-        LA      SI        MI   SI"
+    },
+    {
+      "t": "l",
+      "v": "   Alleluia,  Alleluia,  Alle  - lu  - u -  ia"
+    },
+    {
+      "t": "c",
+      "v": "   MI        DO#-          LA     SI   MI"
+    },
+    {
+      "t": "l",
+      "v": "   Alleluia,  Alleluia,        Alleluia!"
+    }
+  ],
+  "id": "alleluia-buttazzo"
+}
