@@ -1016,19 +1016,27 @@ function mapToChordsString(map) {
 }
 
 function ensureEditButton() {
+  if (document.getElementById('btn-open-song-editor')) return;
+
+  const editBtn = document.createElement('button');
+  editBtn.id = 'btn-open-song-editor';
+  editBtn.type = 'button';
+  editBtn.onclick = openSongEditor;
+  editBtn.className = 'px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold shadow-sm transition flex items-center gap-1 shrink-0';
+  editBtn.innerHTML = '<span>✎</span><span>Modifica</span>';
+
   const addBtn = document.querySelector('[onclick="toggleAddToSetlistMenu()"]');
-  if (!addBtn) return;
-  let editBtn = document.getElementById('btn-open-song-editor');
-  if (!editBtn) {
-    editBtn = document.createElement('button');
-    editBtn.id = 'btn-open-song-editor';
-    editBtn.type = 'button';
-    editBtn.onclick = openSongEditor;
-    editBtn.className = 'px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold shadow-2xs transition flex items-center gap-1 shrink-0';
-    editBtn.innerHTML = '<span>✎</span><span>Modifica</span>';
-    addBtn.parentElement.insertBefore(editBtn, addBtn.nextSibling);
+  const fontPlusBtn = document.querySelector('[onclick="changeFontSize(2)"]');
+  const target = addBtn || fontPlusBtn;
+
+  if (target && target.parentElement) {
+    target.parentElement.appendChild(editBtn);
+  } else {
+    editBtn.className = 'fixed bottom-5 right-5 z-40 px-4 py-2.5 rounded-full bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold shadow-lg flex items-center gap-1.5';
+    document.body.appendChild(editBtn);
   }
 }
+
 
 function openSongEditor() {
   if (!state.currentSong) return;
