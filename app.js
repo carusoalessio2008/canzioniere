@@ -1,6 +1,6 @@
 /**
  * Canzoniere Sant'Osvaldo e San Paolo - Core Logic
- * Supporta formato "sections", formato "lines" (t: h/c/l/s), [ACCORDO], accordi minori con "-" e Editor Visuale protetto
+ * Supporta formato "sections", formato "lines" (t: h/c/l/s), [ACCORDO], accordi minori con "-" e Editor Inline diretto
  */
 
 const STORAGE_KEYS = {
@@ -189,6 +189,7 @@ function renderSongList() {
 }
 
 async function selectSongFromList(slug) {
+  if (editorState.isOpen) exitInlineEditor();
   state.activeSetlistIndex = -1;
   updateSetlistNavBar();
 
@@ -364,7 +365,12 @@ function renderSongView() {
   ).join('');
 
   ensureEditButton();
-  renderSongBody();
+
+  if (editorState.isOpen) {
+    renderInlineEditorView();
+  } else {
+    renderSongBody();
+  }
 }
 
 function renderSongBody() {
@@ -411,7 +417,7 @@ function transpose(delta) {
   if (state.transpose > 11) state.transpose -= 12;
   if (state.transpose < -11) state.transpose += 12;
   document.getElementById('transpose-display').innerText = state.transpose > 0 ? `+${state.transpose}` : state.transpose;
-  renderSongBody();
+  if (!editorState.isOpen) renderSongBody();
 }
 
 function transposeLine(line, semitones) {
@@ -941,6 +947,7 @@ function switchSidebarTab(tab) {
 }
 
 function goHome() {
+  if (editorState.isOpen) exitInlineEditor();
   document.getElementById('view-song').classList.add('hidden');
   document.getElementById('view-welcome').classList.remove('hidden');
   state.currentSong = null;
@@ -970,7 +977,7 @@ function forceUpdateCache() {
   setTimeout(() => window.location.reload(), 800);
 }
 
-/* --- EDITOR VISUALE PROTETTO DA PASSWORD --- */
+/* --- EDITOR INLINE DIRETTO SUL CANTO (ZERO POPUP, ZERO SALTI DI SCROLL) --- */
 
 const EDITOR_PASSWORD = "SerAle2026.";
 
@@ -983,11 +990,6 @@ let editorState = {
   selectedCharIdx: 0,
   cloudSongsOverrides: {}
 };
-
-function cleanLegacySpaces(str) {
-  if (!str) return '';
-  return str.replace(/\s{2,}/g, ' ').trim();
-}
 
 function chordsStringToMap(chordsStr) {
   const map = {};
@@ -1016,27 +1018,37 @@ function mapToChordsString(map) {
 }
 
 function ensureEditButton() {
-  if (document.getElementById('btn-open-song-editor')) return;
+  let editBtn = document.getElementById('btn-open-song-editor');
+  if (!editBtn) {
+    editBtn = document.createElement('button');
+    editBtn.id = 'btn-open-song-editor';
+    editBtn.type = 'button';
 
-  const editBtn = document.createElement('button');
-  editBtn.id = 'btn-open-song-editor';
-  editBtn.type = 'button';
-  editBtn.onclick = openSongEditor;
-  editBtn.className = 'px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold shadow-sm transition flex items-center gap-1 shrink-0';
-  editBtn.innerHTML = '<span>✎</span><span>Modifica</span>';
+    const addBtn = document.querySelector('[onclick="toggleAddToSetlistMenu()"]');
+    const fontPlusBtn = document.querySelector('[onclick="changeFontSize(2)"]');
+    const target = addBtn || fontPlusBtn;
 
-  const addBtn = document.querySelector('[onclick="toggleAddToSetlistMenu()"]');
-  const fontPlusBtn = document.querySelector('[onclick="changeFontSize(2)"]');
-  const target = addBtn || fontPlusBtn;
+    if (target && target.parentElement) {
+      target.parentElement.appendChild(editBtn);
+    } else {
+      editBtn.style.position = 'fixed';
+      editBtn.style.bottom = '20px';
+      editBtn.style.right = '20px';
+      editBtn.style.zIndex = '40';
+      document.body.appendChild(editBtn);
+    }
+  }
 
-  if (target && target.parentElement) {
-    target.parentElement.appendChild(editBtn);
+  if (editorState.isOpen) {
+    editBtn.onclick = exitInlineEditor;
+    editBtn.className = 'px-2.5 py-1.5 rounded-lg bg-slate-700 hover:bg-slate-800 text-white text-xs font-semibold shadow-sm transition flex items-center gap-1 shrink-0';
+    editBtn.innerHTML = '<span>✕</span><span>Esci Modifica</span>';
   } else {
-    editBtn.className = 'fixed bottom-5 right-5 z-40 px-4 py-2.5 rounded-full bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold shadow-lg flex items-center gap-1.5';
-    document.body.appendChild(editBtn);
+    editBtn.onclick = openSongEditor;
+    editBtn.className = 'px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold shadow-sm transition flex items-center gap-1 shrink-0';
+    editBtn.innerHTML = '<span>✎</span><span>Modifica</span>';
   }
 }
-
 
 function openSongEditor() {
   if (!state.currentSong) return;
@@ -1056,13 +1068,10 @@ function openSongEditor() {
   const draftSections = (s.sections || []).map(sec => ({
     type: sec.type || 'strofa',
     label: sec.label || '',
-    lines: (sec.lines || []).map(line => {
-      const cleanedLyrics = cleanLegacySpaces(line.lyrics || '');
-      return {
-        lyrics: cleanedLyrics,
-        chordMap: chordsStringToMap(line.chords || '')
-      };
-    })
+    lines: (sec.lines || []).map(line => ({
+      lyrics: line.lyrics || '',
+      chordMap: chordsStringToMap(line.chords || '')
+    }))
   }));
 
   if (draftSections.length === 0) {
@@ -1085,26 +1094,30 @@ function openSongEditor() {
   editorState.selectedCharIdx = 0;
   editorState.isOpen = true;
 
-  renderSongEditorModal();
+  ensureEditButton();
+  renderInlineEditorView();
 }
 
-function closeSongEditor() {
+function exitInlineEditor() {
   editorState.isOpen = false;
-  const modal = document.getElementById('song-visual-editor-modal');
-  if (modal) modal.remove();
-}
-
-function selectEditorCursor(secIdx, lineIdx, charIdx) {
-  editorState.selectedSecIdx = secIdx;
-  editorState.selectedLineIdx = lineIdx;
-  editorState.selectedCharIdx = Math.max(0, charIdx);
-  renderSongEditorModal();
+  const toolbar = document.getElementById('inline-chord-toolbar');
+  if (toolbar) toolbar.remove();
+  ensureEditButton();
+  renderSongBody();
 }
 
 function getSelectedLineObj() {
   const sec = editorState.draftSong?.sections?.[editorState.selectedSecIdx];
   if (!sec) return null;
   return sec.lines?.[editorState.selectedLineIdx] || null;
+}
+
+function selectEditorCursor(secIdx, lineIdx, charIdx) {
+  editorState.selectedSecIdx = secIdx;
+  editorState.selectedLineIdx = lineIdx;
+  editorState.selectedCharIdx = Math.max(0, charIdx);
+  renderInlineToolbar();
+  renderInlineSections();
 }
 
 function setChordAtCursor(chordValue) {
@@ -1116,7 +1129,8 @@ function setChordAtCursor(chordValue) {
   } else {
     line.chordMap[editorState.selectedCharIdx] = cleanChord;
   }
-  renderSongEditorModal();
+  renderInlineToolbar();
+  renderInlineSections();
 }
 
 function appendChordModifier(mod) {
@@ -1124,11 +1138,12 @@ function appendChordModifier(mod) {
   if (!line) return;
   const current = line.chordMap[editorState.selectedCharIdx] || '';
   if (!current) {
-    showToast("Seleziona prima una nota (es. DO, RE, MI...)", "error");
+    showToast("Scegli prima una nota (es. DO, RE, MI...)", "error");
     return;
   }
   line.chordMap[editorState.selectedCharIdx] = current + mod;
-  renderSongEditorModal();
+  renderInlineToolbar();
+  renderInlineSections();
 }
 
 function shiftChordAtCursor(delta) {
@@ -1144,53 +1159,75 @@ function shiftChordAtCursor(delta) {
   delete line.chordMap[curPos];
   line.chordMap[newPos] = chord;
   editorState.selectedCharIdx = newPos;
-  renderSongEditorModal();
+  renderInlineToolbar();
+  renderInlineSections();
 }
 
-function updateDraftMeta(field, val) {
-  if (!editorState.draftSong) return;
-  editorState.draftSong[field] = val;
-}
-
-function updateSectionLabel(secIdx, val) {
-  const sec = editorState.draftSong?.sections?.[secIdx];
-  if (!sec) return;
-  sec.label = val;
-  const isRit = val.toLowerCase().includes('ritornello') || val.toLowerCase().startsWith('rit');
-  sec.type = isRit ? 'ritornello' : 'strofa';
-}
-
-function updateLineLyrics(secIdx, lineIdx, newLyrics) {
+function handleInlineLyricInput(secIdx, lineIdx, newLyrics) {
   const line = editorState.draftSong?.sections?.[secIdx]?.lines?.[lineIdx];
   if (!line) return;
   line.lyrics = newLyrics;
-  renderSongEditorModal();
+  editorState.selectedSecIdx = secIdx;
+  editorState.selectedLineIdx = lineIdx;
+  const gridEl = document.getElementById(`inline-chord-grid-${secIdx}-${lineIdx}`);
+  if (gridEl) {
+    gridEl.innerHTML = buildLineChordGridHtml(secIdx, lineIdx, line);
+  }
 }
 
-function addLineToSection(secIdx) {
+function handleInlineLyricKeydown(e, secIdx, lineIdx) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const sec = editorState.draftSong?.sections?.[secIdx];
+    if (!sec) return;
+    sec.lines.splice(lineIdx + 1, 0, { lyrics: '', chordMap: {} });
+    editorState.selectedSecIdx = secIdx;
+    editorState.selectedLineIdx = lineIdx + 1;
+    editorState.selectedCharIdx = 0;
+    renderInlineSections();
+    setTimeout(() => {
+      const nextInput = document.getElementById(`inline-lyric-input-${secIdx}-${lineIdx + 1}`);
+      if (nextInput) nextInput.focus();
+    }, 0);
+  } else if (e.key === 'Backspace' && e.target.value === '') {
+    const sec = editorState.draftSong?.sections?.[secIdx];
+    if (!sec || sec.lines.length <= 1) return;
+    e.preventDefault();
+    sec.lines.splice(lineIdx, 1);
+    const prevIdx = Math.max(0, lineIdx - 1);
+    editorState.selectedSecIdx = secIdx;
+    editorState.selectedLineIdx = prevIdx;
+    editorState.selectedCharIdx = 0;
+    renderInlineSections();
+    setTimeout(() => {
+      const prevInput = document.getElementById(`inline-lyric-input-${secIdx}-${prevIdx}`);
+      if (prevInput) prevInput.focus();
+    }, 0);
+  }
+}
+
+function addInlineLine(secIdx) {
   const sec = editorState.draftSong?.sections?.[secIdx];
   if (!sec) return;
   sec.lines.push({ lyrics: '', chordMap: {} });
   editorState.selectedSecIdx = secIdx;
   editorState.selectedLineIdx = sec.lines.length - 1;
   editorState.selectedCharIdx = 0;
-  renderSongEditorModal();
+  renderInlineSections();
 }
 
-function removeLineFromSection(secIdx, lineIdx) {
+function removeInlineLine(secIdx, lineIdx) {
   const sec = editorState.draftSong?.sections?.[secIdx];
   if (!sec) return;
   sec.lines.splice(lineIdx, 1);
-  if (sec.lines.length === 0) {
-    sec.lines.push({ lyrics: '', chordMap: {} });
-  }
+  if (sec.lines.length === 0) sec.lines.push({ lyrics: '', chordMap: {} });
   editorState.selectedSecIdx = secIdx;
   editorState.selectedLineIdx = Math.min(lineIdx, sec.lines.length - 1);
   editorState.selectedCharIdx = 0;
-  renderSongEditorModal();
+  renderInlineSections();
 }
 
-function addNewSectionToDraft(isChorus = false) {
+function addInlineSection(isChorus) {
   if (!editorState.draftSong) return;
   editorState.draftSong.sections.push({
     type: isChorus ? 'ritornello' : 'strofa',
@@ -1200,16 +1237,16 @@ function addNewSectionToDraft(isChorus = false) {
   editorState.selectedSecIdx = editorState.draftSong.sections.length - 1;
   editorState.selectedLineIdx = 0;
   editorState.selectedCharIdx = 0;
-  renderSongEditorModal();
+  renderInlineSections();
 }
 
-function removeSectionFromDraft(secIdx) {
+function removeInlineSection(secIdx) {
   if (!editorState.draftSong || editorState.draftSong.sections.length <= 1) return;
   editorState.draftSong.sections.splice(secIdx, 1);
   editorState.selectedSecIdx = Math.max(0, secIdx - 1);
   editorState.selectedLineIdx = 0;
   editorState.selectedCharIdx = 0;
-  renderSongEditorModal();
+  renderInlineSections();
 }
 
 function buildFinalSongPayload() {
@@ -1253,20 +1290,23 @@ async function saveEditedSongToCloud() {
     ...state.currentSong,
     ...payload
   };
-  renderSongView();
 
   if (window.fb && window.fb.setDoc) {
     try {
       await window.fb.setDoc(window.fb.doc(window.fb.db, "songs", payload.slug), payload);
-      showToast("Canto salvato e sincronizzato nel Cloud!");
-      closeSongEditor();
+      showToast("Canto salvato nel Cloud!");
+      exitInlineEditor();
+      renderSongView();
     } catch (err) {
       console.error("Errore salvataggio canto su Firestore:", err);
-      showToast("Salvato in locale, errore permessi Cloud", "error");
+      showToast("Salvato in locale (verifica regole Firestore per 'songs')", "error");
+      exitInlineEditor();
+      renderSongView();
     }
   } else {
-    showToast("Salvato in locale (Cloud non connesso)");
-    closeSongEditor();
+    showToast("Canto salvato in locale!");
+    exitInlineEditor();
+    renderSongView();
   }
 }
 
@@ -1292,189 +1332,166 @@ function downloadEditedSongJson() {
   URL.revokeObjectURL(a.href);
 }
 
-function renderSongEditorModal() {
-  let modal = document.getElementById('song-visual-editor-modal');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'song-visual-editor-modal';
-    modal.className = 'fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-2 sm:p-4';
-    document.body.appendChild(modal);
-  }
+function renderInlineEditorView() {
+  const container = document.getElementById('song-body');
+  container.innerHTML = `
+    <div id="inline-chord-toolbar" class="sticky top-0 z-30 mb-5 p-3 rounded-xl bg-amber-50 border border-amber-300 shadow-sm space-y-2"></div>
+    <div id="inline-sections-container" class="space-y-6"></div>
+  `;
+  renderInlineToolbar();
+  renderInlineSections();
+}
 
-  const d = editorState.draftSong;
+function renderInlineToolbar() {
+  const toolbar = document.getElementById('inline-chord-toolbar');
+  if (!toolbar) return;
+
   const activeLine = getSelectedLineObj();
   const activeChord = activeLine ? (activeLine.chordMap[editorState.selectedCharIdx] || '') : '';
-
   const notes = ['DO', 'RE', 'MI', 'FA', 'SOL', 'LA', 'SI'];
   const modifiers = ['-', '#', 'b', '7', '4', 'sus4', 'add9', 'maj7', '/SOL', '/LA-', '/SI', '/DO', '/RE', '/MI', '/FA#'];
 
+  toolbar.innerHTML = `
+    <div class="flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-1.5 flex-wrap">
+        <span class="text-xs font-bold text-amber-900">Accordo:</span>
+        <input type="text"
+          value="${escapeHtml(activeChord)}"
+          onchange="setChordAtCursor(this.value)"
+          placeholder="es. LA-"
+          class="w-20 px-2 py-1 text-xs font-bold text-blue-700 border border-amber-300 rounded-lg bg-white uppercase" />
+        <button type="button" onclick="shiftChordAtCursor(-1)" ${!activeChord ? 'disabled' : ''}
+          class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 disabled:opacity-30 text-xs font-bold" title="Sposta accordo a sinistra">←</button>
+        <button type="button" onclick="shiftChordAtCursor(1)" ${!activeChord ? 'disabled' : ''}
+          class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 disabled:opacity-30 text-xs font-bold" title="Sposta accordo a destra">→</button>
+        <button type="button" onclick="setChordAtCursor('')" ${!activeChord ? 'disabled' : ''}
+          class="px-2 py-1 rounded-lg bg-red-50 border border-red-200 text-red-600 hover:bg-red-100 disabled:opacity-30 text-xs font-semibold">Togli</button>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <button type="button" onclick="copyEditedSongJson()" class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50">Copia JSON</button>
+        <button type="button" onclick="downloadEditedSongJson()" class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50">Scarica</button>
+        <button type="button" onclick="saveEditedSongToCloud()" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs">✓ Salva</button>
+      </div>
+    </div>
+    <div class="flex items-center gap-1 overflow-x-auto pb-0.5">
+      ${notes.map(n => `
+        <button type="button" onclick="setChordAtCursor('${n}')"
+          class="px-2.5 py-1 rounded-lg text-xs font-bold shrink-0 ${activeChord === n ? 'bg-blue-600 text-white' : 'bg-white border border-slate-300 text-slate-800 hover:border-blue-500'}">${n}</button>
+      `).join('')}
+      <span class="mx-1 text-slate-300">|</span>
+      ${modifiers.map(m => `
+        <button type="button" onclick="appendChordModifier('${m}')"
+          class="px-2 py-1 rounded-lg text-xs font-semibold bg-white border border-slate-200 hover:bg-slate-100 text-slate-800 shrink-0">${m}</button>
+      `).join('')}
+    </div>
+  `;
+}
+
+function buildLineChordGridHtml(sIdx, lIdx, line) {
+  const isSelectedLine = (sIdx === editorState.selectedSecIdx && lIdx === editorState.selectedLineIdx);
+  const maxCol = Math.max(
+    line.lyrics.length + 2,
+    ...Object.keys(line.chordMap).map(k => Number(k) + (line.chordMap[k]?.length || 1) + 1),
+    8
+  );
+
+  let html = '';
+  let col = 0;
+  while (col < maxCol) {
+    const chordHere = line.chordMap[col];
+    const isCursor = isSelectedLine && col === editorState.selectedCharIdx;
+
+    if (chordHere) {
+      const span = chordHere.length;
+      let charsUnder = '';
+      for (let k = 0; k < span; k++) {
+        const ch = line.lyrics[col + k] || ' ';
+        charsUnder += ch === ' ' ? '&nbsp;' : escapeHtml(ch);
+      }
+      html += `
+        <span onclick="selectEditorCursor(${sIdx}, ${lIdx}, ${col})"
+          style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;"
+          class="inline-flex flex-col items-start cursor-pointer rounded px-0.5 ${isCursor ? 'bg-amber-200 ring-2 ring-amber-500' : 'bg-blue-50 hover:bg-blue-100'}">
+          <span class="text-[0.85em] font-bold text-blue-700 leading-none whitespace-pre">${escapeHtml(chordHere)}</span>
+          <span class="text-slate-700 leading-snug whitespace-pre">${charsUnder}</span>
+        </span>
+      `;
+      col += span;
+    } else {
+      const ch = line.lyrics[col] || ' ';
+      const displayCh = ch === ' ' ? '&nbsp;' : escapeHtml(ch);
+      html += `
+        <span onclick="selectEditorCursor(${sIdx}, ${lIdx}, ${col})"
+          style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;"
+          class="inline-flex flex-col items-center cursor-pointer rounded ${isCursor ? 'bg-amber-200 ring-2 ring-amber-500' : 'hover:bg-slate-200/70'}">
+          <span class="text-[0.85em] font-bold text-transparent leading-none select-none">&nbsp;</span>
+          <span class="text-slate-700 leading-snug whitespace-pre">${displayCh}</span>
+        </span>
+      `;
+      col += 1;
+    }
+  }
+  return html;
+}
+
+function renderInlineSections() {
+  const container = document.getElementById('inline-sections-container');
+  if (!container || !editorState.draftSong) return;
+
+  const d = editorState.draftSong;
   const sectionsHtml = d.sections.map((sec, sIdx) => {
+    const isChorus = sec.type === 'ritornello' || sec.label?.toLowerCase().includes('rit');
+
     const linesHtml = sec.lines.map((line, lIdx) => {
       const isSelectedLine = (sIdx === editorState.selectedSecIdx && lIdx === editorState.selectedLineIdx);
-      const maxCol = Math.max(
-        line.lyrics.length + 4,
-        ...Object.keys(line.chordMap).map(k => Number(k) + (line.chordMap[k]?.length || 1) + 2),
-        16
-      );
-
-      let gridCellsHtml = '';
-      let col = 0;
-      while (col < maxCol) {
-        const chordHere = line.chordMap[col];
-        const isCursor = isSelectedLine && col === editorState.selectedCharIdx;
-
-        if (chordHere) {
-          const span = chordHere.length;
-          let charsUnder = '';
-          for (let k = 0; k < span; k++) {
-            const ch = line.lyrics[col + k] || ' ';
-            charsUnder += ch === ' ' ? '&nbsp;' : escapeHtml(ch);
-          }
-          gridCellsHtml += `
-            <button type="button"
-              onclick="selectEditorCursor(${sIdx}, ${lIdx}, ${col})"
-              style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;"
-              class="inline-flex flex-col items-start px-0.5 py-0.5 rounded transition text-left ${isCursor ? 'bg-amber-200 ring-2 ring-amber-500' : 'bg-blue-50 hover:bg-blue-100'}">
-              <span class="text-xs font-bold text-blue-700 leading-tight whitespace-pre">${escapeHtml(chordHere)}</span>
-              <span class="text-sm text-slate-800 leading-tight whitespace-pre">${charsUnder}</span>
-            </button>
-          `;
-          col += span;
-        } else {
-          const ch = line.lyrics[col] || ' ';
-          const displayCh = ch === ' ' ? '&nbsp;' : escapeHtml(ch);
-          gridCellsHtml += `
-            <button type="button"
-              onclick="selectEditorCursor(${sIdx}, ${lIdx}, ${col})"
-              style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;"
-              class="inline-flex flex-col items-center px-[1px] py-0.5 rounded transition ${isCursor ? 'bg-amber-200 ring-2 ring-amber-500' : 'hover:bg-slate-200/70'}">
-              <span class="text-xs font-bold text-transparent leading-tight select-none">&nbsp;</span>
-              <span class="text-sm text-slate-800 leading-tight whitespace-pre">${displayCh}</span>
-            </button>
-          `;
-          col += 1;
-        }
-      }
-
       return `
-        <div class="p-2.5 rounded-xl border ${isSelectedLine ? 'border-amber-400 bg-amber-50/30' : 'border-slate-200 bg-white'} space-y-2">
-          <div class="flex items-center gap-2">
-            <input type="text"
-              value="${escapeHtml(line.lyrics)}"
-              onchange="updateLineLyrics(${sIdx}, ${lIdx}, this.value)"
-              placeholder="Scrivi qui il testo della riga..."
-              class="flex-1 text-xs sm:text-sm px-2.5 py-1.5 rounded-lg border border-slate-200 focus:border-blue-500 focus:outline-none bg-slate-50 focus:bg-white" />
-            <button type="button" onclick="removeLineFromSection(${sIdx}, ${lIdx})" title="Elimina riga"
-              class="px-2 py-1.5 text-xs text-red-500 hover:bg-red-50 rounded-lg font-semibold">✕</button>
+        <div class="group relative rounded-lg p-1.5 transition ${isSelectedLine ? 'bg-amber-50/60 ring-1 ring-amber-300' : 'hover:bg-slate-50'}">
+          <div id="inline-chord-grid-${sIdx}-${lIdx}" class="overflow-x-auto whitespace-nowrap select-none mb-1">
+            ${buildLineChordGridHtml(sIdx, lIdx, line)}
           </div>
-          <div class="overflow-x-auto pb-1">
-            <div class="inline-flex items-end min-w-full bg-slate-50/80 border border-slate-200/80 rounded-lg p-1.5">
-              ${gridCellsHtml}
-            </div>
+          <div class="flex items-center gap-1.5">
+            <input id="inline-lyric-input-${sIdx}-${lIdx}"
+              type="text"
+              value="${escapeHtml(line.lyrics)}"
+              onfocus="editorState.selectedSecIdx=${sIdx}; editorState.selectedLineIdx=${lIdx};"
+              oninput="handleInlineLyricInput(${sIdx}, ${lIdx}, this.value)"
+              onkeydown="handleInlineLyricKeydown(event, ${sIdx}, ${lIdx})"
+              placeholder="Testo della riga (Invio per nuova riga)..."
+              style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;"
+              class="w-full text-sm px-2 py-1 rounded border border-slate-200 focus:border-amber-500 focus:outline-none bg-white text-slate-900 ${isChorus ? 'font-semibold' : ''}" />
+            <button type="button" onclick="removeInlineLine(${sIdx}, ${lIdx})" title="Rimuovi riga"
+              class="px-2 py-1 text-xs text-slate-400 hover:text-red-600 rounded">✕</button>
           </div>
         </div>
       `;
     }).join('');
 
     return `
-      <div class="p-3 sm:p-4 rounded-2xl bg-slate-100/80 border border-slate-200 space-y-3">
+      <div class="song-block ${isChorus ? 'pl-3 border-l-2 border-blue-400' : 'pl-3 border-l-2 border-slate-200'} space-y-2">
         <div class="flex items-center justify-between gap-2">
           <input type="text"
             value="${escapeHtml(sec.label)}"
-            onchange="updateSectionLabel(${sIdx}, this.value)"
-            placeholder="Nome sezione (es. RITORNELLO, STROFA 1)"
-            class="text-xs font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white text-slate-700 w-56" />
-          <div class="flex items-center gap-1.5">
-            <button type="button" onclick="addLineToSection(${sIdx})"
-              class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:border-blue-500 text-xs font-semibold text-slate-700">+ Riga</button>
-            ${d.sections.length > 1 ? `<button type="button" onclick="removeSectionFromDraft(${sIdx})" class="px-2 py-1 rounded-lg text-xs text-red-600 hover:bg-red-50 font-semibold">Elimina blocco</button>` : ''}
+            onchange="editorState.draftSong.sections[${sIdx}].label = this.value; editorState.draftSong.sections[${sIdx}].type = (this.value.toLowerCase().includes('rit') ? 'ritornello' : 'strofa');"
+            placeholder="ETICHETTA (es. RITORNELLO)"
+            class="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded border border-slate-200 bg-slate-50 text-slate-600 w-48" />
+          <div class="flex items-center gap-1">
+            <button type="button" onclick="addInlineLine(${sIdx})"
+              class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700">+ Riga</button>
+            ${d.sections.length > 1 ? `<button type="button" onclick="removeInlineSection(${sIdx})" class="px-2 py-1 rounded text-xs text-red-500 hover:bg-red-50">Elimina</button>` : ''}
           </div>
         </div>
-        <div class="space-y-2.5">${linesHtml}</div>
+        <div class="space-y-1.5">${linesHtml}</div>
       </div>
     `;
   }).join('');
 
-  modal.innerHTML = `
-    <div class="bg-white w-full max-w-4xl max-h-[94vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-200">
-      <div class="px-4 py-3 bg-slate-900 text-white flex items-center justify-between gap-2 shrink-0">
-        <div class="flex items-center gap-2 min-w-0">
-          <span class="px-2 py-0.5 rounded bg-amber-500 text-slate-950 text-[10px] font-extrabold uppercase">Editor Visuale</span>
-          <h3 class="font-bold text-sm sm:text-base truncate">${escapeHtml(d.title || 'Modifica Canto')}</h3>
-        </div>
-        <button type="button" onclick="closeSongEditor()" class="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white text-sm font-bold">✕ Chiudi</button>
-      </div>
-
-      <div class="px-3 py-2.5 bg-slate-50 border-b border-slate-200 space-y-2 shrink-0">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="text-[11px] font-semibold text-slate-500">Accordo su colonna ${editorState.selectedCharIdx + 1}:</span>
-            <input type="text" id="editor-custom-chord-input"
-              value="${escapeHtml(activeChord)}"
-              onchange="setChordAtCursor(this.value)"
-              placeholder="es. LA-"
-              class="w-20 px-2 py-1 text-xs font-bold text-blue-700 border border-slate-300 rounded-lg bg-white uppercase" />
-            <button type="button" onclick="shiftChordAtCursor(-1)" ${!activeChord ? 'disabled' : ''}
-              class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 disabled:opacity-30 text-xs font-bold" title="Sposta a sinistra">←</button>
-            <button type="button" onclick="shiftChordAtCursor(1)" ${!activeChord ? 'disabled' : ''}
-              class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 disabled:opacity-30 text-xs font-bold" title="Sposta a destra">→</button>
-            <button type="button" onclick="setChordAtCursor('')" ${!activeChord ? 'disabled' : ''}
-              class="px-2.5 py-1 rounded-lg bg-red-50 border border-red-200 text-red-600 hover:bg-red-100 disabled:opacity-30 text-xs font-semibold">Rimuovi</button>
-          </div>
-          <div class="text-[11px] text-slate-500 hidden sm:block">Clicca su una lettera qui sotto per posizionare l'accordo</div>
-        </div>
-
-        <div class="flex items-center gap-1 overflow-x-auto pb-0.5">
-          ${notes.map(n => `
-            <button type="button" onclick="setChordAtCursor('${n}')"
-              class="px-2.5 py-1 rounded-lg text-xs font-bold transition shrink-0 ${activeChord === n ? 'bg-blue-600 text-white' : 'bg-white border border-slate-300 text-slate-800 hover:border-blue-500'}">${n}</button>
-          `).join('')}
-          <span class="mx-1 text-slate-300">|</span>
-          ${modifiers.map(m => `
-            <button type="button" onclick="appendChordModifier('${m}')"
-              class="px-2 py-1 rounded-lg text-xs font-semibold bg-slate-200/80 hover:bg-slate-300 text-slate-800 shrink-0">${m}</button>
-          `).join('')}
-        </div>
-      </div>
-
-      <div class="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-          <div>
-            <label class="block text-[11px] font-semibold text-slate-500 mb-1">Titolo canto</label>
-            <input type="text" value="${escapeHtml(d.title)}" onchange="updateDraftMeta('title', this.value)"
-              class="w-full px-3 py-1.5 text-sm font-semibold border border-slate-300 rounded-lg" />
-          </div>
-          <div>
-            <label class="block text-[11px] font-semibold text-slate-500 mb-1">Autore / Sottotitolo</label>
-            <input type="text" value="${escapeHtml(d.author)}" onchange="updateDraftMeta('author', this.value)"
-              class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" />
-          </div>
-        </div>
-
-        ${sectionsHtml}
-
-        <div class="flex flex-wrap gap-2 pt-1">
-          <button type="button" onclick="addNewSectionToDraft(false)"
-            class="px-3 py-2 rounded-xl border border-dashed border-slate-400 hover:border-blue-600 text-xs font-semibold text-slate-700">+ Aggiungi Strofa</button>
-          <button type="button" onclick="addNewSectionToDraft(true)"
-            class="px-3 py-2 rounded-xl border border-dashed border-blue-400 hover:border-blue-600 text-xs font-semibold text-blue-700">+ Aggiungi Ritornello</button>
-        </div>
-      </div>
-
-      <div class="px-4 py-3 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 shrink-0">
-        <div class="flex items-center gap-2">
-          <button type="button" onclick="copyEditedSongJson()"
-            class="px-3 py-2 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 text-xs font-semibold text-slate-700">Copia JSON</button>
-          <button type="button" onclick="downloadEditedSongJson()"
-            class="px-3 py-2 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 text-xs font-semibold text-slate-700">Scarica .json</button>
-        </div>
-        <div class="flex items-center gap-2">
-          <button type="button" onclick="closeSongEditor()"
-            class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-200">Annulla</button>
-          <button type="button" onclick="saveEditedSongToCloud()"
-            class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm">✓ Salva nel Cloud</button>
-        </div>
-      </div>
+  container.innerHTML = `
+    ${sectionsHtml}
+    <div class="flex flex-wrap gap-2 pt-2">
+      <button type="button" onclick="addInlineSection(false)"
+        class="px-3 py-1.5 rounded-lg border border-dashed border-slate-300 hover:border-blue-500 text-xs font-semibold text-slate-600">+ Strofa</button>
+      <button type="button" onclick="addInlineSection(true)"
+        class="px-3 py-1.5 rounded-lg border border-dashed border-blue-300 hover:border-blue-500 text-xs font-semibold text-blue-600">+ Ritornello</button>
     </div>
   `;
 }
