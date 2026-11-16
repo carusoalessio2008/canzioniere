@@ -617,10 +617,18 @@ function deleteCurrentSetlist() {
 
   const id = state.activeSetlistId;
   delete state.setlists[id];
+  if (state.activeSetlistIndex >= 0) {
+    state.activeSetlistIndex = -1;
+    updateSetlistNavBar();
+  }
   saveLocalSetlists();
   
-  if (window.fb) {
-    window.fb.deleteDoc(window.fb.doc(window.fb.db, "setlists", id)).catch(console.error);
+  if (window.fb && window.fb.deleteDoc) {
+    window.fb.deleteDoc(window.fb.doc(window.fb.db, "setlists", id))
+      .catch(err => {
+        console.error("Errore eliminazione Cloud:", err);
+        showToast("Errore eliminazione dal Cloud", "error");
+      });
   }
   closeSetlistDetail();
   showToast("Scaletta eliminata");
@@ -674,27 +682,46 @@ function initFirebaseSync() {
   const statusEl = document.getElementById('connection-status');
   statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Cloud Attivo`;
 
-  // Carica eventuali scalette locali non ancora presenti su Cloud
-  Object.values(state.setlists).forEach(localSl => {
-    syncSetlistToCloud(localSl);
-  });
+  let isFirstSnapshot = true;
 
-  // Ascolta in tempo reale TUTTE le scalette nella collezione "setlists"
+  // Ascolta in tempo reale TUTTE le scalette (aggiunte, modifiche ed eliminazioni)
   window.fb.onSnapshot(
     window.fb.collection(window.fb.db, "setlists"),
     (querySnapshot) => {
       let changed = false;
-      const remoteIds = new Set();
 
-      querySnapshot.forEach((docSnap) => {
-        const remoteData = docSnap.data();
-        const id = remoteData.id || docSnap.id;
-        remoteIds.add(id);
+      if (isFirstSnapshot) {
+        // Sincronizza su Cloud solo le scalette locali non ancora presenti su Firestore
+        const remoteIds = new Set(querySnapshot.docs.map(d => d.id));
+        Object.values(state.setlists).forEach(localSl => {
+          if (!remoteIds.has(localSl.id)) {
+            syncSetlistToCloud(localSl);
+          }
+        });
+        isFirstSnapshot = false;
+      }
 
-        const localData = state.setlists[id];
-        if (!localData || (remoteData.updatedAt || 0) > (localData.updatedAt || 0)) {
-          state.setlists[id] = { ...remoteData, id };
-          changed = true;
+      querySnapshot.docChanges().forEach((change) => {
+        const remoteData = change.doc.data();
+        const id = remoteData.id || change.doc.id;
+
+        if (change.type === "removed") {
+          if (state.setlists[id]) {
+            delete state.setlists[id];
+            changed = true;
+            if (state.activeSetlistId === id) {
+              state.activeSetlistIndex = -1;
+              updateSetlistNavBar();
+              closeSetlistDetail();
+              showToast("Scaletta eliminata");
+            }
+          }
+        } else if (change.type === "added" || change.type === "modified") {
+          const localData = state.setlists[id];
+          if (!localData || (remoteData.updatedAt || 0) >= (localData.updatedAt || 0)) {
+            state.setlists[id] = { ...remoteData, id };
+            changed = true;
+          }
         }
       });
 
