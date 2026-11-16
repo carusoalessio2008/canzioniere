@@ -990,7 +990,6 @@ let editorState = {
   cloudSongsOverrides: {}
 };
 
-// Converte la coppia (chords, lyrics) in una singola riga con [ACCORDO] nel punto esatto
 function mergeChordsIntoLyrics(chordsStr, lyricsStr) {
   const lyrics = lyricsStr || '';
   if (!chordsStr || !chordsStr.trim()) return lyrics;
@@ -1113,7 +1112,6 @@ function getActiveEditorInput() {
   return document.getElementById(`inline-line-input-${editorState.selectedSecIdx}-${editorState.selectedLineIdx}`);
 }
 
-// Inserisce un accordo [NOTA] esattamente dove si trova il cursore nel testo
 function insertChordAtInputCursor(chord) {
   const input = getActiveEditorInput();
   const line = editorState.draftSong?.sections?.[editorState.selectedSecIdx]?.lines?.[editorState.selectedLineIdx];
@@ -1132,7 +1130,6 @@ function insertChordAtInputCursor(chord) {
   updateLineLivePreview(editorState.selectedSecIdx, editorState.selectedLineIdx);
 }
 
-// Aggiunge alterazione (-, #, 7, /SOL...) all'accordo immediatamente prima o intorno al cursore
 function appendModifierToNearestChord(mod) {
   const input = getActiveEditorInput();
   const line = editorState.draftSong?.sections?.[editorState.selectedSecIdx]?.lines?.[editorState.selectedLineIdx];
@@ -1156,7 +1153,6 @@ function appendModifierToNearestChord(mod) {
   }
 }
 
-// Sposta l'accordo vicino al cursore di 1 carattere a sinistra (-1) o destra (+1)
 function shiftNearestChord(delta) {
   const input = getActiveEditorInput();
   const line = editorState.draftSong?.sections?.[editorState.selectedSecIdx]?.lines?.[editorState.selectedLineIdx];
@@ -1165,7 +1161,6 @@ function shiftNearestChord(delta) {
   const pos = input.selectionStart ?? 0;
   const text = line.inlineText;
 
-  // Trova il tag [ACCORDO] più vicino al cursore
   const tagRegex = /\[([^\]]+)\]/g;
   let match;
   let targetMatch = null;
@@ -1295,29 +1290,73 @@ function buildFinalSongPayload() {
   };
 }
 
-async function commitFileToGitHub(filePath, jsonObject, commitMessage, token) {
-  const owner = 'carusoalessio2008';
-  const repo = 'canzoniere';
-  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
+async function resolveGitHubFileTarget(owner, repo, fileName, token) {
+  const headers = {
+    'Authorization': `Bearer ${token}`,
+    'Accept': 'application/vnd.github+json'
+  };
 
-  // 1. Recupera lo SHA attuale del file su GitHub (obbligatorio per sovrascriverlo)
-  const getRes = await fetch(apiUrl, {
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Accept': 'application/vnd.github+json'
+  // 1. Legge info repository e branch di default
+  const repoRes = await fetch(`https://api.github.com/repos/${owner}/${repo}`, { headers });
+  if (!repoRes.ok) {
+    if (repoRes.status === 401 || repoRes.status === 403 || repoRes.status === 404) {
+      throw new Error(`AUTH_OR_REPO_ERROR:${repoRes.status}`);
     }
-  });
+    throw new Error(`Errore accesso repository GitHub (${repoRes.status})`);
+  }
+  const repoInfo = await repoRes.json();
+  const branch = repoInfo.default_branch || 'main';
 
-  if (!getRes.ok) {
-    throw new Error(`Impossibile leggere ${filePath} su GitHub (${getRes.status})`);
+  // 2. Prova il percorso diretto canti/<fileName>
+  const directPath = `canti/${fileName}`;
+  const directRes = await fetch(
+    `https://api.github.com/repos/${owner}/${repo}/contents/${directPath}?ref=${encodeURIComponent(branch)}`,
+    { headers }
+  );
+
+  if (directRes.ok) {
+    const fileData = await directRes.json();
+    return { branch, path: directPath, sha: fileData.sha };
   }
 
-  const fileData = await getRes.json();
+  // 3. Fallback: cerca nell'albero del repository se canti/ si trova in una sottocartella (es. docs/canti/)
+  const treeRes = await fetch(
+    `https://api.github.com/repos/${owner}/${repo}/git/trees/${encodeURIComponent(branch)}?recursive=1`,
+    { headers }
+  );
+  if (treeRes.ok) {
+    const treeData = await treeRes.json();
+    const match = (treeData.tree || []).find(
+      item => item.type === 'blob' && item.path.endsWith(`/${fileName}`)
+    );
+    if (match) {
+      return { branch, path: match.path, sha: match.sha };
+    }
+  }
+
+  // Se il file non esiste ancora nel repo, usa il percorso standard canti/<fileName>
+  return { branch, path: directPath, sha: undefined };
+}
+
+async function commitFileToGitHub(fileName, jsonObject, commitMessage, token) {
+  const owner = 'carusoalessio2008';
+  const repo = 'canzoniere';
+
+  const target = await resolveGitHubFileTarget(owner, repo, fileName, token);
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${target.path}`;
+
   const contentString = JSON.stringify(jsonObject, null, 2) + '\n';
-  // Codifica UTF-8 corretta per caratteri accentati italiani (è, à, ò, ù...)
   const base64Content = btoa(unescape(encodeURIComponent(contentString)));
 
-  // 2. Esegue il commit diretto sul repository
+  const bodyPayload = {
+    message: commitMessage,
+    content: base64Content,
+    branch: target.branch
+  };
+  if (target.sha) {
+    bodyPayload.sha = target.sha;
+  }
+
   const putRes = await fetch(apiUrl, {
     method: 'PUT',
     headers: {
@@ -1325,11 +1364,7 @@ async function commitFileToGitHub(filePath, jsonObject, commitMessage, token) {
       'Accept': 'application/vnd.github+json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      message: commitMessage,
-      content: base64Content,
-      sha: fileData.sha
-    })
+    body: JSON.stringify(bodyPayload)
   });
 
   if (!putRes.ok) {
@@ -1343,7 +1378,7 @@ async function saveEditedSongToCloud() {
 
   let ghToken = localStorage.getItem('canzoniere_gh_token');
   if (!ghToken) {
-    ghToken = prompt("Incolla il tuo GitHub Personal Access Token (con permesso Contents: Read & Write su 'canzoniere'):");
+    ghToken = prompt("Incolla il tuo GitHub Token (Classic con scope 'repo' oppure Fine-grained con Contents: Read & Write):");
     if (!ghToken || !ghToken.trim()) return;
     ghToken = ghToken.trim();
     localStorage.setItem('canzoniere_gh_token', ghToken);
@@ -1354,18 +1389,16 @@ async function saveEditedSongToCloud() {
 
   const meta = state.songsIndex.find(item => item.slug === payload.slug);
   const fileName = meta?.file || `${payload.slug}.json`;
-  const filePath = `canti/${fileName}`;
 
   try {
     showToast("Salvataggio su GitHub in corso...");
     await commitFileToGitHub(
-      filePath,
+      fileName,
       cleanSongJson,
       `Aggiorna canto: ${payload.title}`,
       ghToken
     );
 
-    // Aggiorna anche Firestore se attivo per avere effetto immediato prima del rebuild di GitHub Pages (~30s)
     if (window.fb && window.fb.setDoc) {
       await window.fb.setDoc(window.fb.doc(window.fb.db, "songs", payload.slug), payload).catch(() => {});
     }
@@ -1387,11 +1420,12 @@ async function saveEditedSongToCloud() {
     renderSongView();
   } catch (err) {
     console.error("Errore salvataggio GitHub:", err);
-    if (String(err.message).includes('401') || String(err.message).includes('403') || String(err.message).includes('Bad credentials')) {
+    const msg = String(err.message || '');
+    if (msg.startsWith('AUTH_OR_REPO_ERROR:') || msg.includes('401') || msg.includes('403') || msg.includes('Bad credentials')) {
       localStorage.removeItem('canzoniere_gh_token');
-      showToast("Token GitHub non valido o scaduto: riprova", "error");
+      showToast("Token non autorizzato o scaduto: riprova con un token valido", "error");
     } else {
-      showToast("Errore GitHub: " + err.message, "error");
+      showToast("Errore GitHub: " + msg, "error");
     }
   }
 }
