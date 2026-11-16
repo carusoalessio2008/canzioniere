@@ -1410,9 +1410,9 @@ function buildLineChordGridHtml(sIdx, lIdx, line) {
       }
       html += `
         <span onclick="selectEditorCursor(${sIdx}, ${lIdx}, ${col})"
-          style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;"
-          class="inline-flex flex-col items-start cursor-pointer rounded px-0.5 ${isCursor ? 'bg-amber-200 ring-2 ring-amber-500' : 'bg-blue-50 hover:bg-blue-100'}">
-          <span class="text-[0.85em] font-bold text-blue-700 leading-none whitespace-pre">${escapeHtml(chordHere)}</span>
+          style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0;"
+          class="inline-flex flex-col items-start cursor-pointer ${isCursor ? 'bg-amber-200 ring-1 ring-amber-500' : 'bg-blue-50 hover:bg-blue-100'}">
+          <span class="text-[0.95em] font-bold text-blue-700 leading-none whitespace-pre">${escapeHtml(chordHere)}</span>
           <span class="text-slate-700 leading-snug whitespace-pre">${charsUnder}</span>
         </span>
       `;
@@ -1422,9 +1422,9 @@ function buildLineChordGridHtml(sIdx, lIdx, line) {
       const displayCh = ch === ' ' ? '&nbsp;' : escapeHtml(ch);
       html += `
         <span onclick="selectEditorCursor(${sIdx}, ${lIdx}, ${col})"
-          style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;"
-          class="inline-flex flex-col items-center cursor-pointer rounded ${isCursor ? 'bg-amber-200 ring-2 ring-amber-500' : 'hover:bg-slate-200/70'}">
-          <span class="text-[0.85em] font-bold text-transparent leading-none select-none">&nbsp;</span>
+          style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0;"
+          class="inline-flex flex-col items-center cursor-pointer ${isCursor ? 'bg-amber-200 ring-1 ring-amber-500' : 'hover:bg-slate-200/70'}">
+          <span class="text-[0.95em] font-bold text-transparent leading-none select-none">&nbsp;</span>
           <span class="text-slate-700 leading-snug whitespace-pre">${displayCh}</span>
         </span>
       `;
