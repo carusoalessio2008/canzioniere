@@ -15,15 +15,15 @@
     },
     {
       "t": "c",
-      "v": ""
+      "v": "RE    FA#- SOL           RE"
     },
     {
       "t": "l",
-      "v": "[RE]Alleluia, allelu, alleluia,"
+      "v": "Alleluia, allelu, alleluia,"
     },
     {
       "t": "c",
-      "v": "SOL   RE   LA"
+      "v": "SOL   RE    LA"
     },
     {
       "t": "l",
@@ -31,7 +31,7 @@
     },
     {
       "t": "c",
-      "v": "RE   FA#- SOL           RE"
+      "v": "RE   FA#- SOL          RE"
     },
     {
       "t": "l",
@@ -54,114 +54,40 @@
     },
     {
       "t": "c",
-      "v": "RE             FA#-       SOL          RE"
+      "v": "RE          FA#-    SOL       RE"
     },
     {
       "t": "l",
-      "v": "Canto    per  Cristo  che  mi  libererà,"
+      "v": "Canto per Cristo che mi libererà,"
     },
     {
       "t": "c",
-      "v": "                     SOL           RE         LA"
+      "v": "SOL       RE        LA"
     },
     {
       "t": "l",
-      "v": "                    quando    verrà   nella  gloria,"
+      "v": "quando verrà nella gloria,"
     },
     {
       "t": "c",
-      "v": "                     RE          FA#-        SOL          RE"
+      "v": "RE        FA#-     SOL        RE"
     },
     {
       "t": "l",
-      "v": "                    quando    la vita  con   Lui rinascerà"
+      "v": "quando la vita con Lui rinascerà"
     },
     {
       "t": "c",
-      "v": "                    SOL     RE       LA   RE"
+      "v": "SOL   RE   LA   RE"
     },
     {
       "t": "l",
-      "v": "                    alleluia,    alleluia!"
+      "v": "alleluia, alleluia!"
     },
     {
       "t": "s"
     },
-    {
-      "t": "h",
-      "v": "Strofa 2"
-    },
-    {
-      "t": "c",
-      "v": "RE             FA#-       SOL          RE"
-    },
-    {
-      "t": "l",
-      "v": "Canto    per  Cristo:  in  Lui rifiorirà"
-    },
-    {
-      "t": "c",
-      "v": "                     SOL           RE         LA"
-    },
-    {
-      "t": "l",
-      "v": "                    Ogni   speranza    perduta,"
-    },
-    {
-      "t": "c",
-      "v": "                     RE          FA#-        SOL          RE"
-    },
-    {
-      "t": "l",
-      "v": "                    ogni  creatura   con   Lui risorgerà"
-    },
-    {
-      "t": "c",
-      "v": "                    SOL     RE       LA   RE"
-    },
-    {
-      "t": "l",
-      "v": "                    alleluia, alleluia!"
-    },
-    {
-      "t": "s"
-    },
-    {
-      "t": "h",
-      "v": "Strofa 3"
-    },
-    {
-      "t": "c",
-      "v": "RE             FA#-       SOL          RE"
-    },
-    {
-      "t": "l",
-      "v": "Canto    per  Cristo:  un   giorno   tornerà!"
-    },
-    {
-      "t": "c",
-      "v": "                     SOL           RE         LA"
-    },
-    {
-      "t": "l",
-      "v": "                    Festa  per  tutti gli amici,"
-    },
-    {
-      "t": "c",
-      "v": "                     RE          FA#-        SOL          RE"
-    },
-    {
-      "t": "l",
-      "v": "                    festa di  un  mondo     che  più  non   morirà,"
-    },
-    {
-      "t": "c",
-      "v": "                    SOL     RE       LA   RE"
-    },
-    {
-      "t": "l",
-      "v": "                    alleluia, alleluia!"
-    }
+   
   ],
   "id": "alleluia-canto-per-cristo"
 }
