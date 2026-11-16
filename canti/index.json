@@ -40,76 +40,6 @@
     "file": "acqua-siamo-noi.json"
   },
   {
-    "slug": "adeste-fideles",
-    "title": "Adeste Fideles",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Adeste Fideles  Strofa 1    A-de-ste          fi- de-les     læ  - ti         tri -  un   - phan     - tes:     ve  - ni - te     ve  -  ni   -      te         in    Be  - thle  - em.     Na   -  tum     vi  - de   -  te      Re   -  gem    an   - ge   -  lo  -    rum  Ritornello    Ve   - ni  -  te    a  -  do   -  re  - mus,    ve  - ni - te    a  - do    - re  -  mus,     ve  -  ni  -  te    a   - do   -  re   -   mus      Do    - mi   -  num.  Strofa 2    En  grege   relicto humiles    ad  cunas     Vocati   pastores   adproperant     Et  nos  ovanti    gradu    festinemus",
-    "file": "adeste-fideles.json"
-  },
-  {
-    "slug": "adoramus-te-domine",
-    "title": "Adoramus Te Domine",
-    "author": "Canone di Taizé",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Adoramus Te Domine Canone di Taizé Canone Oh, oh, oh, adoramus Te Domine.",
-    "file": "adoramus-te-domine.json"
-  },
-  {
-    "slug": "adoro-te",
-    "title": "Adoro Te",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Adoro Te  Strofa 1    Sei qui  davanti   a  me,  o  mio   Signore,    sei in questa   brezza   che  ristora  il cuore,    roveto   che  mai   si consumerà,    presenza    che  riempie   l'anima.  Ritornello          Adoro    Te, fonte   della  Vita,          adoro    Te, Trinità  infinita.          I miei  calzari  leverò   su questo    santo  suolo,          alla presenza    Tua  mi   pro  - stre  - rò  Strofa 2    Sei qui  davanti    a me,   o mio   Signore,    nella  Tua  grazia  trovo   la mia   gioia.    Io lodo,   ringrazio   e prego    perché    il mondo    ritorni  a vivere   in Te.  Finale Mio Signor",
-    "file": "adoro-te.json"
-  },
-  {
-    "slug": "agnello-di-dio-buttazzo-capo-3",
-    "title": "Agnello di Dio",
-    "author": "Buttazzo · Capo 3",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Agnello di Dio Buttazzo - Capo 3 Intro  Invocazione 1 Agnello   di Dio, che  togli i peccati del mondo, abbi  pietà di noi, pietà di noi.  Invocazione 2 Agnello   di Dio, che  togli i peccati del mondo, abbi  pietà di noi, pietà di noi.  Invocazione 3 Agnello   di Dio, che  togli i peccati del mon  - do, dona   a noi la pace, dona   a noi la pa  - ce.",
-    "file": "agnello-di-dio-buttazzo-capo-3.json"
-  },
-  {
-    "slug": "agnello-di-dio-ricci-la-tua-dimora",
-    "title": "Agnello di Dio",
-    "author": "Daniele Ricci · La tua dimora",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Agnello di Dio Daniele Ricci La tua dimora Intro Invocazione 1 Agnello di Dio che togli i peccati del mondo abbi pietà di noi. Invocazione 2 Agnello di Dio che togli i peccati del mondo abbi pietà di noi. Invocazione 3 Agnello di Dio che togli i peccati del mondo dona a noi la pace.",
-    "file": "agnello-di-dio-ricci-la-tua-dimora.json"
-  },
-  {
-    "slug": "agnello-di-dio",
-    "title": "Agnello di Dio",
-    "author": "Come Fuoco Vivo · Capo 3",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Agnello di Dio Come Fuoco Vivo Capo 3 Intro Invocazione 1 Agnello di Dio, che togli i peccati del mondo, abbi pietà, abbi pietà di noi Invocazione 2 Agnello di Dio, che togli i peccati del mondo, abbi pietà, abbi pietà di noi Invocazione 3 Agnello di Dio, che togli i peccati del mondo, dona a noi la pace, dona a noi la pace.",
-    "file": "agnello-di-dio.json"
-  },
-  {
-    "slug": "alleluia-buttazzo",
-    "title": "Alleluia - chi ascolta",
-    "author": "Buttazzo · Capo 3",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Alleluia - chi ascolta Buttazzo Intro  Ritornello    Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alle  - lu  - u -  ia  Strofa 1    Chi  ascolta  la parola    È come    uno   che    Attinge   acqua   alla sorgente    Che   lo disseterà  Strofa 2    Chi  accoglie   la parola    È come    uno   che    Ha  costruito   sulla  roccia    E mai   vacillerà  Finale     Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alleluia    Alleluia,  Alleluia,  Alle  - lu  - u -  ia    Alleluia,  Alleluia,        Alleluia!",
-    "file": "alleluia-buttazzo.json"
-  },
-  {
     "slug": "alleluia-canto-per-cristo",
     "title": "Alleluia",
     "author": "Canto per Cristo",
@@ -118,16 +48,6 @@
     ],
     "search": "Alleluia Canto per Cristo Ritornello Alleluia,  allelu,  alleluia,       alleluia,  alleluia       Alleluia,   allelu, alleluia,       alleluia,  alleluia!  Strofa 1                  Canto    per  Cristo  che  mi  libererà,                     quando    verrà   nella  gloria,                     quando    la vita  con   Lui rinascerà                     alleluia,    alleluia!  Strofa 2                  Canto    per  Cristo:  in  Lui rifiorirà                     Ogni   speranza    perduta,                     ogni  creatura   con   Lui risorgerà                     alleluia, alleluia!  Strofa 3                  Canto    per  Cristo:  un   giorno   tornerà!                     Festa  per  tutti gli amici,                     festa di  un  mondo     che  più  non   morirà,                     alleluia, alleluia!",
     "file": "alleluia-canto-per-cristo.json"
-  },
-  {
-    "slug": "alleluia-cristo-e-risorto-veramente-capo-2-4",
-    "title": "Alleluia",
-    "author": "Cristo è risorto veramente - Capo 2/4",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Alleluia Cristo è risorto veramente - Capo 2/4 Ritornello Alleluia,  alleluia,  alleluia,  alleluia!          Cristo   è risorto  veramente      alleluia, alleluia!    (x2)  Strofa 1    Cristo  ha  inaugurato     il suo regno,    salvezza   e vita  sono   con   lui.    Rallegriamoci,     esultiamo    con  lui:    la morte   è  stata  vinta,  la vita ora   trionfa.  Strofa 2    L'Agnello    ha  redento    il suo gregge    riconciliando    l'uomo    con   Dio.    Rallegriamoci,     esultiamo    con  lui:    il Signore  della  vita  era  morto,    ora  trionfa.  Ritornello finale Alleluia,  alleluia,  alleluia,  alleluia!                        Cristo  è  risorto  veramente     alleluia,  alleluia!    (x2)",
-    "file": "alleluia-cristo-e-risorto-veramente-capo-2-4.json"
   },
   {
     "slug": "alleluia-e-poi",
@@ -150,16 +70,6 @@
     "file": "alleluia-ed-oggi-ancora.json"
   },
   {
-    "slug": "alleluia-la-nostra-festa",
-    "title": "Alleluia",
-    "author": "La nostra festa",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Alleluia La nostra festa Ritornello - 1 pennata Alleluia!  (7v)  Strofa    La nostra   festa  non   deve   finire, non   deve   finire e  non   finirà.       (2v)    Perché   la festa  siamo   noi,  che  camminiamo        verso  Te.    Perché   la festa  siamo   noi,  cantando     insieme   così!  La, la, la...  Ritornello (ripetere)",
-    "file": "alleluia-la-nostra-festa.json"
-  },
-  {
     "slug": "alleluia-passeranno-i-cieli",
     "title": "Alleluia",
     "author": "Passeranno i cieli",
@@ -168,26 +78,6 @@
     ],
     "search": "Alleluia Passeranno i cieli Ritornello Alle  - Alleluia,  alleluia,  alleluia,  alleluia, alleluia, alleluia,    alleluia!  Strofa         Passeranno     i cieli e passerà  la  terra: la sua  parola   non   passerà,         alleluia,     alleluia!  Ritornello Alle  - Alleluia,  alleluia,  alleluia,  alleluia, alleluia, alleluia,    alleluia!",
     "file": "alleluia-passeranno-i-cieli.json"
-  },
-  {
-    "slug": "alleluia-taize",
-    "title": "Alleluia",
-    "author": "Taizé",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Alleluia Taizé Ritornello                           Alleluia,  alleluia,  allelu    - u  -  ia!                           Alleluia,  alleluia,  allelu  -  u  -  ia!",
-    "file": "alleluia-taize.json"
-  },
-  {
-    "slug": "alleluia-verbum-panis",
-    "title": "Alleluia",
-    "author": "Verbum Panis",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Alleluia Verbum Panis Ritornello           Alle  - lu  -     ia   alle  - lu   - ia           Alle  - lu  -     ia   alle  - lu   -  u  -     ia           Alle  - lu  -     ia   alle  - lu   - ia           Alle  - lu  -     ia   alle  - lu   -  u  -     ia  Ponte                           Alleluia  alleluia  alle - luia                           Alle  - luia   alle -  luia                           Alleluia  al -  lelu - ia alle -  luia                           Alle  - luia   alle -  luia  Ritornello finale           Alle  - lu  -     ia   alle  - lu   - ia           Alle  - lu  -     ia   alle  - lu   -  u  -     ia           Alle  - lu  -     ia   alle  - lu   - ia           Alle  - lu  -     ia   alle  - lu   -  u  -     ia",
-    "file": "alleluia-verbum-panis.json"
   },
   {
     "slug": "alza-i-tuoi-occhi-al-cielo",
@@ -250,16 +140,6 @@
     "file": "ascolta-il-mio-cuore.json"
   },
   {
-    "slug": "ascoltero-la-tua-parola-capo-2",
-    "title": "Ascolterò la Tua Parola",
-    "author": "Capo 2",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Ascolterò la Tua Parola Capo 2 Intro  Strofa 1 Ascolterò     la tua Parola, nel profondo del mio   cuore    io l'ascolterò. E nel buio della notte la Parola come luce      ri - splenderà.  Strofa 2                                  Mediterò          la tua Parola,                                  nel silenzio della mente       la   mediterò.                                  Nel deserto  delle voci                                  la Parola dell'amore       ri - suonerà.  Strofa 3 E seguirò       la tua Parola, sul sentiero della vita io la seguirò. Nel passaggio del dolore la Parola della croce mi   salverà.  Strofa 4 Custodirò la tua Parola, per la sete dei miei giorni la custodirò. Nello scorrere del tempo la Parola dell'eterno non passerà.  Strofa 5 Annuncerò      la tua Parola, camminando   in questo  mondo    io l'annuncerò. Le frontiere del tuo regno la Parola come un  vento   spa  - lancherà",
-    "file": "ascoltero-la-tua-parola-capo-2.json"
-  },
-  {
     "slug": "astro-del-ciel",
     "title": "Astro del ciel",
     "author": "Gruber",
@@ -268,46 +148,6 @@
     ],
     "search": "Astro del ciel Gruber Strofa 1 Astro del ciel, Pargol divin, mite agnello redentor! Tu che i Vati da lungi sognar, tu che angeliche voci annunziar, Ritornello Luce dona alle menti, pace infondi nei cuor. (x2) Strofa 2 Astro del ciel, Pargol divin, mite agnello redentor, tu di stirpe regale decor, tu virgineo mistico fior. Strofa 3 Astro del ciel, Pargol divin, mite agnello redentor tu disceso a scontare l'error, tu sol nato a parlare d'amor.",
     "file": "astro-del-ciel.json"
-  },
-  {
-    "slug": "ave-maria",
-    "title": "Ave Maria",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Ave Maria  Ritornello Ave          Maria,        Ave.       Ave           Maria,        Ave.  Strofa 1              Donna     dell'attesa  e  madre    di speranza    ora  pro   nobis.              Donna     del sorriso   e madre    del  silenzio  ora  pro   nobis.              Donna     di frontiera   e madre    dell'ardore    ora  pro   nobis.              Donna     del riposo   e  madre    del sentiero   ora  pro   nobis.  Ritornello (ripetere)  Strofa 2              Donna     del deserto    e madre    del  respiro  ora   pro  nobis.              Donna     della  sera e  madre    del  ricordo   ora  pro  nobis.              Donna     del presente    e madre    del  ritorno   ora  pro   nobis.              Donna     della  terra  e madre    dell'amore    ora   pro   nobis.  Ritornello (ripetere)",
-    "file": "ave-maria.json"
-  },
-  {
-    "slug": "ave-o-vergjne",
-    "title": "Ave, o Vergjne",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Ave, o Vergjne  Strofa 1 Ave, o Vergjne, us saludi come l'agnul ancje io! Ave, plene di ogni gracie: il Signôr al è cun vô. Daimi, daimi une cjalade cun chel voli plen d'amôr o gran Mari Imacolade, o colombe dal Signôr! Strofa 2 Biele l'albe matutine, biel un agnul dal Signôr, ma vô Vergjine divine o sês biele plui di lôr! Faisi dongje, cjare Mari cun chel vuestri biel bambin ch'io lu cjali, ch'io lu tocj, ch'io lu bussi chel ninin.",
-    "file": "ave-o-vergjne.json"
-  },
-  {
-    "slug": "beati-i-misericordiosi-inno-gmg-2016-capo-2",
-    "title": "Beati i Misericordiosi",
-    "author": "Inno GMG 2016 - Capo 2",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Beati i Misericordiosi Inno GMG 2016 - Capo 2 Intro  Strofa 1      Sei  sceso    dalla  tua  immensità,      in nostro   aiuto.    Misericordia    scorre   da  te,      sopra    tutti noi.      Persi   in un  mondo     d'oscurità,    lì Tu ci trovi.    Nelle  tue  braccia   ci stringi  e  poi,    dai  la vita  per  noi.  Ritornello Beato    è il cuore  che   perdona!         Misericordia     riceverà   da   Dio  in cielo!         Beato    è il cuore   che  perdona!         Misericordia    riceverà    da  Dio  in cielo!  Strofa 2        Solo   il perdono   riporterà,   pace   nel  mondo.    Solo   il perdono   ci svelerà,          come    figli tuoi.  Ritornello (2 volte) Beato    è il cuore  che   perdona!         Misericordia     riceverà   da   Dio  in cielo!  X2  Interludio  Strofa 3         Col  sangue    in croce   hai  pagato    Tu,  le nostre   povertà.    Se  noi  ci amiamo     e  restiamo    in te,    il mondo    crederà!  Ritornello Beato    è il cuore  che   perdona!         Misericordia     riceverà   da   Dio  in cielo!         Beato    è il cuore   che  perdona!         Misericordia    riceverà    da  Dio  in cielo!  Strofa 4         Le  nostre   angosce     ed  ansietà,   gettiamo    ogni  attimo   in te.    Amore    che   non   abbandona      mai,  vivi in  mezzo    a noi!  Ritornello finale Beato    è il cuore  che   perdona!          Misericordia     riceverà   da  Dio   in cielo!          Beato    è il cuore   che  perdona!          Misericordia     riceverà   da  Dio   in cielo!  Ritornello (ripetere)         Beato    è il cuore   che  perdona!         Misericordia     riceverà   da   Dio  in cielo!  Ritornello (ultima volta)          Beato    è il cuore   che  perdona!          Misericordia     riceverà   da  Dio   in cielo! ",
-    "file": "beati-i-misericordiosi-inno-gmg-2016-capo-2.json"
-  },
-  {
-    "slug": "beati-voi",
-    "title": "Beati Voi",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Beati Voi  Ritornello Beati voi, beati voi, beati voi, beati! Strofa 1 Se un uomo vive oggi nella vera povertà, il Regno del Signore dentro lui presente è già. Per voi che siete tristi e senza senso nella vita c'è un Dio che può donarvi una speranza nel dolor. Strofa 2 Voi che lottate senza la violenza e per amore possiederete un giorno questa terra, dice Dio. Voi che desiderate ciò che Dio vuole per noi un'infinita pace regnerà dentro di voi. Strofa 3 E quando nel tuo cuore nasce tanta compassione è Dio che si commuove come un bimbo dentro te. Beati quelli che nel loro cuore sono puri già vedono il Signore totalmente anche quaggiù. Strofa 4 Beato chi diffonde pace vera intorno a sé il Padre che è nei cieli già lo chiama “figlio mio”. Chi soffre per amore e sa morire oggi per Lui riceve il Regno subito e la vita eterna ha in sé. Strofa 5 Se poi diranno male perché siete amici suoi sappiate che l'han fatto già con Lui prima di voi. Chi soffre per amore e sa morire oggi per Lui riceve il Regno subito e la vita eterna ha in sé. Finale Siate felici, siate felici, siate felici. Amen",
-    "file": "beati-voi.json"
   },
   {
     "slug": "benedetto-signore-cerco-solo-te",
@@ -340,46 +180,6 @@
     "file": "benedici-o-signore.json"
   },
   {
-    "slug": "benedizione-a-frate-leone",
-    "title": "Benedizione a Frate Leone",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Benedizione a Frate Leone  Strofa Benedicat   tibi Dominus       et  custodiat   te Ostendat   faciem    suam   tibi et misereatur    tui Convertat    vultum   suum    ad  te et  det  tibi pa   -   cem Dominus    benedicat,    frater  Leo,  te. Ritornello      Benedi      - i  - cat,  benedi    -  i -  cat      Benedicat    tibi     Do   - mi   - nus       et custodiat   te Interludio - Violini 1 battuta Ritornello (ripetere)      Benedicat    tibi     Do   - mi   - nus       et custodiat   te Ponte    Benedicat,    benedicat,    benedicat,    benedicat Tibi Dominus,     benedicat    tibi Dominus     et custodiat    te Strofa · +1 tono (MI) Benedicat   tibi Dominus       et  custodiat   te Ostendat   faciem    suam   tibi et misereatur    tui Convertat    vultum   suum    ad  te et  det  tibi pa   -   cem Dominus    benedicat,    frater  Leo,  te. Ritornello      Benedi      - i  - cat,  benedi    -  i -  cat      Benedicat    tibi     Do   - mi   - nus       et custodiat   te Interludio - Violini 1 battuta Ritornello (ripetere)      Benedicat    tibi     Do   - mi   - nus       et custodiat   te Finale - Violini et custodiat   te",
-    "file": "benedizione-a-frate-leone.json"
-  },
-  {
-    "slug": "bisognerebbe",
-    "title": "Bisognerebbe",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Bisognerebbe  Intro  Ritornello Bisognerebbe   attraversar  la strada e andare  via  da qui       Senza  chiedersi  più: domani   che  sarà?       E  andare  oltre questo  nostro  cuore,          che  freme  sotto il sole       Stanco   del nostro  pianto.       Finire di cercare  quel  che non  può  accadere,       perché   non  serve correre,  se non  sai più dove  andare.  Strofa 1              E tu che hai corso  tanto,  senza arrivare  mai,                 sotto il tuo cielo grigio, dimmi  tu che  farai.                 Tu che  hai già scordato,  cos'è un  sorriso vero                 Se hai già dimenticato   anche  il pianto sincero.  Strofa 2              E tu che  non  dividi le pene  che tu hai                 Dentro  il tuo cuore  chiuso  dimmi   che farai…                 Tu che  dici: \"sto meglio  quando   non   c'è nessuno\"                 Se un giorno   volessi parlare con  qualcuno?  Strofa 3              Non   certo attendo   che si vive di più                 Tantomeno     fingendo  come   adesso  fai tu.                 La strada è meno    lunga quando    incontri qualcuno                 E varrebbe  la pena  di prendersi  per  mano.  Finale Bisognerebbe    attraversar  la strada e andare  via da  qui         Senza  chiedersi più: domani    che sarà?         E andare  oltre questo  nostro  cuore  che  freme  sotto il sole         Stanco  del nostro  pianto.         Finire di cercare quel  che non   accadrà         ieri è soltanto ieri, domani  si vedrà!",
-    "file": "bisognerebbe.json"
-  },
-  {
-    "slug": "bless-the-lord",
-    "title": "Bless the Lord",
-    "author": "Canone di Taizé",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Bless the Lord Canone di Taizé Canone Bless the Lord, my soul, and bless God's holy name. Bless the Lord, my soul, who leads me into life.",
-    "file": "bless-the-lord.json"
-  },
-  {
-    "slug": "bonum-est-confidere",
-    "title": "Bonum est confidere",
-    "author": "Canone di Taizé",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Bonum est confidere Canone di Taizé Canone Bonum est confidere in Domino, bonum sperare in Domino.",
-    "file": "bonum-est-confidere.json"
-  },
-  {
     "slug": "camminero-in-re",
     "title": "Camminerò",
     "author": "In RE",
@@ -388,66 +188,6 @@
     ],
     "search": "Camminerò In RE Ritornello         Camminerò,       camminerò         Per la Tua   strada  Signor         Dammi     la mano       Voglio   restare       Per  sempre    assieme   a Te  Strofa 1 Quando     ero  solo,  solo  e  stanco   del  mondo,     Quando      non   c'era l'amor,     Tante   persone     vive  intorno   a  me     Sentivo    cantare   così  Strofa 2 Io  non   capivo,   ma   rimasi  a sentire     Quando      anch'io   vidi il Signor     Lui  mi  chiamava,     chiamava     anche   me     E  la mia  risposta   si alzò  Strofa 3 Ora   non   m'importa     se  uno  ride  di  me     Lui  certamente     non   sa     Del  gran   tesoro   che  trova   in quel  dì     Che   dice  al Signore   così  Strofa 4 A  volte   sono   stanco   e mi  guardo    intorno     Scopro    il mondo    e  l'amor     Son   questi  i doni  che   Lui fa a  me     E  dice:  ritorna  a cantar",
     "file": "camminero-in-re.json"
-  },
-  {
-    "slug": "camminiamo-incontro-al-signore",
-    "title": "Camminiamo Incontro al Signore",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Camminiamo Incontro al Signore  Ritornello Camminiamo         incontro   al Signore,       camminiamo        con   gio  - ia:       Egli    viene,   non   tarderà,    Egli    viene,   ci salverà.  Strofa 1 Egli viene:   il giorno  è  vicino     e la   notte   va verso   l'aurora.        Eleviamo    a  Lui l'anima   nostra,    non   saremo    delusi.        Non   saremo    delusi.  Strofa 2 Egli viene,   vegliamo    in attesa,   ricordando     la sua  parola.        Rivestiamo     la forza  di Dio    per  resistere  al male.  Strofa 3 Egli viene,   andiamogli     incontro,    ritornando     su retti sentieri.        Mostrerà    la sua  misericordia,     ci darà  la  sua  grazia.  Strofa 4 Egli viene:   è il Dio  fedele  che  ci chiama    alla  sua comunione.        Il Signore  sarà  il nostro   bene,   noi  la terra feconda.",
-    "file": "camminiamo-incontro-al-signore.json"
-  },
-  {
-    "slug": "cantate-al-signore-ricci",
-    "title": "Cantate al Signore",
-    "author": "Ricci",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Cantate al Signore Ricci Intro Ultimo LA di ogni sequenza: tenere a lungo  Ritornello    Cantate   al  Signore   un  cantico   nuovo    da  tutta  la terra    voi  cantate   al Signore,   cantate   a Lui,  benedite    il nome   Suo.    Annunziate         ogni   giorno   di Lui  la salvezza   e  la gloria,    a tutti i popoli   dite  i prodigi  di  Lui, benedite    il nome    Suo.  Controcanto          È nato   per  noi,  il Signore  per  noi  oggi   è  na   - to,          è nato   per  noi,  il Salvatore   del  mondo     è na   -  to.  Strofa 1    Esultino   i campi,   esulti la terra,  esultino  i mari,    esultino   i cieli cantando    di Lui, benedite    il nome    Suo.    E sia gioia      perché   Lui  stende   già sulla  terra  la mano    Sua    a tutti i popoli   la Sua  giustizia  darà,   benedite    il nome   Suo.  Ordine di esecuzione Ritornello  Strofa 1  Ritornello 2 volte (l'ultima senza controcanto)  Conclusione Pennata finale in RE",
-    "file": "cantate-al-signore-ricci.json"
-  },
-  {
-    "slug": "cantate-al-signore-un-canto-nuovo-fallormi",
-    "title": "Cantate al Signore un Canto Nuovo",
-    "author": "Fallormi",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Cantate al Signore un Canto Nuovo Fallormi Strofa 1       Cantate   al Signore    un  canto   nuovo,    perché   ha  compiuto     prodigi.       Ha  manifestato     la sua  salvezza,   su tutti  i popoli  la  sua     bontà.  Strofa 2  Egli si è ricordato    della  sua    fedeltà  i confini  della  terra  hanno    veduto    la salvezza   del  Signor.  Strofa 3  Esultiamo    di gioia,  acclamiamo      al Signor  con  un   suono   melodioso     cantiamo     insieme:   \"Lode    e gloria  al nostro   Re\".  Strofa 4  Frema    il mare  e  la terra: il Signore   verrà  un  giudizio   di giustizia  con   rettitudine   nel  mondo     porterà.",
-    "file": "cantate-al-signore-un-canto-nuovo-fallormi.json"
-  },
-  {
-    "slug": "cantiamo-te",
-    "title": "Cantiamo Te",
-    "author": "Gragnani",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Cantiamo Te  Intro  Strofa 1    Cantiamo     Te,  Signore   della  vita:    il nome   tuo   è grande    sulla terra    tutto  parla  di  te e    canta  la tua  gloria.    Grande    Tu  sei e   compi    meraviglie:    tu sei Dio.  Strofa 2    Cantiamo     Te,  Signore   Gesù   Cristo:    Figlio  di Dio   venuto   sulla  terra,    fatto  uomo    per  noi  nel  grembo     di Maria.    Dolce   Gesù     risorto  dalla  morte    sei con  noi.  Strofa 3    Cantiamo     Te,  amore    senza   fine:    Tu  che  sei Dio    lo  Spirito  del  Padre    vivi dentro    di noi  e  guida   i nostri  passi.    Accendi    in noi  il fuoco  dell'eterna    carità",
-    "file": "cantiamo-te.json"
-  },
-  {
-    "slug": "chi-ci-separera",
-    "title": "Chi Ci Separerà",
-    "author": "Frisina",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Chi Ci Separerà  Strofa 1                         Chi  ci separerà      dal  suo   amore                         la tribolazione,    forse  la spada?                         Né  morte    o vita      ci separerà,                         dall'amore    in Cri  - sto Signore.  Strofa 2                         Chi  ci separerà   dalla  sua  pace                         la persecuzione,     forse  il dolore?                         Nessun   potere    ci separerà                         da  Colui  che  è  morto    per  noi.  Strofa 3                         Chi  ci separerà   dalla  sua  gioia                         chi potrà   strapparci   il suo  perdono?                         Nessuno    al mondo      ci allontanerà                         dalla  vita in Cristo   Signore.",
-    "file": "chi-ci-separera.json"
-  },
-  {
-    "slug": "chi-dara-da-bere-a-me",
-    "title": "Chi Darà da Bere a Me",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Chi Darà da Bere a Me  Ritornello Chi  darà   da  bere  a  me   acqua   pura,  acqua    pura,       Chi   ha  l'acqua  di  felici -  tà,       L'acqua    che  ristorerà       L'acqua    che  ristorerà.  Strofa 1                     Il mondo    è  già un  deserto,   la terra  inaridì,                       Milioni   di  assetati  si sentono   morir.  Strofa 2                     Il mio  fratello  ha  sete,  ma   l'acqua   lui non  ha,                        Se  gli indichi  la strada  la fonte   troverà.  Strofa 3                     Orgoglio    e  presunzione     ci tolgono    il respir                        Chiunque     che  vi  beve,  vi  beve  l'ansietà.",
-    "file": "chi-dara-da-bere-a-me.json"
   },
   {
     "slug": "chi",
@@ -500,16 +240,6 @@
     "file": "come-fuoco-vivo.json"
   },
   {
-    "slug": "come-l-aurora-verrai",
-    "title": "Come l'Aurora Verrai",
-    "author": "Gen Verde",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Come l'Aurora Verrai  Strofa 1      Come    l'aurora   verrai,   le tenebre  in luce  cambierai  Tu  per  noi   Si - gnore.      Come    la pioggia   cadrai,   sui nostri  deserti scenderai  Scorrerà     l'amore.  Ritornello 1 battuta         Tutti i nostri sentieri percorrerai         Tutti i figli dispersi raccoglierai         Chiamerai    da ogni   terra il tuo po  - polo         In eterno  ti avremo    con  noi  Strofa 2      Re  di giustizia  sarai   le spade   in aratri forgerai  Ci darai   la pace      Lupo   ed  agnello   vedrai,    insieme   sui prati dove   mai  Tornerà  la notte.  Strofa 3      Dio   di salvezza  tu sei    e  come   una  stella sorgerai  Su di noi   per  sempre      E  chi non  vede,   vedrà      chi ha chiusi  gli orecchi  sentirà  Canterà      di gioia  Finale             Come    l'aurora   verrai",
-    "file": "come-l-aurora-verrai.json"
-  },
-  {
     "slug": "come-maria",
     "title": "Come Maria",
     "author": "Gen Rosso",
@@ -518,16 +248,6 @@
     ],
     "search": "Come Maria  Strofa 1 Vogliamo     vivere   Signore,   offrendo    a  Te  la nostra  vita Con   questo    pane   e questo   vino,   accetta  quello   che   noi  siamo. Vogliamo     vivere   Signore,   abbandonati      alla Tua   voce staccati  dalle  cose  vane,   fissati nella  vita  vera.  Ritornello Vogliamo     vivere   come    Maria,       l'irraggiungibile    la Madre    amata       che   vince  il mondo     con  l'amore       e  offrire  sempre   la  tua  vita che  viene   dal  cielo.  Strofa 2 Accetta   dalle  nostre   mani,   come    un'offerta   a  Te  gradita i desideri  di  ogni  cuore,   le ansie  della  nostra   vita. Vogliamo     vivere   Signore,   accesi  dalle  Tue   parole per  riportare   in  ogni  uomo     la fiamma    viva  del  Tuo   amore.  Ritornello (ripetere)",
     "file": "come-maria.json"
-  },
-  {
-    "slug": "come-tu-mi-vuoi",
-    "title": "Come Tu Mi Vuoi",
-    "author": "Branca",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Come Tu Mi Vuoi  Intro  Strofa 1    Eccomi  Signor,  vengo   a Te mio  Re,  che si compia  in me  la tua volontà.    Eccomi  Signor,  vengo   a Te mio  Dio,  plasma  il cuore mio  e di Te  vivrò.    Se Tu  lo vuoi, Signore  manda   me      e il Tuo nome   annuncerò  Ritornello    Come   Tu  mi  vuoi, io sarò, dove   Tu mi  vuoi io andrò,    Questa  vita io voglio  donarla  a Te  per dar  gloria al Tuo  nome   mio  Re    Come   Tu  mi  vuoi, io sarò, dove   Tu mi  vuoi io andrò,    Se mi  guida il Tuo  Amore   paura  non  ho,    per sempre   io sarò                   come   Tu mi  vuoi.  Strofa 2    Eccomi  Signor,  vengo   a Te mio  Re,  che si compia  in me  la tua volontà.    Eccomi  Signor,  vengo   a Te mio  Dio,  plasma  il cuore mio  e di Te  vivrò.    Tra le tue mani   mai più  vacillerò e strumento   Tuo  sarò  Ritornello    Come   Tu  mi  vuoi, io sarò, dove   Tu mi  vuoi io andrò,    Questa  vita io voglio  donarla  a Te  per dar  gloria al Tuo  nome   mio  Re    Come   Tu  mi  vuoi, io sarò, dove   Tu mi  vuoi io andrò,    Se mi  guida il Tuo  Amore   paura  non  ho,    per sempre   io sarò  Finale    Come   Tu  mi  vuoi  (Io sarò)    Come   Tu  mi  vuoi  (Io sarò)    Come   Tu  mi  vuoi  (Io sarò)     Come   Tu  mi  vuoi",
-    "file": "come-tu-mi-vuoi.json"
   },
   {
     "slug": "come-un-prodigio",
@@ -550,26 +270,6 @@
     "file": "con-te-camminero.json"
   },
   {
-    "slug": "con-voce-di-giubilo",
-    "title": "Con Voce di Giubilo",
-    "author": "Cento",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Con Voce di Giubilo  Ritornello Con   voce   di  giubilo  date   il grande   annuncio,                    fatelo   giungere   ai confini   del  mondo.                    Con    voce   di giubilo  date   il grande   annuncio,                    il Signore   ha  liberato   il suo po    - po  - lo.  Strofa 1 Lodate    il Signore  egli è  buono     Egli ha  fatto  meraviglie,    Alleluia  Strofa 2  Eterna   è  la sua  misericordia     nel  suo  nome     siamo   salvi, alleluia  Strofa 3  La  sua  gloria  riempie    i cieli e la terra     è il Signore  della   Vita, alleluia.",
-    "file": "con-voce-di-giubilo.json"
-  },
-  {
-    "slug": "cristo-e-risorto-veramente",
-    "title": "Cristo è Risorto Veramente",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Cristo è Risorto Veramente  Ritornello Cristo  è  risorto  veramente,     alleluia!            Gesù,   il vivente,  qui  con   noi resterà.            Cristo  Gesù,      Cristo   Gesù       è il  Signore    della  vita.  Strofa 1    Morte,   dov'è   la tua  vittoria?   Paura      non  mi  puoi   far più.    Se  sulla  croce   io morirò   insieme    a  lui,  poi  insieme    a lui risorgerò.  Strofa 2    Tu,  Signore,    amante    della  vita, mi  hai  creato   per  l'eternità.    La  vita mia   tu dal  sepolcro    strapperai,      con  questo    mio   corpo   ti vedrò.  Strofa 3    Tu  mi  hai  donato   la  tua vita,  io voglio  donar    la mia  a  te.    Fa'  che  possa   dire:  \"Cristo  vive  anche    in me\"   e quel   giorno   io risorgerò.  Ritornello finale Cristo  è  risorto veramente,      alleluia!                      Gesù,    il vivente,  qui con   noi  resterà.                      Cristo   Gesù,      Cristo  Gesù       è  il Signore    della   vita.",
-    "file": "cristo-e-risorto-veramente.json"
-  },
-  {
     "slug": "dall-aurora-al-tramonto",
     "title": "Dall'Aurora al Tramonto",
     "author": "Casucci · Balduzzi",
@@ -588,56 +288,6 @@
     ],
     "search": "Davanti a Questo Amore  Intro  Strofa Hai   disteso  le tue  braccia   anche   per  me   Gesù, dal  tuo  cuore,   come    fonte,  hai  versato   pace   in me, cerco   ancora   il mio   peccato   ma   non   c'è. Tu  da  sempre    vinci  il mondo     dal  tuo  trono   di dolore.  Ritornello           Dio,   mia  grazia,  mia   speranza,    ricco  e grande    Redentore.           Tu,  Re   umile  e  potente,   risorto   per  amore,    risorgi per  la  vita.            Vero   agnello    senza  macchia,    mite   e forte  Salvatore    sei.           Tu,  Re   povero    e glorioso   risorgi  con  potenza,           davanti    a questo   amore    la  morte   fuggirà.  Finale",
     "file": "davanti-a-questo-amore.json"
-  },
-  {
-    "slug": "del-tuo-spirito-signore",
-    "title": "Del Tuo Spirito, Signore",
-    "author": "Gen · Messa Come fuoco vivo",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Del Tuo Spirito, Signore  Ritornello Del   tuo  Spirito,     Signore,      è      piena   la    ter   -   ra,      è  piena  la  ter -  ra.   ( 2  v . )  Strofa 1 Benedici    il Signore,  anima     mia  - a    Signore,   Dio,       Tu   sei grande!    Sono   immense,     splendenti    tutte  le tue opere        e tutte  le creature.  Strofa 2 Se togli  il tuo soffio  muore    ogni   cosa     e si dissolve   nella  terra.     Il tuo  spirito  scende:     tutto  si ricrea  e tutto  si rinnova.  Strofa 3 La tua  gloria,  Signore,   resti per  sempre.     Gioisci,  Dio,  del  creato.     Questo    semplice    canto     salga  a te,  Signore:   sei tu la nostra   gioia.",
-    "file": "del-tuo-spirito-signore.json"
-  },
-  {
-    "slug": "devo-dire-che",
-    "title": "Devo Dire Che",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Devo Dire Che  Strofa 1       Devo    dire che,     io non   son  più  io       da  quando    so     qual è  la sola  vera  via       Ma   chissà  perché,      non   so decidermi       c'è qualcosa    in me    che   non  mi   fa muovere  Ritornello            Cosa   fai, cosa  fai? Corri   sempre    dietro  i sogni  tuoi            Tu  non   hai, tu  non   hai l'allegrezza   degli  uccelli  in ciel            Tu  non   hai, tu  non   hai la purezza    che  hanno    i gigli al sol            Ora   sai, ora  sai che  la gioia  non   si può   comprar  Strofa 2       Devo    dire che,  proprio    non   lo so       Se riuscirò  a  buttar  via  quest'abito       Per  poi  fondermi    nel  grande    regno   di Dio       come    i passeri avere   il pane   da  Lui  Ritornello            Ma   perché,   ma   perché,   dove    vedi  la difficoltà?            Come    se,  come   se  non   avessi  piena   libertà            Cosa   c'è, cosa  c'è che   lasciare  perdere   non   puoi?            Tutto  qua,   tutto  qua   di più  facile da  far  non  c'è",
-    "file": "devo-dire-che.json"
-  },
-  {
-    "slug": "dolce-sentire",
-    "title": "Dolce Sentire",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Dolce Sentire  Strofa 1 Dolce   sentire     come    nel  mio   cuore, Or   - a  umil    - mente      sta nascendo     amore. Dolce   capire      che  non   son  più  solo ma   che  son    par  - te    di un'immensa      vita, che  ge  - ne  -  ro -  sa    risplende   intorno    a me: Do   - no   di   Lu -  i      e  del suo   immenso     amore.  Strofa 2                   Ci  ha  dato   il cielo    e  le  chiare   stelle,                   Fra  -  tel - lo     so  -  le     e  sorella    luna;                   la     madre    terra  con  frutti, prati  e fiori,                   il      fuo  - co  , il ven  - to,   l'aria e l'acqua   pura                   Fon   - te      di     vi  -  ta     per  le sue  creature,                   Do   -  no  di   Lu  - i       e del  suo  immenso     amore.                   Do   -  no  di   Lu  - i       e del  suo  immenso     amore.",
-    "file": "dolce-sentire.json"
-  },
-  {
-    "slug": "dona-la-pace-canone",
-    "title": "Dona la pace",
-    "author": "Canone",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Dona la pace Canone Canone Dona la pace, Signore, a chi confida in te. Dona, dona la pace, Signore, dona la pace.",
-    "file": "dona-la-pace-canone.json"
-  },
-  {
-    "slug": "dove-troveremo-tutto-il-pane",
-    "title": "Dove Troveremo Tutto il Pane",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Dove Troveremo Tutto il Pane  Ritornello         Dove    troveremo     tutto  il pane        Per  sfamare   tanta   gente         Dove    troveremo     tutto  il pane        Se non   abbiamo     niente  Strofa 1   Io  possiedo    solo  cinque   pani             Io possiedo    solo   due  pesci   Io  possiedo    un  soldo   soltanto            Io  non   possiedo    niente  Ritornello (ripetere)  Strofa 2   Io  so suonare    la chitarra                    Io  so dipingere,    fare  poesie,   Io  so scrivere   e penso    molto               Io  non   so fare  niente  Ritornello (ripetere)  Strofa 3   Io  sono   un  tipo  molto    bello               Io sono   intelligente   Io  sono   molto   furbo                          Io non   sono   niente  Ritornello finale         Dio  ci ha  dato   tutto  il pane         Per sfamare    tanta   gente         Dio  ci ha  dato   tutto  il pane         Anche   se  non   abbiamo     niente         Anche    se non   abbiamo     niente",
-    "file": "dove-troveremo-tutto-il-pane.json"
   },
   {
     "slug": "e-bello-lodarti",
@@ -660,16 +310,6 @@
     "file": "e-l-incontro-della-vita.json"
   },
   {
-    "slug": "e-sono-solo-un-uomo-symbolum-79",
-    "title": "E Sono Solo un Uomo",
-    "author": "Sequeri · Symbolum '79",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "E Sono Solo un Uomo Symbolum '79 Strofa 1 Io lo so, Signore,  che vengo   da lontano:   prima  nel pensiero  e poi  nella tua mano. Io mi  rendo  conto  che  tu sei la mia vita e non  mi  sembra   vero di pregarti  così. Padre  d'ogni  uomo   e non   ti ho visto mai; Spirito di vita e nacqui  da  una donna; figlio e mio  fratello e sono  solo un  uomo,   eppure  io capisco  che  tu sei verità...  Ritornello 1                 E imparerò   a guardare  tutto  il mondo                 con gli occhi trasparenti  di un bambino,                 e insegnerò  a chiamarti:  \"Padre  nostro\"                 ad ogni  figlio che diventa   uomo  Strofa 2 Io lo so, Signore,  che tu mi  sei vicino, luce alla mia mente,   guida  al mio  cammino, mano   che  sorregge,  sguardo  che  perdona   e non  mi  sembra  vero  che  tu esista così. Dove   nasce  amore,  Tu  sei la sorgente; dove   c'è una croce,  Tu sei la speranza; dove   il tempo  ha fine, Tu  sei Vita Eterna e so che  posso  sempre   contare  su di Te...  Ritornello 2                 E accoglierò  la vita come  un  dono                 e avrò il coraggio  di morire  anch'io                 e incontro  a te verrò  col mio  fratello                 che non  si sente amato          da nessuno.",
-    "file": "e-sono-solo-un-uomo-symbolum-79.json"
-  },
-  {
     "slug": "ecco-il-nostro-si",
     "title": "Ecco il Nostro Sì",
     "author": "",
@@ -690,26 +330,6 @@
     "file": "ecco-il-pane.json"
   },
   {
-    "slug": "ecco-quel-che-abbiamo",
-    "title": "Ecco Quel Che Abbiamo",
-    "author": "Gen Verde",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Ecco Quel Che Abbiamo  Ritornello Ecco   quel  che  abbiamo     nulla  ci appartiene     ormai       ecco   i frutti della  terra  che  tu moltiplicherai.       Ecco   queste   mani,   puoi   usarle  se lo  vuoi       per  dividere    nel mondo      il pane  che  tu  hai  dato  a  noi  Strofa 1 Solo  una   goccia   hai messo    fra le mani   mie     solo   una  goccia   che  tu  ora  chiedi  a me,   na,  na,  na…    una  goccia   che,  in mano     a Te,  una  pioggia    diventerà   e  la terra  feconderà  Strofa 2 Le  nostre   gocce,   pioggia   fra le mani   tue,     saranno    linfa  di una   nuova    civiltà, na,  na, na…     e la terra  preparerà        la festa  del  pane   che  ogni  uomo     condividerà  Ritornello e finale                           Sulle  strade,  il vento   da  lontano    porterà                           il profumo     del frumento,     che  tutti avvolgerà.                           E sarà  l'amore    che  il raccolto  spartirà                           e il miracolo    del  pane   in terra  si ripeterà",
-    "file": "ecco-quel-che-abbiamo.json"
-  },
-  {
-    "slug": "eccomi-salmo-39",
-    "title": "Eccomi",
-    "author": "Frisina · Salmo 39",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Eccomi Salmo 39 Intro  Ritornello Eccomi,      ecco  - mi!    Si  -   gnore   io  ven  -   go.       Eccomi,         ecco  - mi!     si compia    in me   la tua   vo   -   lontà.  Strofa 1 Nel  mio   Signore   ho  sperato,   e  su di  me  s'è  chinato,        ha  dato  ascolto   al mio   gri  -  do,       m'ha   liberato   dalla  mor   -   te.  Strofa 2 I miei  piedi  ha  reso  saldi, sicuri  ha reso   i miei  passi.        Ha  messo    sulla mia   bocca   un  nuovo    canto   di  lode.  Strofa 3 Il sacrificio non   gradisci,  ma   m'hai   aperto   l'orecchio,        non   hai voluto    olocausti,   allora  ho  detto:   io vengo!  Strofa 4 Sul tuo  libro  di me   è  scritto: si compia    il tuo  volere.        Questo    mio   Dio,  desidero,   la  tua  legge  è nel  mio   cuore.  Strofa 5 La tua  giustizia  ho  proclamato,      non   tengo   chiuse  le labbra.        Non   rifiutarmi,   Signore,   la tua  misericordia.",
-    "file": "eccomi-salmo-39.json"
-  },
-  {
     "slug": "emmanuel",
     "title": "Emmanuel",
     "author": "",
@@ -718,16 +338,6 @@
     ],
     "search": "Emmanuel  Strofa 1 Dall'orizzonte    una   grande    luce  viaggia  nella  storia        e lungo   gli anni  ha  vinto   il buio  facendosi   Memoria,        e illuminando     la nostra   vita  chiaro  ci rivela        che  non   si vive  se non   si cerca  la Verità...  Strofa 2 Un  grande    dono    che  Dio  ci ha  fatto  è Cristo   il suo Figlio,        e l'umanità    è rinnovata, è     in Lui salvata.        È vero   uomo,    è vero   Dio,  è  il Pane  della  Vita,        che  ad  ogni  uomo     ai suoi  fratelli ridonerà.  Ritornello Siamo    qui       sotto  la stessa  luce        sotto  la sua  croce   cantando    ad  una   voce.        È l'Emmanuel      Emmanuel,      Emmanuel.        È l'Emmanuel,      Emmanuel.  Strofa 3 La morte    è uccisa,  la vita  ha  vinto,  è  Pasqua   in  tutto  il mondo,        un  vento   soffia  in ogni  uomo     lo Spirito  fecondo.        Che  porta   avanti   nella  storia  la Chiesa   sua  sposa,        sotto  lo sguardo    di  Maria,   Comunità.  Strofa 4 Dalla  città di  chi ha  versato   il sangue   per  amore        ed  ha  cambiato    il vecchio   mondo     vogliamo     ripartire.        Seguendo     Cristo,  insieme   a  Pietro,  rinasce  in  noi  la fede,        Parola   viva  che  ci rinnova    e cresce  in noi.  Strofa 5 Noi  debitori   del  passato   di  secoli di  storia,        di vite date   per  amore,    di santi  che  han   creduto,        di uomini    che  ad  alta quota    insegnano    a  volare,        di chi la  storia sa  cambiare,    come    Gesù.  Strofa 6 È giunta   un'era   di primavera,     è tempo    di cambiare.        È oggi  il giorno   sempre    nuovo    per  ricominciare,        per  dare  svolte,  parole   nuove    e  convertire    il cuore,        per  dire al  mondo,     ad  ogni  uomo:     Signore   Gesù.",
     "file": "emmanuel.json"
-  },
-  {
-    "slug": "fammi-conoscere",
-    "title": "Fammi Conoscere",
-    "author": "Ruaro",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Fammi Conoscere  Ritornello Fammi     conoscere     la tua    volontà       parla   ti ascolto  Signore!       La  mia   felicità è fare  il tuo volere:       porterò    con   me  la  tua Parola.  Strofa 1 Lampada     ai miei  passi  è  la tua  Parola   luce sul  mio   cammino.        Ogni   giorno   la mia   volontà    trova  una   guida   in te.  Strofa 2 Porterò   con   me  i tuoi  insegnamenti:     danno     al mio   cuore  gioia!        La tua  Parola   è fonte   di luce:  dona    saggezza   ai  semplici.  Strofa 3 La mia   bocca   impari   la tua  lode   sempre    ti renda  grazie.        Ogni   momento      canti  la tua  lode   la mia  speranza    è  in te.",
-    "file": "fammi-conoscere.json"
   },
   {
     "slug": "frutto-della-nostra-terra",
@@ -750,46 +360,6 @@
     "file": "giovane-donna.json"
   },
   {
-    "slug": "giovanni",
-    "title": "Giovanni",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Giovanni  Intro  Strofa 1             Voce   di uno   che  grida   nel deserto    :               \"Convertitevi,     il Regno   è  qui.               Preparate    la   via     del   Signore,               raddrizzate     i suoi sentie       -  ri\".  Ritornello Alle  -  luja, allelu  - ja,                   viene   il Signore,  allelu    -  ja.                   Preparate    una   strada  nel  deserto,                   per  il Signore   che   vie  -  e  -    ne.  Strofa 2             E  venne   un  uomo     e il suo  nome    era  Giovanni,                 lui testimone    della  luce  di Dio;                 come    una  lampada     che  rischiara  il buio,                 egli arde   nell'oscurità.  Strofa 3             Ecco   io mando     il mio  messaggero                 dinanzi   a me,   per  prepararmi     la via,                 per  ricondurre    i padri  verso   i figli,                 con  lo  spirito di  Elia.",
-    "file": "giovanni.json"
-  },
-  {
-    "slug": "gloria-a-dio-ricci-la-tua-dimora",
-    "title": "Gloria a Dio",
-    "author": "Daniele Ricci · La tua dimora",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Gloria a Dio Daniele Ricci La tua dimora Ritornello Gloria a Dio nell'alto dei cieli pace in terra agli uomini di buona volontà. Strofa 1 Noi ti lodiamo ti benediciamo ti adoriamo ti glorifichiamo ti rendiamo grazie per la tua gloria immensa Signore Dio Re del cielo Dio Padre onnipotente. Strofa 2 Signore Figlio unigenito Gesù Cristo Signore Dio Agnello di Dio Figlio del Padre tu che togli i peccati del mondo abbi pietà di noi accogli la nostra supplica tu che siedi alla destra del Padre abbi pietà di noi. Finale Perché tu solo il Santo tu solo il Signore tu solo l'Altissimo Gesù Cristo con lo Spirito Santo nella gloria di Dio Padre Amen.",
-    "file": "gloria-a-dio-ricci-la-tua-dimora.json"
-  },
-  {
-    "slug": "gloria-a-te-parola-vivente",
-    "title": "Gloria a Te, Parola Vivente",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Gloria a Te, Parola Vivente  Ritornello    Gloria   a Te,  Parola   vivente    Verbo   di  Dio  gloria  a  Te,    Cristo  mae     -   stro, Cristo  Signo    -   re!  Strofa 1    Tu  solo  hai  parole   di vita  per  noi.    Beato   colui  che  ti ascolta,  Signore,   perché    vivrà.  Strofa 2    Tu  solo  hai  proposte    di amore     per  noi.    Beato   colui  che  le accoglie,   Signore,   perché    vivrà.  Strofa 3    Tu  solo  sei via  alla vita  per  noi.    Beato   colui  che  in te  spera,  Signore,   perché    vivrà.  Strofa 4    Tu  solo  dischiudi   l'eterno   per  noi.    Beato   colui  che  in te  spera,  Signore,   perché    vivrà.",
-    "file": "gloria-a-te-parola-vivente.json"
-  },
-  {
-    "slug": "gloria-buttazzo",
-    "title": "Gloria",
-    "author": "Buttazzo",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Gloria Buttazzo Intro  Ritornello Gloria a Dio  nell'alto dei cieli      pace  in terra agli uomini.         Gloria a  Dio nell'alto dei cieli     pace  in terra agli uomini.  Strofa 1    Ti   lodiamo,   Ti benediciamo,       Ti adoriamo,   Ti glorifichiamo.    Ti rendiamo   gra  -  zie     per la Tua  gloria immensa  Strofa 2    Signore  Dio, Re  del cielo Dio  Padre  onnipotente.    Gesù  Cristo, Agnello  di Dio, tu Figlio del Padre  Strofa 3    Tu che  togli i peccati del mondo    la nostra supplica  ascolta, Signore    Tu che  siedi alla destra del Padre  abbi  pietà di noi.  Strofa 4    Tu solo  il Santo, Tu solo  il Signore, Tu, l'Altissimo Gesù  Cristo    con  lo Spirito Santo nella  gloria del Padre.  Finale Gloria  a Dio  nell'alto dei cieli      pace  in terra agli uomini.    Gloria a Dio  nell'alto dei cieli     pace  in terra agli uomini.  Outro",
-    "file": "gloria-buttazzo.json"
-  },
-  {
     "slug": "gloria-gen-verde",
     "title": "Gloria",
     "author": "Gen Verde",
@@ -798,16 +368,6 @@
     ],
     "search": "Gloria Gen Verde Intro  Ritornello    Gloria, gloria a Dio.       Gloria, gloria nell'alto dei  cieli.    Pace in terra agli uomini     di buona  volontà.          Gloria!  Strofa 1           Noi   ti lodiamo,  ti benediciamo,           ti adoriamo,   glorifichiamo   te,           ti rendiamo   grazie  per la tua immensa    gloria.           Signore  Dio,  gloria!          Re del  cielo,  gloria!           Dio  Padre,  Dio  onnipotente,   gloria!  Richiamo al ritornello    Gloria…  Strofa 2           Signore,  Figlio unigenito,  Gesù  Cristo,           Signore,  Agnello   di Dio, Figlio del Padre.           Tu  che  togli i peccati del mondo,   abbi  pietà di noi;           tu  che togli i peccati del mondo,   accogli  la nostra supplica;           tu  che siedi alla destra del Padre,  abbi pietà  di noi.  Richiamo al ritornello    Gloria…  Strofa 3           Perché   tu solo il Santo, il Signore,           tu  solo l'Altissimo, Cristo Gesù           con  lo Spirito Santo  nella gloria del  Padre.  Ritornello finale    Gloria…",
     "file": "gloria-gen-verde.json"
-  },
-  {
-    "slug": "gloria-giombini",
-    "title": "Gloria",
-    "author": "Giombini",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Gloria Giombini Ritornello Gloria a Dio nell'alto dei cieli e pace in terra agli uomini di buona volontà. Strofa Noi ti lodiamo, ti benediciamo, ti adoriamo, ti glorifichiamo, ti rendiamo grazie per la tua gloria immensa. Recitato Signore Dio, Re del cielo, Dio Padre onnipotente. Signore, Figlio unigenito, Gesù Cristo, Signore Dio agnello di Dio, Figlio del Padre, tu che togli i peccati del mondo, accogli la nostra supplica; tu che siedi alla destra del Padre, abbi pietà di noi. Ritornello Gloria a Dio nell'alto dei cieli e pace in terra agli uomini di buona volontà. Finale Perché tu solo il Santo, tu solo il Signore, tu solo l'Altissimo, Gesù Cristo. Con lo Spirito Santo nella gloria di Dio Padre. Amen.",
-    "file": "gloria-giombini.json"
   },
   {
     "slug": "grandi-cose",
@@ -830,46 +390,6 @@
     "file": "hai-detto-si.json"
   },
   {
-    "slug": "hallelujah-riadattamento-cattolico",
-    "title": "Hallelujah",
-    "author": "Riadattamento cattolico · Leonard Cohen",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Intro Strofa 1 Lo so che c'è qualcuno che unisce tutti gli uomini, un'armonia nel cuore, dentro noi. Colui che apre le maree e che riscalda l'anima, la gioia della vita, hallelujah. Ritornello Hallelujah, hallelujah, hallelujah, hallelu-ja. Strofa 2 La luce che dà forza e accende la speranza in te, con lui la strada non sarà mai buia. Scavalca gli orizzonti e, paura non avere più cantiamo tutti insieme, hallelujah. Ritornello Hallelujah, hallelujah, hallelujah, hallelu-ja. Strofa 3 È un'energia invisibile, l'andare verso gli ultimi, che il Re di puro amore dona a noi. Il mondo è così debole, le notti dello spirito, prendiamoci per mano, hallelujah. Ritornello Hallelujah, hallelujah, hallelujah, hallelu-ja. Strofa 4 La vita è come un seme che, coi rami si fa albero, un'occasione di fraternità. L'amore vuole crescere, i frutti della libertà, che invita a trovare la sua gloria. Ritornello finale Hallelujah, hallelujah, hallelujah, hallelu-ja. Finale",
-    "file": "hallelujah-riadattamento-cattolico.json"
-  },
-  {
-    "slug": "ho-abbandonato",
-    "title": "Ho Abbandonato",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Ho Abbandonato  Ritornello 1                Ho   abbandonato                dietro  di me                Ogni   paura   ogni   dubbio    perché                Una   grande    gioia           mi  sento   in cuor                Se  penso   a quanto    è buono    il mio   Signor  Strofa 1         Ha  fatto  i cieli sopra   di me         Ha  fatto  il sole, il mare   i fior         Ma   il più bel  dono    che  mi  ha  fatto  il mio  Signor         È stata la  vita ed  il suo  amor  Ritornello 2                Ho   abbandonato       dietro   di me                Ogni   tristezza   ogni  dolor                E  credo   ancora   in un   mondo     che                Sarà  diverso   a causa   del  suo  amor  Strofa 2         Se  poi  un  giorno   mi  chiamerà         Un   lungo   viaggio   io farò         Per  monti   e  valli allor a  tutti io dirò         Sappiate    che  è buono    il mio  Signor  Ritornello finale                Ho   abbandonato       dietro  di  me                Ogni   paura   ogni   dubbio    perché                Una   grande    gioia  mi  sento   in cuor                Se  penso   a quanto    è buono    il mio   Signor",
-    "file": "ho-abbandonato.json"
-  },
-  {
-    "slug": "il-canto-dei-3-giovani",
-    "title": "Il Canto dei 3 Giovani",
-    "author": "Marranzino · De Luca",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Il Canto dei 3 Giovani  Strofa 1 Noi  ti lodiamo    Signor,   a Te  la lode  e la gloria per  sempre noi  lodiamo    il tuo nome,   a Te  la lode  e la gloria  per  sempre.  Ritornello Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre. Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre.  Strofa 2 Astri del  cielo lodate   il Signore, a Lui  l'onore  e la gloria  per  sempre. Acque   del  cielo lodate   il Signore, a Lui  l'onore  e la gloria  per  sempre.  Ritornello Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre. Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre.  Strofa 3 Sole  e luna  lodate  il Signore,  a Lui l'onore   e la gloria  per sempre. Piogge   e rugiade   lodate  il Signore,  a Lui l'onore   e la gloria per  sempre.  Ritornello Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre. Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre.  Cambio di tonalità - 1 battuta  Strofa 4 O  venti  tutti   lodate   il Signore, a Lui  l'onore  e la gloria  per  sempre. Fuoco   e calore   lodate  il Signore,  a Lui l'onore   e la gloria per  sempre.  Ritornello Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre. Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre.  Strofa 5 Notte   e giorno   lodate  il Signore,  a Lui l'onore   e la gloria per  sempre. Nuvole    e lampi  lodate   il Signore,  a Lui l'onore  e  la gloria per  sempre.  Ritornello Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre. Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre.  Strofa 6 Uomini    tutti   lodate  il Signore,  a Lui  l'onore  e la gloria  per sempre. Tutta  la terra  dia lode  al Signore,  a  Lui l'onore  e  la gloria per  sempre.  Ritornello Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre. Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre.  Finale Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre. Noi  loderemo     il Signor, canteremo     il suo amor,   che durerà   per  sempre. Noi  loderemo     il Signor!",
-    "file": "il-canto-dei-3-giovani.json"
-  },
-  {
-    "slug": "il-canto-del-mare",
-    "title": "Il Canto del Mare",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Il Canto del Mare  Ritornello Cantiamo     al Signore         stupenda    è  la Sua  vittoria         Signore   è  il Suo nome      alle  - lu -  ia (x  2).  Strofa 1    Voglio   cantare   in onore    del  Signore    perché   ha  trionfato   alle  - lu - ia    ha  gettato   in mare   cavallo   e cavaliere    mia  forza   e mio   canto   è il Signo    -   re    il mio  Salvatore,   è  il Dio  di mio   padre    ed  io lo  voglio  esaltare.  Strofa 2    Dio  è  prode   in guerra,   si chiama    Signore    travolse   nel mare    gli eserciti    i carri d'Egitto   sommerse     nel  Mar   Rosso    abissi profondi    li coprono    la Tua   destra  Signore   si è innalzata    la Tua   potenza    è terribile.  Strofa 3    Si accumularon      le acque   al Tuo   soffio    s'alzaron   le onde   come    un  argine    si raggelaron    gli abissi in fondo    al mare    chi è  come   Te  o  Signore    guidasti  con   forza  il popolo    redento    e lo conducesti     verso  Sion.",
-    "file": "il-canto-del-mare.json"
-  },
-  {
     "slug": "il-canto-dell-amore",
     "title": "Il Canto dell'Amore",
     "author": "Federico Russo",
@@ -878,36 +398,6 @@
     ],
     "search": "Il Canto dell'Amore  Strofa 1       Se dovrai  attraversare  il deserto non  temere   io sarò con  te.       Se dovrai  camminare    nel fuoco  la sua  fiamma   non  ti brucerà.       Seguirai la mia  luce nella notte,       sentirai la mia forza  nel cammino,       io sono  il tuo Dio,       il Signore.  Strofa 2       Sono  io che  ti ho fatto e plasmato,   ti ho chiamato   per nome.       Io da  sempre  ti ho conosciuto   e ti ho dato  il mio amore.       Perché  tu sei prezioso  ai miei occhi,       vali più del più  grande  dei tesori,       io sarò con  te,        ovunque   andrai.  Strofa 3       Non   pensare  alle cose di ieri, cose nuove  fioriscono  già;       aprirò  nel deserto  sentieri, darò acqua  nell'aridità.       Perché  tu sei prezioso  ai miei occhi,       vali più del più  grande  dei tesori,       io sarò con  te,        ovunque   andrai.  Finale - poi ripetere la Strofa 3       Io ti sa - rò accanto, sarò con  te;       per tutto    il tuo viaggio sarò  con  te. (2 volte)",
     "file": "il-canto-dell-amore.json"
-  },
-  {
-    "slug": "il-disegno",
-    "title": "Il Disegno",
-    "author": "Marani",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Il Disegno  Strofa 1 Nel  mare   del  silenzio   una  voce   si alzò    da  una  notte   senza   confini  una   luce  brillò    dove   non   c'era  niente  quel   giorno.  Ritornello Avevi    scritto già  il mio  nome    lassù  nel  cielo       avevi   scritto  già la mia   vita  insieme   a te       avevi   scritto  già di  me.  Strofa 2 E quando     la tua  mente    fece  splendere    le stelle    e quando     le tue  mani   modellarono      la terra    dove   non   c'era  niente  quel   giorno.  Strofa 3 E quando     hai  calcolato   la profondità    del  cielo    e quando     hai colorato    ogni   fiore della  terra    dove   non   c'era  niente  quel   giorno.  Strofa 4 E quando     hai  disegnato    le nubi  e le  montagne    e quando     hai disegnato    il cammino      di ogni  uomo    l'avevi  fatto  anche   per  me.  Ritornello finale Se  ieri non   sapevo    oggi  ho  incontrato    te                    e  la mia  libertà  è  il tuo disegno    su di  me                    non   cercherò    più  niente   perché   tu  mi  salverai.",
-    "file": "il-disegno.json"
-  },
-  {
-    "slug": "il-giovane-ricco",
-    "title": "Il Giovane Ricco",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Il Giovane Ricco  Strofa 1        Lui stava   parlando        seduto    sopra   i gradini        Di quella   casa  bianca       in  mezzo    a tanti  bambini        Erano   tutti sudati        Pietro   cercava   da  bere        C'erano   anche    i soldati        io  non   riuscivo  a  vedere  Ritornello                   Vai    vendi   tutto  quello   che  hai                   e    vieni  con   Me                   Vai    vendi   tutto  quello   che  hai                   e    vieni  con   Me  Strofa 2        Mi  feci avanti   pian   piano     finché   non   giunsi  tra i primi        Tenevo    la testa  bassa     gli occhi  fissi ai gradini        Lui continuava     a  parlare     sembrava     dicesse   a me        Guardavo     fisso  per  terra    e  mi  chiedevo    perché  Strofa 3        Sentivo   quelle   parole      ma   non   volevo    capire        Poi  mi  riprese  la folla       e non   lo  volli seguire        Lui stava   parlando        seduto    sopra   i gradini        Di  quella  casa  bianca        in mezzo    a tanti  bambini",
-    "file": "il-giovane-ricco.json"
-  },
-  {
-    "slug": "il-pane-che-ci-hai-dato",
-    "title": "Il Pane Che Ci Hai Dato",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Il Pane Che Ci Hai Dato  Strofa 1       Il pane  che   ci hai dato           Oggi   mangiamo      ancora  Ritornello          Gloria   al Signor                   Gloria   al Signor          Gloria   al Signor                   Gloria   al Signor          Gloria   al Signor                   Gloria   al Signor  Ponte          Per  questa   terra               Noi   ti lodiam          Su  questa   terra                Per  te danziam          E battiamo     le mani                 A  te Signor          E battiamo     le mani               A  te Signor  Strofa 2       Il vino  che  ci hai  dato        Oggi   beviamo     ancora  Strofa 3       La  gioia  di cantarti            Riempie    i nostri  cuor",
-    "file": "il-pane-che-ci-hai-dato.json"
   },
   {
     "slug": "il-signore-e-la-luce",
@@ -920,36 +410,6 @@
     "file": "il-signore-e-la-luce.json"
   },
   {
-    "slug": "il-signore-e-la-mia-forza",
-    "title": "Il Signore è la mia forza",
-    "author": "Capo 3",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Il Signore è la mia forza Capo 3 Canone Il Signore è la mia forza ed io spero in lui. Il Signore è il Salvator. In lui confido, non ho timor, in lui confido, non ho timor.",
-    "file": "il-signore-e-la-mia-forza.json"
-  },
-  {
-    "slug": "il-tuo-amore-annuncero",
-    "title": "Il tuo amore annuncerò",
-    "author": "Capo 3",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Il tuo amore annuncerò Capo 3 Intro Strofa 1 Ogni vento, ogni colore che l'arcobaleno ha, ogni sogno dentro me al vero amore mi riporterà. Le parole di ogni storia, ogni stella di lassù, ogni angolo creato parlerà di te. Ritornello Fino a quando vita avrò il tuo amore annuncerò. Sarò fedele nel silenzio se parlare non potrò. Finché respiro avrò di cuore Dio ringrazierò. Fino a quando vita avrò il tuo amore annuncerò. Strofa 2 Dai monti alle valli, ogni fiume al mare va; ogni mano che si dà porta pace in dono a chi non ne ha. Ogni semplice preghiera, ogni gesto di bontà, la speranza in ogni cuore parlerà di te. Ritornello Fino a quando vita avrò il tuo amore annuncerò. Sarò fedele nel silenzio se parlare non potrò. Finché respiro avrò di cuore Dio ringrazierò. Fino a quando vita avrò il tuo amore annuncerò. Finale · +1 tono L'amore… Fino a quando vita avrò annuncerò il tuo amor… Fino a quando vita avrò il tuo amore annuncerò. Sarò fedele nel silenzio se parlare non potrò. Finché respiro avrò di cuore Dio ringrazierò. Fino a quando vita avrò il tuo amore annuncerò.",
-    "file": "il-tuo-amore-annuncero.json"
-  },
-  {
-    "slug": "il-vascello-dell-amore",
-    "title": "Il Vascello dell'Amore",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Il Vascello dell'Amore  Strofa 1         Tu  che  inventi   per  ognuno    di  noi         un  cammino      che  porta   verso   te,         tu  che  chiami   ognuno     per  il suo nome     tu         oggi  ci chiami   insieme. Strofa 2         Tu  che  hai  in mente    per  ognuno     di noi         una   strada  bellissima   con   te,         tu  stavolta  parli  di un'avventura      che         che  si percorre    insieme.  Ritornello                     Rendi    agile il vascello   dell'amore    nostro,                     docile   al soffio  del  tuo  Spirito,                     e  per  gli inimmaginabili     mari   conducilo,                     quelli  che  tu  sai.                     Rendi    agile il vascello   dell'amore    nostro,                     che   tocchi  i lidi che  tu solo  sai                     e  la scia della  sua  rotta  che  disegni   un'onda                      quella  che  tu  vuoi.  Strofa 3         Dacci   forza  perché    ognuno    di  noi         con   la vita dispieghi   la tua  idea.         Dacci   forza  per  svelare   il pensiero   tuo         su  questa   vita insieme. Strofa 3 (ripetere)         Dacci   forza  perché    ognuno    di  noi         con   la vita dispieghi   la tua  idea.         Dacci   forza  per  svelare   il pensiero   tuo         su  questa   vita insieme.  Ritornello finale                     Rendi    agile il vascello   dell'amore    nostro,                     docile   al soffio  del  tuo  Spirito,                     e  per  gli inimmaginabili     mari   conducilo,                     quelli  che  tu  sai.                     Rendi    agile il vascello   dell'amore    nostro,                     che   tocchi  i lidi che  tu solo  sai                     e  la scia della  sua  rotta  che  disegni   un'onda                      quella  che   tu, quella  che,                      quella  che   tu, quella  che,                      quella   che  tu...   vuoi.",
-    "file": "il-vascello-dell-amore.json"
-  },
-  {
     "slug": "in-eterno-cantero",
     "title": "In eterno canterò",
     "author": "RNS",
@@ -958,46 +418,6 @@
     ],
     "search": "In eterno canterò RNS Ritornello In eterno canterò la tua lode, mio Signor. Le mie labbra esalteranno la tua fedeltà. Io per sempre ti benedirò e annuncerò il tuo nome. In eterno io ti canterò. Strofa 1 Anche se la tempesta mi colpirà, la mia lode a te, Signore, si eleverà. Sei tu la mia fiducia, io spero in te. Tu sei il mio Signore, il mio Re. Il tuo nome annuncerò. Ritornello In eterno canterò la tua lode, mio Signor. Le mie labbra esalteranno la tua fedeltà. Io per sempre ti benedirò e annuncerò il tuo nome. In eterno io ti canterò.",
     "file": "in-eterno-cantero.json"
-  },
-  {
-    "slug": "in-manus-tuas",
-    "title": "In manus tuas",
-    "author": "Canone di Taizé",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "In manus tuas Canone di Taizé Canone In manus tuas, Pater, commendo spiritum meum.",
-    "file": "in-manus-tuas.json"
-  },
-  {
-    "slug": "in-una-notte-come-tante",
-    "title": "In una Notte Come Tante",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "In una Notte Come Tante  Intro  Strofa 1    In una  notte_  come  tante,  in una città qualunque,    per una  strada_  un po'  isolata un pastore  torna  a casa,    il pastore_ guarda   avanti e per  il freddo stringe i denti,    già s'immagina   il ristoro dopo  un  giorno_  di lavoro.    Ma  nell'aria c'è qualcosa  che  lo abbraccia_    E ad un  tratto una  voce_  nella testa.    In questa  notte come   tante    Questo   mondo    cambia  rotta,    nasce  Dio, bambino_,    in una grotta.  Interludio senza violoncello  Strofa 2    Ad  un tratto quel  posto  si riempie di persone,    tutti vanno_  a quella  grotta come   fosse_ ad  un  altare    e Giuseppe   non  capisce  cosa accade  nella via,    ma  poi incontra_   la dolcezza  dello sguardo_   di Maria,    che come   sempre   ha capito  già ogni  cosa_    ed assiste alla scena silenziosa.    In questa  notte come   tante    Oggi  il mondo   cambia   rotta,    nasce  Dio, bambino_,    in una grotta.  Ritornello 1    Come   brezza  leggera  che accarezza   l'anima    Vieni bambino    in questa  piccola città,    tra la povera  gente  e anche  tu non  hai niente,    ma  il tuo amore   resterà_ per sempre.  Interludio senza violoncello  Strofa 3    In una  notte come   tante  in una città qualunque    C'è chi adesso_   torna a casa  e chi aspetta in una  chiesa,    c'è qualcuno_   che usa  ancora_  la violenza_    e chi cerca ormai  deluso_   una  speranza.    Ma  tu vieni e prova   ancora    A cambiare   questa  rotta,    nasci qui, bambino_,    in questa grotta.  Ritornello 2    Come   brezza  leggera  che accarezza   l'anima    Vieni indifeso  in questa piccola  città,    tra la povera  gente_  e anche  tu non   hai niente,    ma  il tuo amore   arriverà_  Ritornello finale    Come   brezza  leggera  che accarezza   l'anima    Vieni bambino    in questa  piccola città,    tra la povera  gente  e anche  tu non  hai niente,    ma  il tuo amore   resterà_ per sempre.  Interludio senza violoncello",
-    "file": "in-una-notte-come-tante.json"
-  },
-  {
-    "slug": "invochiamo-la-tua-presenza-capo-3",
-    "title": "Invochiamo la Tua Presenza",
-    "author": "Capo 3",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Invochiamo la Tua Presenza Capo 3 Intro  Strofa 1  Invochiamo  la tua presenza, vieni Signor  Invochiamo  la tua presenza, scendi su di noi  Vieni Consolatore, dona pace ed umiltà  Acqua  viva d'amore Questo cuore apriamo a te  Ritornello 1 Vieni Spirito, vieni Spirito, scendi su di noi Vieni Spirito, vieni Spirito, scendi su di noi Vieni su noi, Maranathà, vieni su noi Spirito Vieni Spirito, vieni Spirito, scendi su di noi Vieni Spirito, vieni Spirito, scendi su di noi Scendi su di noi  Strofa 2  Invochiamo  la tua presenza, vieni Signor  Invochiamo  la tua presenza, scendi su di noi  Vieni luce dei cuori, dona forza e fedeltà   Fuoco eterno d'amore   Questa vita offriamo a te  Ritornello 2 Vieni Spirito, vieni Spirito, scendi su di noi Vieni Spirito, vieni Spirito, scendi su di noi Vieni su noi, Maranathà, vieni su noi Spirito Vieni Spirito, vieni Spirito, scendi su di noi Vieni Spirito, vieni Spirito, scendi su di noi Scendi su di noi  Ripresa Vieni Spirito, vieni Spirito, scendi su di noi Vieni Spirito, vieni Spirito, scendi su di noi  Ritornello finale - modulazione Vieni Spirito, vieni Spirito, scendi su di noi Vieni Spirito, vieni Spirito, scendi su di noi Vieni su noi, Maranathà,  vieni su noi Spirito Vieni Spirito, vieni Spirito, scendi su di noi Vieni Spirito, vieni Spirito, scendi su di noi Scendi su di noi",
-    "file": "invochiamo-la-tua-presenza-capo-3.json"
-  },
-  {
-    "slug": "io-mi-arrendo-capo-3",
-    "title": "Io Mi Arrendo",
-    "author": "Capo 3",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Io Mi Arrendo Capo 3 Intro  Strofa 1    Eccomi  di nuovo  in ginocchio qui,    sto lasciando tutto, sto lasciando tutto    E mi trovo  qui perché tu Dio mi  attiri    Io cerco Te, ho bisogno  di Te    Io mi arrendo  Strofa 2    Riempimi  di grazia e d'Amore,  sì    Ho  fame  di Te, ho sete di Te    Io so che senti il mio grido a Te    Parlami adesso, parlami  ora  Ritornello    Io mi arrendo,  io mi arrendo    Voglio sentirti di più, voglio scoprirti di più    Io mi arrendo,  io mi arrendo    Voglio sentirti di più    Voglio scoprirti di più  Interludio  Ponte 1    Sei un vento che soffia forte in me    Fa' ciò che vuoi, fa' ciò che vuoi in me    Sei tempesta che si risveglia in me    Fa' ciò che vuoi, fa' ciò che vuoi in me    Sei un vento che respira in me    Fa' ciò che vuoi, fa' ciò che vuoi in me    Sei una tempesta  che si risveglia in me    Fa' ciò che vuoi, fa' ciò che vuoi in me  Interludio  Ponte 2    Sei un vento che soffia forte in me    Fa' ciò che vuoi, fa' ciò che vuoi in me    Sei una tempesta  che si risveglia in me    Fa' ciò che vuoi, fa' ciò che vuoi in me    Fa' ciò che vuoi, fa' ciò che vuoi in me  Finale (x2)    Io mi arrendo, io mi  arrendo    Voglio sentirti di più                (x2)    Voglio scoprirti di più",
-    "file": "io-mi-arrendo-capo-3.json"
   },
   {
     "slug": "jesus-christ-you-are-my-life",
@@ -1030,36 +450,6 @@
     "file": "la-canzone-dell-amicizia.json"
   },
   {
-    "slug": "la-gioia",
-    "title": "La Gioia",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "La Gioia  Strofa 1 Ascolta   il rumore    delle  onde   del  mare   ed  il canto  notturno    dei  mille  pensieri   dell'umanità,   che   riposa   dopo    il traffico di  questo   giorno   e di sera  si incanta    davanti   al tramonto     che  il sole  le dà.    Respira,    e  da  un  soffio  di vento   raccogli il profumo     dei fiori  che  non   hanno    chiesto  che  un   po'  di umiltà.   E se  vuoi  puoi   cantare,     e cantare   che  hai  voglia  di  dare,  e cantare che  ancora    nascosta   può   esistere  la felicità.  Ritornello Perché   la vuoi,   perché   tu  puoi  riconquistare    un   sorriso; e puoi   cantare   e puoi   gridare   che  ti hanno    detto  bugie, se han   raccontato    che  l'hanno    uccisa  che  han   calpestato    la gioia, perché   la gioia,  perché    la gioia,  perché   la gioia  è con   te! E magari    fosse  un  attimo   vivila,  ti prego, e magari    a denti   stretti non  farla  morire, anche   immersa     nel  frastuono    tu falla sentire, hai  bisogno    di gioia  come    me.      La la  la la…  Strofa 2 Ancora,    è già  tardi  ma  rimani   ancora per  gustare   ancora    per  poco    quest'aria   scoperta   stasera;   e domani     ritorna,   fra la  gente  che  corre   e dispera, tu  saprai  che  nascosta   nel  cuore   può   esistere  la felicità.  Ritornello finale Perché   la vuoi,   perché   tu  puoi  riconquistare    un   sorriso; e puoi   cantare   e puoi   gridare   che  ti hanno    detto  bugie, se han   raccontato    che  l'hanno    uccisa  che  han   calpestato    la gioia, perché   la gioia,  perché    la gioia,  perché   la gioia  è con   te! E magari    fosse  un  attimo   vivila,  ti prego, e magari    a denti   stretti non  farla  morire, anche   immersa     nel  frastuono    tu falla sentire, hai  bisogno    di gioia  come    me.      La la  la la…",
-    "file": "la-gioia.json"
-  },
-  {
-    "slug": "la-mia-anima-canta",
-    "title": "La Mia Anima Canta",
-    "author": "Gen Verde",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "La Mia Anima Canta  Ritornello La  mia  anima    canta   la grandezza     del Signore,                    il mio   spirito  esulta  nel mio   salvatore.                    Nella   mia   povertà    l'Infinito mi  ha  guardata,                    in  eterno   ogni  creatura    mi  chiamerà    beata.  Strofa 1               La  mia  gioia  è  nel Signore                      che  ha  compiuto     grandi   cose  in  me,                      la mia   lode  al Dio   fedele                      che  ha  soccorso    il suo popolo                      e non   ha  dimenticato                      le sue  promesse     d'amore.  Strofa 2               Ha  disperso    i superbi                     nei pensieri   inconfessabili,                     ha  deposto    i potenti,                     ha  risollevato   gli umili,                     ha  saziato  gli affamati                     e aperto   ai ricchi  le mani.",
-    "file": "la-mia-anima-canta.json"
-  },
-  {
-    "slug": "la-preghiera-di-gesu-e-la-nostra",
-    "title": "La Preghiera di Gesù è la Nostra",
-    "author": "Castiglia · Varnavà",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "La Preghiera di Gesù è la Nostra Strofa 1 Dove due o tre sono riuniti nel mio nome io sarò con loro, pregherò con loro, amerò con loro, perché il mondo venga a Te o Padre conoscere il tuo amore e avere vita con Te Strofa 2 Voi che siete luce della terra, miei amici risplendete sempre della vera luce perché il mondo creda nell'amore che c'è in voi o Padre consacrali per sempre e diano gloria a Te. Cambio di tonalità - RE Strofa 3 Ogni beatitudine vi attende nel mio giorno se sarete uniti, se sarete pace, se sarete puri perché voi vedrete Dio che è Padre in Lui la vostra vita gioia piena sarà. Strofa 4 Voi che ora siete miei discepoli nel mondo siate testimoni di un amore immenso date prova di quella speranza che c'è in voi, coraggio vi guiderò per sempre Io rimango con voi. Cambio di tonalità - MI Strofa 5 Spirito che animi la chiesa e la rinnovi donale fortezza, fa' che sia fedele come Cristo che muore e risorge perché il Regno del Padre si compia in mezzo a noi e abbiamo vita in (Lui) si compia in mezzo a noi e abbiamo vita in Lui.",
-    "file": "la-preghiera-di-gesu-e-la-nostra.json"
-  },
-  {
     "slug": "la-tua-dimora-ricci",
     "title": "La Tua Dimora",
     "author": "Daniele Ricci · La tua dimora",
@@ -1068,16 +458,6 @@
     ],
     "search": "La Tua Dimora Daniele Ricci apostoli profeti pietra angolare Fai di noi il popolo tuo Padre famiglia casa gioia Spirito Verbo pace",
     "file": "la-tua-dimora-ricci.json"
-  },
-  {
-    "slug": "laudato-sii-o-mi-signore",
-    "title": "Laudato Sii, o Mi Signore",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Laudato Sii, o Mi Signore  Ritornello           Laudato     sii, o mi  Signore          Laudato     sii, o mi  Signore           Laudato     sii, o mi  Signore          Laudato     sii, o mi  Signore  Strofa 1     E  per  tutte  le tue  creature         per  il sole e per  la  luna        Per  le stelle e  per  il vento         e per   l'acqua  e per  il fuoco  Strofa 2     Per sorella   madre    terra           ci alimenta    e ci sostiene        Per  i frutti i fiori e l'erba          per  i monti   e  per  il mare  Strofa 3     Perché   il senso  della  vita         è cantare   e lodarti        E  perché   la nostra   vita            sia sempre    una   canzone  Strofa 4     E per  quelli  che  ora  piangono      e per  quelli  che  ora   soffrono        E  per  quelli  che  ora  nascono       e per  quelli  che  ora  muoiono",
-    "file": "laudato-sii-o-mi-signore.json"
   },
   {
     "slug": "laudato-sii-signore-mio",
@@ -1090,16 +470,6 @@
     "file": "laudato-sii-signore-mio.json"
   },
   {
-    "slug": "le-tue-mani",
-    "title": "Le Tue Mani",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Le Tue Mani  Intro  Strofa 1    Le tue mani   son piene  di fiori    dove  li portavi fratello mio?    Li portavo  alla tomba   di Cristo,    ma  l'ho trovata  vuota  sorella mia.  Ritornello Al    -     le -  lu - ia        Al  - le - lu - ia                           Al    -     le -  lu - ia        Al - le - lu - ia  Strofa 2    I tuoi occhi riflettono gioia,    dimmi   cosa hai visto fratello mio?    Ho  veduto   morire  la morte,    ecco  cosa ho  visto sorella mia.  Strofa 3    Hai portato   una  mano   all'orecchio,    dimmi   cosa ascolti fratello mio?    Sento  squilli di tromba  lontani,    sento  cori d'angeli sorella mia.  Strofa 4    Stai cantando   un'allegra canzone    dimmi   perché  canti fratello mio?    Perché  so che  la vita non muore    ecco  perché  canto  sorella mia.",
-    "file": "le-tue-mani.json"
-  },
-  {
     "slug": "le-tue-meraviglie",
     "title": "Le Tue Meraviglie",
     "author": "",
@@ -1110,16 +480,6 @@
     "file": "le-tue-meraviglie.json"
   },
   {
-    "slug": "lode-a-te-o-cristo",
-    "title": "Lode a Te, o Cristo",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Lode a Te, o Cristo  Ritornello (x2) Lode a te o Cristo, Re di eterna gloria.  Strofa 1              Signore,   tu  sei veramente                 Il Salvatore   del mondo:                 dammi    dell'acqua    viva                 perché   non   abbia   più  sete.  Strofa 2              Chi   beve   di quest'acqua                 avrà  di nuovo     sete,                 ma   chi beve   dell'acqua    che  io gli darò                 non   avrà  mai   più  sete.",
-    "file": "lode-a-te-o-cristo.json"
-  },
-  {
     "slug": "lode-al-nome-tuo",
     "title": "Lode al Nome Tuo",
     "author": "",
@@ -1128,26 +488,6 @@
     ],
     "search": "Lode al Nome Tuo  Intro  Strofa 1    Lode  al nome   tuo dalle  terre più floride    Dove   tutto sembra   vivere   lode al nome   tuo    Lode  al nome   tuo dalle  terre più aride    Dove   tutto sembra   sterile lode  al nome   tuo  Ritornello 1                 Tornerò   a lodarti sempre   per ogni  dono   tuo                 E quando   scenderà   la notte sempre   io dirò                 Benedetto   il nome  del Signor,   lode al nome   tuo                 Benedetto   il nome  del Signor,  il glorioso nome   di Gesù.  Strofa 2    Lode  al nome   tuo quando    il sole splende su di me    Quando    tutto è incantevole,    lode  al nome   tuo    Lode  al nome   tuo quando    io sto davanti  a te    Con  il cuore triste e fragile, lode  al nome   tuo.  Ritornello 2                 Tornerò   a lodarti sempre   per ogni  dono   tuo                 E quando   scenderà   la notte sempre   io dirò                 Benedetto   il nome  del Signor,   lode al nome   tuo                 Benedetto   il nome  del Signor,  il glorioso nome   di Gesù.  Ponte    Tu doni  e porti via, tu doni  e porti via    Ma  sempre   sceglierò   di benedire   te  Ritornello finale                 Tornerò   a lodarti sempre   per ogni  dono   tuo                 E quando   scenderà   la notte sempre   io dirò                 Benedetto   il nome  del Signor,   lode al nome   tuo                 Benedetto   il nome  del Signor,   lode al nome   tuo                 Benedetto   il nome  del Signor,   lode al nome   tuo                 Benedetto   il nome  del Signor,  il glorioso nome   di Gesù.  Finale (x2)    Tu doni  e porti via, tu doni  e porti via    Ma  sempre   sceglierò   di benedire   te  (x2)",
     "file": "lode-al-nome-tuo.json"
-  },
-  {
-    "slug": "luce-di-verita",
-    "title": "Luce di Verità",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Luce di Verità  Ritornello Luce   di verità,  fiamma    di  carità, (fiamma     di carità)       vincolo    di unità,   Spirito  Santo   Amore.       Dona    la libertà,  dona    la santità,       fa'  dell'umanità    il tuo  canto   di lode.  Strofa 1              Cammini     accanto    a noi  lungo   la stra  - da,                    si realizzi in noi  la tua  missione.                    Attingeremo      forza  dal  tuo  cuo  - re,                    si realizzi in noi  la tua  missione.    Spirito,  vieni.  Strofa 2              Tu  nella  brezza   parli  al nostro   cuo   - re:                  ascolteremo,      Dio,  la tua  parola;                  ci chiami   a  condividere     il tuo amo    - re:                  ascolteremo,      Dio,  la tua  parola.   Spirito,  vieni.  Strofa 3              Vergine    del  silenzio  e della  fe -  de                  l'Eterno   ha  posto   in  te la sua  dimora.                  Il tuo  \"sì\"  risuonerà   per  sem   - pre:                  l'Eterno   ha  posto   in  te la sua  dimora.    Spirito,  vieni.  Strofa 4              Come     sigillo posto   sul tuo  cuo   - re,                  ci custodisci,   Dio,  nel  tuo  amore.                  Hai   dato   la tua  vita per  salvar  -  ci,                  ci custodisci,   Dio,  nel  tuo  amore.    Spirito,  vieni.  Strofa 5              Dissiperai   le tenebre    del ma   - le,                  esulterà   in te  la creazione.                  Vivremo     al tuo   cospetto   in  eter - no,                  esulterà   in te  la creazione.    Spirito, vieni.  Strofa 6              Tu  nella  Santa   Casa   accogli  il do  - no,                    sei tu la porta   che  ci apre   il Cielo                    Con   te la Chiesa   canta   la sua  lo  -  de,                    sei tu la porta   che  ci apre   il Cielo. Spirito,  vieni.  Strofa 7              Ci  poni  come    luce  sopra   un  mon    - te:                   in noi  l'umanità    vedrà   il tuo  volto                   Ti  testimonieremo      fra  le gen  - ti:                   in noi  l'umanità    vedrà   il tuo  volto.  Spirito,  vieni.  Finale del ritornello lo - de",
-    "file": "luce-di-verita.json"
-  },
-  {
-    "slug": "lui-m-ha-dato",
-    "title": "Lui M'ha Dato",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Lui M'ha Dato  Strofa 1 Io  non   so proprio    cosa  far, per  ringraziare    il mio  Signor M'ha    dato  i cieli da  guardar,   e  tanta  gioia  dentro    il cuor.  Ritornello Lui  m'ha   dato   i cieli da guardar      Lui  m'ha   dato   la bocca   per  cantar      Lui  m'ha   dato   il mondo    per  amar      E  tanta  gioia  dentro   il cuor,  e tanta   gioia  dentro   il cuor  Strofa 2 E s'è  curvato   su  di me,   ed  è disceso   giù dal  ciel Per  abitare   in mezzo    a  noi, e  per  salvare  tutti noi  Ripetere il ritornello",
-    "file": "lui-m-ha-dato.json"
   },
   {
     "slug": "lui-verra-e-ti-salvera",
@@ -1180,16 +520,6 @@
     "file": "mani.json"
   },
   {
-    "slug": "maranatha-soffio-di-dio",
-    "title": "Maranathà",
-    "author": "Soffio di Dio",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Maranathà Soffio di Dio Intro  Strofa 1    Spirito  Santo   scendi   su di me    e donami     un  cuore   puro      Apri  i miei  occhi  con   la tua  luce  solleva   le mie   braccia  verso   te    Rivelami    la verità  o  Spirito  d'amor    Infiamma     col tuo   fuoco   il mio  cuore  Ritornello    Ma    - ra  -  na   -  thà       vie   -  ni  Signor    Ma    - ra  -  na   -  thà                    vieni  in me   Signor  Strofa 2    Dai  quattro   venti   soffia su  di noi  e sana   ogni  ferita  col tuo   amore      Scendi  dal  cielo  Spirito  di Dio    e semina    la sua  parola   in noi    È acqua   che   zampilla   questo    canto  che    eleviam    Battezzaci   nel  tuo  eterno   amore  Ritornello finale    Ma    - ra  -  na   -  thà       vie   -  ni  Signor    Ma    - ra  -  na   -  thà                    vieni  in me   Signor Finale (noi)    Vie   - ni    Signor!",
-    "file": "maranatha-soffio-di-dio.json"
-  },
-  {
     "slug": "maranatha-vieni-signor",
     "title": "Maranathà, vieni Signor",
     "author": "Christian Gonzales",
@@ -1198,16 +528,6 @@
     ],
     "search": "Maranathà, vieni Signor Christian Gonzales Ritornello Maranathà, vieni Signor verso te, Gesù, le mani noi leviam. Maranathà, vieni Signor prendici con te e salvaci o Signor. Strofa 1 Guardo verso le montagne, donde mi verrà il soccorso, il soccorso viene da Dio, che ha creato il mondo intero. Strofa 2 Sorgi con il tuo amore, la tua luce splenderà, ogni ombra svanirà la tua gloria apparirà. Strofa 3 Santo è il nostro Signor, il peccato egli portò, dalla morte ci salvò, e la vita a noi donò. Strofa 4 Mio Signor son peccatore, a te apro il mio cuore, fa' di me quello che vuoi e per sempre in te vivrò. Strofa 5 La Parola giungerà sino ad ogni estremità, testimoni noi sarem della tua Verità. Strofa 6 Tu sei la mia libertà solo in te potrò sperar, ho fiducia in te Signor, la mia vita cambierai. Strofa 7 Mi consegno a te Signor, vieni dentro il mio cuor, ti ricevo o Salvator, tu sei il mio liberator. Strofa 8 Benedici o Signor, sii custode ai nostri cuor, giorno e notte veglierai e con noi sempre sarai. Strofa 9 Ringraziamo te Signor, a te, Padre creator, allo Spirito d'Amor, vieni presto o Signor.",
     "file": "maranatha-vieni-signor.json"
-  },
-  {
-    "slug": "maria-porta-dell-avvento",
-    "title": "Maria Porta dell'Avvento",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Maria Porta dell'Avvento  Strofa 1 Maria,   tu porta   dell'Avvento,     Signora    del silenzio,        sei chiara  come    aurora,   in cuore   hai  la parola.  Ritornello Beata,   tu hai  creduto,      beata,   tu hai  creduto.  Strofa 2 Maria,   tu strada   del  Signore,   maestra   nel  pregare,        fanciulla  dell'attesa,   il Verbo   in te riposa.  Strofa 3 Maria,   tu madre    del  Messia,   per  noi  dimora    sua,        sei arca  d'alleanza,   in  te Dio  è  presenza.",
-    "file": "maria-porta-dell-avvento.json"
   },
   {
     "slug": "maria-tu-sei",
@@ -1220,16 +540,6 @@
     "file": "maria-tu-sei.json"
   },
   {
-    "slug": "mi-arrendo-al-tuo-amore",
-    "title": "Mi Arrendo al Tuo Amore",
-    "author": "RNS",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Mi Arrendo al Tuo Amore  Intro  Strofa 1 Sotto la tua croce apro le mie braccia, accolgo il tuo perdono, la tua misericordia Adoro  nel silenzio il tuo splendore, il volto tuo che libera il mio cuore  Ritornello        Mi arrendo al tuo amore, Signore Gesù        Non  posso restare lontano da te        Mi arrendo al tuo amore, Signore Gesù        Alla tua presenza per sempre resterò  Strofa 2 Ai piedi della croce visiti il mio cuore, mi doni la tua pace, consoli la mia vita Contemplo   la maestà della tua gloria, il sangue tuo che sana le ferite  Ritornello finale        Mi arrendo al tuo amore, Signore Gesù        Non  posso restare lontano da te        Mi arrendo al tuo amore, Signore Gesù        Alla tua presenza per sempre resterò",
-    "file": "mi-arrendo-al-tuo-amore.json"
-  },
-  {
     "slug": "mi-basta-la-tua-grazia",
     "title": "Mi Basta la Tua Grazia",
     "author": "",
@@ -1238,16 +548,6 @@
     ],
     "search": "Mi Basta la Tua Grazia  Intro  Strofa 1 Quando      sono   debole,   allora  sono   forte perché,   tu  sei la mia   forza. Quando      sono   triste è in te  che  trovo   gioia perché,   tu  sei la mia   gioia. Gesù   io  confido   in  te,  Gesù,  mi   basta  la tua  grazia.  Ritornello Sei  la mia  forza,  la mia   salvezza,       sei la mia   pace,  sicuro   rifugio.       Nella   tua  grazia  voglio   restare,       Santo   Signore,   sempre    con   te.  Interludio  Strofa 2 Quando      sono   povero,    allora  sono   ricco perché,   sei la  mia  ricchezza. Quando      son  malato    è in te  che  trovo   vita perché,   tu  sei guarigione. Gesù   io  confido   in  te, Gesù,   mi  basta  la tua  grazia.  Ritornello finale (x2) Sei  la mia  forza,  la mia   salvezza,       sei la mia   pace,  sicuro   rifugio.       Nella   tua  grazia  voglio   restare,       Santo   Signore,   sempre    con   te.       Sei la mia   forza,  la mia   salvezza,       sei la mia   pace,  sicuro   rifugio.       Nella   tua  grazia  voglio   restare,       Santo   Signore,   sempre    con   te.  Finale",
     "file": "mi-basta-la-tua-grazia.json"
-  },
-  {
-    "slug": "misericordias-domini",
-    "title": "Misericordias Domini",
-    "author": "Canone di Taizé",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Misericordias Domini Canone di Taizé Canone Misericordias Domini, in aeternum cantabo.",
-    "file": "misericordias-domini.json"
   },
   {
     "slug": "musica-di-festa",
@@ -1260,26 +560,6 @@
     "file": "musica-di-festa.json"
   },
   {
-    "slug": "nada-te-turbe",
-    "title": "Nada te turbe",
-    "author": "Canone di Taizé",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Nada te turbe Canone di Taizé Canone Nada te turbe, nada te espante. Quien a Dios tiene nada le falta. Nada te turbe, nada te espante. Solo Dios basta.",
-    "file": "nada-te-turbe.json"
-  },
-  {
-    "slug": "nel-tuo-silenzio",
-    "title": "Nel Tuo Silenzio",
-    "author": "Gen · Messa Come fuoco vivo",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Nel Tuo Silenzio  Solo strumentale Solo flauto 1  Strofa 1      Nel   tuo  silenzio  accolgo    il mistero  venuto    a  vivere  dentro    di me.      Sei  tu che  vieni,  o  forse  è più  vero   che  tu mi  accogli   in te,      Gesù.  Solo flauto 2  Strofa 2      Sorgente    viva  che   nasce  nel  cuore   è questo    dono   che   abita  in me.      La  tua  presenza    è un  fuoco   d'amore     che  avvolge    l'anima   mia,   Gesù.  Solo flauto 3  Strofa 3 - modulazione in FA      Ora   il tuo  Spirito  in me   dice:  \"Padre\",    non   sono   io a parlare,   sei tu.      Nell'infinito    oceano    di pace   tu vivi  in me,   io in te,     Gesù.",
-    "file": "nel-tuo-silenzio.json"
-  },
-  {
     "slug": "noi-veniamo-a-te",
     "title": "Noi veniamo a Te",
     "author": "Buttazzo",
@@ -1290,16 +570,6 @@
     "file": "noi-veniamo-a-te.json"
   },
   {
-    "slug": "non-avere-paura",
-    "title": "Non Avere Paura",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Non Avere Paura  Intro Ritornello               Ma   non   avere   paura,   non   ti fermare   mai               Perché    il mio  amore    è fedele,   e non   finisce mai  Strofa 1    Guardo     sempre    dentro    me  e  non   vedo   te    C'è  rumore    nel  mio   cuor   e non   so perché  Strofa 2    Non    sapere   cosa  dir  non   saper  che  far    Fai  silenzio  dentro    te ed  ascolta   me  Strofa 3    Ogni    volta  che  tu  vuoi  tu  mi  troverai    E  l'amore   mio,   lo sai non   finisce  mai",
-    "file": "non-avere-paura.json"
-  },
-  {
     "slug": "non-cercate-tra-i-morti",
     "title": "Non cercate tra i morti",
     "author": "",
@@ -1308,26 +578,6 @@
     ],
     "search": "Non cercate tra i morti  Ritornello Non cercate tra i morti chi la morte annientò: è tornata a cantare la vita in Colui che ci amò. È risorto il Signore, oggi è vivo tra noi: Cristo porta la pace e l'amore, egli è sempre con noi. Strofa 1 Andavano le donne al sepolcro, piangevano ed era mattino. Venivano ad ungere il corpo, sepolto dentro il giardino. Trovarono vuota la tomba che aveva accolto il Signore: sentirono canti di angeli e grande ne fu lo stupore. Ritornello Non cercate tra i morti chi la morte annientò: è tornata a cantare la vita in Colui che ci amò. È risorto il Signore, oggi è vivo tra noi: Cristo porta la pace e l'amore, egli è sempre con noi. Strofa 2 Vivevano nella paura, tenevano chiuse le porte: finita la grande avventura sentivano canti di morte. Gesù, il vivente, il risorto, si rese presente tra i suoi: soffiò su di loro lo Spirito e disse: “Sia pace tra voi!” Ritornello finale Non cercate tra i morti chi la morte annientò: è tornata a cantare la vita in Colui che ci amò. È risorto il Signore, oggi è vivo tra noi: Cristo porta la pace e l'amore, egli è sempre con noi.",
     "file": "non-cercate-tra-i-morti.json"
-  },
-  {
-    "slug": "non-vivere-di-corsa",
-    "title": "Non Vivere di Corsa",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Non Vivere di Corsa  Strofa 1 Non    vivere  di  corsa  ma   fermati   a guardare    la  strada  che  percorri così  un  giorno   ti accorgerai    di non   aver  vissuto   un'esistenza    inutile.  Ritornello Non   temere    non   sei solo  Lui  cammina     sempre    insieme   a  te           chiede   solo  di avere   in Lui  fiducia  di  accettarlo   di amarlo  Strofa 2 C'è  gente   che  ride  anche   di  te cui basta   il conto  in  banca   l'ossequio   riverente e non   si rende   conto   che   solo  tu Signore   puoi   dar  la vera   gioia.  Strofa 3 Signore   io  non   posso   venire   sono   stanco   e ho  da  fare  ho  i figli da guardare io  devo   pur  studiare   sfruttando    il tempo    libero  non   posso   a Te  pensare.  Strofa 4 Io  temo   d'ingannarmi      scegliendo    la Tua   strada  amando      tutti quanti ma   so  che  sei risorto  che  una   speranza    nuova    Tu  stesso  ci hai donato",
-    "file": "non-vivere-di-corsa.json"
-  },
-  {
-    "slug": "oggi-e-un-giorno-di-festa",
-    "title": "Oggi È un Giorno di Festa",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Oggi È un Giorno di Festa  Intro  Ritornello Oggi   è  un  giorno   di fe  - sta      Per  i figli di Dio      Oggi   è un   giorno   di festa      Nella         casa  del  padre  Strofa 1                     Venite,       accorre    -  te:                           ci chiama    il Dio  della  vita;                           saremo    tanti     fratelli                           uniti  intorno   al Signore.  Strofa 2                     Cantate    inni e  salmi:                           ci chiama    il Dio  della  gioia,                           saremo    una   grande   assemblea                           che  intona   le lodi  al Signore  Strofa 3                     Venite,   esultate:                           ci chiama    il Dio  della  vita;                           saremo    tanti  fratelli                           che  cantan    le lodi al  Signore",
-    "file": "oggi-e-un-giorno-di-festa.json"
   },
   {
     "slug": "ogni-mia-parola",
@@ -1380,26 +630,6 @@
     "file": "padre-maestro-e-amico.json"
   },
   {
-    "slug": "padre-nostro-s-andrea",
-    "title": "Padre Nostro",
-    "author": "S. Andrea",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Padre Nostro S. Andrea Strofa 1                  Padre   nostro   tu  che  stai,                  in chi  ama   la verità,                  ed  il regno   che  lui ci lasciò,                  venga    presto  nel  nostro   cuor,                  e l'amore    che  il suo  Figlio  ci donò,                  o  Signor,  rimanga     sempre    in noi  Strofa 2                  E nel  pan   dell'unità,                  dacci  la fraternità,                  e dimentica    il nostro   mal,                  che  anche   noi  sappiamo      perdonar                  non   permettere     che  cadiamo     in tentazion                  o Signor,   abbi  pietà   del mondo.  Padre nostro recitato  Ripresa                  E nel  pan   dell'unità...",
-    "file": "padre-nostro-s-andrea.json"
-  },
-  {
-    "slug": "padre-nostro-s-marco",
-    "title": "Padre Nostro",
-    "author": "S. Marco",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Padre Nostro S. Marco Intro  Preghiera Padre   nostro   che  sei  nei cieli sia    santificato  il tuo  nome Venga    il tuo  regno   sia fatta la  tua volontà Come     in cielo  così in  terra, dacci     oggi  il nostro   pane   quotidiano E rimetti   a noi  i nostri  debiti come    noi  li rimettiamo    ai nostri  debitori E non   ci indurre   in  tentazione,    ma   liberaci  dal male. Finale Amen.                          amen.                          amen.",
-    "file": "padre-nostro-s-marco.json"
-  },
-  {
     "slug": "pane-del-cielo",
     "title": "Pane del Cielo",
     "author": "Gen Rosso",
@@ -1428,46 +658,6 @@
     ],
     "search": "Pane di vita Marranzino, Pesare Intro Strofa 1 Pane di vita sei, spezzato per tutti noi, chi ne mangia per sempre in te vivrà. Veniamo al tuo santo altare, mensa del tuo amore. Come pane vieni in mezzo a noi. Ritornello Il tuo corpo ci sazierà Il tuo sangue ci salverà perché Signor tu sei morto per amore e ti offri oggi per noi. (x2) ( II volta e ti offri oggi per noi. ) Intro Strofa 2 Fonte di vita sei, immensa carità, il tuo sangue ci dona l'eternità. Veniamo al tuo santo altare, mensa del tuo amore. Come vino vieni in mezzo a noi. Ritornello 2 Il tuo corpo ci sazierà Il tuo sangue ci salverà perché Signor tu sei morto per amore e ti offri oggi per noi. (x2) ( II volta e ti offri oggi per noi.)",
     "file": "pane-di-vita.json"
-  },
-  {
-    "slug": "pane-vivo-sei",
-    "title": "Pane Vivo Sei",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Pane Vivo Sei  Strofa 1    Venne   il tempo  stabilito    di discendere  fra i tuoi.    Come   uomo    hai fissato la tua tenda fra di noi.    Il Santuario è spalancato    la Tua Gloria  appare   già.    Ogni  uomo   può   vedere  ora  cosa sia la verità.  Ritornello    Pane  Vivo  sei,         per  Amore   mio.    Ti sei dato tutto quanto   a me,  mio  Dio.    Dove   mai andrò,    per trovare  chi mi  amerà  di più    più di quanto   mi ami  tu Gesù.  Strofa 2    Sulla croce hai offerto    la Tua vita al Padre  tuo.    Ora  offri in questo Pane   la Tua vita a noi.    Sacrificio per Amore,    Chiedi  a chi Ti seguirà.    Chi ha  donato   la sua vita, oggi in te la troverà.",
-    "file": "pane-vivo-sei.json"
-  },
-  {
-    "slug": "pellegrini-di-speranza-capo-3",
-    "title": "Pellegrini di Speranza",
-    "author": "Capo 3",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Pellegrini di Speranza Capo 3 Intro  Ritornello      Fiamma    vi --- va  della mia  speranza      questo   canto           giunga  fino  a Te!      Grembo     ete - rno d'infinita   vi -- ta      nel  cammino       io    confido  in Te.  Strofa 1    Ogni      lingua, popolo   e nazione    trova luce  nella tua Parola.    Figli e figlie fragili e dispersi    sono  accolti  nel  tuo Figlio amato.  Strofa 2    Dio  ci guarda, tenero  e paziente:    nasce  l'alba di un futuro nuovo.    Nuovi   Cieli, Terra fatta nuova:    passa i muri  Spirito di vita.  Strofa 3    Alza gli occhi, muoviti  col vento,    serra il passo: viene Dio,  nel tempo.    Guarda   il Figlio che s'è fatto Uomo:    mille e mille trovano   la via.",
-    "file": "pellegrini-di-speranza-capo-3.json"
-  },
-  {
-    "slug": "pietro-vai",
-    "title": "Pietro Vai",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Pietro Vai  Strofa 1 Signore,   ho  pescato    tutto  il giorno,   le reti son  rimaste   sempre    vuote; s'è fatto  tardi,  a casa  ora  ritorno:   Signore,   son   deluso,   me   ne  vado.  La  vita con   me   è sempre    stata  dura,  e  niente  mai   mi  dà  soddisfazione; la strada   in cui mi   guidi  è insi - cura:  sono   stanco   ed  ora  non   aspetto   più.  Ritornello 1 Pietro,  vai,  fidati di me:       getta   ancora   in acqua    le tue  re   - ti. Prendi   ancora    il largo sulla  mia  parola:   con   la mia  potenza     io ti farò pescatore    di uomi    - ni.  Strofa 2 Maestro,    dimmi    cosa   devo   fare;  insegnami,    Signore,   dove   andare. Gesù,   dammi     la forza  di  partire,  la forza  di lasciare   le mie  cose;  Questa    famiglia   che  mi  son  creato,   le barche   che   a fatica  ho  conquistato, la casa,  la mia   terra, la  mia    gente,  Signore,    dammi    tu  una  fede   forte.  Ritornello 2 Pietro  vai,  fidati di  me:      la mia  Chiesa   su  di te io  fonderò. Manderò      lo Spirito,  ti darà  coraggio;    donerà    la forza   dell'  amore per  il Regno   di    Di  -  o.",
-    "file": "pietro-vai.json"
-  },
-  {
-    "slug": "pim-pam",
-    "title": "Pim Pam",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Pim Pam  Strofa 1                     Nella   casa  la sulla  montagna                         Un  camino    grande    grande    sta.                         Nel  camino    grande    grande   grande                         Un  gran   fuoco   fuoco   fuoco   va.  Ritornello Perciò   pim   pam,   le scarpe   pim   pam       Di  notte   fan  sul sentiero   di pietre  grosse       Pim   pam    le scarpe   pim  pam       Di  notte   fan  sul sentiero   così: PIM    PAM!  Strofa 2                     Nella  casa  la sulla  montagna                         Un  Signore   grande    grande    sta                         Nella  stanza   viola,  verde,   gialla                         Tante   sedie  rosse  e bianche    ha.  Strofa 3                     Nella  casa  la sulla  montagna                         Una   sedia  a tutti tutti dà                         A ciascuno    toglierà  le  scarpe                         Tutti insieme    poi  si danzerà.",
-    "file": "pim-pam.json"
   },
   {
     "slug": "popoli-tutti",
@@ -1500,16 +690,6 @@
     "file": "quale-gioia-e-star-con-te.json"
   },
   {
-    "slug": "quale-gioia-salmo-121",
-    "title": "Quale Gioia",
-    "author": "Salmo 121",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Quale Gioia Salmo 121 Ritornello Quale   gioia  mi  dissero,                              andremo     alla  casa  del  Si -  gno   - re.                              Ora   i piedi,  o Gerusa    - lemme                              si fermano    davanti    a te.  Strofa 1                   Ora   Gerusalemme       è    ricostruita                      come    città salda  forte  e  unita.  Strofa 2                   Salgono    insieme   le tribù  di  Jahvè                      per  lodare   il nome    del Dio   d'Israele.  Strofa 3                   Là  sono   posti  i seggi della  sua  giustizia                      i seggi  della  casa  di Davide.  Strofa 4                   Domandate       pace   per  Gerusalemme                      sia pace   a chi  ti ama,  pace   alle tue  mura.  Strofa 5                   Su  di te sia la pace,   chiederò    il tuo bene                      per  la casa  di Dio   chiederò    la gioia.  Strofa 6                   Noi   siamo   il suo  popolo,    Egli è il nostro   Dio                      possa   rinnovarci    la felicità.",
-    "file": "quale-gioia-salmo-121.json"
-  },
-  {
     "slug": "quelli-che-amano-te",
     "title": "Quelli che amano te",
     "author": "Gen Rosso",
@@ -1528,26 +708,6 @@
     ],
     "search": "Questa è la mia fede Branca Ritornello Questa è la mia fede, proclamarti mio re, unico Dio, grande Signore. Questa è la speranza so che risorgerò e in Te dimorerò. (x2) Strofa 1 Canterò la gioia di esser figlio, canterò che Tu non abbandoni, non tradisci mai. Dammi sempre la tua grazia e in Te dimorerò per adorarti, per servirti in verità, mio re. Strofa 2 Canterò che solo Tu sei vita e verità, che sei salvezza, che sei vera libertà. Io porrò la mia fiducia in te che sei la via, camminerò nella Tua santa volontà, mio re.",
     "file": "questa-e-la-mia-fede.json"
-  },
-  {
-    "slug": "questa-notte",
-    "title": "Questa notte",
-    "author": "Canone di Taizé",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Questa notte Canone di Taizé Canone Questa notte non è più notte davanti a te, il buio come luce risplende.",
-    "file": "questa-notte.json"
-  },
-  {
-    "slug": "qui-con-te",
-    "title": "Qui con Te",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Qui con Te  Strofa 1 C'è silenzio intorno a noi e in un istante il pensiero vola a Lui che certo sta seduto accanto a me e sta chiedendo se voglio amarlo come Lui mi ha amato già dal giorno in cui sono stato posto qua con quell'idea di pace e libertà che nei suoi occhi brilla.  Ritornello Tu che risplendi se mi trattengo ancora un po' abbracciato a Te e mi chiedi una follia, questa vita mia che mi vien da vivere qui con Te, perché non mi lasci mai mi sostieni quando io cederei e poi canti d'allegria per la malattia che ho di voler vivere qui con Te.  Strofa 2 - modulazione in LA Questo mondo corre e va su larghe strade verso tristi oscurità. ma c'è un sentiero che lassù si inerpica e c'è una vetta chi la scalerà?  Ritornello finale Tu che risplendi se mi trattengo ancora un po' abbracciato a Te e mi chiedi una follia, questa vita mia che mi vien da vivere qui con Te, perché non mi lasci mai mi sostieni quando io cederei e poi canti d'allegria per la malattia che ho di voler vivere qui con Te. Finale (x2) con Te, qui con Te...",
-    "file": "qui-con-te.json"
   },
   {
     "slug": "rallegriamoci",
@@ -1570,26 +730,6 @@
     "file": "re-dei-re-capo-1.json"
   },
   {
-    "slug": "re-di-gloria",
-    "title": "Re di Gloria",
-    "author": "De Luca · Marranzino",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Re di Gloria  Strofa 1  Ho incontrato Te Gesù e ogni cosa in me è cambiata  tutta la mia vita ora ti appartiene.  Tutto il mio passato io lo affido a Te,  Gesù, Re di gloria, mio Signor.  Tutto in Te riposa, la mia mente il mio cuore,  trovo pace in Te Signor, Tu mi dai la gioia.  Voglio stare insieme a Te, non lasciarti mai,  Gesù, Re di gloria, mio Signor.  Ritornello  Dal Tuo amore chi mi separerà,  sulla croce hai dato la vita per me,  una corona di gloria mi darai  quando un giorno Ti vedrò.  Strofa 2  Tutto in Te riposa, la mia mente il mio cuore,  trovo pace in Te Signor, Tu mi dai la gioia vera.  Voglio stare insieme a Te, non lasciarti mai,  Gesù, Re di gloria, mio Signor.  Ritornello  Dal Tuo amore chi mi separerà,  sulla croce hai dato la vita per me,  una corona di gloria mi darai  quando un giorno Ti vedrò.  Finale  Dal Tuo amore chi mi separerà…  Strumentale  Io Ti aspetto mio Signor…  io Ti aspetto mio Signor,  io Ti aspetto mio Re.",
-    "file": "re-di-gloria.json"
-  },
-  {
-    "slug": "regno-nuovo",
-    "title": "Regno Nuovo",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Regno Nuovo  Strofa 1 Tu  mio   Signore   tra  noi  sei venuto ed  un  nuovo    regno    ci hai annunziato, un  regno    assurdo   d'amore     e di pace, un  mondo     in  cui l'uomo    nasce   morendo, un  mondo     in  cui egli vince   perdendo.  Strofa 2                   Egli fu  re negli  stracci  di un  bimbo,                   scelse  una  madre     uguale    alle altre,                   ebbe   bisogno    dell'uomo     perché   ci ama;                   Lo  ringraziamo     donandogli      una  croce.  Strofa 3 Non    abbiam    compreso     il tuo  mondo     Signore, siam   troppo   egoisti,  orgogliosi,    perfetti per  poter   capire  l'amor    che  ci hai donato abbiam    troppa    paura   di essere   diversi in un   mondo     troppo    vecchio   che  non   vuol   cambiare.  Strofa 4                   Ma   noi  come    Lui  dobbiamo      aver  coraggio                   di amare    il nemico,    l'assassino,  il peccatore                   anche   se  la gente   li giudica  e condanna                   solo  perché    han  la colpa   di aver   sbagliato.",
-    "file": "regno-nuovo.json"
-  },
-  {
     "slug": "resta-accanto-a-me",
     "title": "Resta Accanto a Me",
     "author": "",
@@ -1610,16 +750,6 @@
     "file": "resta-qui-con-noi.json"
   },
   {
-    "slug": "resto-con-te",
-    "title": "Resto con Te",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Resto con Te  Intro  Strofa 1    Seme  gettato  nel mondo,    Figlio donato   alla terra,    il tuo silenzio   custodirò    In ciò che vive  e che muore    vedo  il tuo volto  d'amore:    sei il mio Signore    e  sei il mio Dio.  Ritornello 1 Io lo so che Tu  sfidi la mia morte    io lo so che Tu  abiti il mio buio    nell'attesa del giorno  che  verrà    Resto  con  Te.  Strofa 2    Nube   di mandorlo   in fiore    dentro  gli inverni del cuore    è questo  pane       che  Tu  ci dai.    Vena  di cielo profondo     dentro  le notti del mondo    è questo  vino     che  Tu  ci dai.  Ritornello 2 Io lo so che Tu  sfidi la mia morte    io lo so che Tu  abiti il mio buio    nell'attesa del giorno  che verrà    Resto  con Te.  Interludio  Finale    Tu sei Re  di stellate immensità    e sei Tu il futuro che verrà    sei l'amore  che muove    ogni realtà    e Tu sei qui    Resto  con Te",
-    "file": "resto-con-te.json"
-  },
-  {
     "slug": "resurrezione",
     "title": "Resurrezione",
     "author": "Gen Rosso",
@@ -1628,26 +758,6 @@
     ],
     "search": "Resurrezione  Intro  Strofa 1                   Che   gioia  ci hai  dato,  Signore    del cielo,                   Signore    del grande    univer    - so,                   che  gioia   ci hai dato,   vestito  di luce                   vestito   di gloria  infini  -  ta,                   vestito   di gloria  infini  -   ta.  Interludio 1  Strofa 2                   Vederti   risorto,  vederti   Signore                   il cuore   sta per  impazzi     -  re                   Tu   sei ritornato,   Tu  sei qui  tra noi                   e  adesso   ti avremo    per  sem   - pre,                   e  adesso   ti avremo    per  sem   - pre.  Interludio 2  Strofa 3                        Chi  cercate,  donne,    quaggiù,                   chi  cercate,  donne,    quaggiù,                   quello   ch'era  morto    non   è  qui                   è  risorto!  Sì, come   aveva    detto  anche    a voi.                   Voi   gridate  a  tutti che                   è  risorto  Lui,    tutti che    è risorto  Lui.  Interludio 3  Strofa 4                        Tu  hai  vinto  il mondo,     Gesù,                   Tu   hai vinto   il mondo,    Gesù,                   liberiamo    la felicità                   e  la morte,   no,  non   esiste  più, l'hai vinta Tu                   e  hai salvato   tutti noi,                   uomini    con   Te,    tutti noi,  uomini    con   Te.  Finale                   uomini    con   te (uomini    con  te)                   che  gioia   ci hai dato:   ti avremo    per  sempre!",
     "file": "resurrezione.json"
-  },
-  {
-    "slug": "salve-regina",
-    "title": "Salve Regina",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Salve Regina  Ritornello (x2)    Salve  Regina,   Madre     di  misericordia.    Vita, dolcezza,    speranza    nostra,   salve!  Salve  Regina!  Strofa                  A  te  ricorriamo,    esuli figli di Eva.                  A  te  sospiriamo,    piangenti,    in  questa   valle  di lacrime.                  Avvocata     nostra,   volgi  a noi  gli occhi   tuoi,                 mostraci   dopo    questo   esilio  il frutto   del  tuo  seno,   Gesù.  Ritornello finale    Salve  Regina,   Madre     di  misericordia.    O  clemente,    o  pia, o  dolce   Vergine   Maria. Coda    Salve  Regina!    Salve  Regina,    salve,                 salve!",
-    "file": "salve-regina.json"
-  },
-  {
-    "slug": "san-francesco",
-    "title": "San Francesco",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "San Francesco  Intro Strofa 1 O  Signore    fa' di me   uno  strumento, fa' di me   uno   strumento     della  tua  pace: dov'è   odio,   che  io porti  l'amore, dov'è   offesa  che   io porti  il perdono, dov'è   dubbio    che  io porti   la fede, dov'è   discordia   che  io  porti  l'unione, dov'è   errore   che  io porti  verità, a chi  dispera   che  io porti   la speranza. Dov'è   errore   che  io  porti  verità, a chi  dispera   che  io porti   la speranza.  Ritornello 1 O  maestro    dammi     tu un  cuore   grande           che  sia  goccia  di  rugiada   per  il mondo           che  sia  voce  di  speranza    che  sia un  buon    mattino           per  il giorno   di ogni   uomo         e con   gli ultimi  del mondo           sia il mio   passo  lieto  nella  povertà,    nella  povertà. Ritornello 2           O   maestro    dammi    tu  un  cuore   grande           che  sia  goccia  di  rugiada   per  il mondo           che  sia  voce  di  speranza    che  sia un  buon    mattino           per  il giorno   di ogni   uomo         e con   gli ultimi  del mondo           sia il mio   passo  lieto  nella  povertà,    nella  povertà.  Strofa 2 O  Signore    fa' di me   il tuo canto, fa' di me   il tuo  canto   di pace: a chi  è triste che  io  porti  la gioia a chi  è nel  buio   che  io porti  la luce. È donando      che  si ama   la vita è servendo     che  si vive  con  gioia, perdonando       che  si trova  il perdono, è morendo      che  si vive  in eterno.",
-    "file": "san-francesco.json"
   },
   {
     "slug": "santa-maria-del-cammino",
@@ -1670,16 +780,6 @@
     "file": "santo-classico.json"
   },
   {
-    "slug": "santo-e-il-signore-la-tua-dimora",
-    "title": "Santo È il Signore",
-    "author": "Daniele Ricci · La tua dimora",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Santo È il Signore La tua dimora Intro (x2)  Santo    Santo  Santo   Santo  (È  il Signore  Dio   dell'universo)     Santo  Santo   Santo  (È  il Signore  Dio   dell'universo)     Santo  Santo   Santo  (I cieli e la terra)     Santo  Santo   Santo  (Sono  pieni  della tua Gloria)  Osanna    Osanna    Osanna    Osanna   (Osanna    Osanna    nell'alto dei  cieli)  Benedetto    Benedetto    colui  che  viene  nel  nome    del  Signore  Osanna finale    Osanna    Osanna    Osanna   (Osanna    Osanna    nell'alto dei  cieli)     Osanna    Osanna    Osanna   (Osanna    Osanna    nell'alto dei  cieli)     Osanna    Osanna    Osanna   (Osanna    Osanna    nell'alto dei  cieli)  Coda    Osanna!",
-    "file": "santo-e-il-signore-la-tua-dimora.json"
-  },
-  {
     "slug": "santo-gen-messa-come-fuoco-vivo",
     "title": "Santo",
     "author": "Gen · Messa Come fuoco vivo",
@@ -1700,26 +800,6 @@
     "file": "santo-gen-verde.json"
   },
   {
-    "slug": "santo-zairese",
-    "title": "Santo",
-    "author": "Zairese",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Santo Zairese Santo        Santo    Santo      Osa   - a - anna        Santo    Santo      Osa   - a - anna  Osanna             Osanna    eh  Osanna     eh Osanna     al Cristo  Signor     (Osanna     eh)             Osanna    eh  Osanna     eh Osanna     al Cristo  Signor  I cieli e la terra        I cieli e la terra, o  Signore       sono   pieni  di Te        I cieli e la terra, o  Signore       sono   pieni  di Te  Ripresa             Osanna    eh  Osanna     eh…  Benedetto        Benedetto     colui  che  viene      nel  nome    tuo  Signor        Benedetto     colui  che  viene      nel  nome    tuo  Signor  Ripresa finale             Osanna    eh  Osanna     eh…",
-    "file": "santo-zairese.json"
-  },
-  {
-    "slug": "santo",
-    "title": "Santo",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Santo  Santo Santo,   Santo,   Santo,   Santo  il Signore   Dio   dell'universo! I cieli e la terra,  sono   pieni  della  Tua   gloria!  Osanna                 Osanna,    Osanna,    Osanna,     Osanna                 Osanna,    Osanna,    nell'alto   dei cieli.  Benedetto Benedetto     colui,  che  viene   nel  nome    del  Signore! Benedetto     colui,  che  viene   nel  nome    del  Signore!  Osanna finale                 Osanna,    Osanna,    Osanna,     Osanna                 Osanna,    Osanna,    nell'alto   dei cieli.",
-    "file": "santo.json"
-  },
-  {
     "slug": "scusa-signore",
     "title": "Scusa Signore",
     "author": "",
@@ -1738,16 +818,6 @@
     ],
     "search": "Se M'Accogli  Strofa 1          Tra le  mani   non   ho  niente,   spero  che  mi   accoglierai:          chiedo   solo  di  restare  accanto    a Te.          Sono   ricco  solamente     dell'Amore     che  mi  dai:          è per  quelli  che  non   l'hanno   avuto    mai.  Ritornello                Se  m'accogli,   mio   Signore,   altro  non   Ti chiederò                e  per  sempre    la tua  strada,  la mia   strada  resterà.                Nella   gioia,  nel  dolore,   fino  a quando     Tu vorrai,                con   la mano    nella  tua  camminerò!  Strofa 2    Io ti prego   con  il cuore,   so che  Tu  mi  ascolterai:    rendi  forte  la mia   fede  più  che  mai.    Tieni  accesa   la mia  luce  fino  al giorno   che   Tu sai:    con  i miei  fratelli incontro    a Te  verrò.",
     "file": "se-m-accogli.json"
-  },
-  {
-    "slug": "se-tu-vedrai",
-    "title": "Se Tu Vedrai",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Se Tu Vedrai  Strofa 1    Se  tu vedrai   il sole brillare:  alleluia,  alleluia.          Se  ascolterai   il ruscello scrosciare:   alleluia,  alleluia.          Se  sentirai  il canto  dei  monti:   alleluia,  alleluia.          Allora   solo  tu proverai    cos'è  la gioia.  Ritornello Vivi  la vita  con  gioia  e con   amor,          vivi  cantando    la tua  felicità!  Strofa 2    Se  tu vedrai   un  cespuglio    fiorito: alleluia, alleluia.          Se  ascolterai   il rumore   del  vento:   alleluia,  alleluia.          Se  sentirai  il profumo    del  bosco:   alleluia,  alleluia.          Allora   solo  tu proverai    cos'è  la gioia.  Strofa 3    Se  tu vedrai   il sorriso  di un  bimbo:    alleluia,  alleluia.          Se  ascolterai   la canzone    del  cuore:   alleluia, alleluia.          Se  sentirai  la dolcezza    di amare:    alleluia, alleluia.          Allora   solo  tu proverai    cos'è  la gioia.",
-    "file": "se-tu-vedrai.json"
   },
   {
     "slug": "segni-del-tuo-amore",
@@ -1778,56 +848,6 @@
     ],
     "search": "Servire È Regnare  Intro  Strofa 1    Guardiamo      a te  che  sei   Maestro    e  Signore    chinato   a terra  stai,   ci mostri   che  l'amore    è cingersi  il grembiule,      sapersi  inginocchiare,    c'insegni  che   amare             è servire.  Ritornello Fa'  che  impariamo,      Signore,   da  Te,    che  il più grande    è chi  più  sa      servire,    chi si abbassa   e  chi si sa piegare,    perché   grande    è soltanto   l'amore.  Strofa 2    E ti vediamo     poi,    Maestro    e Signore,    che  lavi i piedi  a noi     che  siamo   tue  creature;    e cinto  del  grembiule,       che  è il manto    tuo  regale,    c'insegni  che   servire           è  regnare.  Finale",
     "file": "servire-e-regnare.json"
-  },
-  {
-    "slug": "servo-per-amore",
-    "title": "Servo per Amore",
-    "author": "Gen Rosso",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Servo per Amore  Strofa 1     Una   notte   di sudore           Sulla barca   in mezzo     al mare     E  mentre   il Cielo  si imbianca    già       Tu guardi   le tue  reti vuote     Ma   la voce   che  ti chiama          Un   altro  mare   ti mostrerà     E  sulle rive  di ogni  cuore          Le tue  reti getterai  Ritornello              Offri  la vita  tua    Come     Maria    ai piedi  della  croce              E  sarai     Servo      di ogni   uomo              Servo   per  amore        Sacerdote    dell'umanità  Strofa 2     Avanzavi     nel silenzio          Fra le lacrime    speravi     Che   il seme   sparso   davanti   a te        Cadesse   sulla  buona    terra     Ora   il cuore  tuo   è in festa       Perché   il grano   biondeggia     ormai     È maturato     sotto  il sole        Puoi   riporlo  nei  granai",
-    "file": "servo-per-amore.json"
-  },
-  {
-    "slug": "siamo-venuti-per",
-    "title": "Siamo Venuti per",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Siamo Venuti per  Intro: intera strofa  Strofa 1 Era cosa scritta già da milioni di anni fa Una stella brilla in cielo una luce arriverà come  i magi dell'oriente noi chiediamo  dov'è  il re dei Giudei per raggiungere  la meta  e poi  restare dove   Tu sei.  Strofa 2 Mille strade percorriamo quante sono  le città. E da soli noi pensiamo di trovar felicità. Ma la stella chiama  tutti noi e insieme camminare    ci fa. Per l'incontro con quel  bimbo   che attira l'umanità.  Ritornello 1 Siamo venuti  per  adorarti anche  noi. Siamo venuti  per  adorarti anche  noi. Siamo venuti  per  adorarti anche  noi. Siamo venuti  per  adorarti anche  noi.  Strofa 3  Siamo   qui davanti  a Te  tanti sogni  tanti perché.  Tra  le mani  ti doniamo  tutto  quello che  noi siamo.  Ma   tu riempi  i nostri scrigni e sai  cosa  ci serve Gesù.  Perché   i nostri cuori uniti a Te  possono   molto   di più.  Ritornello 2  Siamo   venuti  per adorarti  anche  noi.  Siamo   venuti  per adorarti  anche  noi.  Siamo   venuti  per adorarti  anche  noi.  Siamo   venuti  per adorarti  anche  noi.  Strofa 4  Quest'incontro    ci ha cambiati  nuove   strade  nuove  realtà.  Ma   crediamo   presto  o tardi  che  ogni  uomo   cambierà.  Quando    il buio del peccato   in noi  nuova   paura  farà.  E se non   sapremo   dove  andar  la stella ci guiderà.  Ritornello 3  Siamo   venuti  per adorarti  anche  noi.  Siamo   venuti  per adorarti  anche  noi.  Siamo   venuti  per adorarti  anche  noi.  Siamo   venuti  per adorarti  anche  noi.",
-    "file": "siamo-venuti-per.json"
-  },
-  {
-    "slug": "signore-pieta-buttazzo",
-    "title": "Signore Pietà",
-    "author": "Buttazzo",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Signore Pietà Buttazzo Intro  Invocazione 1        Signore,    pietà  di     noi.          (x2)  Invocazione 2                                                 Cristo,   pietà  di  noi.                                                 Cristo,   pietà  di  noi.  Invocazione 3        Signore    pietà,  Signore    pietà,        Signore    pietà       di     noi.  Finale        Signore    pietà,  Signore    pietà,        Signore      pietà        di    noi.",
-    "file": "signore-pieta-buttazzo.json"
-  },
-  {
-    "slug": "signore-pieta-ricci-la-tua-dimora",
-    "title": "Signore Pietà",
-    "author": "Daniele Ricci · La tua dimora",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Signore Pietà Daniele Ricci La tua dimora Signore che non sei venuto a condannare ma a perdonare Cristo che fai festa per ogni peccatore pentito Signore che perdoni molto a chi molto ama",
-    "file": "signore-pieta-ricci-la-tua-dimora.json"
-  },
-  {
-    "slug": "signore-pieta-versione-2",
-    "title": "Signore Pietà (Signore che sei)",
-    "author": "Buttazzo",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Signore Pietà (Signore che sei) Buttazzo Intro Invocazione 1 Signore, che sei venuto a perdonare, abbi pietà di noi, abbi pietà di noi. Signore pietà, Signore pietà. Invocazione 2 Cristo, che fai festa per chi ritorna a te, abbi pietà di noi, abbi pietà di noi. Cristo pietà, Cristo pietà. Invocazione 3 Signore, che perdoni molto a chi molto ama, abbi pietà di noi, abbi pietà di noi. Signore pietà, Signore pietà.",
-    "file": "signore-pieta-versione-2.json"
   },
   {
     "slug": "sono-qui-a-lodarti",
@@ -1870,36 +890,6 @@
     "file": "stai-con-me.json"
   },
   {
-    "slug": "su-ali-d-aquila",
-    "title": "Su Ali d'Aquila",
-    "author": "Joncas",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Su Ali d'Aquila  Strofa 1 Tu  che  abiti al  riparo  del  Signore   e che   dimori   alla sua  ombra,        di' al Signore:   \"Mio   rifugio,  mia  roccia   in cui confido\".  Ritornello E ti rialzerà,  ti solleverà   su ali d'aquila   ti reggerà              sulla brezza    dell'alba  ti farà brillar              come    il sole, così nelle  sue  mani   vivrai.  Strofa 2 Dal  laccio  del  cacciatore   ti libererà  e  dalla  carestia  che  distrugge.        Poi  ti coprirà  con   le sue  ali e rifugio  troverai.  Strofa 3 Non   devi   temere   i terrori  della  notte,  né  freccia  che  vola   di giorno;        mille  cadranno     al tuo  fianco  ma   nulla  ti colpirà.  Strofa 4 Perché   ai suoi  angeli  ha  dato   un  comando        di preservarti   in  tutte le tue  vie;        ti porteranno     sulle loro  mani,   contro    la pietra  non   inciamperai.  Ritornello finale                    E  ti rialzerò,  ti solleverò   su ali d'aquila   ti reggerò                    sulla  brezza   dell'alba  ti farò  brillar                    come    il sole, così  nelle  mie  mani    vivrai.",
-    "file": "su-ali-d-aquila.json"
-  },
-  {
-    "slug": "symbolum-77-tu-sei-la-mia-vita",
-    "title": "Symbolum 77",
-    "author": "Tu Sei la Mia Vita",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Symbolum 77 Tu Sei la Mia Vita Strofa 1 Tu  sei la mia   vita    altro  io non   ho Tu  sei la mia   strada       La  mia  verità Nella   tua  parola     io  camminerò finché  avrò   respiro       fino  a quando     tu vorrai Non    avrò  paura   sai      se tu sei  con  me       io  ti prego  resta  con   me  Strofa 2 Credo    in te Signore,   nato   da  Maria          (Credo  in Te, figlio eterno e Santo) figlio eterno    e santo,  uomo     come    noi Morto    per  amore,    vivo   in mezzo    a  noi   (Morto   per amore,  vivo in mezzo  a noi) una   cosa  sola   con  il Padre   e con  i tuoi Fino   a  quando    io  lo so,  Tu ritornerai      (Fino  a quando  io lo so, tu ritornerai) per  aprirci  il regno   di Dio  Strofa 3 Tu  sei la mia   forza,  altro  io non   ho,  tu sei la mia   pace,   la mia  libertà Niente    nella  vita ci separerà   so  che  la Tua  mano     forte  non   mi  lascerà So  che  da  ogni   male   Tu  mi  libererai   e nel  tuo  perdono     vivrò  Strofa 4 Padre   della  vita   noi  crediamo    in  Te       (Padre, in Te credo, Figlio Eterno) figlio salvatore     noi  speriamo    in Te Spirito  d'amore      vieni  in mezzo    a  noi     (Spirito d'amore, vieni in mezzo  a noi) Tu  da  mille  strade   ci raduni   in unità E per   mille  strade  poi,  dove   tu  vorrai      (E per mille strade poi, dove tu vorrai) noi  saremo    il seme   di Dio",
-    "file": "symbolum-77-tu-sei-la-mia-vita.json"
-  },
-  {
-    "slug": "symbolum-80-oltre-le-memorie",
-    "title": "Symbolum '80",
-    "author": "Oltre le Memorie",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Symbolum '80 Oltre le Memorie Strofa 1 Oltre la memoria    del  tempo   che ho  vissuto,        oltre la speranza  che serve  al mio  domani,        oltre il desiderio di vivere il presente        anch'io confesso  ho  chiesto  che cosa  è verità.        E    tu come   un desiderio    che  non  ha memorie,       Padre    buono,        come  una  speranza   che non   ha confini,   come  un  tempo   eterno   sei per me.  Ritornello Io  so quanto  amore   chiede  questa  lunga   attesa     del tuo  giorno  o Dio;       luce  in ogni cosa  io non  vedo  ancora,   ma  la tua parola        mi rischiarerà.  Strofa 2 Quando    le parole non  bastano   all'amore,        quando   il mio fratello domanda    più  del pane,        quando   l'illusione promette  un  mondo    nuovo,        anch'io rimango   incerto  nel mezzo   del cammino.        E tu figlio tanto amato,  verità  dell'uomo,  mio  Signore,        come  la promessa   di un  perdono   eterno,   libertà infinita sei per me.  Strofa 3 Chiedo  alla mia  mente   coraggio  di cercare,        chiedo  alle mie mani   la forza di donare,        chiedo  al cuore  incerto passione  per  la vita        e chiedo  a te fratello di credere con  me.        E tu forza della vita,  Spirito d'amore,  dolce  Iddio,        grembo   d'ogni  cosa, tenerezza  immensa,    verità del mondo    sei per me.",
-    "file": "symbolum-80-oltre-le-memorie.json"
-  },
-  {
     "slug": "te-al-centro-del-mio-cuore",
     "title": "Te, al Centro del Mio Cuore",
     "author": "Gen Verde",
@@ -1908,16 +898,6 @@
     ],
     "search": "Te, al Centro del Mio Cuore  Strofa 1           Ho   bisogno    d'incontrarti    nel mio   cuore,           di  trovare   Te,  di stare  insieme   a  Te:           unico   riferimento     del mio   andare,           unica   ragione    Tu,  unico  sostegno    Tu.           Al  centro   del  mio   cuore   ci sei solo  Tu.  Strofa 2           Anche    il cielo gira  intorno    e non   ha  pace,           ma   c'è un   punto   fermo,   è  quella  stella  là.           La  stella polare    è fissa ed  è la sola,           la  stella polare   Tu,  la stella sicura  Tu.  Ritornello                 Tutto  ruota   attorno    a Te,  in funzione    di Te                 e poi  non   importa    il «come»,   il «dove»,   il «se».  Strofa 3          Che   Tu  splenda    sempre    al centro   del  mio   cuore,          il significato  allora  sarai  Tu,          quello   che  farò  sarà  soltanto   amore.          Unico    sostegno    Tu,  la stella polare   Tu.          Al  centro   del  mio  cuore   ci sei solo  Tu.",
     "file": "te-al-centro-del-mio-cuore.json"
-  },
-  {
-    "slug": "testimoni-della-tua-parola-capo-2",
-    "title": "Testimoni della Tua Parola",
-    "author": "Capo 2",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Testimoni della Tua Parola Capo 2 Strofa 1 Se cerchi la felicità e sogni che non  finisca mai Cerca  con  me  la luce che  ci salverà per sempre E nell'anima   risuonerà         quella  musica  che  ci renderà  Ritornello Testimoni   della tua  Parola noi  saremo   con te Gesù      Testimoni   del Vangelo   anche  noi      Porteremo    quella gioia vera  che  proviene  da  te Gesù      Costruiremo    un futuro  di santità  Strofa 2 Quel  volto  che  hai incontrato  qua  risplende  e non  tramonta   mai alza lo sguardo   e scopri che  è Lui la forza che c'è in te e nell'anima   risuonerà  quella musica  che  ci renderà  Strofa 3 Questo   è il momento    giusto per  donare  il tuo tempo   sai perché la storia cambia  quando    c'è qualcuno   che ha  fede e volontà e nell'anima   risuona già quella  musica  che  ci renderà",
-    "file": "testimoni-della-tua-parola-capo-2.json"
   },
   {
     "slug": "ti-lodero-ti-adorero-ti-cantero",
@@ -1938,46 +918,6 @@
     ],
     "search": "Ti lodiamo e ti adoriamo Gruppo Peniel Ritornello Ti lodiamo e ti adoriamo, Cristo Signor. Ti lodiamo e ti adoriamo, Cristo Signor. Strofa 1 Ti seguiamo nel cammino, ti seguiamo nel cammino, ti seguiamo nel cammino, Cristo Signor. Strofa 2 Ti doniam la nostra vita, ti doniam la nostra vita, ti doniam la nostra vita, Cristo Signor. Strofa 3 Diamo a te tutta la gloria, diamo a te tutta la gloria, diamo a te tutta la gloria, Cristo Signor.",
     "file": "ti-lodiamo-e-ti-adoriamo.json"
-  },
-  {
-    "slug": "ti-ringrazio-mio-signore",
-    "title": "Ti Ringrazio Mio Signore",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Ti Ringrazio Mio Signore  Ritornello    Ti  ringrazio   mio   Signore   non   ho  più  paura   perché    Con   la  mia  mano    nella  mano    degli  amici   miei    Cammino       tra la gente   della  mia  città     e non   mi   sento  più  solo    Non    sento   la stanchezza    e guardo    dritto  avanti   a me    Perché    sulla mia   strada  ci sei Tu  Strofa 1         Amatevi     l'un  l'altro come    Lui ha  amato    noi             E siate  per  sempre    suoi  amici             E quello   che  farete  al più  piccolo   tra  voi             Credete,   l'avete   fatto  a Lui  Strofa 2         Se amate    veramente     perdonatevi      tra voi,             nel cuore   di  ognuno    ci sia pace             Il Padre  che  è  nei cieli vede   tutti i figli suoi             Con   gioia  a voi  perdonerà  Strofa 3         Sarete  suoi  amici   se vi amate    tra di  voi             E questo   è  tutto  il suo Vangelo             L'amore    non   ha  prezzo,   non   misura   ciò  che  dà             L'amore    confini   non  ne  ha",
-    "file": "ti-ringrazio-mio-signore.json"
-  },
-  {
-    "slug": "ti-seguiro",
-    "title": "Ti Seguirò",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Ti Seguirò  Ritornello Ti  seguirò,  ti seguirò   o  Signore,   e    nella  tua    strada   camminerò.  Strofa 1 Ti seguirò   nella  via dell'amore     e donerò    al mondo      la vita.  Strofa 2 Ti  seguirò   nella  via del  dolore    e la tua  croce  ci salverà.  Strofa 3 Ti  seguirò   nella  via della  gioia   e la tua  luce  ci guiderà.",
-    "file": "ti-seguiro.json"
-  },
-  {
-    "slug": "tu-sei-bambino-capo-2-3-4",
-    "title": "Tu Sei Bambino",
-    "author": "Capo 2/3/4",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Tu Sei Bambino Capo 2/3/4 Intro (x2)  Strofa 1    Tu sei bambino,   tu sei bambino,     l'infinito, Dio vicino.    Tu sei bambino,   tu sei bambino,     nel Natale  il nostro destino.     Tu  padrone   dei cieli e dei popoli,  tu l'altissimo Dio degli  eserciti,     sei quaggiù  tu minuscolo,   sei quaggiù  indifeso  in mezzo   a noi.  Strofa 2    Tu sei bambino,   tu sei bambino,   solo  paglia il tuo cuscino.    Tu sei bambino,   tu sei bambino,   tu l'immagine   del divino.    Che  dimentica   il cielo e le nuvole per venire  quaggiù  tra le lacrime.    Il tuo amore  è incredibile,  ma  sei sceso giù dal paradiso.  Ritornello Gra - zie,   che  sei venuto  quaggiù   a condividere.    Gra  - zie,  per il tuo amore   che non   ha più limiti.     Tu  bambino    sei qui in questa grotta    e tu resti a tremare, resti a tremare,   a tremare  come   noi.  Interludio (x2) Ripetere la prima strofa Ripetere il ritornello (x2)  Finale (FA lungo) Gra  - zie,  gra       -    zie.",
-    "file": "tu-sei-bambino-capo-2-3-4.json"
-  },
-  {
-    "slug": "tu-sei-sorgente-viva",
-    "title": "Tu Sei Sorgente Viva",
-    "author": "",
-    "categories": [
-      "Canti vari"
-    ],
-    "search": "Tu Sei Sorgente Viva  Invocazione                                Tu    sei sorgente    vi  - va,                                Tu  sei fuo  - co,    sei     carità.                                Vieni   Spirito        Santo,                                Vieni   Spirito  Santo!",
-    "file": "tu-sei-sorgente-viva.json"
   },
   {
     "slug": "tu-sei",
