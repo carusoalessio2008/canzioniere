@@ -1295,43 +1295,104 @@ function buildFinalSongPayload() {
   };
 }
 
-async function saveEditedSongToCloud() {
-  if (!editorState.draftSong) return;
-  const payload = buildFinalSongPayload();
+async function commitFileToGitHub(filePath, jsonObject, commitMessage, token) {
+  const owner = 'carusoalessio2008';
+  const repo = 'canzoniere';
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
 
-  const cacheKey = STORAGE_KEYS.SONG_PREFIX + payload.slug;
-  localStorage.setItem(cacheKey, JSON.stringify(payload));
-  editorState.cloudSongsOverrides[payload.slug] = payload;
+  // 1. Recupera lo SHA attuale del file su GitHub (obbligatorio per sovrascriverlo)
+  const getRes = await fetch(apiUrl, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/vnd.github+json'
+    }
+  });
 
-  const idxEntry = state.songsIndex.find(item => item.slug === payload.slug);
-  if (idxEntry) {
-    idxEntry.title = payload.title;
-    idxEntry.author = payload.author;
-    localStorage.setItem(STORAGE_KEYS.INDEX, JSON.stringify(state.songsIndex));
-    filterSongs();
+  if (!getRes.ok) {
+    throw new Error(`Impossibile leggere ${filePath} su GitHub (${getRes.status})`);
   }
 
-  state.currentSong = {
-    ...state.currentSong,
-    ...payload
-  };
+  const fileData = await getRes.json();
+  const contentString = JSON.stringify(jsonObject, null, 2) + '\n';
+  // Codifica UTF-8 corretta per caratteri accentati italiani (è, à, ò, ù...)
+  const base64Content = btoa(unescape(encodeURIComponent(contentString)));
 
-  if (window.fb && window.fb.setDoc) {
-    try {
-      await window.fb.setDoc(window.fb.doc(window.fb.db, "songs", payload.slug), payload);
-      showToast("Canto salvato nel Cloud!");
-      exitInlineEditor();
-      renderSongView();
-    } catch (err) {
-      console.error("Errore salvataggio canto su Firestore:", err);
-      showToast("Salvato in locale (verifica regole Firestore per 'songs')", "error");
-      exitInlineEditor();
-      renderSongView();
+  // 2. Esegue il commit diretto sul repository
+  const putRes = await fetch(apiUrl, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/vnd.github+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      message: commitMessage,
+      content: base64Content,
+      sha: fileData.sha
+    })
+  });
+
+  if (!putRes.ok) {
+    const errBody = await putRes.json().catch(() => ({}));
+    throw new Error(errBody.message || `Errore commit GitHub (${putRes.status})`);
+  }
+}
+
+async function saveEditedSongToCloud() {
+  if (!editorState.draftSong) return;
+
+  let ghToken = localStorage.getItem('canzoniere_gh_token');
+  if (!ghToken) {
+    ghToken = prompt("Incolla il tuo GitHub Personal Access Token (con permesso Contents: Read & Write su 'canzoniere'):");
+    if (!ghToken || !ghToken.trim()) return;
+    ghToken = ghToken.trim();
+    localStorage.setItem('canzoniere_gh_token', ghToken);
+  }
+
+  const payload = buildFinalSongPayload();
+  const { updatedAt, ...cleanSongJson } = payload;
+
+  const meta = state.songsIndex.find(item => item.slug === payload.slug);
+  const fileName = meta?.file || `${payload.slug}.json`;
+  const filePath = `canti/${fileName}`;
+
+  try {
+    showToast("Salvataggio su GitHub in corso...");
+    await commitFileToGitHub(
+      filePath,
+      cleanSongJson,
+      `Aggiorna canto: ${payload.title}`,
+      ghToken
+    );
+
+    // Aggiorna anche Firestore se attivo per avere effetto immediato prima del rebuild di GitHub Pages (~30s)
+    if (window.fb && window.fb.setDoc) {
+      await window.fb.setDoc(window.fb.doc(window.fb.db, "songs", payload.slug), payload).catch(() => {});
     }
-  } else {
-    showToast("Canto salvato in locale!");
+
+    const cacheKey = STORAGE_KEYS.SONG_PREFIX + payload.slug;
+    localStorage.setItem(cacheKey, JSON.stringify(cleanSongJson));
+    editorState.cloudSongsOverrides[payload.slug] = cleanSongJson;
+
+    if (meta) {
+      meta.title = payload.title;
+      meta.author = payload.author;
+      localStorage.setItem(STORAGE_KEYS.INDEX, JSON.stringify(state.songsIndex));
+      filterSongs();
+    }
+
+    state.currentSong = { ...state.currentSong, ...cleanSongJson };
+    showToast("File JSON aggiornato su GitHub!");
     exitInlineEditor();
     renderSongView();
+  } catch (err) {
+    console.error("Errore salvataggio GitHub:", err);
+    if (String(err.message).includes('401') || String(err.message).includes('403') || String(err.message).includes('Bad credentials')) {
+      localStorage.removeItem('canzoniere_gh_token');
+      showToast("Token GitHub non valido o scaduto: riprova", "error");
+    } else {
+      showToast("Errore GitHub: " + err.message, "error");
+    }
   }
 }
 
