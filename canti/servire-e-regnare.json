@@ -1,0 +1,149 @@
+{
+  "title": "Servire È Regnare",
+  "sub": "",
+  "capo": 3,
+  "key": {
+    "note": "SI",
+    "mode": "minore"
+  },
+  "search": "Servire È Regnare  Intro  Strofa 1    Guardiamo      a te  che  sei   Maestro    e  Signore    chinato   a terra  stai,   ci mostri   che  l'amore    è cingersi  il grembiule,      sapersi  inginocchiare,    c'insegni  che   amare             è servire.  Ritornello Fa'  che  impariamo,      Signore,   da  Te,    che  il più grande    è chi  più  sa      servire,    chi si abbassa   e  chi si sa piegare,    perché   grande    è soltanto   l'amore.  Strofa 2    E ti vediamo     poi,    Maestro    e Signore,    che  lavi i piedi  a noi     che  siamo   tue  creature;    e cinto  del  grembiule,       che  è il manto    tuo  regale,    c'insegni  che   servire           è  regnare.  Finale",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Intro"
+    },
+    {
+      "t": "c",
+      "v": "SI-      SOL    RE     LA"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "c",
+      "v": "        SI-                  SOL       RE            LA"
+    },
+    {
+      "t": "l",
+      "v": "   Guardiamo      a te  che  sei   Maestro    e  Signore"
+    },
+    {
+      "t": "c",
+      "v": "       SI-            SOL          RE              LA"
+    },
+    {
+      "t": "l",
+      "v": "   chinato   a terra  stai,   ci mostri   che  l'amore"
+    },
+    {
+      "t": "c",
+      "v": "       SI-              SOL           RE           LA"
+    },
+    {
+      "t": "l",
+      "v": "   è cingersi  il grembiule,      sapersi  inginocchiare,"
+    },
+    {
+      "t": "c",
+      "v": "       SI-            SOL    LA           SI-               LA"
+    },
+    {
+      "t": "l",
+      "v": "   c'insegni  che   amare             è servire."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "RE        LA              MI-            SI-"
+    },
+    {
+      "t": "l",
+      "v": "Fa'  che  impariamo,      Signore,   da  Te,"
+    },
+    {
+      "t": "c",
+      "v": "                  SOL               MI-7         FA#"
+    },
+    {
+      "t": "l",
+      "v": "   che  il più grande    è chi  più  sa      servire,"
+    },
+    {
+      "t": "c",
+      "v": "           SI-               SOL     RE    LA"
+    },
+    {
+      "t": "l",
+      "v": "   chi si abbassa   e  chi si sa piegare,"
+    },
+    {
+      "t": "c",
+      "v": "           SOL             LA          SI-      SOL     RE   LA"
+    },
+    {
+      "t": "l",
+      "v": "   perché   grande    è soltanto   l'amore."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "c",
+      "v": "     SI-            SOL        RE           LA"
+    },
+    {
+      "t": "l",
+      "v": "   E ti vediamo     poi,    Maestro    e Signore,"
+    },
+    {
+      "t": "c",
+      "v": "        SI-             SOL           RE               LA"
+    },
+    {
+      "t": "l",
+      "v": "   che  lavi i piedi  a noi     che  siamo   tue  creature;"
+    },
+    {
+      "t": "c",
+      "v": "      SI-                SOL                RE            LA"
+    },
+    {
+      "t": "l",
+      "v": "   e cinto  del  grembiule,       che  è il manto    tuo  regale,"
+    },
+    {
+      "t": "c",
+      "v": "        SI-           SOL     LA           SI-               LA"
+    },
+    {
+      "t": "l",
+      "v": "   c'insegni  che   servire           è  regnare."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Finale"
+    },
+    {
+      "t": "c",
+      "v": "SI- SOL RE LA SI-"
+    }
+  ],
+  "id": "servire-e-regnare"
+}
