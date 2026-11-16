@@ -6,7 +6,8 @@
 const STORAGE_KEYS = {
   INDEX: 'canzoniere_sosp_index_v2',
   SONG_PREFIX: 'canzoniere_sosp_song_v2_',
-  SETLISTS: 'canzoniere_sosp_setlists_v1'
+  SETLISTS: 'canzoniere_sosp_setlists_v1',
+  DELETED_SETLISTS: 'canzoniere_sosp_deleted_setlists_v1'
 };
 
 let state = {
@@ -19,6 +20,7 @@ let state = {
   fontSize: 16,
   viewMode: 'chords',
   setlists: {},
+  deletedSetlistIds: [],
   activeSetlistId: null,
   activeSetlistIndex: -1,
   firebaseInitialized: false
@@ -444,12 +446,24 @@ function toggleViewMode() {
 function loadLocalSetlists() {
   const saved = localStorage.getItem(STORAGE_KEYS.SETLISTS);
   if (saved) state.setlists = JSON.parse(saved);
+  const deleted = localStorage.getItem(STORAGE_KEYS.DELETED_SETLISTS);
+  if (deleted) state.deletedSetlistIds = JSON.parse(deleted);
   updateSetlistBadge();
 }
 
 function saveLocalSetlists() {
   localStorage.setItem(STORAGE_KEYS.SETLISTS, JSON.stringify(state.setlists));
+  localStorage.setItem(STORAGE_KEYS.DELETED_SETLISTS, JSON.stringify(state.deletedSetlistIds));
   updateSetlistBadge();
+}
+
+function markSetlistDeleted(id) {
+  if (!state.deletedSetlistIds.includes(id)) {
+    state.deletedSetlistIds.push(id);
+    if (state.deletedSetlistIds.length > 200) {
+      state.deletedSetlistIds = state.deletedSetlistIds.slice(-200);
+    }
+  }
 }
 
 function updateSetlistBadge() {
@@ -617,6 +631,7 @@ function deleteCurrentSetlist() {
 
   const id = state.activeSetlistId;
   delete state.setlists[id];
+  markSetlistDeleted(id);
   if (state.activeSetlistIndex >= 0) {
     state.activeSetlistIndex = -1;
     updateSetlistNavBar();
@@ -691,13 +706,24 @@ function initFirebaseSync() {
       let changed = false;
 
       if (isFirstSnapshot) {
-        // Sincronizza su Cloud solo le scalette locali non ancora presenti su Firestore
         const remoteIds = new Set(querySnapshot.docs.map(d => d.id));
+        const hasSyncedBefore = localStorage.getItem('canzoniere_sosp_cloud_synced') === '1';
+
         Object.values(state.setlists).forEach(localSl => {
           if (!remoteIds.has(localSl.id)) {
-            syncSetlistToCloud(localSl);
+            if (hasSyncedBefore || state.deletedSetlistIds.includes(localSl.id)) {
+              // Era già stata sincronizzata e poi eliminata da un altro dispositivo: rimuovila anche qui
+              delete state.setlists[localSl.id];
+              markSetlistDeleted(localSl.id);
+              changed = true;
+            } else {
+              // Prima migrazione da dispositivo locale mai sincronizzato prima
+              syncSetlistToCloud(localSl);
+            }
           }
         });
+
+        localStorage.setItem('canzoniere_sosp_cloud_synced', '1');
         isFirstSnapshot = false;
       }
 
@@ -706,6 +732,7 @@ function initFirebaseSync() {
         const id = remoteData.id || change.doc.id;
 
         if (change.type === "removed") {
+          markSetlistDeleted(id);
           if (state.setlists[id]) {
             delete state.setlists[id];
             changed = true;
@@ -717,6 +744,13 @@ function initFirebaseSync() {
             }
           }
         } else if (change.type === "added" || change.type === "modified") {
+          // Se questo dispositivo l'ha appena eliminata ma arriva un evento residuo, assicurati resti eliminata
+          if (state.deletedSetlistIds.includes(id)) {
+            if (window.fb && window.fb.deleteDoc) {
+              window.fb.deleteDoc(window.fb.doc(window.fb.db, "setlists", id)).catch(() => {});
+            }
+            return;
+          }
           const localData = state.setlists[id];
           if (!localData || (remoteData.updatedAt || 0) >= (localData.updatedAt || 0)) {
             state.setlists[id] = { ...remoteData, id };
