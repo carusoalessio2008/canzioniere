@@ -98,7 +98,6 @@ async function loadSongsIndex() {
     if (!res.ok) throw new Error("Errore fetch index");
     let freshData = await res.json();
 
-    // Normalizza i campi nel caso index.json usi "id" al posto di "slug" o "sub" al posto di "author"
     freshData = freshData.map(item => {
       const slug = item.slug || item.id || item.file.replace('.json', '');
       return {
@@ -216,7 +215,6 @@ async function loadSong(meta) {
     return;
   }
 
-  // Converte il formato "lines" (t: h/c/l/s) in "sections" se necessario
   const normalizedData = normalizeSongFormat(songData);
 
   state.currentSong = {
@@ -234,7 +232,6 @@ async function loadSong(meta) {
   renderSongList();
 }
 
-/* Converte i file JSON con array piatto "lines" (t: h, c, l, s) nella struttura a blocchi */
 function normalizeSongFormat(data) {
   if (data.sections && Array.isArray(data.sections)) {
     return data;
@@ -362,34 +359,53 @@ function transpose(delta) {
 
 function transposeLine(line, semitones) {
   if (semitones === 0) return line;
-  // Supporta notazione anglosassone (A-G), italiana TitleCase (Do, Re...) e MAIUSCOLA (DO, RE, LA-, DO#-)
-  const regex = /(SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?)(-|m|maj|min|dim|aug|sus|add|7|9|11|13|6|4|2)*(\/(?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?))?/g;
-  
-  return line.replace(regex, (match, root, suffix, bass) => {
-    const newRoot = transposeNote(root, semitones);
+  const useFlats = [-1, -2, -3, -5, -7, 4, 5, 10].includes(semitones);
+
+  // Cattura accordi italiani (DO, RE, LA-, DO#-, SIb7) e inglesi (C, Am, F#m7) delimitati da spazi/inizio/fine/slash/parentesi
+  const chordTokenRegex = /(^|[\s(\[|])((?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?)(?:[-m]|maj|min|dim|aug|sus|add|7|9|11|13|6|5|4|2)*)(\/(?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?))?(?=$|[\s)\].,;|])(\s*)/g;
+
+  return line.replace(chordTokenRegex, (match, prefix, chordPart, bassPart, trailingSpaces) => {
+    const rootMatch = chordPart.match(/^(SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?)(.*)$/);
+    if (!rootMatch) return match;
+
+    const root = rootMatch[1];
+    const suffix = rootMatch[2] || '';
+    const newRoot = transposeNote(root, semitones, useFlats);
+
     let newBass = '';
-    if (bass) {
-      const bassNote = bass.substring(1);
-      newBass = '/' + transposeNote(bassNote, semitones);
+    if (bassPart) {
+      newBass = '/' + transposeNote(bassPart.substring(1), semitones, useFlats);
     }
-    return newRoot + (suffix || '') + newBass;
+
+    const oldChordFull = chordPart + (bassPart || '');
+    const newChordFull = newRoot + suffix + newBass;
+
+    // Compensa gli spazi successivi per mantenere l'allineamento verticale col testo
+    let adjustedSpaces = trailingSpaces;
+    const lenDiff = newChordFull.length - oldChordFull.length;
+    if (lenDiff > 0 && trailingSpaces.length > 1) {
+      adjustedSpaces = ' '.repeat(Math.max(1, trailingSpaces.length - lenDiff));
+    } else if (lenDiff < 0 && trailingSpaces.length > 0) {
+      adjustedSpaces = trailingSpaces + ' '.repeat(-lenDiff);
+    }
+
+    return prefix + newChordFull + adjustedSpaces;
   });
 }
 
-function transposeNote(note, semitones) {
-  const isEnglish = ['A','B','C','D','E','F','G'].includes(note.charAt(0)) && note.length <= 2 && note !== 'LA' && note !== 'MI' && note !== 'SI' && note !== 'RE' && note !== 'DO' && note !== 'FA';
+function transposeNote(note, semitones, useFlats = false) {
+  const isEnglish = /^[A-G][#b]?$/.test(note);
   const isUpperItalian = !isEnglish && note === note.toUpperCase();
-  
-  let engNote = isEnglish ? note : (IT_TO_ENG[note] || note);
-  
+
+  const engNote = isEnglish ? note : (IT_TO_ENG[note] || note);
+
   let idx = NOTES_SHARP.indexOf(engNote);
   if (idx === -1) idx = NOTES_FLAT.indexOf(engNote);
   if (idx === -1) return note;
 
-  let newIdx = (idx + semitones) % 12;
-  if (newIdx < 0) newIdx += 12;
+  const newIdx = ((idx + semitones) % 12 + 12) % 12;
+  const newEng = useFlats ? NOTES_FLAT[newIdx] : NOTES_SHARP[newIdx];
 
-  const newEng = NOTES_SHARP[newIdx];
   if (isEnglish) return newEng;
   return isUpperItalian ? (ENG_TO_IT_UPPER[newEng] || newEng) : (ENG_TO_IT_TITLE[newEng] || newEng);
 }
