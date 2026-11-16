@@ -977,7 +977,7 @@ function forceUpdateCache() {
   setTimeout(() => window.location.reload(), 800);
 }
 
-/* --- EDITOR INLINE DIRETTO SUL CANTO (ZERO POPUP, ZERO SALTI DI SCROLL) --- */
+/* --- EDITOR INLINE CON ANTEPRIMA REALE E TAG [ACCORDO] --- */
 
 const EDITOR_PASSWORD = "SerAle2026.";
 
@@ -987,34 +987,41 @@ let editorState = {
   draftSong: null,
   selectedSecIdx: 0,
   selectedLineIdx: 0,
-  selectedCharIdx: 0,
   cloudSongsOverrides: {}
 };
 
-function chordsStringToMap(chordsStr) {
-  const map = {};
-  if (!chordsStr) return map;
+// Converte la coppia (chords, lyrics) in una singola riga con [ACCORDO] nel punto esatto
+function mergeChordsIntoLyrics(chordsStr, lyricsStr) {
+  const lyrics = lyricsStr || '';
+  if (!chordsStr || !chordsStr.trim()) return lyrics;
+
+  const chords = [];
   const regex = /\S+/g;
   let match;
   while ((match = regex.exec(chordsStr)) !== null) {
-    map[match.index] = match[0];
+    chords.push({ pos: match.index, chord: match[0] });
   }
-  return map;
-}
 
-function mapToChordsString(map) {
-  const positions = Object.keys(map).map(Number).sort((a, b) => a - b);
-  if (positions.length === 0) return '';
-  let chars = [];
-  for (const pos of positions) {
-    const chord = map[pos];
-    let writePos = Math.max(pos, chars.length > 0 ? chars.length + 1 : 0);
-    while (chars.length < writePos) chars.push(' ');
-    for (let i = 0; i < chord.length; i++) {
-      chars[writePos + i] = chord[i];
+  let result = '';
+  let lastIdx = 0;
+
+  for (const item of chords) {
+    const targetPos = Math.min(item.pos, lyrics.length);
+    if (targetPos > lastIdx) {
+      result += lyrics.slice(lastIdx, targetPos);
+      lastIdx = targetPos;
     }
+    if (item.pos > lyrics.length) {
+      result += ' '.repeat(item.pos - lyrics.length);
+    }
+    result += `[${item.chord}]`;
   }
-  return chars.join('');
+
+  if (lastIdx < lyrics.length) {
+    result += lyrics.slice(lastIdx);
+  }
+
+  return result;
 }
 
 function ensureEditButton() {
@@ -1069,8 +1076,7 @@ function openSongEditor() {
     type: sec.type || 'strofa',
     label: sec.label || '',
     lines: (sec.lines || []).map(line => ({
-      lyrics: line.lyrics || '',
-      chordMap: chordsStringToMap(line.chords || '')
+      inlineText: mergeChordsIntoLyrics(line.chords || '', line.lyrics || '')
     }))
   }));
 
@@ -1078,7 +1084,7 @@ function openSongEditor() {
     draftSections.push({
       type: 'strofa',
       label: 'STROFA 1',
-      lines: [{ lyrics: '', chordMap: {} }]
+      lines: [{ inlineText: '' }]
     });
   }
 
@@ -1091,7 +1097,6 @@ function openSongEditor() {
   };
   editorState.selectedSecIdx = 0;
   editorState.selectedLineIdx = 0;
-  editorState.selectedCharIdx = 0;
   editorState.isOpen = true;
 
   ensureEditButton();
@@ -1100,94 +1105,122 @@ function openSongEditor() {
 
 function exitInlineEditor() {
   editorState.isOpen = false;
-  const toolbar = document.getElementById('inline-chord-toolbar');
-  if (toolbar) toolbar.remove();
   ensureEditButton();
   renderSongBody();
 }
 
-function getSelectedLineObj() {
-  const sec = editorState.draftSong?.sections?.[editorState.selectedSecIdx];
-  if (!sec) return null;
-  return sec.lines?.[editorState.selectedLineIdx] || null;
+function getActiveEditorInput() {
+  return document.getElementById(`inline-line-input-${editorState.selectedSecIdx}-${editorState.selectedLineIdx}`);
 }
 
-function selectEditorCursor(secIdx, lineIdx, charIdx) {
-  editorState.selectedSecIdx = secIdx;
-  editorState.selectedLineIdx = lineIdx;
-  editorState.selectedCharIdx = Math.max(0, charIdx);
-  renderInlineToolbar();
-  renderInlineSections();
+// Inserisce un accordo [NOTA] esattamente dove si trova il cursore nel testo
+function insertChordAtInputCursor(chord) {
+  const input = getActiveEditorInput();
+  const line = editorState.draftSong?.sections?.[editorState.selectedSecIdx]?.lines?.[editorState.selectedLineIdx];
+  if (!input || !line) return;
+
+  const start = input.selectionStart ?? line.inlineText.length;
+  const end = input.selectionEnd ?? start;
+  const tag = `[${chord}]`;
+
+  line.inlineText = line.inlineText.slice(0, start) + tag + line.inlineText.slice(end);
+  input.value = line.inlineText;
+  input.focus();
+  const newPos = start + tag.length;
+  input.setSelectionRange(newPos, newPos);
+
+  updateLineLivePreview(editorState.selectedSecIdx, editorState.selectedLineIdx);
 }
 
-function setChordAtCursor(chordValue) {
-  const line = getSelectedLineObj();
-  if (!line) return;
-  const cleanChord = (chordValue || '').trim();
-  if (!cleanChord) {
-    delete line.chordMap[editorState.selectedCharIdx];
+// Aggiunge alterazione (-, #, 7, /SOL...) all'accordo immediatamente prima o intorno al cursore
+function appendModifierToNearestChord(mod) {
+  const input = getActiveEditorInput();
+  const line = editorState.draftSong?.sections?.[editorState.selectedSecIdx]?.lines?.[editorState.selectedLineIdx];
+  if (!input || !line) return;
+
+  const pos = input.selectionStart ?? line.inlineText.length;
+  const text = line.inlineText;
+  const before = text.slice(0, pos);
+  const closeBracketIdx = before.lastIndexOf(']');
+  const openBracketIdx = before.lastIndexOf('[');
+
+  if (closeBracketIdx !== -1 && closeBracketIdx > openBracketIdx) {
+    line.inlineText = text.slice(0, closeBracketIdx) + mod + text.slice(closeBracketIdx);
+    input.value = line.inlineText;
+    input.focus();
+    const newPos = pos + mod.length;
+    input.setSelectionRange(newPos, newPos);
+    updateLineLivePreview(editorState.selectedSecIdx, editorState.selectedLineIdx);
   } else {
-    line.chordMap[editorState.selectedCharIdx] = cleanChord;
+    showToast("Posiziona il cursore subito dopo un accordo (es. [DO]|)", "error");
   }
-  renderInlineToolbar();
-  renderInlineSections();
 }
 
-function appendChordModifier(mod) {
-  const line = getSelectedLineObj();
-  if (!line) return;
-  const current = line.chordMap[editorState.selectedCharIdx] || '';
-  if (!current) {
-    showToast("Scegli prima una nota (es. DO, RE, MI...)", "error");
+// Sposta l'accordo vicino al cursore di 1 carattere a sinistra (-1) o destra (+1)
+function shiftNearestChord(delta) {
+  const input = getActiveEditorInput();
+  const line = editorState.draftSong?.sections?.[editorState.selectedSecIdx]?.lines?.[editorState.selectedLineIdx];
+  if (!input || !line) return;
+
+  const pos = input.selectionStart ?? 0;
+  const text = line.inlineText;
+
+  // Trova il tag [ACCORDO] più vicino al cursore
+  const tagRegex = /\[([^\]]+)\]/g;
+  let match;
+  let targetMatch = null;
+  while ((match = tagRegex.exec(text)) !== null) {
+    const start = match.index;
+    const end = start + match[0].length;
+    if (pos >= start && pos <= end + 1) {
+      targetMatch = { start, end, tag: match[0] };
+      break;
+    }
+  }
+
+  if (!targetMatch) {
+    showToast("Metti il cursore accanto all'accordo da spostare", "error");
     return;
   }
-  line.chordMap[editorState.selectedCharIdx] = current + mod;
-  renderInlineToolbar();
-  renderInlineSections();
+
+  const withoutTag = text.slice(0, targetMatch.start) + text.slice(targetMatch.end);
+  const newStart = Math.max(0, Math.min(withoutTag.length, targetMatch.start + delta));
+  line.inlineText = withoutTag.slice(0, newStart) + targetMatch.tag + withoutTag.slice(newStart);
+
+  input.value = line.inlineText;
+  input.focus();
+  const newCursor = newStart + targetMatch.tag.length;
+  input.setSelectionRange(newCursor, newCursor);
+  updateLineLivePreview(editorState.selectedSecIdx, editorState.selectedLineIdx);
 }
 
-function shiftChordAtCursor(delta) {
-  const line = getSelectedLineObj();
-  if (!line) return;
-  const curPos = editorState.selectedCharIdx;
-  const chord = line.chordMap[curPos];
-  if (!chord) return;
-
-  const newPos = Math.max(0, curPos + delta);
-  if (newPos === curPos) return;
-
-  delete line.chordMap[curPos];
-  line.chordMap[newPos] = chord;
-  editorState.selectedCharIdx = newPos;
-  renderInlineToolbar();
-  renderInlineSections();
-}
-
-function handleInlineLyricInput(secIdx, lineIdx, newLyrics) {
+function updateLineLivePreview(secIdx, lineIdx) {
   const line = editorState.draftSong?.sections?.[secIdx]?.lines?.[lineIdx];
-  if (!line) return;
-  line.lyrics = newLyrics;
-  editorState.selectedSecIdx = secIdx;
-  editorState.selectedLineIdx = lineIdx;
-  const gridEl = document.getElementById(`inline-chord-grid-${secIdx}-${lineIdx}`);
-  if (gridEl) {
-    gridEl.innerHTML = buildLineChordGridHtml(secIdx, lineIdx, line);
-  }
+  const previewEl = document.getElementById(`inline-live-preview-${secIdx}-${lineIdx}`);
+  if (!line || !previewEl) return;
+
+  const parsed = parseInlineBrackets('', line.inlineText);
+  const hasChords = parsed.chords && parsed.chords.trim().length > 0;
+  const monoStyle = 'font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0;';
+
+  previewEl.innerHTML = `
+    ${hasChords ? `<div class="text-blue-700 font-bold text-[0.95em] leading-none mb-0.5 whitespace-pre" style="${monoStyle}">${escapeHtml(parsed.chords)}</div>` : ''}
+    <div class="text-slate-800 leading-snug whitespace-pre-wrap" style="${monoStyle}">${escapeHtml(parsed.lyrics || ' ')}</div>
+  `;
 }
 
-function handleInlineLyricKeydown(e, secIdx, lineIdx) {
+function handleInlineLineKeydown(e, secIdx, lineIdx) {
   if (e.key === 'Enter') {
     e.preventDefault();
     const sec = editorState.draftSong?.sections?.[secIdx];
     if (!sec) return;
-    sec.lines.splice(lineIdx + 1, 0, { lyrics: '', chordMap: {} });
+    sec.lines.splice(lineIdx + 1, 0, { inlineText: '' });
     editorState.selectedSecIdx = secIdx;
     editorState.selectedLineIdx = lineIdx + 1;
-    editorState.selectedCharIdx = 0;
     renderInlineSections();
     setTimeout(() => {
-      const nextInput = document.getElementById(`inline-lyric-input-${secIdx}-${lineIdx + 1}`);
-      if (nextInput) nextInput.focus();
+      const next = document.getElementById(`inline-line-input-${secIdx}-${lineIdx + 1}`);
+      if (next) next.focus();
     }, 0);
   } else if (e.key === 'Backspace' && e.target.value === '') {
     const sec = editorState.draftSong?.sections?.[secIdx];
@@ -1197,11 +1230,10 @@ function handleInlineLyricKeydown(e, secIdx, lineIdx) {
     const prevIdx = Math.max(0, lineIdx - 1);
     editorState.selectedSecIdx = secIdx;
     editorState.selectedLineIdx = prevIdx;
-    editorState.selectedCharIdx = 0;
     renderInlineSections();
     setTimeout(() => {
-      const prevInput = document.getElementById(`inline-lyric-input-${secIdx}-${prevIdx}`);
-      if (prevInput) prevInput.focus();
+      const prev = document.getElementById(`inline-line-input-${secIdx}-${prevIdx}`);
+      if (prev) prev.focus();
     }, 0);
   }
 }
@@ -1209,10 +1241,9 @@ function handleInlineLyricKeydown(e, secIdx, lineIdx) {
 function addInlineLine(secIdx) {
   const sec = editorState.draftSong?.sections?.[secIdx];
   if (!sec) return;
-  sec.lines.push({ lyrics: '', chordMap: {} });
+  sec.lines.push({ inlineText: '' });
   editorState.selectedSecIdx = secIdx;
   editorState.selectedLineIdx = sec.lines.length - 1;
-  editorState.selectedCharIdx = 0;
   renderInlineSections();
 }
 
@@ -1220,10 +1251,7 @@ function removeInlineLine(secIdx, lineIdx) {
   const sec = editorState.draftSong?.sections?.[secIdx];
   if (!sec) return;
   sec.lines.splice(lineIdx, 1);
-  if (sec.lines.length === 0) sec.lines.push({ lyrics: '', chordMap: {} });
-  editorState.selectedSecIdx = secIdx;
-  editorState.selectedLineIdx = Math.min(lineIdx, sec.lines.length - 1);
-  editorState.selectedCharIdx = 0;
+  if (sec.lines.length === 0) sec.lines.push({ inlineText: '' });
   renderInlineSections();
 }
 
@@ -1232,20 +1260,14 @@ function addInlineSection(isChorus) {
   editorState.draftSong.sections.push({
     type: isChorus ? 'ritornello' : 'strofa',
     label: isChorus ? 'RITORNELLO' : `STROFA ${editorState.draftSong.sections.length + 1}`,
-    lines: [{ lyrics: '', chordMap: {} }]
+    lines: [{ inlineText: '' }]
   });
-  editorState.selectedSecIdx = editorState.draftSong.sections.length - 1;
-  editorState.selectedLineIdx = 0;
-  editorState.selectedCharIdx = 0;
   renderInlineSections();
 }
 
 function removeInlineSection(secIdx) {
   if (!editorState.draftSong || editorState.draftSong.sections.length <= 1) return;
   editorState.draftSong.sections.splice(secIdx, 1);
-  editorState.selectedSecIdx = Math.max(0, secIdx - 1);
-  editorState.selectedLineIdx = 0;
-  editorState.selectedCharIdx = 0;
   renderInlineSections();
 }
 
@@ -1254,10 +1276,13 @@ function buildFinalSongPayload() {
   const sections = d.sections.map(sec => ({
     type: sec.type,
     label: sec.label.trim(),
-    lines: sec.lines.map(l => ({
-      chords: mapToChordsString(l.chordMap),
-      lyrics: l.lyrics
-    }))
+    lines: sec.lines.map(l => {
+      const parsed = parseInlineBrackets('', l.inlineText);
+      return {
+        chords: parsed.chords,
+        lyrics: parsed.lyrics
+      };
+    })
   }));
 
   return {
@@ -1334,104 +1359,40 @@ function downloadEditedSongJson() {
 
 function renderInlineEditorView() {
   const container = document.getElementById('song-body');
-  container.innerHTML = `
-    <div id="inline-chord-toolbar" class="sticky top-0 z-30 mb-5 p-3 rounded-xl bg-amber-50 border border-amber-300 shadow-sm space-y-2"></div>
-    <div id="inline-sections-container" class="space-y-6"></div>
-  `;
-  renderInlineToolbar();
-  renderInlineSections();
-}
-
-function renderInlineToolbar() {
-  const toolbar = document.getElementById('inline-chord-toolbar');
-  if (!toolbar) return;
-
-  const activeLine = getSelectedLineObj();
-  const activeChord = activeLine ? (activeLine.chordMap[editorState.selectedCharIdx] || '') : '';
   const notes = ['DO', 'RE', 'MI', 'FA', 'SOL', 'LA', 'SI'];
   const modifiers = ['-', '#', 'b', '7', '4', 'sus4', 'add9', 'maj7', '/SOL', '/LA-', '/SI', '/DO', '/RE', '/MI', '/FA#'];
 
-  toolbar.innerHTML = `
-    <div class="flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-1.5 flex-wrap">
-        <span class="text-xs font-bold text-amber-900">Accordo:</span>
-        <input type="text"
-          value="${escapeHtml(activeChord)}"
-          onchange="setChordAtCursor(this.value)"
-          placeholder="es. LA-"
-          class="w-20 px-2 py-1 text-xs font-bold text-blue-700 border border-amber-300 rounded-lg bg-white uppercase" />
-        <button type="button" onclick="shiftChordAtCursor(-1)" ${!activeChord ? 'disabled' : ''}
-          class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 disabled:opacity-30 text-xs font-bold" title="Sposta accordo a sinistra">←</button>
-        <button type="button" onclick="shiftChordAtCursor(1)" ${!activeChord ? 'disabled' : ''}
-          class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 disabled:opacity-30 text-xs font-bold" title="Sposta accordo a destra">→</button>
-        <button type="button" onclick="setChordAtCursor('')" ${!activeChord ? 'disabled' : ''}
-          class="px-2 py-1 rounded-lg bg-red-50 border border-red-200 text-red-600 hover:bg-red-100 disabled:opacity-30 text-xs font-semibold">Togli</button>
+  container.innerHTML = `
+    <div id="inline-chord-toolbar" class="sticky top-0 z-30 mb-5 p-3 rounded-xl bg-amber-50 border border-amber-300 shadow-sm space-y-2">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <span class="text-xs font-bold text-amber-900">Sposta accordo al cursore:</span>
+          <button type="button" onclick="shiftNearestChord(-1)"
+            class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 text-xs font-bold" title="Sposta accordo a sinistra">←</button>
+          <button type="button" onclick="shiftNearestChord(1)"
+            class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 text-xs font-bold" title="Sposta accordo a destra">→</button>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <button type="button" onclick="copyEditedSongJson()" class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50">Copia JSON</button>
+          <button type="button" onclick="downloadEditedSongJson()" class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50">Scarica</button>
+          <button type="button" onclick="saveEditedSongToCloud()" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs">✓ Salva</button>
+        </div>
       </div>
-      <div class="flex items-center gap-1.5">
-        <button type="button" onclick="copyEditedSongJson()" class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50">Copia JSON</button>
-        <button type="button" onclick="downloadEditedSongJson()" class="px-2.5 py-1 rounded-lg bg-white border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50">Scarica</button>
-        <button type="button" onclick="saveEditedSongToCloud()" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs">✓ Salva</button>
+      <div class="flex items-center gap-1 overflow-x-auto pb-0.5">
+        ${notes.map(n => `
+          <button type="button" onmousedown="event.preventDefault()" onclick="insertChordAtInputCursor('${n}')"
+            class="px-2.5 py-1 rounded-lg text-xs font-bold shrink-0 bg-white border border-slate-300 text-slate-800 hover:border-blue-500">${n}</button>
+        `).join('')}
+        <span class="mx-1 text-slate-300">|</span>
+        ${modifiers.map(m => `
+          <button type="button" onmousedown="event.preventDefault()" onclick="appendModifierToNearestChord('${m}')"
+            class="px-2 py-1 rounded-lg text-xs font-semibold bg-white border border-slate-200 hover:bg-slate-100 text-slate-800 shrink-0">${m}</button>
+        `).join('')}
       </div>
     </div>
-    <div class="flex items-center gap-1 overflow-x-auto pb-0.5">
-      ${notes.map(n => `
-        <button type="button" onclick="setChordAtCursor('${n}')"
-          class="px-2.5 py-1 rounded-lg text-xs font-bold shrink-0 ${activeChord === n ? 'bg-blue-600 text-white' : 'bg-white border border-slate-300 text-slate-800 hover:border-blue-500'}">${n}</button>
-      `).join('')}
-      <span class="mx-1 text-slate-300">|</span>
-      ${modifiers.map(m => `
-        <button type="button" onclick="appendChordModifier('${m}')"
-          class="px-2 py-1 rounded-lg text-xs font-semibold bg-white border border-slate-200 hover:bg-slate-100 text-slate-800 shrink-0">${m}</button>
-      `).join('')}
-    </div>
+    <div id="inline-sections-container" class="space-y-6"></div>
   `;
-}
-
-function buildLineChordGridHtml(sIdx, lIdx, line) {
-  const isSelectedLine = (sIdx === editorState.selectedSecIdx && lIdx === editorState.selectedLineIdx);
-  const maxCol = Math.max(
-    line.lyrics.length + 2,
-    ...Object.keys(line.chordMap).map(k => Number(k) + (line.chordMap[k]?.length || 1) + 1),
-    8
-  );
-
-  let html = '';
-  let col = 0;
-  while (col < maxCol) {
-    const chordHere = line.chordMap[col];
-    const isCursor = isSelectedLine && col === editorState.selectedCharIdx;
-
-    if (chordHere) {
-      const span = chordHere.length;
-      let charsUnder = '';
-      for (let k = 0; k < span; k++) {
-        const ch = line.lyrics[col + k] || ' ';
-        charsUnder += ch === ' ' ? '&nbsp;' : escapeHtml(ch);
-      }
-      html += `
-        <span onclick="selectEditorCursor(${sIdx}, ${lIdx}, ${col})"
-          style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0;"
-          class="inline-flex flex-col items-start cursor-pointer ${isCursor ? 'bg-amber-200 ring-1 ring-amber-500' : 'bg-blue-50 hover:bg-blue-100'}">
-          <span class="text-[0.95em] font-bold text-blue-700 leading-none whitespace-pre">${escapeHtml(chordHere)}</span>
-          <span class="text-slate-700 leading-snug whitespace-pre">${charsUnder}</span>
-        </span>
-      `;
-      col += span;
-    } else {
-      const ch = line.lyrics[col] || ' ';
-      const displayCh = ch === ' ' ? '&nbsp;' : escapeHtml(ch);
-      html += `
-        <span onclick="selectEditorCursor(${sIdx}, ${lIdx}, ${col})"
-          style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0;"
-          class="inline-flex flex-col items-center cursor-pointer ${isCursor ? 'bg-amber-200 ring-1 ring-amber-500' : 'hover:bg-slate-200/70'}">
-          <span class="text-[0.95em] font-bold text-transparent leading-none select-none">&nbsp;</span>
-          <span class="text-slate-700 leading-snug whitespace-pre">${displayCh}</span>
-        </span>
-      `;
-      col += 1;
-    }
-  }
-  return html;
+  renderInlineSections();
 }
 
 function renderInlineSections() {
@@ -1439,26 +1400,31 @@ function renderInlineSections() {
   if (!container || !editorState.draftSong) return;
 
   const d = editorState.draftSong;
+  const monoStyle = 'font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0;';
+
   const sectionsHtml = d.sections.map((sec, sIdx) => {
     const isChorus = sec.type === 'ritornello' || sec.label?.toLowerCase().includes('rit');
 
     const linesHtml = sec.lines.map((line, lIdx) => {
-      const isSelectedLine = (sIdx === editorState.selectedSecIdx && lIdx === editorState.selectedLineIdx);
+      const parsed = parseInlineBrackets('', line.inlineText);
+      const hasChords = parsed.chords && parsed.chords.trim().length > 0;
+
       return `
-        <div class="group relative rounded-lg p-1.5 transition ${isSelectedLine ? 'bg-amber-50/60 ring-1 ring-amber-300' : 'hover:bg-slate-50'}">
-          <div id="inline-chord-grid-${sIdx}-${lIdx}" class="overflow-x-auto whitespace-nowrap select-none mb-1">
-            ${buildLineChordGridHtml(sIdx, lIdx, line)}
+        <div class="rounded-lg p-2 bg-slate-50/70 border border-slate-200/80 space-y-1.5">
+          <div id="inline-live-preview-${sIdx}-${lIdx}" class="px-1 overflow-x-auto">
+            ${hasChords ? `<div class="text-blue-700 font-bold text-[0.95em] leading-none mb-0.5 whitespace-pre" style="${monoStyle}">${escapeHtml(parsed.chords)}</div>` : ''}
+            <div class="text-slate-800 leading-snug whitespace-pre-wrap" style="${monoStyle}">${escapeHtml(parsed.lyrics || ' ')}</div>
           </div>
           <div class="flex items-center gap-1.5">
-            <input id="inline-lyric-input-${sIdx}-${lIdx}"
+            <input id="inline-line-input-${sIdx}-${lIdx}"
               type="text"
-              value="${escapeHtml(line.lyrics)}"
+              value="${escapeHtml(line.inlineText)}"
               onfocus="editorState.selectedSecIdx=${sIdx}; editorState.selectedLineIdx=${lIdx};"
-              oninput="handleInlineLyricInput(${sIdx}, ${lIdx}, this.value)"
-              onkeydown="handleInlineLyricKeydown(event, ${sIdx}, ${lIdx})"
-              placeholder="Testo della riga (Invio per nuova riga)..."
-              style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;"
-              class="w-full text-sm px-2 py-1 rounded border border-slate-200 focus:border-amber-500 focus:outline-none bg-white text-slate-900 ${isChorus ? 'font-semibold' : ''}" />
+              oninput="editorState.draftSong.sections[${sIdx}].lines[${lIdx}].inlineText = this.value; updateLineLivePreview(${sIdx}, ${lIdx});"
+              onkeydown="handleInlineLineKeydown(event, ${sIdx}, ${lIdx})"
+              placeholder="Scrivi testo e metti gli accordi tra [quadre]..."
+              style="${monoStyle}"
+              class="w-full text-sm px-2.5 py-1.5 rounded border border-slate-300 focus:border-amber-500 focus:outline-none bg-white text-slate-900" />
             <button type="button" onclick="removeInlineLine(${sIdx}, ${lIdx})" title="Rimuovi riga"
               class="px-2 py-1 text-xs text-slate-400 hover:text-red-600 rounded">✕</button>
           </div>
@@ -1480,7 +1446,7 @@ function renderInlineSections() {
             ${d.sections.length > 1 ? `<button type="button" onclick="removeInlineSection(${sIdx})" class="px-2 py-1 rounded text-xs text-red-500 hover:bg-red-50">Elimina</button>` : ''}
           </div>
         </div>
-        <div class="space-y-1.5">${linesHtml}</div>
+        <div class="space-y-2">${linesHtml}</div>
       </div>
     `;
   }).join('');

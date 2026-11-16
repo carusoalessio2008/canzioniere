@@ -1,4 +1,4 @@
-const CACHE_NAME = 'canzoniere-sosp-v8';
+const CACHE_NAME = 'canzoniere-sosp-v10';
 const ASSETS = [
   './',
   './index.html',
