@@ -1,53 +1,31 @@
-const CACHE_NAME = 'canzoniere-sosp-v13';
-const ASSETS = [
-  './',
-  './index.html',
-  './app.js',
-  './manifest.json',
-  './logo.png',
-  './canti/index.json'
-];
+const CACHE_NAME = 'canzoniere-sosp-v5';
 
-self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
-  );
+self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-self.addEventListener('activate', (e) => {
-  e.waitUntil(
-    caches.keys().then((keys) => {
-      return Promise.all(
-        keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
-      );
-    })
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
+    ).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
-self.addEventListener('fetch', (e) => {
-  if (e.request.method !== 'GET') return;
-  if (
-    e.request.url.includes('firestore.googleapis.com') ||
-    e.request.url.includes('firebase') ||
-    e.request.url.includes('gstatic.com') ||
-    e.request.url.includes('googleapis.com')
-  ) {
-    return;
-  }
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+  const url = new URL(event.request.url);
+  if (url.origin !== self.location.origin) return;
 
-  e.respondWith(
-    fetch(e.request)
-      .then((res) => {
-        if (res && res.status === 200) {
-          const resClone = res.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(e.request, resClone);
-          });
+  event.respondWith(
+    fetch(event.request)
+      .then((response) => {
+        if (response && response.status === 200) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         }
-        return res;
+        return response;
       })
-      .catch(() => caches.match(e.request))
+      .catch(() => caches.match(event.request))
   );
 });

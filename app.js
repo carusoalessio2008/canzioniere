@@ -1,12 +1,6 @@
-/**
- * CANZONIERE PARROCCHIALE SANT'OSVALDO E SAN PAOLO - UDINE
- * Logica Principale & Gestione Stato (Solo Lettura Canti + Scalette Cloud)
- */
-
-// --- CONFIGURAZIONE & STATO GLOBALE ---
 const STORAGE_KEYS = {
-  INDEX: 'canzoniere_index_v1',
-  SONG_PREFIX: 'canzoniere_song_',
+  INDEX: 'canzoniere_index_v2',
+  SONG_PREFIX: 'canzoniere_song_v2_',
   SETLISTS: 'canzoniere_setlists_v1',
   DELETED_SETLISTS: 'canzoniere_deleted_setlists_v1',
   PREFS: 'canzoniere_prefs_v1'
@@ -24,16 +18,13 @@ let state = {
   setlists: [],
   deletedSetlistIds: [],
   activeSetlistId: null,
-  activeSetlistIndex: -1,
-  isOffline: !navigator.onLine
+  activeSetlistIndex: -1
 };
 
-// Tabelle Note per Trasposizione (Italiano <-> Internazionale)
 const NOTES_IT = ['Do', 'Do#', 'Re', 'Re#', 'Mi', 'Fa', 'Fa#', 'Sol', 'Sol#', 'La', 'La#', 'Si'];
 const NOTES_IT_FLAT = ['Do', 'Reb', 'Re', 'Mib', 'Mi', 'Fa', 'Solb', 'Sol', 'Lab', 'La', 'Sib', 'Si'];
 const NOTES_EN = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
-// --- INIZIALIZZAZIONE ---
 document.addEventListener('DOMContentLoaded', async () => {
   loadPreferences();
   setupEventListeners();
@@ -54,7 +45,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-// --- GESTIONE DATI & CACHE ---
 async function loadSongsIndex() {
   const cachedIndex = localStorage.getItem(STORAGE_KEYS.INDEX);
   if (cachedIndex) {
@@ -67,8 +57,8 @@ async function loadSongsIndex() {
   }
 
   try {
-    const response = await fetch('canti/index.json?t=' + Date.now());
-    if (!response.ok) throw new Error('Errore rete index.json');
+    const response = await fetch('./canti/index.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!response.ok) throw new Error('HTTP ' + response.status);
     const data = await response.json();
     
     data.sort((a, b) => a.title.localeCompare(b.title));
@@ -88,26 +78,25 @@ async function loadSongsIndex() {
 async function fetchSongData(songId) {
   const cacheKey = STORAGE_KEYS.SONG_PREFIX + songId;
   
-  if (navigator.onLine) {
-    try {
-      const res = await fetch(`canti/${songId}.json?t=${Date.now()}`);
-      if (res.ok) {
-        const data = await res.json();
-        localStorage.setItem(cacheKey, JSON.stringify(data));
-        return data;
-      }
-    } catch (e) {
-      console.warn("Fetch singolo canto fallito, provo cache:", e);
+  try {
+    const res = await fetch(`./canti/${encodeURIComponent(songId)}.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (res.ok) {
+      const data = await res.json();
+      localStorage.setItem(cacheKey, JSON.stringify(data));
+      return data;
+    } else {
+      console.warn(`File ./canti/${songId}.json non trovato (HTTP ${res.status})`);
     }
+  } catch (e) {
+    console.warn("Fetch singolo canto fallito, provo cache:", e);
   }
 
   const cached = localStorage.getItem(cacheKey);
   if (cached) return JSON.parse(cached);
 
-  throw new Error("Canto non disponibile offline");
+  throw new Error(`File canti/${songId}.json non trovato`);
 }
 
-// --- RENDERING LISTA CANTI ---
 function renderSongList() {
   const container = document.getElementById('song-list');
   const query = state.searchQuery.toLowerCase().trim();
@@ -130,15 +119,15 @@ function renderSongList() {
   container.innerHTML = state.filteredSongs.map(song => {
     const isActive = state.currentSong && state.currentSong.id === song.id;
     const catsHtml = (song.categories || []).slice(0, 2).map(c => 
-      `<span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 font-medium">${c}</span>`
+      `<span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 font-medium">${escapeHtml(c)}</span>`
     ).join('');
 
     return `
-      <div onclick="openSong('${song.id}')" 
+      <div onclick="openSong('${escapeHtml(song.id)}')" 
            class="p-3.5 hover:bg-slate-50 cursor-pointer transition flex items-center justify-between group ${isActive ? 'bg-blue-50/70 border-l-4 border-blue-600' : ''}">
         <div class="min-w-0 pr-2">
-          <div class="font-semibold text-sm text-slate-900 truncate group-hover:text-blue-700 transition">${song.title}</div>
-          <div class="text-xs text-slate-500 truncate mt-0.5">${song.author || 'Autore sconosciuto'}</div>
+          <div class="font-semibold text-sm text-slate-900 truncate group-hover:text-blue-700 transition">${escapeHtml(song.title)}</div>
+          <div class="text-xs text-slate-500 truncate mt-0.5">${escapeHtml(song.author || 'Autore sconosciuto')}</div>
         </div>
         <div class="flex flex-col items-end gap-1 shrink-0">
           <div class="flex gap-1">${catsHtml}</div>
@@ -171,7 +160,6 @@ function clearSearch() {
   renderSongList();
 }
 
-// --- VISUALIZZAZIONE CANTO & PARSER ---
 async function openSong(songId, fromSetlistIndex = -1) {
   try {
     const songData = await fetchSongData(songId);
@@ -184,18 +172,18 @@ async function openSong(songId, fromSetlistIndex = -1) {
     viewSong.classList.remove('hidden');
     viewSong.classList.add('flex');
 
-    document.getElementById('song-title').textContent = songData.title;
-    document.getElementById('mobile-header-title').textContent = songData.title;
+    document.getElementById('song-title').textContent = songData.title || songId;
+    document.getElementById('mobile-header-title').textContent = songData.title || songId;
     document.getElementById('song-author').textContent = songData.author || '';
     document.getElementById('transpose-display').textContent = '0';
 
     const badgesContainer = document.getElementById('song-badges');
     badgesContainer.innerHTML = (songData.categories || []).map(cat => 
-      `<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">${cat}</span>`
+      `<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">${escapeHtml(cat)}</span>`
     ).join('');
 
     if (songData.originalKey) {
-      badgesContainer.innerHTML += `<span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold bg-slate-100 text-slate-600">Tonalità: ${songData.originalKey}</span>`;
+      badgesContainer.innerHTML += `<span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold bg-slate-100 text-slate-600">Tonalità: ${escapeHtml(songData.originalKey)}</span>`;
     }
 
     updateSetlistNavBar();
@@ -222,7 +210,6 @@ function renderSongBody() {
   const container = document.getElementById('song-body');
   container.style.fontSize = `${state.fontSize}px`;
 
-  // Estrae il testo supportando diversi nomi di campo o strutture array nei JSON
   let rawContent = state.currentSong.content 
                 ?? state.currentSong.lyrics 
                 ?? state.currentSong.testo 
@@ -233,7 +220,8 @@ function renderSongBody() {
     rawContent = rawContent.map(item => {
       if (typeof item === 'string') return item;
       if (item && typeof item === 'object') {
-        const header = item.section || item.type || item.label ? `[${item.section || item.type || item.label}]\n` : '';
+        const label = item.section || item.type || item.label;
+        const header = label ? `[${label}]\n` : '';
         const text = Array.isArray(item.lines) ? item.lines.join('\n') : (item.text || item.content || item.lyrics || '');
         return header + text;
       }
@@ -257,7 +245,7 @@ function renderSongBody() {
       
       if (/^\[(Strofa|Ritornello|Bridge|Intro|Finale|Coda|Pre-Ritornello|Strumentale).*\]$/i.test(trimmed)) {
         const label = trimmed.replace(/[\[\]]/g, '');
-        blockHtml += `<div class="section-label text-xs font-bold uppercase tracking-wider text-blue-600 mt-2 mb-1 select-none">${label}</div>`;
+        blockHtml += `<div class="section-label text-xs font-bold uppercase tracking-wider text-blue-600 mt-2 mb-1 select-none">${escapeHtml(label)}</div>`;
         return;
       }
 
@@ -316,7 +304,6 @@ function parseChordProLine(line, semitones) {
   };
 }
 
-// --- MOTORE TRASPOSIZIONE ACCORDI ---
 function transpose(delta) {
   state.transposeSteps += delta;
   if (state.transposeSteps > 11) state.transposeSteps -= 12;
@@ -337,7 +324,7 @@ function transposeChord(chordStr, semitones) {
     let root = match[1];
     const suffix = match[2];
 
-    const isItalian = root.length > 1 && !root.endsWith('#') && !root.endsWith('b') || 
+    const isItalian = (root.length > 1 && !root.endsWith('#') && !root.endsWith('b')) || 
                       ['Do','Re','Mi','Fa','Sol','La','Si'].some(n => root.toLowerCase().startsWith(n.toLowerCase()));
 
     let noteIndex = -1;
@@ -363,7 +350,6 @@ function transposeChord(chordStr, semitones) {
   }).join('/');
 }
 
-// --- MODALITÀ VISUALIZZAZIONE & FONT ---
 function toggleViewMode() {
   state.isBookMode = !state.isBookMode;
   const viewSong = document.getElementById('view-song');
@@ -395,7 +381,6 @@ function changeFontSize(delta) {
   renderSongBody();
 }
 
-// --- GESTIONE SCALETTE (LOCALE + FIREBASE CLOUD) ---
 function loadLocalSetlists() {
   try {
     const saved = localStorage.getItem(STORAGE_KEYS.SETLISTS);
@@ -561,7 +546,7 @@ function renderActiveSetlistDetail() {
 
     return `
       <div class="p-2.5 bg-white rounded-lg border ${isCurrent ? 'border-blue-600 bg-blue-50/40' : 'border-slate-200'} flex items-center justify-between gap-2 shadow-2xs">
-        <div onclick="openSong('${songId}', ${idx})" class="flex items-center gap-2.5 flex-1 min-w-0 cursor-pointer">
+        <div onclick="openSong('${escapeHtml(songId)}', ${idx})" class="flex items-center gap-2.5 flex-1 min-w-0 cursor-pointer">
           <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-600 font-bold text-[11px] flex items-center justify-center shrink-0">${idx + 1}</span>
           <div class="truncate">
             <div class="text-xs font-bold text-slate-900 truncate">${escapeHtml(songMeta.title)}</div>
@@ -751,7 +736,6 @@ async function handleSharedSetlistUrl(setlistId) {
   else window.addEventListener('firebase-ready', checkCloud);
 }
 
-// --- UI & NAVIGAZIONE ---
 function switchSidebarTab(tab) {
   const tabSongs = document.getElementById('tab-songs');
   const tabSetlists = document.getElementById('tab-setlists');
@@ -872,9 +856,10 @@ function savePreferences() {
 }
 
 async function forceUpdateCache() {
-  localStorage.removeItem(STORAGE_KEYS.INDEX);
   Object.keys(localStorage).forEach(k => {
-    if (k.startsWith(STORAGE_KEYS.SONG_PREFIX)) localStorage.removeItem(k);
+    if (k.startsWith('canzoniere_index') || k.startsWith('canzoniere_song')) {
+      localStorage.removeItem(k);
+    }
   });
   if ('caches' in window) {
     const names = await caches.keys();
@@ -882,10 +867,10 @@ async function forceUpdateCache() {
   }
   if ('serviceWorker' in navigator) {
     const regs = await navigator.serviceWorker.getRegistrations();
-    await Promise.all(regs.map(r => r.update()));
+    await Promise.all(regs.map(r => r.unregister()));
   }
   showToast("Cache svuotata, ricarico...");
-  setTimeout(() => window.location.reload(true), 800);
+  setTimeout(() => window.location.reload(), 600);
 }
 
 function showToast(message, type = "info") {
@@ -908,7 +893,7 @@ function showToast(message, type = "info") {
 
 function escapeHtml(str) {
   if (!str) return '';
-  return str
+  return String(str)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
