@@ -6,7 +6,8 @@
 const STORAGE_KEYS = {
   INDEX: 'canzoniere_sosp_index_v2',
   SONG_PREFIX: 'canzoniere_sosp_song_v2_',
-  SETLISTS: 'canzoniere_sosp_setlists_v1'
+  SETLISTS: 'canzoniere_sosp_setlists_v1',
+  DELETED_SETLISTS: 'canzoniere_sosp_deleted_v1'
 };
 
 let state = {
@@ -81,7 +82,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     filterSongs();
   });
 
- if (window.fb) {
+  if (window.fb) {
     initFirebaseSync();
   } else {
     window.addEventListener('firebase-ready', initFirebaseSync, { once: true });
@@ -365,7 +366,6 @@ function transposeLine(line, semitones) {
   if (semitones === 0) return line;
   const useFlats = [-1, -2, -3, -5, -7, 4, 5, 10].includes(semitones);
 
-  // Cattura accordi italiani (DO, RE, LA-, DO#-, SIb7) e inglesi (C, Am, F#m7) delimitati da spazi/inizio/fine/slash/parentesi
   const chordTokenRegex = /(^|[\s(\[|])((?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?)(?:[-m]|maj|min|dim|aug|sus|add|7|9|11|13|6|5|4|2)*)(\/(?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?))?(?=$|[\s)\].,;|])(\s*)/g;
 
   return line.replace(chordTokenRegex, (match, prefix, chordPart, bassPart, trailingSpaces) => {
@@ -384,7 +384,6 @@ function transposeLine(line, semitones) {
     const oldChordFull = chordPart + (bassPart || '');
     const newChordFull = newRoot + suffix + newBass;
 
-    // Compensa gli spazi successivi per mantenere l'allineamento verticale col testo
     let adjustedSpaces = trailingSpaces;
     const lenDiff = newChordFull.length - oldChordFull.length;
     if (lenDiff > 0 && trailingSpaces.length > 1) {
@@ -443,9 +442,39 @@ function toggleViewMode() {
 
 /* --- GESTIONE SCALETTE --- */
 
+function getDeletedSetlistIds() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEYS.DELETED_SETLISTS) || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function markSetlistAsDeletedLocally(id) {
+  const deleted = getDeletedSetlistIds();
+  if (!deleted.includes(id)) {
+    deleted.push(id);
+    localStorage.setItem(STORAGE_KEYS.DELETED_SETLISTS, JSON.stringify(deleted));
+  }
+}
+
 function loadLocalSetlists() {
-  const saved = localStorage.getItem(STORAGE_KEYS.SETLISTS);
-  if (saved) state.setlists = JSON.parse(saved);
+  try {
+    const saved = localStorage.getItem(STORAGE_KEYS.SETLISTS);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      const deletedIds = getDeletedSetlistIds();
+      // Filtra subito eventuali scalette già eliminate
+      Object.keys(parsed).forEach(id => {
+        if (deletedIds.includes(id) || parsed[id]?.deleted === true) {
+          delete parsed[id];
+        }
+      });
+      state.setlists = parsed;
+    }
+  } catch (e) {
+    state.setlists = {};
+  }
   updateSetlistBadge();
 }
 
@@ -466,11 +495,12 @@ function createNewSetlist() {
   const name = input.value.trim();
   if (!name) return;
 
-  const id = 'sl_' + Date.now().toString(36);
+  const id = 'sl_' + Date.now().toString(36) + Math.random().toString(36).substring(2, 5);
   const newSetlist = {
     id,
     name,
     songs: [],
+    deleted: false,
     updatedAt: Date.now()
   };
 
@@ -486,7 +516,9 @@ function createNewSetlist() {
 
 function renderSetlistsIndex() {
   const container = document.getElementById('setlists-index');
-  const list = Object.values(state.setlists).sort((a, b) => b.updatedAt - a.updatedAt);
+  const list = Object.values(state.setlists)
+    .filter(sl => !sl.deleted)
+    .sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
 
   if (list.length === 0) {
     container.innerHTML = `<div class="text-center p-6 text-slate-400 text-xs">Nessuna scaletta salvata.<br>Creane una qui sopra!</div>`;
@@ -497,7 +529,7 @@ function renderSetlistsIndex() {
     <div onclick="openSetlistDetail('${sl.id}')" class="p-3 bg-white border border-slate-200 rounded-xl hover:border-blue-400 cursor-pointer shadow-2xs transition flex justify-between items-center">
       <div>
         <h4 class="font-bold text-sm text-slate-800">${sl.name}</h4>
-        <p class="text-xs text-slate-500">${sl.songs.length} canti</p>
+        <p class="text-xs text-slate-500">${(sl.songs || []).length} canti</p>
       </div>
       <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
     </div>
@@ -507,15 +539,15 @@ function renderSetlistsIndex() {
 function openSetlistDetail(id) {
   state.activeSetlistId = id;
   const sl = state.setlists[id];
-  if (!sl) return;
+  if (!sl || sl.deleted) return;
 
   document.getElementById('setlists-index').classList.add('hidden');
   document.getElementById('active-setlist-view').classList.remove('hidden');
   document.getElementById('current-setlist-title').innerText = sl.name;
-  document.getElementById('current-setlist-meta').innerText = `${sl.songs.length} canti • ID: ${id}`;
+  document.getElementById('current-setlist-meta').innerText = `${(sl.songs || []).length} canti • ID: ${id}`;
 
   const container = document.getElementById('setlist-songs-container');
-  if (sl.songs.length === 0) {
+  if (!sl.songs || sl.songs.length === 0) {
     container.innerHTML = `<div class="p-6 text-center text-slate-400 text-xs">Scaletta vuota.<br>Apri un canto e clicca "+ Scaletta".</div>`;
     return;
   }
@@ -552,7 +584,7 @@ function toggleAddToSetlistMenu() {
   const isHidden = menu.classList.contains('hidden');
   if (isHidden) {
     const listContainer = document.getElementById('dropdown-setlist-items');
-    const setlists = Object.values(state.setlists);
+    const setlists = Object.values(state.setlists).filter(sl => !sl.deleted);
     if (setlists.length === 0) {
       listContainer.innerHTML = `<div class="p-3 text-xs text-slate-500 text-center">Crea prima una scaletta nel menu!</div>`;
     } else {
@@ -574,6 +606,7 @@ function addCurrentSongToSetlist(setlistId) {
 
   const sl = state.setlists[setlistId];
   sl.songs.push(state.currentSong.slug);
+  sl.deleted = false;
   sl.updatedAt = Date.now();
   
   saveLocalSetlists();
@@ -606,19 +639,29 @@ function moveSongInSetlist(setlistId, index, direction) {
   openSetlistDetail(setlistId);
 }
 
-function deleteCurrentSetlist() {
+async function deleteCurrentSetlist() {
   if (!state.activeSetlistId) return;
   if (!confirm("Eliminare questa scaletta?")) return;
 
   const id = state.activeSetlistId;
   delete state.setlists[id];
+  markSetlistAsDeletedLocally(id);
   saveLocalSetlists();
-  
-  if (window.fb) {
-    window.fb.deleteDoc(window.fb.doc(window.fb.db, "setlists", id)).catch(console.error);
-  }
   closeSetlistDetail();
   showToast("Scaletta eliminata");
+
+  const fb = await waitForFirebase();
+  if (!fb) return;
+
+  const docRef = fb.doc(fb.db, "setlists", id);
+  try {
+    // 1. Marca subito come eliminata sul cloud (funziona anche se le regole Firestore bloccano deleteDoc)
+    await fb.setDoc(docRef, { id, deleted: true, updatedAt: Date.now() }, { merge: true });
+    // 2. Tenta anche l'eliminazione fisica del documento
+    await fb.deleteDoc(docRef);
+  } catch (err) {
+    console.warn("Eliminazione fisica Firestore (gestita via soft-delete):", err);
+  }
 }
 
 function playSetlistSong(setlistId, index) {
@@ -641,6 +684,7 @@ function updateSetlistNavBar() {
   const bar = document.getElementById('setlist-nav-bar');
   if (state.activeSetlistId && state.activeSetlistIndex >= 0) {
     const sl = state.setlists[state.activeSetlistId];
+    if (!sl) return bar.classList.add('hidden');
     bar.classList.remove('hidden');
     document.getElementById('setlist-progress').innerText = `${sl.name} (${state.activeSetlistIndex + 1}/${sl.songs.length})`;
     document.getElementById('btn-prev-song').disabled = state.activeSetlistIndex === 0;
@@ -687,9 +731,13 @@ function initFirebaseSync() {
   const statusEl = document.getElementById('connection-status');
   statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Cloud Attivo`;
 
-  // 1. Invia al Cloud eventuali scalette create localmente mentre si era offline
+  const deletedIds = getDeletedSetlistIds();
+
+  // 1. Invia al Cloud solo le scalette valide create localmente e non eliminate
   Object.values(state.setlists).forEach(sl => {
-    syncSetlistToCloud(sl);
+    if (!deletedIds.includes(sl.id) && !sl.deleted) {
+      syncSetlistToCloud(sl);
+    }
   });
 
   // 2. Ascolta TUTTA la collezione "setlists" in tempo reale su tutti i dispositivi
@@ -698,27 +746,34 @@ function initFirebaseSync() {
   window._fbCollectionUnsub = window.fb.onSnapshot(
     window.fb.collection(window.fb.db, "setlists"),
     (querySnapshot) => {
-      const deletedIds = JSON.parse(localStorage.getItem('canzoniere_sosp_deleted_v1') || '[]');
+      const currentDeleted = getDeletedSetlistIds();
       let changed = false;
-      const remoteIds = new Set();
+      const validRemoteIds = new Set();
 
       querySnapshot.forEach((docSnap) => {
         const remoteData = docSnap.data();
         const id = remoteData.id || docSnap.id;
-        remoteIds.add(id);
 
-        if (deletedIds.includes(id)) return;
+        // Ignora documenti eliminati sul cloud o in blacklist locale
+        if (remoteData.deleted === true || currentDeleted.includes(id)) {
+          if (remoteData.deleted === true) {
+            markSetlistAsDeletedLocally(id);
+          }
+          return;
+        }
+
+        validRemoteIds.add(id);
 
         const localData = state.setlists[id];
         if (!localData || (remoteData.updatedAt || 0) > (localData.updatedAt || 0)) {
-          state.setlists[id] = { ...remoteData, id };
+          state.setlists[id] = { ...remoteData, id, deleted: false };
           changed = true;
         }
       });
 
-      // Rimuove in locale le scalette che sono state eliminate da un altro dispositivo
+      // Rimuove in locale le scalette eliminate dal cloud o marcate deleted: true
       Object.keys(state.setlists).forEach((localId) => {
-        if (!remoteIds.has(localId)) {
+        if (!validRemoteIds.has(localId)) {
           delete state.setlists[localId];
           changed = true;
           if (state.activeSetlistId === localId) {
@@ -743,10 +798,14 @@ function initFirebaseSync() {
 }
 
 async function syncSetlistToCloud(setlist) {
+  if (!setlist || setlist.deleted) return;
+  const deletedIds = getDeletedSetlistIds();
+  if (deletedIds.includes(setlist.id)) return;
+
   const fb = await waitForFirebase();
   if (!fb) return;
   try {
-    await fb.setDoc(fb.doc(fb.db, "setlists", setlist.id), setlist);
+    await fb.setDoc(fb.doc(fb.db, "setlists", setlist.id), { ...setlist, deleted: false });
   } catch (err) {
     console.warn("Sync offline:", err);
   }
@@ -770,16 +829,16 @@ async function importSharedSetlist(id) {
 
   const fb = await waitForFirebase();
   if (!fb) {
-    if (state.setlists[id]) openSetlistDetail(id);
+    if (state.setlists[id] && !state.setlists[id].deleted) openSetlistDetail(id);
     else showToast("Connessione Cloud non disponibile", "error");
     return;
   }
 
   try {
     const snap = await fb.getDoc(fb.doc(fb.db, "setlists", id));
-    if (snap.exists()) {
+    if (snap.exists() && snap.data().deleted !== true) {
       const data = snap.data();
-      state.setlists[id] = data;
+      state.setlists[id] = { ...data, id, deleted: false };
       saveLocalSetlists();
       renderSetlistsIndex();
       openSetlistDetail(id);
@@ -787,10 +846,14 @@ async function importSharedSetlist(id) {
         playSetlistSong(id, 0);
       }
       showToast(`Scaletta "${data.name}" caricata!`);
-    } else if (state.setlists[id]) {
-      openSetlistDetail(id);
     } else {
-      showToast("Scaletta non trovata sul Cloud", "error");
+      if (snap.exists() && snap.data().deleted === true) {
+        markSetlistAsDeletedLocally(id);
+      }
+      delete state.setlists[id];
+      saveLocalSetlists();
+      renderSetlistsIndex();
+      showToast("Scaletta non trovata o eliminata", "error");
     }
   } catch (e) {
     console.error("Errore Firestore importSharedSetlist:", e);
