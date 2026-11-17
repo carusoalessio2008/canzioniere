@@ -990,6 +990,7 @@ let editorState = {
   cloudSongsOverrides: {}
 };
 
+// Converte la coppia (chords, lyrics) in una singola riga con [ACCORDO] nel punto esatto
 function mergeChordsIntoLyrics(chordsStr, lyricsStr) {
   const lyrics = lyricsStr || '';
   if (!chordsStr || !chordsStr.trim()) return lyrics;
@@ -1112,6 +1113,7 @@ function getActiveEditorInput() {
   return document.getElementById(`inline-line-input-${editorState.selectedSecIdx}-${editorState.selectedLineIdx}`);
 }
 
+// Inserisce un accordo [NOTA] esattamente dove si trova il cursore nel testo
 function insertChordAtInputCursor(chord) {
   const input = getActiveEditorInput();
   const line = editorState.draftSong?.sections?.[editorState.selectedSecIdx]?.lines?.[editorState.selectedLineIdx];
@@ -1130,6 +1132,7 @@ function insertChordAtInputCursor(chord) {
   updateLineLivePreview(editorState.selectedSecIdx, editorState.selectedLineIdx);
 }
 
+// Aggiunge alterazione (-, #, 7, /SOL...) all'accordo immediatamente prima o intorno al cursore
 function appendModifierToNearestChord(mod) {
   const input = getActiveEditorInput();
   const line = editorState.draftSong?.sections?.[editorState.selectedSecIdx]?.lines?.[editorState.selectedLineIdx];
@@ -1153,6 +1156,7 @@ function appendModifierToNearestChord(mod) {
   }
 }
 
+// Sposta l'accordo vicino al cursore di 1 carattere a sinistra (-1) o destra (+1)
 function shiftNearestChord(delta) {
   const input = getActiveEditorInput();
   const line = editorState.draftSong?.sections?.[editorState.selectedSecIdx]?.lines?.[editorState.selectedLineIdx];
@@ -1161,6 +1165,7 @@ function shiftNearestChord(delta) {
   const pos = input.selectionStart ?? 0;
   const text = line.inlineText;
 
+  // Trova il tag [ACCORDO] più vicino al cursore
   const tagRegex = /\[([^\]]+)\]/g;
   let match;
   let targetMatch = null;
@@ -1290,143 +1295,43 @@ function buildFinalSongPayload() {
   };
 }
 
-async function resolveGitHubFileTarget(owner, repo, fileName, token) {
-  const headers = {
-    'Authorization': `Bearer ${token}`,
-    'Accept': 'application/vnd.github+json'
-  };
-
-  // 1. Legge info repository e branch di default
-  const repoRes = await fetch(`https://api.github.com/repos/${owner}/${repo}`, { headers });
-  if (!repoRes.ok) {
-    if (repoRes.status === 401 || repoRes.status === 403 || repoRes.status === 404) {
-      throw new Error(`AUTH_OR_REPO_ERROR:${repoRes.status}`);
-    }
-    throw new Error(`Errore accesso repository GitHub (${repoRes.status})`);
-  }
-  const repoInfo = await repoRes.json();
-  const branch = repoInfo.default_branch || 'main';
-
-  // 2. Prova il percorso diretto canti/<fileName>
-  const directPath = `canti/${fileName}`;
-  const directRes = await fetch(
-    `https://api.github.com/repos/${owner}/${repo}/contents/${directPath}?ref=${encodeURIComponent(branch)}`,
-    { headers }
-  );
-
-  if (directRes.ok) {
-    const fileData = await directRes.json();
-    return { branch, path: directPath, sha: fileData.sha };
-  }
-
-  // 3. Fallback: cerca nell'albero del repository se canti/ si trova in una sottocartella (es. docs/canti/)
-  const treeRes = await fetch(
-    `https://api.github.com/repos/${owner}/${repo}/git/trees/${encodeURIComponent(branch)}?recursive=1`,
-    { headers }
-  );
-  if (treeRes.ok) {
-    const treeData = await treeRes.json();
-    const match = (treeData.tree || []).find(
-      item => item.type === 'blob' && item.path.endsWith(`/${fileName}`)
-    );
-    if (match) {
-      return { branch, path: match.path, sha: match.sha };
-    }
-  }
-
-  // Se il file non esiste ancora nel repo, usa il percorso standard canti/<fileName>
-  return { branch, path: directPath, sha: undefined };
-}
-
-async function commitFileToGitHub(fileName, jsonObject, commitMessage, token) {
-  const owner = 'carusoalessio2008';
-  const repo = 'canzoniere';
-
-  const target = await resolveGitHubFileTarget(owner, repo, fileName, token);
-  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${target.path}`;
-
-  const contentString = JSON.stringify(jsonObject, null, 2) + '\n';
-  const base64Content = btoa(unescape(encodeURIComponent(contentString)));
-
-  const bodyPayload = {
-    message: commitMessage,
-    content: base64Content,
-    branch: target.branch
-  };
-  if (target.sha) {
-    bodyPayload.sha = target.sha;
-  }
-
-  const putRes = await fetch(apiUrl, {
-    method: 'PUT',
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Accept': 'application/vnd.github+json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(bodyPayload)
-  });
-
-  if (!putRes.ok) {
-    const errBody = await putRes.json().catch(() => ({}));
-    throw new Error(errBody.message || `Errore commit GitHub (${putRes.status})`);
-  }
-}
-
 async function saveEditedSongToCloud() {
   if (!editorState.draftSong) return;
+  const payload = buildFinalSongPayload();
 
-  let ghToken = localStorage.getItem('canzoniere_gh_token');
-  if (!ghToken) {
-    ghToken = prompt("Incolla il tuo GitHub Token (Classic con scope 'repo' oppure Fine-grained con Contents: Read & Write):");
-    if (!ghToken || !ghToken.trim()) return;
-    ghToken = ghToken.trim();
-    localStorage.setItem('canzoniere_gh_token', ghToken);
+  const cacheKey = STORAGE_KEYS.SONG_PREFIX + payload.slug;
+  localStorage.setItem(cacheKey, JSON.stringify(payload));
+  editorState.cloudSongsOverrides[payload.slug] = payload;
+
+  const idxEntry = state.songsIndex.find(item => item.slug === payload.slug);
+  if (idxEntry) {
+    idxEntry.title = payload.title;
+    idxEntry.author = payload.author;
+    localStorage.setItem(STORAGE_KEYS.INDEX, JSON.stringify(state.songsIndex));
+    filterSongs();
   }
 
-  const payload = buildFinalSongPayload();
-  const { updatedAt, ...cleanSongJson } = payload;
+  state.currentSong = {
+    ...state.currentSong,
+    ...payload
+  };
 
-  const meta = state.songsIndex.find(item => item.slug === payload.slug);
-  const fileName = meta?.file || `${payload.slug}.json`;
-
-  try {
-    showToast("Salvataggio su GitHub in corso...");
-    await commitFileToGitHub(
-      fileName,
-      cleanSongJson,
-      `Aggiorna canto: ${payload.title}`,
-      ghToken
-    );
-
-    if (window.fb && window.fb.setDoc) {
-      await window.fb.setDoc(window.fb.doc(window.fb.db, "songs", payload.slug), payload).catch(() => {});
+  if (window.fb && window.fb.setDoc) {
+    try {
+      await window.fb.setDoc(window.fb.doc(window.fb.db, "songs", payload.slug), payload);
+      showToast("Canto salvato nel Cloud!");
+      exitInlineEditor();
+      renderSongView();
+    } catch (err) {
+      console.error("Errore salvataggio canto su Firestore:", err);
+      showToast("Salvato in locale (verifica regole Firestore per 'songs')", "error");
+      exitInlineEditor();
+      renderSongView();
     }
-
-    const cacheKey = STORAGE_KEYS.SONG_PREFIX + payload.slug;
-    localStorage.setItem(cacheKey, JSON.stringify(cleanSongJson));
-    editorState.cloudSongsOverrides[payload.slug] = cleanSongJson;
-
-    if (meta) {
-      meta.title = payload.title;
-      meta.author = payload.author;
-      localStorage.setItem(STORAGE_KEYS.INDEX, JSON.stringify(state.songsIndex));
-      filterSongs();
-    }
-
-    state.currentSong = { ...state.currentSong, ...cleanSongJson };
-    showToast("File JSON aggiornato su GitHub!");
+  } else {
+    showToast("Canto salvato in locale!");
     exitInlineEditor();
     renderSongView();
-  } catch (err) {
-    console.error("Errore salvataggio GitHub:", err);
-    const msg = String(err.message || '');
-    if (msg.startsWith('AUTH_OR_REPO_ERROR:') || msg.includes('401') || msg.includes('403') || msg.includes('Bad credentials')) {
-      localStorage.removeItem('canzoniere_gh_token');
-      showToast("Token non autorizzato o scaduto: riprova con un token valido", "error");
-    } else {
-      showToast("Errore GitHub: " + msg, "error");
-    }
   }
 }
 
