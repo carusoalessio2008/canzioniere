@@ -254,6 +254,12 @@ body {
   border-left: 3px solid var(--border-chorus);
 }
 
+/* Toglie la striscia laterale e l'indentazione se il ritornello contiene solo il titolo */
+.song-block.is-chorus:has(> .section-label:only-child) {
+  padding-left: 0;
+  border-left: none;
+}
+
 .section-label {
   color: var(--text-muted);
 }
