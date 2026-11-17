@@ -7,7 +7,8 @@ const STORAGE_KEYS = {
   INDEX: 'canzoniere_sosp_index_v2',
   SONG_PREFIX: 'canzoniere_sosp_song_v2_',
   SETLISTS: 'canzoniere_sosp_setlists_v1',
-  DELETED_SETLISTS: 'canzoniere_sosp_deleted_v1'
+  DELETED_SETLISTS: 'canzoniere_sosp_deleted_v1',
+  THEME: 'canzoniere_sosp_theme'
 };
 
 let state = {
@@ -58,6 +59,9 @@ const ENG_TO_IT_TITLE = {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
+  initTheme();
+  filterCategory('all');
+
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW:', err));
   }
@@ -88,6 +92,38 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.addEventListener('firebase-ready', initFirebaseSync, { once: true });
   }
 });
+
+/* --- TEMA GIORNO / NOTTE --- */
+
+function initTheme() {
+  const isDark = document.documentElement.classList.contains('dark');
+  updateThemeButtonUI(isDark);
+}
+
+function toggleTheme() {
+  const isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem(STORAGE_KEYS.THEME, isDark ? 'dark' : 'light');
+  updateThemeButtonUI(isDark);
+  filterCategory(state.currentCategory);
+  switchSidebarTab(document.getElementById('panel-songs').classList.contains('hidden') ? 'setlists' : 'songs');
+}
+
+function updateThemeButtonUI(isDark) {
+  const iconSun = document.getElementById('icon-sun');
+  const iconMoon = document.getElementById('icon-moon');
+  const label = document.getElementById('label-theme-toggle');
+  if (!iconSun || !iconMoon) return;
+
+  if (isDark) {
+    iconSun.classList.remove('hidden');
+    iconMoon.classList.add('hidden');
+    if (label) label.innerText = 'Giorno';
+  } else {
+    iconSun.classList.add('hidden');
+    iconMoon.classList.remove('hidden');
+    if (label) label.innerText = 'Notte';
+  }
+}
 
 /* --- GESTIONE INDICE E CANTI --- */
 
@@ -135,8 +171,8 @@ function filterCategory(cat) {
   document.querySelectorAll('.cat-pill').forEach(btn => {
     const isActive = btn.dataset.cat === cat;
     btn.className = isActive 
-      ? 'cat-pill active px-2.5 py-1 rounded-full text-xs font-medium bg-slate-900 text-white whitespace-nowrap transition'
-      : 'cat-pill px-2.5 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition';
+      ? 'cat-pill active px-2.5 py-1 rounded-full text-xs font-semibold theme-btn-primary whitespace-nowrap transition shadow-2xs'
+      : 'cat-pill px-2.5 py-1 rounded-full text-xs font-medium theme-subtle theme-text-secondary hover:opacity-80 whitespace-nowrap transition';
   });
   filterSongs();
 }
@@ -168,21 +204,21 @@ function filterSongs() {
 function renderSongList() {
   const container = document.getElementById('song-list');
   if (state.filteredSongs.length === 0) {
-    container.innerHTML = `<div class="p-8 text-center text-slate-400 text-sm">Nessun canto trovato.</div>`;
+    container.innerHTML = `<div class="p-8 text-center theme-text-muted text-sm">Nessun canto trovato.</div>`;
     return;
   }
 
   container.innerHTML = state.filteredSongs.map(song => `
     <div onclick='selectSongFromList("${song.slug}")' 
-         class="p-3.5 hover:bg-slate-50 cursor-pointer transition flex items-center justify-between group ${state.currentSong?.slug === song.slug ? 'bg-blue-50/60 border-l-4 border-blue-600' : ''}">
+         class="song-list-item p-3.5 cursor-pointer flex items-center justify-between group ${state.currentSong?.slug === song.slug ? 'is-active' : ''}">
       <div class="min-w-0 pr-2">
-        <h4 class="font-semibold text-sm text-slate-800 group-hover:text-blue-700 truncate">${song.title}</h4>
+        <h4 class="font-semibold text-sm group-hover:text-blue-500 truncate">${song.title}</h4>
         <div class="flex items-center gap-2 mt-0.5">
-          <span class="text-xs text-slate-400 truncate">${song.author || 'Tradizionale'}</span>
-          ${song.categories && song.categories[0] ? `<span class="text-[10px] px-1.5 py-0.2 bg-slate-100 text-slate-500 rounded">${song.categories[0]}</span>` : ''}
+          <span class="text-xs theme-text-muted truncate">${song.author || 'Tradizionale'}</span>
+          ${song.categories && song.categories[0] ? `<span class="text-[10px] px-1.5 py-0.2 theme-subtle theme-text-secondary rounded font-medium">${song.categories[0]}</span>` : ''}
         </div>
       </div>
-      <svg class="w-4 h-4 text-slate-300 group-hover:text-slate-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      <svg class="w-4 h-4 theme-text-muted group-hover:text-blue-500 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
     </div>
   `).join('');
 }
@@ -194,7 +230,7 @@ async function selectSongFromList(slug) {
   const meta = state.songsIndex.find(s => s.slug === slug);
   if (meta) {
     await loadSong(meta);
-    if (window.innerWidth < 768) toggleSidebar();
+    if (window.innerWidth < 768) closeMobileSidebar();
   }
 }
 
@@ -235,6 +271,7 @@ async function loadSong(meta) {
 
   renderSongView();
   renderSongList();
+  document.getElementById('song-scroll-container').scrollTop = 0;
 }
 
 function normalizeSongFormat(data) {
@@ -310,7 +347,7 @@ function renderSongView() {
 
   const badgesContainer = document.getElementById('song-badges');
   badgesContainer.innerHTML = (s.categories || []).map(c => 
-    `<span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-semibold uppercase tracking-wide">${c}</span>`
+    `<span class="px-2.5 py-0.5 rounded-md theme-subtle theme-text-secondary text-[11px] font-semibold uppercase tracking-wide">${c}</span>`
   ).join('');
 
   renderSongBody();
@@ -328,7 +365,7 @@ function renderSongBody() {
   const html = state.currentSong.sections.map(sec => {
     const isChorus = sec.type === 'ritornello' || sec.label?.toLowerCase().includes('rit');
     const labelHtml = sec.label 
-      ? `<div class="section-label text-xs font-bold uppercase tracking-wider mb-1 ${isChorus ? 'text-blue-600' : 'text-slate-400'}">${sec.label}</div>` 
+      ? `<div class="section-label text-xs font-bold uppercase tracking-wider mb-1 ${isChorus ? 'is-chorus' : ''}">${sec.label}</div>` 
       : '';
 
     const linesHtml = sec.lines.map(line => {
@@ -337,14 +374,14 @@ function renderSongBody() {
       
       return `
         <div class="song-line">
-          ${hasChords ? `<div class="chord-line font-mono-chord text-blue-700 font-bold text-[0.9em] leading-none mb-0.5 select-none whitespace-pre">${transposedChords}</div>` : ''}
-          ${line.lyrics !== undefined && line.lyrics !== '' ? `<div class="lyric-line text-slate-800 leading-snug whitespace-pre-wrap ${isChorus ? 'font-semibold' : ''}">${line.lyrics}</div>` : ''}
+          ${hasChords ? `<div class="chord-line font-mono-chord text-[0.9em] select-none">${transposedChords}</div>` : ''}
+          ${line.lyrics !== undefined && line.lyrics !== '' ? `<div class="lyric-line ${isChorus ? 'font-semibold' : ''}">${line.lyrics}</div>` : ''}
         </div>
       `;
     }).join('');
 
     return `
-      <div class="song-block mb-6 ${isChorus ? 'pl-3 border-l-2 border-blue-200' : ''}">
+      <div class="song-block ${isChorus ? 'is-chorus' : ''}">
         ${labelHtml}
         ${linesHtml}
       </div>
@@ -464,7 +501,6 @@ function loadLocalSetlists() {
     if (saved) {
       const parsed = JSON.parse(saved);
       const deletedIds = getDeletedSetlistIds();
-      // Filtra subito eventuali scalette già eliminate
       Object.keys(parsed).forEach(id => {
         if (deletedIds.includes(id) || parsed[id]?.deleted === true) {
           delete parsed[id];
@@ -521,17 +557,17 @@ function renderSetlistsIndex() {
     .sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
 
   if (list.length === 0) {
-    container.innerHTML = `<div class="text-center p-6 text-slate-400 text-xs">Nessuna scaletta salvata.<br>Creane una qui sopra!</div>`;
+    container.innerHTML = `<div class="text-center p-6 theme-text-muted text-xs">Nessuna scaletta salvata.<br>Creane una qui sopra!</div>`;
     return;
   }
 
   container.innerHTML = list.map(sl => `
-    <div onclick="openSetlistDetail('${sl.id}')" class="p-3 bg-white border border-slate-200 rounded-xl hover:border-blue-400 cursor-pointer shadow-2xs transition flex justify-between items-center">
+    <div onclick="openSetlistDetail('${sl.id}')" class="setlist-card p-3 rounded-xl cursor-pointer flex justify-between items-center">
       <div>
-        <h4 class="font-bold text-sm text-slate-800">${sl.name}</h4>
-        <p class="text-xs text-slate-500">${(sl.songs || []).length} canti</p>
+        <h4 class="font-bold text-sm">${sl.name}</h4>
+        <p class="text-xs theme-text-muted">${(sl.songs || []).length} canti</p>
       </div>
-      <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      <svg class="w-4 h-4 theme-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
     </div>
   `).join('');
 }
@@ -548,24 +584,24 @@ function openSetlistDetail(id) {
 
   const container = document.getElementById('setlist-songs-container');
   if (!sl.songs || sl.songs.length === 0) {
-    container.innerHTML = `<div class="p-6 text-center text-slate-400 text-xs">Scaletta vuota.<br>Apri un canto e clicca "+ Scaletta".</div>`;
+    container.innerHTML = `<div class="p-6 text-center theme-text-muted text-xs">Scaletta vuota.<br>Apri un canto e clicca "+ Scaletta".</div>`;
     return;
   }
 
   container.innerHTML = sl.songs.map((slug, idx) => {
     const songMeta = state.songsIndex.find(s => s.slug === slug) || { title: slug, author: '' };
     return `
-      <div class="p-2.5 bg-white border border-slate-200 rounded-lg flex items-center justify-between gap-2 shadow-2xs">
+      <div class="setlist-card p-2.5 rounded-lg flex items-center justify-between gap-2">
         <div onclick="playSetlistSong('${id}', ${idx})" class="flex-1 cursor-pointer min-w-0">
           <div class="flex items-center gap-2">
-            <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-600 text-[10px] font-bold flex items-center justify-center shrink-0">${idx + 1}</span>
-            <span class="font-semibold text-sm text-slate-800 truncate hover:text-blue-600">${songMeta.title}</span>
+            <span class="w-5 h-5 rounded-full theme-subtle theme-text-secondary text-[10px] font-bold flex items-center justify-center shrink-0">${idx + 1}</span>
+            <span class="font-semibold text-sm truncate hover:text-blue-500">${songMeta.title}</span>
           </div>
         </div>
         <div class="flex items-center gap-1 shrink-0">
-          <button onclick="moveSongInSetlist('${id}', ${idx}, -1)" class="p-1 text-slate-400 hover:text-slate-700 disabled:opacity-20" ${idx === 0 ? 'disabled' : ''}>↑</button>
-          <button onclick="moveSongInSetlist('${id}', ${idx}, 1)" class="p-1 text-slate-400 hover:text-slate-700 disabled:opacity-20" ${idx === sl.songs.length - 1 ? 'disabled' : ''}>↓</button>
-          <button onclick="removeSongFromSetlist('${id}', ${idx})" class="p-1 text-red-400 hover:text-red-600 ml-1">✕</button>
+          <button onclick="moveSongInSetlist('${id}', ${idx}, -1)" class="p-1 theme-text-muted hover:opacity-80 disabled:opacity-20" ${idx === 0 ? 'disabled' : ''}>↑</button>
+          <button onclick="moveSongInSetlist('${id}', ${idx}, 1)" class="p-1 theme-text-muted hover:opacity-80 disabled:opacity-20" ${idx === sl.songs.length - 1 ? 'disabled' : ''}>↓</button>
+          <button onclick="removeSongFromSetlist('${id}', ${idx})" class="p-1 text-red-500 hover:text-red-400 ml-1">✕</button>
         </div>
       </div>
     `;
@@ -586,10 +622,10 @@ function toggleAddToSetlistMenu() {
     const listContainer = document.getElementById('dropdown-setlist-items');
     const setlists = Object.values(state.setlists).filter(sl => !sl.deleted);
     if (setlists.length === 0) {
-      listContainer.innerHTML = `<div class="p-3 text-xs text-slate-500 text-center">Crea prima una scaletta nel menu!</div>`;
+      listContainer.innerHTML = `<div class="p-3 text-xs theme-text-muted text-center">Crea prima una scaletta nel menu!</div>`;
     } else {
       listContainer.innerHTML = setlists.map(sl => `
-        <button onclick="addCurrentSongToSetlist('${sl.id}')" class="w-full text-left px-3 py-2 text-xs font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700 truncate block">
+        <button onclick="addCurrentSongToSetlist('${sl.id}')" class="w-full text-left px-3 py-2 text-xs font-medium hover:bg-blue-500/10 hover:text-blue-500 truncate block transition">
           + ${sl.name}
         </button>
       `).join('');
@@ -655,9 +691,7 @@ async function deleteCurrentSetlist() {
 
   const docRef = fb.doc(fb.db, "setlists", id);
   try {
-    // 1. Marca subito come eliminata sul cloud (funziona anche se le regole Firestore bloccano deleteDoc)
     await fb.setDoc(docRef, { id, deleted: true, updatedAt: Date.now() }, { merge: true });
-    // 2. Tenta anche l'eliminazione fisica del documento
     await fb.deleteDoc(docRef);
   } catch (err) {
     console.warn("Eliminazione fisica Firestore (gestita via soft-delete):", err);
@@ -676,7 +710,7 @@ function playSetlistSong(setlistId, index) {
   if (meta) {
     loadSong(meta);
     updateSetlistNavBar();
-    if (window.innerWidth < 768) toggleSidebar();
+    if (window.innerWidth < 768) closeMobileSidebar();
   }
 }
 
@@ -733,14 +767,12 @@ function initFirebaseSync() {
 
   const deletedIds = getDeletedSetlistIds();
 
-  // 1. Invia al Cloud solo le scalette valide create localmente e non eliminate
   Object.values(state.setlists).forEach(sl => {
     if (!deletedIds.includes(sl.id) && !sl.deleted) {
       syncSetlistToCloud(sl);
     }
   });
 
-  // 2. Ascolta TUTTA la collezione "setlists" in tempo reale su tutti i dispositivi
   if (window._fbCollectionUnsub) return;
 
   window._fbCollectionUnsub = window.fb.onSnapshot(
@@ -754,7 +786,6 @@ function initFirebaseSync() {
         const remoteData = docSnap.data();
         const id = remoteData.id || docSnap.id;
 
-        // Ignora documenti eliminati sul cloud o in blacklist locale
         if (remoteData.deleted === true || currentDeleted.includes(id)) {
           if (remoteData.deleted === true) {
             markSetlistAsDeletedLocally(id);
@@ -771,7 +802,6 @@ function initFirebaseSync() {
         }
       });
 
-      // Rimuove in locale le scalette eliminate dal cloud o marcate deleted: true
       Object.keys(state.setlists).forEach((localId) => {
         if (!validRemoteIds.has(localId)) {
           delete state.setlists[localId];
@@ -861,31 +891,32 @@ async function importSharedSetlist(id) {
   }
 }
 
-/* --- UI UTILS --- */
+/* --- UI UTILS & SIDEBAR --- */
 
 function toggleSidebar() {
-  const sb = document.getElementById('sidebar');
   const bd = document.getElementById('sidebar-backdrop');
-  const isClosed = sb.classList.contains('-translate-x-full');
-  
-  if (isClosed) {
-    sb.classList.remove('-translate-x-full');
-    bd.classList.remove('hidden');
+  if (window.innerWidth < 768) {
+    const isOpen = document.body.classList.toggle('sidebar-open-mobile');
+    bd.classList.toggle('hidden', !isOpen);
   } else {
-    sb.classList.add('-translate-x-full');
-    bd.classList.add('hidden');
+    document.body.classList.toggle('sidebar-collapsed');
   }
+}
+
+function closeMobileSidebar() {
+  document.body.classList.remove('sidebar-open-mobile');
+  document.getElementById('sidebar-backdrop').classList.add('hidden');
 }
 
 function switchSidebarTab(tab) {
   const isSongs = tab === 'songs';
   document.getElementById('tab-songs').className = isSongs 
-    ? 'flex-1 py-2 text-xs font-semibold rounded-md bg-white text-slate-900 shadow-sm transition'
-    : 'flex-1 py-2 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition';
+    ? 'flex-1 py-2 text-xs font-semibold rounded-lg theme-surface shadow-xs transition'
+    : 'flex-1 py-2 text-xs font-semibold rounded-lg theme-text-secondary hover:opacity-90 transition';
   
   document.getElementById('tab-setlists').className = !isSongs 
-    ? 'flex-1 py-2 text-xs font-semibold rounded-md bg-white text-slate-900 shadow-sm transition flex items-center justify-center gap-1'
-    : 'flex-1 py-2 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition flex items-center justify-center gap-1';
+    ? 'flex-1 py-2 text-xs font-semibold rounded-lg theme-surface shadow-xs transition flex items-center justify-center gap-1.5'
+    : 'flex-1 py-2 text-xs font-semibold rounded-lg theme-text-secondary hover:opacity-90 transition flex items-center justify-center gap-1.5';
 
   document.getElementById('panel-songs').classList.toggle('hidden', !isSongs);
   document.getElementById('panel-setlists').classList.toggle('hidden', isSongs);
@@ -896,6 +927,7 @@ function switchSidebarTab(tab) {
 function goHome() {
   document.getElementById('view-song').classList.add('hidden');
   document.getElementById('view-welcome').classList.remove('hidden');
+  document.getElementById('mobile-header-title').innerText = 'Canzoniere SO-SP';
   state.currentSong = null;
   renderSongList();
 }
@@ -903,7 +935,7 @@ function goHome() {
 function showToast(msg, type = 'info') {
   const container = document.getElementById('toast-container');
   const el = document.createElement('div');
-  el.className = `px-4 py-2.5 rounded-xl shadow-lg text-xs font-semibold text-white text-center transition-all transform translate-y-2 opacity-0 ${type === 'error' ? 'bg-red-600' : 'bg-slate-800'}`;
+  el.className = `px-4 py-2.5 rounded-xl shadow-lg text-xs font-semibold text-white text-center transition-all transform translate-y-2 opacity-0 ${type === 'error' ? 'bg-red-600' : 'bg-slate-800 border border-slate-700'}`;
   el.innerText = msg;
   container.appendChild(el);
 

@@ -1,0 +1,316 @@
+/* ==========================================================================
+   Canzoniere Sant'Osvaldo e San Paolo - Theme & Layout
+   ========================================================================== */
+
+:root {
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-hover: #e2e8f0;
+  --bg-header-brand: #0f172a;
+  --bg-active-item: #eff6ff;
+  --bg-setlist-banner: #eff6ff;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-chord: #1d4ed8;
+  --text-chorus-label: #2563eb;
+
+  --border-color: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --border-active: #2563eb;
+  --border-chorus: #bfdbfe;
+
+  --btn-primary-bg: #0f172a;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #1e293b;
+
+  --shadow-soft: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+  --sidebar-width: 20rem; /* 320px */
+}
+
+html.dark {
+  --bg-app: #090d16;
+  --bg-surface: #111827;
+  --bg-subtle: #1e293b;
+  --bg-hover: #334155;
+  --bg-header-brand: #060911;
+  --bg-active-item: rgba(59, 130, 246, 0.14);
+  --bg-setlist-banner: rgba(30, 58, 138, 0.25);
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --text-chord: #60a5fa;
+  --text-chorus-label: #60a5fa;
+
+  --border-color: #1e293b;
+  --border-subtle: #1e293b;
+  --border-active: #3b82f6;
+  --border-chorus: #1d4ed8;
+
+  --btn-primary-bg: #2563eb;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #1d4ed8;
+
+  --shadow-soft: 0 4px 24px -2px rgba(0, 0, 0, 0.45);
+}
+
+/* Base */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.font-mono-chord {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Superfici e Bordi Tematizzati */
+.theme-surface {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.theme-subtle {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.theme-border {
+  border-color: var(--border-color);
+}
+
+.theme-border-subtle {
+  border-color: var(--border-subtle);
+}
+
+.theme-text-secondary {
+  color: var(--text-secondary);
+}
+
+.theme-text-muted {
+  color: var(--text-muted);
+}
+
+.theme-btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+.theme-btn-primary:hover {
+  background-color: var(--btn-primary-hover);
+}
+
+.theme-btn-icon {
+  color: var(--text-secondary);
+  background-color: transparent;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.theme-btn-icon:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Sidebar Collassabile (Mobile + Desktop)
+   ========================================================================== */
+.app-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-color);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease;
+}
+
+.app-main {
+  background-color: var(--bg-surface);
+  transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease;
+}
+
+/* Desktop: aperta di default, richiudibile con classe .sidebar-collapsed sul body */
+@media (min-width: 768px) {
+  .app-sidebar {
+    transform: translateX(0);
+  }
+  .app-main {
+    padding-left: var(--sidebar-width);
+  }
+
+  body.sidebar-collapsed .app-sidebar {
+    transform: translateX(-100%);
+  }
+  body.sidebar-collapsed .app-main {
+    padding-left: 0;
+  }
+}
+
+/* Mobile: chiusa di default, apribile con classe .sidebar-open-mobile sul body */
+@media (max-width: 767px) {
+  .app-sidebar {
+    transform: translateX(-100%);
+  }
+  .app-main {
+    padding-left: 0;
+  }
+
+  body.sidebar-open-mobile .app-sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================================================
+   Lista Canti & Scalette
+   ========================================================================== */
+.song-list-item {
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background-color 0.15s ease;
+}
+.song-list-item:hover {
+  background-color: var(--bg-subtle);
+}
+.song-list-item.is-active {
+  background-color: var(--bg-active-item);
+  border-left: 4px solid var(--border-active);
+}
+
+.setlist-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.setlist-card:hover {
+  border-color: var(--border-active);
+}
+
+/* Input di ricerca e scalette */
+.theme-input {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+.theme-input::placeholder {
+  color: var(--text-muted);
+}
+.theme-input:focus {
+  background-color: var(--bg-surface);
+  border-color: var(--border-active);
+  outline: none;
+}
+
+/* ==========================================================================
+   Visualizzazione Canto, Accordi e Modalità Libro
+   ========================================================================== */
+#view-song {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+#view-song.hidden {
+  display: none !important;
+}
+
+.song-scroll-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1.75rem 1.5rem 6rem 1.5rem;
+}
+
+.song-text {
+  line-height: 1.6;
+}
+
+.chord-line {
+  color: var(--text-chord);
+  font-weight: 700;
+  min-height: 1.25em;
+  white-space: pre;
+  line-height: 1.1;
+  margin-top: 0.4em;
+  margin-bottom: 0.1em;
+}
+
+.lyric-line {
+  color: var(--text-primary);
+  min-height: 1.25em;
+  white-space: pre-wrap;
+  line-height: 1.35;
+  margin-bottom: 0.1em;
+}
+
+.song-block {
+  break-inside: avoid;
+  margin-bottom: 1.35rem;
+  display: block;
+}
+
+.song-block.is-chorus {
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--border-chorus);
+}
+
+.section-label {
+  color: var(--text-muted);
+}
+.section-label.is-chorus {
+  color: var(--text-chorus-label);
+}
+
+/* Modalità Proiettore / Libro (Senza Accordi, Due Colonne su Desktop) */
+.mode-book .song-scroll-container {
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+
+.mode-book .song-text {
+  column-count: 1;
+  column-gap: 3.5rem;
+  column-rule: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 1050px;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .mode-book .song-text {
+    column-count: 2;
+  }
+}
+
+.mode-book .chord-line {
+  display: none !important;
+}
+.mode-book .song-block {
+  margin-bottom: 1.25rem;
+  break-inside: avoid;
+}
+.mode-book .lyric-line {
+  line-height: 1.55;
+  margin-bottom: 0.25rem;
+}
+.mode-book .section-label {
+  margin-top: 0.2rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.8em;
+}
+
+/* Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#toast-container {
+  pointer-events: none;
+  z-index: 9999;
+}
