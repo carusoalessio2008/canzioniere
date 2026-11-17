@@ -4,7 +4,9 @@
     "file": "abbracciami.json",
     "title": "Abbracciami",
     "author": "",
-    "categories": [],
+    "categories": [
+      "Comunione"
+    ],
     "firstLine": ""
   },
   {
