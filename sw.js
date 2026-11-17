@@ -1,31 +1,43 @@
-const CACHE_NAME = 'canzoniere-sosp-v6';
+const CACHE_NAME = 'canzoniere-sosp-v1';
+const ASSETS = [
+  './',
+  './index.html',
+  './app.js',
+  './manifest.json',
+  './logo.png',
+  './canti/index.json'
+];
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', (e) => {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+  );
   self.skipWaiting();
 });
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
-    ).then(() => self.clients.claim())
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
+      );
+    })
   );
+  self.clients.claim();
 });
 
-self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') return;
-  const url = new URL(event.request.url);
-  if (url.origin !== self.location.origin) return;
+self.addEventListener('fetch', (e) => {
+  if (e.request.url.includes('firestore.googleapis.com')) return;
 
-  event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        if (response && response.status === 200) {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-        }
-        return response;
+  e.respondWith(
+    fetch(e.request)
+      .then((res) => {
+        const resClone = res.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(e.request, resClone);
+        });
+        return res;
       })
-      .catch(() => caches.match(event.request))
+      .catch(() => caches.match(e.request))
   );
 });
