@@ -222,7 +222,31 @@ function renderSongBody() {
   const container = document.getElementById('song-body');
   container.style.fontSize = `${state.fontSize}px`;
 
-  const blocks = state.currentSong.content.split(/\n\s*\n/);
+  // Estrae il testo supportando diversi nomi di campo o strutture array nei JSON
+  let rawContent = state.currentSong.content 
+                ?? state.currentSong.lyrics 
+                ?? state.currentSong.testo 
+                ?? state.currentSong.body 
+                ?? '';
+
+  if (Array.isArray(rawContent)) {
+    rawContent = rawContent.map(item => {
+      if (typeof item === 'string') return item;
+      if (item && typeof item === 'object') {
+        const header = item.section || item.type || item.label ? `[${item.section || item.type || item.label}]\n` : '';
+        const text = Array.isArray(item.lines) ? item.lines.join('\n') : (item.text || item.content || item.lyrics || '');
+        return header + text;
+      }
+      return '';
+    }).join('\n\n');
+  }
+
+  if (typeof rawContent !== 'string' || !rawContent.trim()) {
+    container.innerHTML = `<div class="p-6 text-center text-slate-400 text-sm">Testo non disponibile per questo canto.</div>`;
+    return;
+  }
+
+  const blocks = rawContent.split(/\n\s*\n/);
   
   const html = blocks.map(block => {
     const lines = block.split('\n');
