@@ -302,7 +302,7 @@
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
       window.fb = { db, collection, doc, setDoc, getDoc, deleteDoc, onSnapshot };
-      console.log("Firebase connesso correttamente.");
+      window.dispatchEvent(new Event('firebase-ready'));
     } catch (e) {
       console.warn("Errore inizializzazione Firebase, fallback su locale:", e);
     }

@@ -81,7 +81,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     filterSongs();
   });
 
-  setTimeout(initFirebaseSync, 800);
+ if (window.fb) {
+    initFirebaseSync();
+  } else {
+    window.addEventListener('firebase-ready', initFirebaseSync, { once: true });
+  }
 });
 
 /* --- GESTIONE INDICE E CANTI --- */
@@ -657,41 +661,78 @@ function nextSongInSetlist() {
 
 /* --- CLOUD SYNC (FIREBASE) --- */
 
+function waitForFirebase(timeoutMs = 8000) {
+  if (window.fb) return Promise.resolve(window.fb);
+  return new Promise((resolve) => {
+    let resolved = false;
+    const onReady = () => {
+      if (!resolved) {
+        resolved = true;
+        resolve(window.fb);
+      }
+    };
+    window.addEventListener('firebase-ready', onReady, { once: true });
+    setTimeout(() => {
+      if (!resolved) {
+        resolved = true;
+        window.removeEventListener('firebase-ready', onReady);
+        resolve(window.fb || null);
+      }
+    }, timeoutMs);
+  });
+}
+
 function initFirebaseSync() {
   if (!window.fb) return;
   const statusEl = document.getElementById('connection-status');
   statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Cloud Attivo`;
 
-  Object.keys(state.setlists).forEach(id => {
-    listenToSetlist(id);
+  Object.values(state.setlists).forEach(sl => {
+    listenToSetlist(sl.id);
+    // Riallinea sul cloud eventuali scalette create offline
+    syncSetlistToCloud(sl);
   });
 }
 
-function syncSetlistToCloud(setlist) {
-  if (!window.fb) return;
-  window.fb.setDoc(window.fb.doc(window.fb.db, "setlists", setlist.id), setlist)
-    .then(() => listenToSetlist(setlist.id))
-    .catch(err => console.warn("Sync offline:", err));
+async function syncSetlistToCloud(setlist) {
+  const fb = await waitForFirebase();
+  if (!fb) return;
+  try {
+    await fb.setDoc(fb.doc(fb.db, "setlists", setlist.id), setlist);
+    listenToSetlist(setlist.id);
+  } catch (err) {
+    console.warn("Sync offline:", err);
+  }
 }
 
 function listenToSetlist(id) {
   if (!window.fb) return;
-  window.fb.onSnapshot(window.fb.doc(window.fb.db, "setlists", id), (docSnap) => {
-    if (docSnap.exists()) {
-      const remoteData = docSnap.data();
-      const localData = state.setlists[id];
-      if (!localData || remoteData.updatedAt > localData.updatedAt) {
-        state.setlists[id] = remoteData;
-        saveLocalSetlists();
-        if (state.activeSetlistId === id) openSetlistDetail(id);
-        renderSetlistsIndex();
+  if (!window._fbListeners) window._fbListeners = {};
+  if (window._fbListeners[id]) return;
+
+  window._fbListeners[id] = window.fb.onSnapshot(
+    window.fb.doc(window.fb.db, "setlists", id),
+    (docSnap) => {
+      if (docSnap.exists()) {
+        const remoteData = docSnap.data();
+        const localData = state.setlists[id];
+        if (!localData || (remoteData.updatedAt || 0) > (localData.updatedAt || 0)) {
+          state.setlists[id] = remoteData;
+          saveLocalSetlists();
+          if (state.activeSetlistId === id) openSetlistDetail(id);
+          renderSetlistsIndex();
+        }
       }
-    }
-  });
+    },
+    (err) => console.warn("Errore listener scaletta:", err)
+  );
 }
 
 function shareSetlist() {
   if (!state.activeSetlistId) return;
+  const sl = state.setlists[state.activeSetlistId];
+  if (sl) syncSetlistToCloud(sl);
+
   const url = `${window.location.origin}${window.location.pathname}?scaletta=${state.activeSetlistId}`;
   navigator.clipboard.writeText(url).then(() => {
     showToast("Link scaletta copiato!");
@@ -702,33 +743,37 @@ function shareSetlist() {
 
 async function importSharedSetlist(id) {
   switchSidebarTab('setlists');
-  if (state.setlists[id]) {
-    openSetlistDetail(id);
+
+  const fb = await waitForFirebase();
+  if (!fb) {
+    if (state.setlists[id]) {
+      openSetlistDetail(id);
+    } else {
+      showToast("Connessione Cloud non disponibile", "error");
+    }
     return;
   }
 
-  let attempts = 0;
-  while (!window.fb && attempts < 10) {
-    await new Promise(r => setTimeout(r, 200));
-    attempts++;
-  }
-
-  if (window.fb) {
-    try {
-      const snap = await window.fb.getDoc(window.fb.doc(window.fb.db, "setlists", id));
-      if (snap.exists()) {
-        const data = snap.data();
-        state.setlists[id] = data;
-        saveLocalSetlists();
-        listenToSetlist(id);
-        openSetlistDetail(id);
-        showToast(`Scaletta "${data.name}" importata!`);
-      } else {
-        showToast("Scaletta non trovata", "error");
+  try {
+    const snap = await fb.getDoc(fb.doc(fb.db, "setlists", id));
+    if (snap.exists()) {
+      const data = snap.data();
+      state.setlists[id] = data;
+      saveLocalSetlists();
+      listenToSetlist(id);
+      openSetlistDetail(id);
+      if (data.songs && data.songs.length > 0) {
+        playSetlistSong(id, 0);
       }
-    } catch (e) {
-      showToast("Errore caricamento scaletta", "error");
+      showToast(`Scaletta "${data.name}" caricata!`);
+    } else if (state.setlists[id]) {
+      openSetlistDetail(id);
+    } else {
+      showToast("Scaletta non trovata sul Cloud", "error");
     }
+  } catch (e) {
+    console.error("Errore Firestore importSharedSetlist:", e);
+    showToast("Errore permessi o rete Cloud", "error");
   }
 }
 
