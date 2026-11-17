@@ -25,6 +25,18 @@ const NOTES_IT = ['Do', 'Do#', 'Re', 'Re#', 'Mi', 'Fa', 'Fa#', 'Sol', 'Sol#', 'L
 const NOTES_IT_FLAT = ['Do', 'Reb', 'Re', 'Mib', 'Mi', 'Fa', 'Solb', 'Sol', 'Lab', 'La', 'Sib', 'Si'];
 const NOTES_EN = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
+function normalizeIndexData(rawList) {
+  if (!Array.isArray(rawList)) return [];
+  return rawList.map(item => {
+    const resolvedId = item.slug || item.id || (item.file ? item.file.replace(/\.json$/i, '') : '');
+    return {
+      ...item,
+      id: resolvedId,
+      slug: resolvedId
+    };
+  });
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   loadPreferences();
   setupEventListeners();
@@ -49,7 +61,7 @@ async function loadSongsIndex() {
   const cachedIndex = localStorage.getItem(STORAGE_KEYS.INDEX);
   if (cachedIndex) {
     try {
-      state.songsIndex = JSON.parse(cachedIndex);
+      state.songsIndex = normalizeIndexData(JSON.parse(cachedIndex));
       renderSongList();
     } catch (e) {
       console.error("Errore parsing cache indice", e);
@@ -59,7 +71,8 @@ async function loadSongsIndex() {
   try {
     const response = await fetch('./canti/index.json?t=' + Date.now(), { cache: 'no-store' });
     if (!response.ok) throw new Error('HTTP ' + response.status);
-    const data = await response.json();
+    const rawData = await response.json();
+    const data = normalizeIndexData(rawData);
 
     data.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
 
@@ -76,11 +89,16 @@ async function loadSongsIndex() {
 }
 
 async function fetchSongData(songId) {
+  if (!songId) {
+    throw new Error("ID canto mancante o non valido.");
+  }
+
   const cacheKey = STORAGE_KEYS.SONG_PREFIX + songId;
 
-  // Costruisce possibili percorsi (supporta sia "id" sia eventuale campo "file" nell'indice)
-  const indexEntry = state.songsIndex.find(s => s.id === songId);
+  // Cerca l'entry nell'indice confrontando sia slug sia id
+  const indexEntry = state.songsIndex.find(s => s.slug === songId || s.id === songId);
   const candidates = [];
+
   if (indexEntry && indexEntry.file) {
     candidates.push(indexEntry.file.startsWith('canti/') ? `./${indexEntry.file}` : `./canti/${indexEntry.file}`);
   }
@@ -115,6 +133,7 @@ function renderSongList() {
     const matchesQuery = !query ||
                          (song.title && song.title.toLowerCase().includes(query)) ||
                          (song.author && song.author.toLowerCase().includes(query)) ||
+                         (song.search && song.search.toLowerCase().includes(query)) ||
                          (song.firstLine && song.firstLine.toLowerCase().includes(query));
     return matchesCat && matchesQuery;
   });
@@ -125,13 +144,14 @@ function renderSongList() {
   }
 
   container.innerHTML = state.filteredSongs.map(song => {
-    const isActive = state.currentSong && state.currentSong.id === song.id;
+    const songKey = song.slug || song.id;
+    const isActive = state.currentSong && (state.currentSong.slug === songKey || state.currentSong.id === songKey);
     const catsHtml = (song.categories || []).slice(0, 2).map(c =>
       `<span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 font-medium">${escapeHtml(c)}</span>`
     ).join('');
 
     return `
-      <div onclick="openSong('${escapeHtml(song.id)}')"
+      <div onclick="openSong('${escapeHtml(songKey)}')"
            class="p-3.5 hover:bg-slate-50 cursor-pointer transition flex items-center justify-between group ${isActive ? 'bg-blue-50/70 border-l-4 border-blue-600' : ''}">
         <div class="min-w-0 pr-2">
           <div class="font-semibold text-sm text-slate-900 truncate group-hover:text-blue-700 transition">${escapeHtml(song.title)}</div>
@@ -171,7 +191,10 @@ function clearSearch() {
 async function openSong(songId, fromSetlistIndex = -1) {
   try {
     const songData = await fetchSongData(songId);
-    if (!songData.id) songData.id = songId;
+    const resolvedId = songData.slug || songData.id || songId;
+    songData.id = resolvedId;
+    songData.slug = resolvedId;
+
     state.currentSong = songData;
     state.transposeSteps = 0;
     state.activeSetlistIndex = fromSetlistIndex;
@@ -181,8 +204,8 @@ async function openSong(songId, fromSetlistIndex = -1) {
     viewSong.classList.remove('hidden');
     viewSong.classList.add('flex');
 
-    document.getElementById('song-title').textContent = songData.title || songId;
-    document.getElementById('mobile-header-title').textContent = songData.title || songId;
+    document.getElementById('song-title').textContent = songData.title || resolvedId;
+    document.getElementById('mobile-header-title').textContent = songData.title || resolvedId;
     document.getElementById('song-author').textContent = songData.author || '';
     document.getElementById('transpose-display').textContent = '0';
 
@@ -206,7 +229,7 @@ async function openSong(songId, fromSetlistIndex = -1) {
     }
 
     const url = new URL(window.location);
-    url.searchParams.set('canto', songId);
+    url.searchParams.set('canto', resolvedId);
     window.history.replaceState({}, '', url);
 
   } catch (err) {
@@ -550,8 +573,8 @@ function renderActiveSetlistDetail() {
   }
 
   container.innerHTML = setlist.songs.map((songId, idx) => {
-    const songMeta = state.songsIndex.find(s => s.id === songId) || { title: songId, author: '' };
-    const isCurrent = state.currentSong && state.currentSong.id === songId && state.activeSetlistIndex === idx;
+    const songMeta = state.songsIndex.find(s => s.slug === songId || s.id === songId) || { title: songId, author: '' };
+    const isCurrent = state.currentSong && (state.currentSong.slug === songId || state.currentSong.id === songId) && state.activeSetlistIndex === idx;
 
     return `
       <div class="p-2.5 bg-white rounded-lg border ${isCurrent ? 'border-blue-600 bg-blue-50/40' : 'border-slate-200'} flex items-center justify-between gap-2 shadow-2xs">
@@ -595,7 +618,8 @@ function addCurrentSongToSetlist(setlistId) {
   const setlist = state.setlists.find(s => s.id === setlistId);
   if (!setlist) return;
 
-  setlist.songs.push(state.currentSong.id);
+  const songKey = state.currentSong.slug || state.currentSong.id;
+  setlist.songs.push(songKey);
   setlist.updatedAt = Date.now();
 
   saveLocalSetlists();
