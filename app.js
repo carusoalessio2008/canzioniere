@@ -687,11 +687,59 @@ function initFirebaseSync() {
   const statusEl = document.getElementById('connection-status');
   statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Cloud Attivo`;
 
+  // 1. Invia al Cloud eventuali scalette create localmente mentre si era offline
   Object.values(state.setlists).forEach(sl => {
-    listenToSetlist(sl.id);
-    // Riallinea sul cloud eventuali scalette create offline
     syncSetlistToCloud(sl);
   });
+
+  // 2. Ascolta TUTTA la collezione "setlists" in tempo reale su tutti i dispositivi
+  if (window._fbCollectionUnsub) return;
+
+  window._fbCollectionUnsub = window.fb.onSnapshot(
+    window.fb.collection(window.fb.db, "setlists"),
+    (querySnapshot) => {
+      const deletedIds = JSON.parse(localStorage.getItem('canzoniere_sosp_deleted_v1') || '[]');
+      let changed = false;
+      const remoteIds = new Set();
+
+      querySnapshot.forEach((docSnap) => {
+        const remoteData = docSnap.data();
+        const id = remoteData.id || docSnap.id;
+        remoteIds.add(id);
+
+        if (deletedIds.includes(id)) return;
+
+        const localData = state.setlists[id];
+        if (!localData || (remoteData.updatedAt || 0) > (localData.updatedAt || 0)) {
+          state.setlists[id] = { ...remoteData, id };
+          changed = true;
+        }
+      });
+
+      // Rimuove in locale le scalette che sono state eliminate da un altro dispositivo
+      Object.keys(state.setlists).forEach((localId) => {
+        if (!remoteIds.has(localId)) {
+          delete state.setlists[localId];
+          changed = true;
+          if (state.activeSetlistId === localId) {
+            closeSetlistDetail();
+          }
+        }
+      });
+
+      if (changed) {
+        saveLocalSetlists();
+        renderSetlistsIndex();
+        if (state.activeSetlistId && state.setlists[state.activeSetlistId]) {
+          openSetlistDetail(state.activeSetlistId);
+        }
+      }
+    },
+    (err) => {
+      console.warn("Errore sync collezione scalette:", err);
+      statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-500"></span> Solo Locale`;
+    }
+  );
 }
 
 async function syncSetlistToCloud(setlist) {
@@ -699,33 +747,9 @@ async function syncSetlistToCloud(setlist) {
   if (!fb) return;
   try {
     await fb.setDoc(fb.doc(fb.db, "setlists", setlist.id), setlist);
-    listenToSetlist(setlist.id);
   } catch (err) {
     console.warn("Sync offline:", err);
   }
-}
-
-function listenToSetlist(id) {
-  if (!window.fb) return;
-  if (!window._fbListeners) window._fbListeners = {};
-  if (window._fbListeners[id]) return;
-
-  window._fbListeners[id] = window.fb.onSnapshot(
-    window.fb.doc(window.fb.db, "setlists", id),
-    (docSnap) => {
-      if (docSnap.exists()) {
-        const remoteData = docSnap.data();
-        const localData = state.setlists[id];
-        if (!localData || (remoteData.updatedAt || 0) > (localData.updatedAt || 0)) {
-          state.setlists[id] = remoteData;
-          saveLocalSetlists();
-          if (state.activeSetlistId === id) openSetlistDetail(id);
-          renderSetlistsIndex();
-        }
-      }
-    },
-    (err) => console.warn("Errore listener scaletta:", err)
-  );
 }
 
 function shareSetlist() {
@@ -746,11 +770,8 @@ async function importSharedSetlist(id) {
 
   const fb = await waitForFirebase();
   if (!fb) {
-    if (state.setlists[id]) {
-      openSetlistDetail(id);
-    } else {
-      showToast("Connessione Cloud non disponibile", "error");
-    }
+    if (state.setlists[id]) openSetlistDetail(id);
+    else showToast("Connessione Cloud non disponibile", "error");
     return;
   }
 
@@ -760,7 +781,7 @@ async function importSharedSetlist(id) {
       const data = snap.data();
       state.setlists[id] = data;
       saveLocalSetlists();
-      listenToSetlist(id);
+      renderSetlistsIndex();
       openSetlistDetail(id);
       if (data.songs && data.songs.length > 0) {
         playSetlistSong(id, 0);
