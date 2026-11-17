@@ -1,0 +1,71 @@
+{
+  "title": "Acclamate Al Signore",
+  "author": "RNS",
+  "categories": [
+    "Ingresso"
+  ],
+  "sections": [
+    {
+      "type": "ritornello",
+      "label": "Ritornello",
+      "lines": [
+        {
+          "chords": "",
+          "lyrics": "Acclamate al Signore,"
+        },
+        {
+          "chords": "",
+          "lyrics": "voi tutti della terra"
+        },
+        {
+          "chords": "",
+          "lyrics": "servite il Signore nella gioia"
+        },
+        {
+          "chords": "",
+          "lyrics": "presentatevi a lui con esultanza"
+        },
+        {
+          "chords": "",
+          "lyrics": "acclamate, acclamate, acclamate al Signor"
+        }
+      ]
+    },
+    {
+      "type": "strofa",
+      "label": "presentatevi a lui con esultanza",
+      "lines": [
+        {
+          "chords": "",
+          "lyrics": "Riconoscete che il Signore è Dio,"
+        },
+        {
+          "chords": "",
+          "lyrics": "Egli ci ha fatti e noi siamo suoi,"
+        },
+        {
+          "chords": "",
+          "lyrics": "suo popolo e gregge del suo pascolo."
+        }
+      ]
+    },
+    {
+      "type": "strofa",
+      "label": "",
+      "lines": [
+        {
+          "chords": "",
+          "lyrics": "Riconoscete che il Signore è Dio,"
+        },
+        {
+          "chords": "",
+          "lyrics": "Egli ci ha fatti e noi siamo suoi,"
+        },
+        {
+          "chords": "",
+          "lyrics": "suo popolo e gregge del suo pascolo."
+        }
+      ]
+    }
+  ]
+}
