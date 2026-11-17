@@ -1,0 +1,138 @@
+{
+  "id": "acclamate-al-signore",
+  "title": "Acclamate Al Signore",
+  "sub": "",
+  "category": "Ingresso",
+  "categories": [
+    "Ingresso"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "RE",
+    "mode": "maggiore"
+  },
+  "search": "Acclamate Al Signore  Ritornello  Acclamate al Signore,  voi tutti della terra  servite il Signore nella gioia  presentatevi a Lui con esultanza  acclamate, acclamate, acclamate al Signor  Strofa 1  Riconoscete che il Signore è Dio,  Egli ci ha fatti e noi siamo suoi,  suo popolo e gregge del suo pascolo.  Ritornello  Strofa 2  Varcate le sue porte con degli inni di grazie,  i suoi atri con canti di lode,  lodatelo, benedite il suo nome.  Strofa 3  Poiché buono è il Signore,  eterna è la sua misericordia,  la sua fedeltà per ogni generazione",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "RE      LA  RE   LA"
+    },
+    {
+      "t": "l",
+      "v": "Acclamate al Signore,"
+    },
+    {
+      "t": "c",
+      "v": "     RE   MI LA"
+    },
+    {
+      "t": "l",
+      "v": "voi tutti della terra"
+    },
+    {
+      "t": "c",
+      "v": " RE              MI"
+    },
+    {
+      "t": "l",
+      "v": "servite il Signore nella gioia"
+    },
+    {
+      "t": "c",
+      "v": "      DO#-7         FA#   FA#7"
+    },
+    {
+      "t": "l",
+      "v": "presentatevi a Lui con esultanza"
+    },
+    {
+      "t": "c",
+      "v": "SI-7  DO#-7 RE  DO#-7 SI   MI7      LA    SOL"
+    },
+    {
+      "t": "l",
+      "v": "acclamate, acclamate, acclamate al Signor"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "c",
+      "v": "FA               SOL7"
+    },
+    {
+      "t": "l",
+      "v": "Riconoscete che il Signore è Dio,"
+    },
+    {
+      "t": "c",
+      "v": "DO                  MI LA-"
+    },
+    {
+      "t": "l",
+      "v": "Egli ci ha fatti e noi siamo suoi,"
+    },
+    {
+      "t": "c",
+      "v": "   RE-     DO   FA       RE-7 MI7 LA"
+    },
+    {
+      "t": "l",
+      "v": "suo popolo e gregge del suo pascolo."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Varcate le sue porte con degli inni di grazie,"
+    },
+    {
+      "t": "l",
+      "v": "i suoi atri con canti di lode,"
+    },
+    {
+      "t": "l",
+      "v": "lodatelo, benedite il suo nome."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Poiché buono è il Signore,"
+    },
+    {
+      "t": "l",
+      "v": "eterna è la sua misericordia,"
+    },
+    {
+      "t": "l",
+      "v": "la sua fedeltà per ogni generazione"
+    }
+  ]
+}

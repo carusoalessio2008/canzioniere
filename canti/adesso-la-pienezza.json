@@ -1,0 +1,111 @@
+{
+  "id": "adesso-la-pienezza",
+  "title": "Adesso La Pienezza",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "LA",
+    "mode": "maggiore"
+  },
+  "search": "Adesso La Pienezza  Intro  Strofa 1  Dopo il tempo del deserto, adesso è il tempo di pianure fertili  Dopo il tempo delle nebbie, adesso s’apre l’orizzonte limpido  Dopo il tempo dell’attesa, adesso è il canto, la pienezza della gioia  L’immacolata Donna ha dato al mondo Dio  Strofa 2  La fanciulla più nascosta adesso è madre del Signore Altissimo.  La fanciulla più soave adesso illumina la terra e i secoli  La fanciulla del silenzio adesso è il canto, la pienezza della gioia:  l’immacolata Donna ha dato al mondo Dio  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Intro"
+    },
+    {
+      "t": "c",
+      "v": "LA RE LA RE"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "c",
+      "v": "LA                                RE"
+    },
+    {
+      "t": "l",
+      "v": "Dopo il tempo del deserto, adesso è il tempo di pianure fertili"
+    },
+    {
+      "t": "c",
+      "v": "LA                             RE"
+    },
+    {
+      "t": "l",
+      "v": "Dopo il tempo delle nebbie, adesso s’apre l’orizzonte limpido"
+    },
+    {
+      "t": "c",
+      "v": "SI-                              FA#-            MI"
+    },
+    {
+      "t": "l",
+      "v": "Dopo il tempo dell’attesa, adesso è il canto, la pienezza della gioia"
+    },
+    {
+      "t": "c",
+      "v": "RE                   MI"
+    },
+    {
+      "t": "l",
+      "v": "L’immacolata Donna ha dato al mondo Dio"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "c",
+      "v": "LA                             RE"
+    },
+    {
+      "t": "l",
+      "v": "La fanciulla più nascosta adesso è madre del Signore Altissimo."
+    },
+    {
+      "t": "c",
+      "v": "LA                        RE"
+    },
+    {
+      "t": "l",
+      "v": "La fanciulla più soave adesso illumina la terra e i secoli"
+    },
+    {
+      "t": "c",
+      "v": "SI-                            FA#-            MI"
+    },
+    {
+      "t": "l",
+      "v": "La fanciulla del silenzio adesso è il canto, la pienezza della gioia:"
+    },
+    {
+      "t": "c",
+      "v": "RE                   MI"
+    },
+    {
+      "t": "l",
+      "v": "l’immacolata Donna ha dato al mondo Dio"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

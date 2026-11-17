@@ -1,13 +1,18 @@
 {
+  "id": "acqua-siamo-noi",
   "title": "Acqua Siamo Noi",
-  "sub": "Cento",
-  "categories": ["Finale"],
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
   "capo": null,
+  "compactRepeats": true,
   "key": {
     "note": "RE",
     "mode": "maggiore"
   },
-  "search": "Acqua Siamo Noi  Strofa 1 Acqua    siamo   noi  dall'antica   sorgente    veniamo, fiumi  siamo    noi  se i ruscelli si mettono     insieme, mari   siamo   noi  se i torrenti   si danno   la mano, vita  nuova    c'è se Gesù   è in  mezzo    a noi.  Ritornello E  allora  diamoci    la mano      e tutti  insieme   camminiamo      ed  un  oceano    di  pace   nascerà.      E  l'egoismo   cancelliamo      un  cuore   limpido    sentiamo      è Dio   che  bagna    del suo   amor l'umanità.  Strofa 2 Su  nel  cielo c'è Dio   Padre   che  vive  per   l'uomo Crea   tutti noi  e ci ama   di  amore    infinito, figli siamo   noi  e fratelli di  Cristo  Signore vita  nuova    c'è quando    Lui  è in  mezzo    a noi.  Finale",
+  "search": "Acqua Siamo Noi  Strofa 1  Acqua siamo noi dall’antica sorgente veniamo,  fiumi siamo noi se i ruscelli si mettono insieme,  mari siamo noi se i torrenti si danno la mano,  vita nuova c’è se Gesù è in mezzo a noi.  Ritornello  E allora diamoci la mano e tutti insieme camminiamo  ed un oceano di pace nascerà. E l’egoismo cancelliamo  un cuore limpido sentiamo è Dio che bagna  del suo amor l’umanità.  Strofa 2  Su nel cielo c’è Dio Padre che vive per l’uomo,  crea tutti noi e ci ama di amore infinito,  figli siamo noi e fratelli di Cristo Signore,  vita nuova c’è quando Lui è in mezzo a noi.  Ritornello  Strofa 3  Nuova umanità oggi nasce da chi crede in Lui,  nuovi siamo noi se l’amore è la legge di vita,  figli siamo noi se non siamo divisi da niente,  vita eterna c’è quando Lui è dentro a noi.  Ritornello",
   "lines": [
     {
       "t": "h",
@@ -15,111 +20,35 @@
     },
     {
       "t": "c",
-      "v": "RE                         SOL           LA           RE",
-      "flowSegments": [
-        {
-          "chord": "RE",
-          "lyric": "Acqua siamo noi"
-        },
-        {
-          "chord": "SOL",
-          "lyric": "dall'antica"
-        },
-        {
-          "chord": "LA",
-          "lyric": "sorgente"
-        },
-        {
-          "chord": "RE",
-          "lyric": "veniamo,"
-        }
-      ]
+      "v": "RE              SOL     LA      RE"
     },
     {
       "t": "l",
-      "v": "Acqua    siamo   noi  dall'antica   sorgente    veniamo,"
+      "v": "Acqua siamo noi dall’antica sorgente veniamo,"
     },
     {
       "t": "c",
-      "v": "RE                        SOL             LA           RE",
-      "flowSegments": [
-        {
-          "chord": "RE",
-          "lyric": "fiumi siamo noi se i"
-        },
-        {
-          "chord": "SOL",
-          "lyric": "ruscelli si"
-        },
-        {
-          "chord": "LA",
-          "lyric": "mettono"
-        },
-        {
-          "chord": "RE",
-          "lyric": "insieme,"
-        }
-      ]
+      "v": "RE               SOL      LA      RE"
     },
     {
       "t": "l",
-      "v": "fiumi  siamo    noi  se i ruscelli si mettono     insieme,"
+      "v": "fiumi siamo noi se i ruscelli si mettono insieme,"
     },
     {
       "t": "c",
-      "v": "RE                              SOL         LA         RE",
-      "flowSegments": [
-        {
-          "chord": "RE",
-          "lyric": "mari siamo noi se i"
-        },
-        {
-          "chord": "SOL",
-          "lyric": "torrenti si"
-        },
-        {
-          "chord": "LA",
-          "lyric": "danno la"
-        },
-        {
-          "chord": "RE",
-          "lyric": "mano,"
-        }
-      ]
+      "v": "RE               SOL      LA      RE"
     },
     {
       "t": "l",
-      "v": "mari   siamo   noi  se i torrenti   si danno   la mano,"
+      "v": "mari siamo noi se i torrenti si danno la mano,"
     },
     {
       "t": "c",
-      "v": "               SI-       SOL         LA         RE",
-      "flowSegments": [
-        {
-          "chord": "",
-          "lyric": "vita nuova"
-        },
-        {
-          "chord": "SI-",
-          "lyric": "c'è se"
-        },
-        {
-          "chord": "SOL",
-          "lyric": "Gesù è in"
-        },
-        {
-          "chord": "LA",
-          "lyric": "mezzo a"
-        },
-        {
-          "chord": "RE",
-          "lyric": "noi."
-        }
-      ]
+      "v": "         SI-   SOL      LA      RE"
     },
     {
       "t": "l",
-      "v": "vita  nuova    c'è se Gesù   è in  mezzo    a noi."
+      "v": "vita nuova c’è se Gesù è in mezzo a noi."
     },
     {
       "t": "s"
@@ -130,165 +59,35 @@
     },
     {
       "t": "c",
-      "v": "                    FA#-7           SI-",
-      "flowSegments": [
-        {
-          "chord": "",
-          "lyric": "E allora"
-        },
-        {
-          "chord": "FA#-7",
-          "lyric": "diamoci la"
-        },
-        {
-          "chord": "SI-",
-          "lyric": "mano"
-        }
-      ]
+      "v": "       FA#-7     SI-        FA#-7  SI-"
     },
     {
       "t": "l",
-      "v": "E  allora  diamoci    la mano"
+      "v": "E allora diamoci la mano e tutti insieme camminiamo"
     },
     {
       "t": "c",
-      "v": "                    FA#-7               SI-",
-      "flowSegments": [
-        {
-          "chord": "",
-          "lyric": "e tutti"
-        },
-        {
-          "chord": "FA#-7",
-          "lyric": "insieme"
-        },
-        {
-          "chord": "SI-",
-          "lyric": "camminiamo"
-        }
-      ]
+      "v": "     FA#-7     SI-  LA4 LA  DO        MI-"
     },
     {
       "t": "l",
-      "v": "     e tutti  insieme   camminiamo"
+      "v": "ed un oceano di pace nascerà. E l’egoismo cancelliamo"
     },
     {
       "t": "c",
-      "v": "                  FA#-7       SI-      LA4     LA",
-      "flowSegments": [
-        {
-          "chord": "",
-          "lyric": "ed un"
-        },
-        {
-          "chord": "FA#-7",
-          "lyric": "oceano di"
-        },
-        {
-          "chord": "SI-",
-          "lyric": "pace"
-        },
-        {
-          "chord": "LA4",
-          "lyric": "nascerà."
-        },
-        {
-          "chord": "LA",
-          "lyric": ""
-        }
-      ]
+      "v": "        DO     MI-               DO"
     },
     {
       "t": "l",
-      "v": "     ed  un  oceano    di  pace   nascerà."
+      "v": "un cuore limpido sentiamo è Dio che bagna"
     },
     {
       "t": "c",
-      "v": "             DO            MI-",
-      "flowSegments": [
-        {
-          "chord": "",
-          "lyric": "E"
-        },
-        {
-          "chord": "DO",
-          "lyric": "l'egoismo"
-        },
-        {
-          "chord": "MI-",
-          "lyric": "cancelliamo"
-        }
-      ]
+      "v": "       LA   RE      SOL LA"
     },
     {
       "t": "l",
-      "v": "     E  l'egoismo   cancelliamo"
-    },
-    {
-      "t": "c",
-      "v": "                  DO               MI-",
-      "flowSegments": [
-        {
-          "chord": "",
-          "lyric": "un cuore"
-        },
-        {
-          "chord": "DO",
-          "lyric": "limpido"
-        },
-        {
-          "chord": "MI-",
-          "lyric": "sentiamo"
-        }
-      ]
-    },
-    {
-      "t": "l",
-      "v": "     un  cuore   limpido    sentiamo"
-    },
-    {
-      "t": "c",
-      "v": "                    DO             LA",
-      "flowSegments": [
-        {
-          "chord": "",
-          "lyric": "è Dio che"
-        },
-        {
-          "chord": "DO",
-          "lyric": "bagna del suo"
-        },
-        {
-          "chord": "LA",
-          "lyric": "amor"
-        }
-      ]
-    },
-    {
-      "t": "l",
-      "v": "     è Dio   che  bagna    del suo   amor"
-    },
-    {
-      "t": "c",
-      "v": "              RE    SOL     LA",
-      "flowSegments": [
-        {
-          "chord": "RE",
-          "lyric": "l'umanità."
-        },
-        {
-          "chord": "SOL",
-          "lyric": ""
-        },
-        {
-          "chord": "LA",
-          "lyric": ""
-        }
-      ]
-    },
-    {
-      "t": "l",
-      "v": "l'umanità."
+      "v": "del suo amor l’umanità."
     },
     {
       "t": "s"
@@ -298,124 +97,57 @@
       "v": "Strofa 2"
     },
     {
-      "t": "c",
-      "v": "RE                         SOL           LA           RE",
-      "flowSegments": [
-        {
-          "chord": "RE",
-          "lyric": "Su nel cielo c'è Dio"
-        },
-        {
-          "chord": "SOL",
-          "lyric": "Padre che"
-        },
-        {
-          "chord": "LA",
-          "lyric": "vive per"
-        },
-        {
-          "chord": "RE",
-          "lyric": "l'uomo"
-        }
-      ]
+      "t": "l",
+      "v": "Su nel cielo c’è Dio Padre che vive per l’uomo,"
     },
     {
       "t": "l",
-      "v": "Su  nel  cielo c'è Dio   Padre   che  vive  per   l'uomo"
-    },
-    {
-      "t": "c",
-      "v": "RE                        SOL             LA           RE",
-      "flowSegments": [
-        {
-          "chord": "RE",
-          "lyric": "Crea tutti noi e ci"
-        },
-        {
-          "chord": "SOL",
-          "lyric": "ama di"
-        },
-        {
-          "chord": "LA",
-          "lyric": "amore"
-        },
-        {
-          "chord": "RE",
-          "lyric": "infinito,"
-        }
-      ]
+      "v": "crea tutti noi e ci ama di amore infinito,"
     },
     {
       "t": "l",
-      "v": "Crea   tutti noi  e ci ama   di  amore    infinito,"
-    },
-    {
-      "t": "c",
-      "v": "RE                              SOL         LA         RE",
-      "flowSegments": [
-        {
-          "chord": "RE",
-          "lyric": "figli siamo noi e"
-        },
-        {
-          "chord": "SOL",
-          "lyric": "fratelli di"
-        },
-        {
-          "chord": "LA",
-          "lyric": "Cristo"
-        },
-        {
-          "chord": "RE",
-          "lyric": "Signore"
-        }
-      ]
+      "v": "figli siamo noi e fratelli di Cristo Signore,"
     },
     {
       "t": "l",
-      "v": "figli siamo   noi  e fratelli di  Cristo  Signore"
-    },
-    {
-      "t": "c",
-      "v": "               SI-       SOL         LA         RE",
-      "flowSegments": [
-        {
-          "chord": "",
-          "lyric": "vita nuova"
-        },
-        {
-          "chord": "SI-",
-          "lyric": "c'è quando"
-        },
-        {
-          "chord": "SOL",
-          "lyric": "Lui è in"
-        },
-        {
-          "chord": "LA",
-          "lyric": "mezzo a"
-        },
-        {
-          "chord": "RE",
-          "lyric": "noi."
-        }
-      ]
-    },
-    {
-      "t": "l",
-      "v": "vita  nuova    c'è quando    Lui  è in  mezzo    a noi."
+      "v": "vita nuova c’è quando Lui è in mezzo a noi."
     },
     {
       "t": "s"
     },
     {
       "t": "h",
-      "v": "Finale"
+      "v": "Ritornello"
     },
     {
-      "t": "c",
-      "v": "RE SOL RE"
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Nuova umanità oggi nasce da chi crede in Lui,"
+    },
+    {
+      "t": "l",
+      "v": "nuovi siamo noi se l’amore è la legge di vita,"
+    },
+    {
+      "t": "l",
+      "v": "figli siamo noi se non siamo divisi da niente,"
+    },
+    {
+      "t": "l",
+      "v": "vita eterna c’è quando Lui è dentro a noi."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
     }
-  ],
-  "id": "acqua-siamo-noi"
+  ]
 }
