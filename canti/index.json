@@ -10,9 +10,29 @@
     "firstLine": ""
   },
   {
+    "id": "acclamate-al-signore",
+    "file": "acclamate-al-signore.json",
+    "title": "Acclamate Al Signore",
+    "author": "",
+    "categories": [
+      "Ingresso"
+    ],
+    "firstLine": ""
+  },
+  {
     "id": "acqua-siamo-noi",
     "file": "acqua-siamo-noi.json",
     "title": "Acqua Siamo Noi",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "adesso-la-pienezza",
+    "file": "adesso-la-pienezza.json",
+    "title": "Adesso La Pienezza",
     "author": "",
     "categories": [
       "Finale"
