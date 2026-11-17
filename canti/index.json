@@ -38,5 +38,35 @@
       "Finale"
     ],
     "firstLine": ""
+  },
+  {
+    "id": "alleluia-canto-per-cristo",
+    "file": "alleluia-canto-per-cristo.json",
+    "title": "Alleluia",
+    "author": "",
+    "categories": [
+      "Alleluia"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "alleluia-e-poi",
+    "file": "alleluia-e-poi.json",
+    "title": "Alleluia",
+    "author": "",
+    "categories": [
+      "Alleluia"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "alleluia-ed-oggi-ancora",
+    "file": "alleluia-ed-oggi-ancora.json",
+    "title": "Alleluia",
+    "author": "",
+    "categories": [
+      "Alleluia"
+    ],
+    "firstLine": ""
   }
 ]
