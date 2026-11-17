@@ -2,6 +2,10 @@
   "id": "abbracciami",
   "title": "Abbracciami",
   "sub": "",
+  "category": "Comunione",
+  "categories": [
+    "Comunione"
+  ],
   "capo": null,
   "compactRepeats": true,
   "key": {
@@ -16,7 +20,7 @@
     },
     {
       "t": "c",
-      "v": "MI SI DO#- LA (x2)"
+      "v": "MI SI DO#- LA \"(x2)\""
     },
     {
       "t": "s"
@@ -35,7 +39,7 @@
     },
     {
       "t": "c",
-      "v": "MI               LA                     DO#-               LA (lungo)"
+      "v": "MI               LA                     DO#-               LA \"(lungo)\""
     },
     {
       "t": "l",
