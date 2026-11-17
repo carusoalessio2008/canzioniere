@@ -1,71 +1,106 @@
 {
+  "id": "acclamate-al-signore",
   "title": "Acclamate Al Signore",
-  "author": "RNS",
+  "sub": "",
+  "category": "Ingresso",
   "categories": [
     "Ingresso"
   ],
-  "sections": [
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "MI",
+    "mode": "maggiore"
+  },
+  "search": "Acclamate Al Signore  Ritornello  Acclamate al Signore,  voi tutti della terra  servite il Signore nella gioia  presentatevi a lui con esultanza  acclamate, acclamate, acclamate al Signor  Strofa 1  Riconoscete che il Signore è Dio,  Egli ci ha fatti e noi siamo suoi,  suo popolo e gregge del suo pascolo.  Ritornello  Strofa 2  Varcate le sue porte con degli inni di grazie,  i suoi atri con canti di lode,  lodatelo, benedite il suo nome.  Strofa 3  Poiché buono è il Signore,  eterna è la sua misericordia,  la sua fedeltà per ogni generazione",
+  "lines": [
     {
-      "type": "ritornello",
-      "label": "Ritornello",
-      "lines": [
-        {
-          "chords": "",
-          "lyrics": "Acclamate al Signore,"
-        },
-        {
-          "chords": "",
-          "lyrics": "voi tutti della terra"
-        },
-        {
-          "chords": "",
-          "lyrics": "servite il Signore nella gioia"
-        },
-        {
-          "chords": "",
-          "lyrics": "presentatevi a lui con esultanza"
-        },
-        {
-          "chords": "",
-          "lyrics": "acclamate, acclamate, acclamate al Signor"
-        }
-      ]
+      "t": "h",
+      "v": "Ritornello"
     },
     {
-      "type": "strofa",
-      "label": "presentatevi a lui con esultanza",
-      "lines": [
-        {
-          "chords": "",
-          "lyrics": "Riconoscete che il Signore è Dio,"
-        },
-        {
-          "chords": "",
-          "lyrics": "Egli ci ha fatti e noi siamo suoi,"
-        },
-        {
-          "chords": "",
-          "lyrics": "suo popolo e gregge del suo pascolo."
-        }
-      ]
+      "t": "l",
+      "v": "Acclamate al Signore,"
     },
     {
-      "type": "strofa",
-      "label": "",
-      "lines": [
-        {
-          "chords": "",
-          "lyrics": "Riconoscete che il Signore è Dio,"
-        },
-        {
-          "chords": "",
-          "lyrics": "Egli ci ha fatti e noi siamo suoi,"
-        },
-        {
-          "chords": "",
-          "lyrics": "suo popolo e gregge del suo pascolo."
-        }
-      ]
+      "t": "l",
+      "v": "voi tutti della terra"
+    },
+    {
+      "t": "l",
+      "v": "servite il Signore nella gioia"
+    },
+    {
+      "t": "l",
+      "v": "presentatevi a lui con esultanza"
+    },
+    {
+      "t": "l",
+      "v": "acclamate, acclamate, acclamate al Signor"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Riconoscete che il Signore è Dio,"
+    },
+    {
+      "t": "l",
+      "v": "Egli ci ha fatti e noi siamo suoi,"
+    },
+    {
+      "t": "l",
+      "v": "suo popolo e gregge del suo pascolo."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Varcate le sue porte con degli inni di grazie,"
+    },
+    {
+      "t": "l",
+      "v": "i suoi atri con canti di lode,"
+    },
+    {
+      "t": "l",
+      "v": "lodatelo, benedite il suo nome."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Poiché buono è il Signore,"
+    },
+    {
+      "t": "l",
+      "v": "eterna è la sua misericordia,"
+    },
+    {
+      "t": "l",
+      "v": "la sua fedeltà per ogni generazione"
     }
   ]
 }
