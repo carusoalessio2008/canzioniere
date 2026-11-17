@@ -1,0 +1,22 @@
+[
+  {
+    "id": "abbracciami",
+    "file": "abbracciami.json",
+    "title": "Abbracciami",
+    "author": "",
+    "categories": [
+      "Comunione"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "acqua-siamo-noi",
+    "file": "acqua-siamo-noi.json",
+    "title": "Acqua Siamo Noi",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  }
+]
