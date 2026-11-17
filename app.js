@@ -1,6 +1,7 @@
 /**
  * Canzoniere Sant'Osvaldo e San Paolo - Core Logic
- * Supporta sia formato "sections" che formato "lines" (t: h/c/l/s) e accordi minori con "-" (es. LA-, DO#-)
+ * Supporta formato "sections" e "lines" (t: h/c/l/s), accordi minori con "-",
+ * e ignora qualsiasi indicazione racchiusa tra virgolette "..." durante la trasposizione.
  */
 
 const STORAGE_KEYS = {
@@ -141,12 +142,13 @@ async function loadSongsIndex() {
 
     freshData = freshData.map(item => {
       const slug = item.slug || item.id || item.file.replace('.json', '');
+      const rawCats = item.categories || (item.category ? [item.category] : (item.cat ? [item.cat] : []));
       return {
         ...item,
         slug,
-        author: item.author || item.sub || '',
+        author: (item.author || item.sub || '').trim(),
         file: item.file || `${slug}.json`,
-        categories: item.categories || (item.category ? [item.category] : [])
+        categories: Array.isArray(rawCats) ? rawCats : [rawCats]
       };
     });
 
@@ -208,19 +210,27 @@ function renderSongList() {
     return;
   }
 
-  container.innerHTML = state.filteredSongs.map(song => `
-    <div onclick='selectSongFromList("${song.slug}")' 
-         class="song-list-item p-3.5 cursor-pointer flex items-center justify-between group ${state.currentSong?.slug === song.slug ? 'is-active' : ''}">
-      <div class="min-w-0 pr-2">
-        <h4 class="font-semibold text-sm group-hover:text-blue-500 truncate">${song.title}</h4>
-        <div class="flex items-center gap-2 mt-0.5">
-          <span class="text-xs theme-text-muted truncate">${song.author || 'Tradizionale'}</span>
-          ${song.categories && song.categories[0] ? `<span class="text-[10px] px-1.5 py-0.2 theme-subtle theme-text-secondary rounded font-medium">${song.categories[0]}</span>` : ''}
+  container.innerHTML = state.filteredSongs.map(song => {
+    const cleanAuthor = (song.author || '').trim();
+    const firstCat = song.categories && song.categories[0] ? song.categories[0] : '';
+    const hasMeta = cleanAuthor || firstCat;
+
+    return `
+      <div onclick='selectSongFromList("${song.slug}")' 
+           class="song-list-item p-3.5 cursor-pointer flex items-center justify-between group ${state.currentSong?.slug === song.slug ? 'is-active' : ''}">
+        <div class="min-w-0 pr-2">
+          <h4 class="font-semibold text-sm group-hover:text-blue-500 truncate">${song.title}</h4>
+          ${hasMeta ? `
+            <div class="flex items-center gap-2 mt-0.5">
+              ${cleanAuthor ? `<span class="text-xs theme-text-muted truncate">${cleanAuthor}</span>` : ''}
+              ${firstCat ? `<span class="text-[10px] px-1.5 py-0.2 theme-subtle theme-text-secondary rounded font-medium">${firstCat}</span>` : ''}
+            </div>
+          ` : ''}
         </div>
+        <svg class="w-4 h-4 theme-text-muted group-hover:text-blue-500 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
       </div>
-      <svg class="w-4 h-4 theme-text-muted group-hover:text-blue-500 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 async function selectSongFromList(slug) {
@@ -257,11 +267,13 @@ async function loadSong(meta) {
   }
 
   const normalizedData = normalizeSongFormat(songData);
+  const songCats = normalizedData.categories || (normalizedData.category ? [normalizedData.category] : meta.categories || []);
 
   state.currentSong = {
     ...meta,
     ...normalizedData,
-    author: normalizedData.author || normalizedData.sub || meta.author || ''
+    categories: songCats,
+    author: (normalizedData.author || normalizedData.sub || meta.author || '').trim()
   };
   state.transpose = 0;
   
@@ -400,37 +412,50 @@ function transpose(delta) {
 }
 
 function transposeLine(line, semitones) {
-  if (semitones === 0) return line;
+  // Separa qualsiasi indicazione racchiusa tra virgolette "..." per non trasporla mai
+  const parts = line.split(/("[^"]*")/g);
+
+  // Usa lookbehind (?<=...) invece di catturare il carattere precedente, così non "mangia"
+  // lo spazio prima dell'accordo successivo quando due accordi sono separati da un solo spazio!
+  const chordTokenRegex = /(?<=^|[\s(\[|])((?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?)(?:[-m]|maj|min|dim|aug|sus|add|7|9|11|13|6|5|4|2)*)(\/(?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?))?(?=$|[\s)\].,;|])(\s*)/g;
+
   const useFlats = [-1, -2, -3, -5, -7, 4, 5, 10].includes(semitones);
 
-  const chordTokenRegex = /(^|[\s(\[|])((?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?)(?:[-m]|maj|min|dim|aug|sus|add|7|9|11|13|6|5|4|2)*)(\/(?:SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?))?(?=$|[\s)\].,;|])(\s*)/g;
-
-  return line.replace(chordTokenRegex, (match, prefix, chordPart, bassPart, trailingSpaces) => {
-    const rootMatch = chordPart.match(/^(SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?)(.*)$/);
-    if (!rootMatch) return match;
-
-    const root = rootMatch[1];
-    const suffix = rootMatch[2] || '';
-    const newRoot = transposeNote(root, semitones, useFlats);
-
-    let newBass = '';
-    if (bassPart) {
-      newBass = '/' + transposeNote(bassPart.substring(1), semitones, useFlats);
+  return parts.map((segment, index) => {
+    // Gli indici dispari sono i testi racchiusi tra "..." -> rimangono identici (tolte le virgolette se preferisci, o con le virgolette)
+    if (index % 2 === 1) {
+      return segment.slice(1, -1); // Mostra il testo pulito senza le virgolette (es. "lungo" -> lungo)
     }
 
-    const oldChordFull = chordPart + (bassPart || '');
-    const newChordFull = newRoot + suffix + newBass;
+    if (semitones === 0) return segment;
 
-    let adjustedSpaces = trailingSpaces;
-    const lenDiff = newChordFull.length - oldChordFull.length;
-    if (lenDiff > 0 && trailingSpaces.length > 1) {
-      adjustedSpaces = ' '.repeat(Math.max(1, trailingSpaces.length - lenDiff));
-    } else if (lenDiff < 0 && trailingSpaces.length > 0) {
-      adjustedSpaces = trailingSpaces + ' '.repeat(-lenDiff);
-    }
+    return segment.replace(chordTokenRegex, (match, chordPart, bassPart, trailingSpaces) => {
+      const rootMatch = chordPart.match(/^(SOL#?|SOLb|DO#?|RE[b#]?|MI|FA#?|LA[b#]?|SI[b]?|Sol#?|Solb|Do#?|Re[b#]?|Mi|Fa#?|La[b#]?|Si[b]?|[A-G][#b]?)(.*)$/);
+      if (!rootMatch) return match;
 
-    return prefix + newChordFull + adjustedSpaces;
-  });
+      const root = rootMatch[1];
+      const suffix = rootMatch[2] || '';
+      const newRoot = transposeNote(root, semitones, useFlats);
+
+      let newBass = '';
+      if (bassPart) {
+        newBass = '/' + transposeNote(bassPart.substring(1), semitones, useFlats);
+      }
+
+      const oldChordFull = chordPart + (bassPart || '');
+      const newChordFull = newRoot + suffix + newBass;
+
+      let adjustedSpaces = trailingSpaces;
+      const lenDiff = newChordFull.length - oldChordFull.length;
+      if (lenDiff > 0 && trailingSpaces.length > 1) {
+        adjustedSpaces = ' '.repeat(Math.max(1, trailingSpaces.length - lenDiff));
+      } else if (lenDiff < 0 && trailingSpaces.length > 0) {
+        adjustedSpaces = trailingSpaces + ' '.repeat(-lenDiff);
+      }
+
+      return newChordFull + adjustedSpaces;
+    });
+  }).join('');
 }
 
 function transposeNote(note, semitones, useFlats = false) {
