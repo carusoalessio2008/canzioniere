@@ -1,0 +1,108 @@
+{
+  "id": "alleluia-e-poi",
+  "title": "Alleluia",
+  "sub": "E Poi",
+  "category": "Alleluia",
+  "categories": [
+    "Alleluia"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "RE",
+    "mode": "maggiore"
+  },
+  "search": "Alleluia  E Poi  Strofa 1  Chiama, ed io verrò da te:  Figlio, nel silenzio, mi accoglierai.  Voce e poi la libertà,  nella tua Parola camminerò.  Ritornello  Alleluia, alleluia, alleluia,  alleluia, alle - lu - ia,  Alleluia, alleluia, alleluia,  alleluia, alle - lu - ia,  Strofa 2  Danza, ed io verrò con te: Figlio, la tua strada comprenderò.  Luce, e poi, nel tempo tuo oltre il desiderio riposerò",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "c",
+      "v": "RE      LA   SI-    FA#-"
+    },
+    {
+      "t": "l",
+      "v": "Chiama, ed io verrò da te:"
+    },
+    {
+      "t": "c",
+      "v": "SOL      RE     MI  LA4"
+    },
+    {
+      "t": "l",
+      "v": "Figlio, nel silenzio, mi accoglierai."
+    },
+    {
+      "t": "c",
+      "v": "RE    LA   SI- FA#-"
+    },
+    {
+      "t": "l",
+      "v": "Voce e poi la libertà,"
+    },
+    {
+      "t": "c",
+      "v": "SOL     RE    MI  LA4"
+    },
+    {
+      "t": "l",
+      "v": "nella tua Parola camminerò."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "RE      LA     SI- FA#-"
+    },
+    {
+      "t": "l",
+      "v": "Alleluia, alleluia, alleluia,"
+    },
+    {
+      "t": "c",
+      "v": "SOL     RE  MI7 LA"
+    },
+    {
+      "t": "l",
+      "v": "alleluia, alle - lu - ia,"
+    },
+    {
+      "t": "c",
+      "v": "RE      LA     SI- FA#-"
+    },
+    {
+      "t": "l",
+      "v": "Alleluia, alleluia, alleluia,"
+    },
+    {
+      "t": "c",
+      "v": "SOL     RE  LA RE"
+    },
+    {
+      "t": "l",
+      "v": "alleluia, alle - lu - ia,"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Danza, ed io verrò con te: Figlio, la tua strada comprenderò."
+    },
+    {
+      "t": "l",
+      "v": "Luce, e poi, nel tempo tuo oltre il desiderio riposerò"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "alleluia-canto-per-cristo",
+  "title": "Alleluia",
+  "sub": "Canto Per Cristo",
+  "category": "Alleluia",
+  "categories": [
+    "Alleluia"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "RE",
+    "mode": "maggiore"
+  },
+  "search": "Alleluia  Canto Per Cristo  Ritornello  Alleluia, allelu, alleluia,  alleluia, alleluia!  Alleluia, allelu, alleluia,  alleluia, alleluia!  Strofa 1  Canto per Cristo che mi libererà quando verrà nella gloria,  quando la vita con lui rinascerà, alleluia, alleluia!  Ritornello  Strofa 2  Canto per Cristo in lui rifiorirà ogni speranza perduta,  ogni creatura con lui rinascerà, alleluia, alleluia!",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "RE FA#-   SOL    RE"
+    },
+    {
+      "t": "l",
+      "v": "Alleluia, allelu, alleluia,"
+    },
+    {
+      "t": "c",
+      "v": "SOL RE  LA LA4"
+    },
+    {
+      "t": "l",
+      "v": "alleluia, alleluia!"
+    },
+    {
+      "t": "c",
+      "v": "RE FA#-   SOL    RE"
+    },
+    {
+      "t": "l",
+      "v": "Alleluia, allelu, alleluia,"
+    },
+    {
+      "t": "c",
+      "v": "SOL RE  LA  RE"
+    },
+    {
+      "t": "l",
+      "v": "alleluia, alleluia!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "c",
+      "v": "RE        FA#-     SOL   RE  SOL     RE      LA LA4"
+    },
+    {
+      "t": "l",
+      "v": "Canto per Cristo che mi libererà quando verrà nella gloria,"
+    },
+    {
+      "t": "c",
+      "v": "RE       FA#-   SOL      RE  SOL RE LA RE"
+    },
+    {
+      "t": "l",
+      "v": "quando la vita con lui rinascerà, alleluia, alleluia!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Canto per Cristo in lui rifiorirà ogni speranza perduta,"
+    },
+    {
+      "t": "l",
+      "v": "ogni creatura con lui rinascerà, alleluia, alleluia!"
+    }
+  ]
+}

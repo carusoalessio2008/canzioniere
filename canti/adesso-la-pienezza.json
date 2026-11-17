@@ -12,7 +12,7 @@
     "note": "LA",
     "mode": "maggiore"
   },
-  "search": "Adesso La Pienezza  Intro  Strofa 1  Dopo il tempo del deserto, adesso è il tempo di pianure fertili  Dopo il tempo delle nebbie, adesso s’apre l’orizzonte limpido  Dopo il tempo dell’attesa, adesso è il canto, la pienezza della gioia  L’immacolata Donna ha dato al mondo Dio  Strofa 2  La fanciulla più nascosta adesso è madre del Signore Altissimo.  La fanciulla più soave adesso illumina la terra e i secoli  La fanciulla del silenzio adesso è il canto, la pienezza della gioia:  l’immacolata Donna ha dato al mondo Dio  Ritornello",
+  "search": "Adesso La Pienezza  Intro  Strofa 1  Dopo il tempo del deserto, adesso è il tempo di pianure fertili  Dopo il tempo delle nebbie, adesso s’apre l’orizzonte limpido  Dopo il tempo dell’attesa, adesso è il canto, la pienezza della gioia  L’immacolata Donna ha dato al mondo Dio  Strofa 2  La fanciulla più nascosta adesso è madre del Signore Altissimo.  La fanciulla più soave adesso illumina la terra e i secoli  La fanciulla del silenzio adesso è il canto, la pienezza della gioia:  l’immacolata Donna ha dato al mondo Dio  Ritornello  È nato, nato! È qualcosa di impensabile, eppure è nato, nato!  Noi non siamo soli, il Signore ci è a fianco. È nato!  Questa valle tornerà come un giardino. Il cuore già lo sa  È nata la speranza. È nata la speranza  Strofa 3  La potenza del creato  Adesso è il pianto di un bambino fragile  La potenza della gloria  Adesso sta in una capanna povera  La potenza dell’amore  Adesso è il canto, la pienezza della gioia  L’immacolata Donna ha dato al mondo Dio  Ritornello  Strofa 4  Tu adesso sei bimbo, tu adesso hai una madre  Tu l’hai creata bellissima e dormi nel suo grembo  È nato! È nato!  Questa valle tornerà come un giardino  Il cuore già lo sa  È nata la speranza, è nata la speranza",
   "lines": [
     {
       "t": "h",
@@ -106,6 +106,111 @@
     {
       "t": "h",
       "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "FA#-       LA           MI                  FA#-"
+    },
+    {
+      "t": "l",
+      "v": "È nato, nato! È qualcosa di impensabile, eppure è nato, nato!"
+    },
+    {
+      "t": "c",
+      "v": "LA                 MI          SI-      RE"
+    },
+    {
+      "t": "l",
+      "v": "Noi non siamo soli, il Signore ci è a fianco. È nato!"
+    },
+    {
+      "t": "c",
+      "v": "LA                 MI                SI-       RE"
+    },
+    {
+      "t": "l",
+      "v": "Questa valle tornerà come un giardino. Il cuore già lo sa"
+    },
+    {
+      "t": "c",
+      "v": "  LA               MI"
+    },
+    {
+      "t": "l",
+      "v": "È nata la speranza. È nata la speranza"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "La potenza del creato"
+    },
+    {
+      "t": "l",
+      "v": "Adesso è il pianto di un bambino fragile"
+    },
+    {
+      "t": "l",
+      "v": "La potenza della gloria"
+    },
+    {
+      "t": "l",
+      "v": "Adesso sta in una capanna povera"
+    },
+    {
+      "t": "l",
+      "v": "La potenza dell’amore"
+    },
+    {
+      "t": "l",
+      "v": "Adesso è il canto, la pienezza della gioia"
+    },
+    {
+      "t": "l",
+      "v": "L’immacolata Donna ha dato al mondo Dio"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 4"
+    },
+    {
+      "t": "l",
+      "v": "Tu adesso sei bimbo, tu adesso hai una madre"
+    },
+    {
+      "t": "l",
+      "v": "Tu l’hai creata bellissima e dormi nel suo grembo"
+    },
+    {
+      "t": "l",
+      "v": "È nato! È nato!"
+    },
+    {
+      "t": "l",
+      "v": "Questa valle tornerà come un giardino"
+    },
+    {
+      "t": "l",
+      "v": "Il cuore già lo sa"
+    },
+    {
+      "t": "l",
+      "v": "È nata la speranza, è nata la speranza"
     }
   ]
 }

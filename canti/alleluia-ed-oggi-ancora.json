@@ -1,0 +1,22 @@
+{
+  "id": "alleluia-ed-oggi-ancora",
+  "title": "Alleluia",
+  "sub": "Ed Oggi Ancora",
+  "category": "Alleluia",
+  "categories": [
+    "Alleluia"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Alleluia  Ed Oggi Ancora  Strofa 1",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    }
+  ]
+}
