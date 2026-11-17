@@ -1,0 +1,682 @@
+{
+  "id": "acclamate-al-signore-marolda",
+  "title": "Acclamate al Signore",
+  "sub": "Gabriella Marolda · Salmo 99",
+  "capo": null,
+  "compactRepeats": true,
+  "spaciousChords": true,
+  "key": {
+    "note": "SOL",
+    "mode": "maggiore"
+  },
+  "search": "Acclamate al Signore Gabriella Marolda Salmo 99 Intro Ritornello Acclamate al Signore, genti tutte della terra, servitelo con gioia, cantate, cantate a lui. Strofa 1 Sappiate che solo il Signore è Dio, il nostro creatore, egli ci ha fatti, siamo suoi, popolo e gregge del suo pascolo. Ritornello Acclamate al Signore, genti tutte della terra, servitelo con gioia, cantate, cantate a lui. Strofa 2 Lodate il Signore cantando inni di gioia, entrate nella sua casa e rendete grazie a lui. Ritornello Acclamate al Signore, genti tutte della terra, servitelo con gioia, cantate, cantate a lui. Strofa 3 Il Signore è buono con noi, non lascia senza il suo amore, Lui ci protegge per sempre ogni giorno della vita. Ritornello Acclamate al Signore, genti tutte della terra, servitelo con gioia, cantate, cantate a lui. Finale Cantate, cantate a lui.",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Intro"
+    },
+    {
+      "t": "c",
+      "v": "| SOL RE/FA# | MI- SOL/RE | DO SOL/SI LA-7 | RE DO/MI RE/FA# | ×2",
+      "accent": "gold-bars"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "SOL RE/FA# DO SOL",
+      "flowSegments": [
+        {
+          "chord": "SOL",
+          "lyric": "Acclama"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "te al "
+        },
+        {
+          "chord": "DO",
+          "lyric": "Signo"
+        },
+        {
+          "chord": "SOL",
+          "lyric": "re,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Acclamate al Signore,"
+    },
+    {
+      "t": "c",
+      "v": "DO RE DO/MI RE/FA#",
+      "flowSegments": [
+        {
+          "chord": "DO",
+          "lyric": "genti tutte "
+        },
+        {
+          "chord": "RE",
+          "lyric": "del"
+        },
+        {
+          "chord": "DO/MI",
+          "lyric": "la ter"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "ra,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "genti tutte della terra,"
+    },
+    {
+      "t": "c",
+      "v": "SOL RE/FA# MI- SI-",
+      "flowSegments": [
+        {
+          "chord": "SOL",
+          "lyric": "ser"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "vitelo con "
+        },
+        {
+          "chord": "MI-",
+          "lyric": "gio"
+        },
+        {
+          "chord": "SI-",
+          "lyric": "ia,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "servitelo con gioia,"
+    },
+    {
+      "t": "c",
+      "v": "DO DO/RE SOL DO",
+      "flowSegments": [
+        {
+          "chord": "DO",
+          "lyric": "cantate, "
+        },
+        {
+          "chord": "DO/RE",
+          "lyric": "cantate "
+        },
+        {
+          "chord": "SOL",
+          "lyric": "a lui."
+        },
+        {
+          "chord": "DO",
+          "lyric": ""
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "cantate, cantate a lui."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "c",
+      "v": "SOL DO RE MI- SI/RE#",
+      "flowSegments": [
+        {
+          "chord": "SOL",
+          "lyric": "Sap"
+        },
+        {
+          "chord": "DO",
+          "lyric": "piate che "
+        },
+        {
+          "chord": "RE",
+          "lyric": "solo il "
+        },
+        {
+          "chord": "MI-",
+          "lyric": "Signo"
+        },
+        {
+          "chord": "SI/RE#",
+          "lyric": "re"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Sappiate che solo il Signore"
+    },
+    {
+      "t": "c",
+      "v": "MI- LA-7 RE9 SOL LA-7 SOL/SI",
+      "flowSegments": [
+        {
+          "chord": "MI-",
+          "lyric": "è "
+        },
+        {
+          "chord": "LA-7",
+          "lyric": "Dio, il nostro "
+        },
+        {
+          "chord": "RE9",
+          "lyric": "crea"
+        },
+        {
+          "chord": "SOL",
+          "lyric": "to"
+        },
+        {
+          "chord": "LA-7",
+          "lyric": "re,"
+        },
+        {
+          "chord": "SOL/SI",
+          "lyric": ""
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "è Dio, il nostro creatore,"
+    },
+    {
+      "t": "c",
+      "v": "DO SI7 MI- RE LA7/DO#",
+      "flowSegments": [
+        {
+          "chord": "DO",
+          "lyric": "egli ci ha "
+        },
+        {
+          "chord": "SI7",
+          "lyric": "fatti, siamo "
+        },
+        {
+          "chord": "MI-",
+          "lyric": "suo"
+        },
+        {
+          "chord": "RE",
+          "lyric": "i,"
+        },
+        {
+          "chord": "LA7/DO#",
+          "lyric": ""
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "egli ci ha fatti, siamo suoi,"
+    },
+    {
+      "t": "c",
+      "v": "LA-7 RE LA-/RE RE",
+      "flowSegments": [
+        {
+          "chord": "LA-7",
+          "lyric": "popolo e gregge del suo "
+        },
+        {
+          "chord": "RE",
+          "lyric": "pa"
+        },
+        {
+          "chord": "LA-/RE",
+          "lyric": "sco"
+        },
+        {
+          "chord": "RE",
+          "lyric": "lo."
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "popolo e gregge del suo pascolo."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "SOL RE/FA# DO SOL",
+      "flowSegments": [
+        {
+          "chord": "SOL",
+          "lyric": "Acclama"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "te al "
+        },
+        {
+          "chord": "DO",
+          "lyric": "Signo"
+        },
+        {
+          "chord": "SOL",
+          "lyric": "re,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Acclamate al Signore,"
+    },
+    {
+      "t": "c",
+      "v": "DO RE DO/MI RE/FA#",
+      "flowSegments": [
+        {
+          "chord": "DO",
+          "lyric": "genti tutte "
+        },
+        {
+          "chord": "RE",
+          "lyric": "del"
+        },
+        {
+          "chord": "DO/MI",
+          "lyric": "la ter"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "ra,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "genti tutte della terra,"
+    },
+    {
+      "t": "c",
+      "v": "SOL RE/FA# MI- SI-",
+      "flowSegments": [
+        {
+          "chord": "SOL",
+          "lyric": "ser"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "vitelo con "
+        },
+        {
+          "chord": "MI-",
+          "lyric": "gio"
+        },
+        {
+          "chord": "SI-",
+          "lyric": "ia,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "servitelo con gioia,"
+    },
+    {
+      "t": "c",
+      "v": "DO DO/RE SOL DO",
+      "flowSegments": [
+        {
+          "chord": "DO",
+          "lyric": "cantate, "
+        },
+        {
+          "chord": "DO/RE",
+          "lyric": "cantate "
+        },
+        {
+          "chord": "SOL",
+          "lyric": "a lui."
+        },
+        {
+          "chord": "DO",
+          "lyric": ""
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "cantate, cantate a lui."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2 (stessa musica della 1)"
+    },
+    {
+      "t": "l",
+      "v": "Lodate il Signore"
+    },
+    {
+      "t": "l",
+      "v": "cantando inni di gioia,"
+    },
+    {
+      "t": "l",
+      "v": "entrate nella sua casa"
+    },
+    {
+      "t": "l",
+      "v": "e rendete grazie a lui."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "SOL RE/FA# DO SOL",
+      "flowSegments": [
+        {
+          "chord": "SOL",
+          "lyric": "Acclama"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "te al "
+        },
+        {
+          "chord": "DO",
+          "lyric": "Signo"
+        },
+        {
+          "chord": "SOL",
+          "lyric": "re,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Acclamate al Signore,"
+    },
+    {
+      "t": "c",
+      "v": "DO RE DO/MI RE/FA#",
+      "flowSegments": [
+        {
+          "chord": "DO",
+          "lyric": "genti tutte "
+        },
+        {
+          "chord": "RE",
+          "lyric": "del"
+        },
+        {
+          "chord": "DO/MI",
+          "lyric": "la ter"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "ra,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "genti tutte della terra,"
+    },
+    {
+      "t": "c",
+      "v": "SOL RE/FA# MI- SI-",
+      "flowSegments": [
+        {
+          "chord": "SOL",
+          "lyric": "ser"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "vitelo con "
+        },
+        {
+          "chord": "MI-",
+          "lyric": "gio"
+        },
+        {
+          "chord": "SI-",
+          "lyric": "ia,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "servitelo con gioia,"
+    },
+    {
+      "t": "c",
+      "v": "DO DO/RE SOL DO",
+      "flowSegments": [
+        {
+          "chord": "DO",
+          "lyric": "cantate, "
+        },
+        {
+          "chord": "DO/RE",
+          "lyric": "cantate "
+        },
+        {
+          "chord": "SOL",
+          "lyric": "a lui."
+        },
+        {
+          "chord": "DO",
+          "lyric": ""
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "cantate, cantate a lui."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3 (stessa musica della 1)"
+    },
+    {
+      "t": "l",
+      "v": "Il Signore è buono con noi,"
+    },
+    {
+      "t": "l",
+      "v": "non lascia senza il suo amore,"
+    },
+    {
+      "t": "l",
+      "v": "Lui ci protegge per sempre"
+    },
+    {
+      "t": "l",
+      "v": "ogni giorno della vita."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "c",
+      "v": "SOL RE/FA# DO SOL",
+      "flowSegments": [
+        {
+          "chord": "SOL",
+          "lyric": "Acclama"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "te al "
+        },
+        {
+          "chord": "DO",
+          "lyric": "Signo"
+        },
+        {
+          "chord": "SOL",
+          "lyric": "re,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Acclamate al Signore,"
+    },
+    {
+      "t": "c",
+      "v": "DO RE DO/MI RE/FA#",
+      "flowSegments": [
+        {
+          "chord": "DO",
+          "lyric": "genti tutte "
+        },
+        {
+          "chord": "RE",
+          "lyric": "del"
+        },
+        {
+          "chord": "DO/MI",
+          "lyric": "la ter"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "ra,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "genti tutte della terra,"
+    },
+    {
+      "t": "c",
+      "v": "SOL RE/FA# MI- SI-",
+      "flowSegments": [
+        {
+          "chord": "SOL",
+          "lyric": "ser"
+        },
+        {
+          "chord": "RE/FA#",
+          "lyric": "vitelo con "
+        },
+        {
+          "chord": "MI-",
+          "lyric": "gio"
+        },
+        {
+          "chord": "SI-",
+          "lyric": "ia,"
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "servitelo con gioia,"
+    },
+    {
+      "t": "c",
+      "v": "DO DO/RE SOL DO",
+      "flowSegments": [
+        {
+          "chord": "DO",
+          "lyric": "cantate, "
+        },
+        {
+          "chord": "DO/RE",
+          "lyric": "cantate "
+        },
+        {
+          "chord": "SOL",
+          "lyric": "a lui."
+        },
+        {
+          "chord": "DO",
+          "lyric": ""
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "cantate, cantate a lui."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Finale"
+    },
+    {
+      "t": "c",
+      "v": "SOL DO DO/RE SOL DO SOL",
+      "flowSegments": [
+        {
+          "chord": "SOL",
+          "lyric": ""
+        },
+        {
+          "chord": "DO",
+          "lyric": "Cantate, "
+        },
+        {
+          "chord": "DO/RE",
+          "lyric": "cantate "
+        },
+        {
+          "chord": "SOL",
+          "lyric": "a lui."
+        },
+        {
+          "chord": "DO",
+          "lyric": ""
+        },
+        {
+          "chord": "SOL",
+          "lyric": ""
+        }
+      ]
+    },
+    {
+      "t": "l",
+      "v": "Cantate, cantate a lui."
+    }
+  ]
+}
