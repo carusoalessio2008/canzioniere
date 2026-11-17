@@ -1,4 +1,4 @@
-name: Aggiorna canti/index.json
+name: Aggiorna Indice Canti Automatico
 
 on:
   push:
@@ -7,7 +7,6 @@ on:
     paths:
       - 'canti/*.json'
       - '!canti/index.json'
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,42 +15,37 @@ jobs:
   build-index:
     runs-on: ubuntu-latest
     steps:
-      - name: Scarica repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Genera canti/index.json automaticamente
+      - name: Genera canti/index.json
         run: |
-          python3 -c "
-          import os, json
+          node -e '
+            const fs = require("fs");
+            const path = require("path");
+            const dir = "canti";
+            const files = fs.readdirSync(dir).filter(f => f.endsWith(".json") && f !== "index.json");
+            const index = files.map(file => {
+              const raw = fs.readFileSync(path.join(dir, file), "utf8");
+              const data = JSON.parse(raw);
+              const id = data.id || file.replace(/\.json$/, "");
+              const contentStr = typeof data.content === "string" ? data.content : "";
+              const firstLine = data.firstLine || contentStr.split("\n").find(l => l.trim() && !l.trim().startsWith("["))?.replace(/\[[^\]]+\]/g, "").trim() || "";
+              return {
+                id,
+                file,
+                title: data.title || id,
+                author: data.author || "",
+                categories: Array.isArray(data.categories) ? data.categories : [],
+                firstLine
+              };
+            }).sort((a, b) => a.title.localeCompare(b.title));
+            fs.writeFileSync(path.join(dir, "index.json"), JSON.stringify(index, null, 2));
+          '
 
-          items = []
-          for f in sorted(os.listdir('canti')):
-              if f.endswith('.json') and f != 'index.json':
-                  path = os.path.join('canti', f)
-                  try:
-                      with open(path, encoding='utf-8') as fp:
-                          d = json.load(fp)
-                      slug = d.get('id') or d.get('slug') or f[:-5]
-                      cats = d.get('categories') or ([d['category']] if d.get('category') else ['Canti vari'])
-                      items.append({
-                          'slug': slug,
-                          'title': d.get('title', slug),
-                          'author': d.get('sub') or d.get('author', ''),
-                          'categories': cats,
-                          'search': d.get('search', ''),
-                          'file': f
-                      })
-                  except Exception as e:
-                      print(f'Errore su {f}: {e}')
-
-          with open('canti/index.json', 'w', encoding='utf-8') as out:
-              json.dump(items, out, ensure_ascii=False, indent=2)
-          print(f'Aggiornato index.json con {len(items)} canti.')
-          "
-
-      - name: Salva index.json nel repository
+      - name: Commit e Push index.json
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add canti/index.json
-          git diff --staged --quiet || (git commit -m "Aggiornamento automatico index.json" && git push)
+          git diff --staged --quiet || (git commit -m "Aggiorna automaticamente canti/index.json" && git push)

@@ -1,6 +1,6 @@
 const STORAGE_KEYS = {
-  INDEX: 'canzoniere_index_v2',
-  SONG_PREFIX: 'canzoniere_song_v2_',
+  INDEX: 'canzoniere_index_v6',
+  SONG_PREFIX: 'canzoniere_song_v6_',
   SETLISTS: 'canzoniere_setlists_v1',
   DELETED_SETLISTS: 'canzoniere_deleted_setlists_v1',
   PREFS: 'canzoniere_prefs_v1'
@@ -60,16 +60,16 @@ async function loadSongsIndex() {
     const response = await fetch('./canti/index.json?t=' + Date.now(), { cache: 'no-store' });
     if (!response.ok) throw new Error('HTTP ' + response.status);
     const data = await response.json();
-    
-    data.sort((a, b) => a.title.localeCompare(b.title));
-    
+
+    data.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+
     state.songsIndex = data;
     localStorage.setItem(STORAGE_KEYS.INDEX, JSON.stringify(data));
     renderSongList();
   } catch (err) {
     console.warn("Impossibile aggiornare indice online, uso cache locale:", err);
     if (state.songsIndex.length === 0) {
-      document.getElementById('song-list').innerHTML = 
+      document.getElementById('song-list').innerHTML =
         `<div class="p-6 text-center text-red-500 text-sm">Impossibile caricare i canti.<br>Verifica la connessione.</div>`;
     }
   }
@@ -77,24 +77,32 @@ async function loadSongsIndex() {
 
 async function fetchSongData(songId) {
   const cacheKey = STORAGE_KEYS.SONG_PREFIX + songId;
-  
-  try {
-    const res = await fetch(`./canti/${encodeURIComponent(songId)}.json?t=${Date.now()}`, { cache: 'no-store' });
-    if (res.ok) {
-      const data = await res.json();
-      localStorage.setItem(cacheKey, JSON.stringify(data));
-      return data;
-    } else {
-      console.warn(`File ./canti/${songId}.json non trovato (HTTP ${res.status})`);
+
+  // Costruisce possibili percorsi (supporta sia "id" sia eventuale campo "file" nell'indice)
+  const indexEntry = state.songsIndex.find(s => s.id === songId);
+  const candidates = [];
+  if (indexEntry && indexEntry.file) {
+    candidates.push(indexEntry.file.startsWith('canti/') ? `./${indexEntry.file}` : `./canti/${indexEntry.file}`);
+  }
+  candidates.push(`./canti/${encodeURIComponent(songId)}.json`);
+
+  for (const path of candidates) {
+    try {
+      const res = await fetch(`${path}?t=${Date.now()}`, { cache: 'no-store' });
+      if (res.ok) {
+        const data = await res.json();
+        localStorage.setItem(cacheKey, JSON.stringify(data));
+        return data;
+      }
+    } catch (e) {
+      console.warn("Tentativo fetch fallito per", path, e);
     }
-  } catch (e) {
-    console.warn("Fetch singolo canto fallito, provo cache:", e);
   }
 
   const cached = localStorage.getItem(cacheKey);
   if (cached) return JSON.parse(cached);
 
-  throw new Error(`File canti/${songId}.json non trovato`);
+  throw new Error(`Impossibile caricare canti/${songId}.json`);
 }
 
 function renderSongList() {
@@ -102,10 +110,10 @@ function renderSongList() {
   const query = state.searchQuery.toLowerCase().trim();
 
   state.filteredSongs = state.songsIndex.filter(song => {
-    const matchesCat = state.currentCategory === 'all' || 
+    const matchesCat = state.currentCategory === 'all' ||
                        (song.categories && song.categories.includes(state.currentCategory));
-    const matchesQuery = !query || 
-                         song.title.toLowerCase().includes(query) || 
+    const matchesQuery = !query ||
+                         (song.title && song.title.toLowerCase().includes(query)) ||
                          (song.author && song.author.toLowerCase().includes(query)) ||
                          (song.firstLine && song.firstLine.toLowerCase().includes(query));
     return matchesCat && matchesQuery;
@@ -118,12 +126,12 @@ function renderSongList() {
 
   container.innerHTML = state.filteredSongs.map(song => {
     const isActive = state.currentSong && state.currentSong.id === song.id;
-    const catsHtml = (song.categories || []).slice(0, 2).map(c => 
+    const catsHtml = (song.categories || []).slice(0, 2).map(c =>
       `<span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 font-medium">${escapeHtml(c)}</span>`
     ).join('');
 
     return `
-      <div onclick="openSong('${escapeHtml(song.id)}')" 
+      <div onclick="openSong('${escapeHtml(song.id)}')"
            class="p-3.5 hover:bg-slate-50 cursor-pointer transition flex items-center justify-between group ${isActive ? 'bg-blue-50/70 border-l-4 border-blue-600' : ''}">
         <div class="min-w-0 pr-2">
           <div class="font-semibold text-sm text-slate-900 truncate group-hover:text-blue-700 transition">${escapeHtml(song.title)}</div>
@@ -139,7 +147,7 @@ function renderSongList() {
 
 function filterCategory(cat) {
   state.currentCategory = cat;
-  
+
   document.querySelectorAll('.cat-pill').forEach(btn => {
     if (btn.dataset.cat === cat) {
       btn.classList.remove('bg-slate-100', 'text-slate-600');
@@ -163,6 +171,7 @@ function clearSearch() {
 async function openSong(songId, fromSetlistIndex = -1) {
   try {
     const songData = await fetchSongData(songId);
+    if (!songData.id) songData.id = songId;
     state.currentSong = songData;
     state.transposeSteps = 0;
     state.activeSetlistIndex = fromSetlistIndex;
@@ -178,7 +187,7 @@ async function openSong(songId, fromSetlistIndex = -1) {
     document.getElementById('transpose-display').textContent = '0';
 
     const badgesContainer = document.getElementById('song-badges');
-    badgesContainer.innerHTML = (songData.categories || []).map(cat => 
+    badgesContainer.innerHTML = (songData.categories || []).map(cat =>
       `<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">${escapeHtml(cat)}</span>`
     ).join('');
 
@@ -210,10 +219,10 @@ function renderSongBody() {
   const container = document.getElementById('song-body');
   container.style.fontSize = `${state.fontSize}px`;
 
-  let rawContent = state.currentSong.content 
-                ?? state.currentSong.lyrics 
-                ?? state.currentSong.testo 
-                ?? state.currentSong.body 
+  let rawContent = state.currentSong.content
+                ?? state.currentSong.lyrics
+                ?? state.currentSong.testo
+                ?? state.currentSong.body
                 ?? '';
 
   if (Array.isArray(rawContent)) {
@@ -235,14 +244,14 @@ function renderSongBody() {
   }
 
   const blocks = rawContent.split(/\n\s*\n/);
-  
+
   const html = blocks.map(block => {
     const lines = block.split('\n');
     let blockHtml = '';
 
     lines.forEach(line => {
       const trimmed = line.trim();
-      
+
       if (/^\[(Strofa|Ritornello|Bridge|Intro|Finale|Coda|Pre-Ritornello|Strumentale).*\]$/i.test(trimmed)) {
         const label = trimmed.replace(/[\[\]]/g, '');
         blockHtml += `<div class="section-label text-xs font-bold uppercase tracking-wider text-blue-600 mt-2 mb-1 select-none">${escapeHtml(label)}</div>`;
@@ -279,21 +288,21 @@ function parseChordProLine(line, semitones) {
       if (closeIdx !== -1) {
         const rawChord = line.substring(i + 1, closeIdx);
         const transposedChord = transposeChord(rawChord, semitones);
-        
+
         while (chordLine.length < lyricLine.length) {
           chordLine += ' ';
         }
-        
+
         if (chordLine.length > 0 && chordLine[chordLine.length - 1] !== ' ') {
           chordLine += ' ';
         }
-        
+
         chordLine += transposedChord;
         i = closeIdx + 1;
         continue;
       }
     }
-    
+
     lyricLine += line[i];
     i++;
   }
@@ -324,7 +333,7 @@ function transposeChord(chordStr, semitones) {
     let root = match[1];
     const suffix = match[2];
 
-    const isItalian = (root.length > 1 && !root.endsWith('#') && !root.endsWith('b')) || 
+    const isItalian = (root.length > 1 && !root.endsWith('#') && !root.endsWith('b')) ||
                       ['Do','Re','Mi','Fa','Sol','La','Si'].some(n => root.toLowerCase().startsWith(n.toLowerCase()));
 
     let noteIndex = -1;
@@ -410,7 +419,7 @@ function initCloudSync() {
   const setupListener = () => {
     if (!window.fb) return;
     const { db, collection, onSnapshot } = window.fb;
-    
+
     onSnapshot(collection(db, "scalette"), (snapshot) => {
       const cloudSetlists = [];
       snapshot.forEach(docSnap => {
@@ -436,7 +445,7 @@ function initCloudSync() {
       state.setlists = Array.from(mergedMap.values()).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
       saveLocalSetlists();
       renderSetlistsIndex();
-      
+
       if (state.activeSetlistId) {
         if (state.deletedSetlistIds.includes(state.activeSetlistId) || !mergedMap.has(state.activeSetlistId)) {
           closeSetlistDetail();
@@ -484,7 +493,7 @@ function createNewSetlist() {
   state.setlists.unshift(newSetlist);
   saveLocalSetlists();
   syncSetlistToCloud(newSetlist);
-  
+
   input.value = '';
   renderSetlistsIndex();
   openSetlistDetail(newSetlist.id);
@@ -565,7 +574,7 @@ function renderActiveSetlistDetail() {
 function toggleAddToSetlistMenu() {
   const dropdown = document.getElementById('add-setlist-dropdown');
   dropdown.classList.toggle('hidden');
-  
+
   if (!dropdown.classList.contains('hidden')) {
     const listContainer = document.getElementById('dropdown-setlist-items');
     if (state.setlists.length === 0) {
@@ -588,10 +597,10 @@ function addCurrentSongToSetlist(setlistId) {
 
   setlist.songs.push(state.currentSong.id);
   setlist.updatedAt = Date.now();
-  
+
   saveLocalSetlists();
   syncSetlistToCloud(setlist);
-  
+
   document.getElementById('add-setlist-dropdown').classList.add('hidden');
   if (state.activeSetlistId === setlistId) renderActiveSetlistDetail();
   showToast(`Aggiunto a "${setlist.name}"`);
@@ -624,7 +633,7 @@ function removeSongFromSetlist(index) {
 
   setlist.songs.splice(index, 1);
   setlist.updatedAt = Date.now();
-  
+
   saveLocalSetlists();
   syncSetlistToCloud(setlist);
   renderActiveSetlistDetail();
@@ -636,7 +645,7 @@ async function deleteCurrentSetlist() {
   if (!confirm("Vuoi davvero eliminare questa scaletta?")) return;
 
   const idToDelete = state.activeSetlistId;
-  
+
   if (!state.deletedSetlistIds.includes(idToDelete)) {
     state.deletedSetlistIds.push(idToDelete);
   }
@@ -704,7 +713,7 @@ function shareSetlist() {
 
 async function handleSharedSetlistUrl(setlistId) {
   switchSidebarTab('setlists');
-  
+
   let found = state.setlists.find(s => s.id === setlistId);
   if (found) {
     openSetlistDetail(setlistId);
@@ -879,7 +888,7 @@ function showToast(message, type = "info") {
   const bg = type === 'error' ? 'bg-red-600' : 'bg-slate-900';
   toast.className = `${bg} text-white text-xs font-medium px-4 py-3 rounded-xl shadow-lg text-center transition-all duration-300 transform translate-y-2 opacity-0`;
   toast.textContent = message;
-  
+
   container.appendChild(toast);
   requestAnimationFrame(() => {
     toast.classList.remove('translate-y-2', 'opacity-0');
