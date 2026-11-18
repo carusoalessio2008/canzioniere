@@ -68,5 +68,176 @@
       "Alleluia"
     ],
     "firstLine": ""
+  },
+  {
+    "id": "alleluia-passeranno-i-cieli",
+    "file": "alleluia-passeranno-i-cieli.json",
+    "title": "Alleluia",
+    "author": "",
+    "categories": [
+      "Alleluia",
+      "Canti vari"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "alza-i-tuoi-occhi",
+    "file": "alza-i-tuoi-occhi.json",
+    "title": "Alza I Tuoi Occhi",
+    "author": "",
+    "categories": [
+      "Ingresso"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "amo",
+    "file": "amo.json",
+    "title": "Amo",
+    "author": "",
+    "categories": [
+      "Ingresso"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "andate-per-le-strade",
+    "file": "andate-per-le-strade.json",
+    "title": "Andate Per Le Strade",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "annunceremo-che-tu",
+    "file": "annunceremo-che-tu.json",
+    "title": "Annunceremo Che Tu",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "antica-eterna-danza",
+    "file": "antica-eterna-danza.json",
+    "title": "Antica Eterna Danza",
+    "author": "",
+    "categories": [
+      "Offertorio"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "ascolta-il-mio-cuore",
+    "file": "ascolta-il-mio-cuore.json",
+    "title": "Ascolta Il Mio Cuore",
+    "author": "",
+    "categories": [
+      "Comunione"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "astro-del-ciel",
+    "file": "astro-del-ciel.json",
+    "title": "Astro Del Ciel",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "benedetto-signore-cerco-solo-te",
+    "file": "benedetto-signore-cerco-solo-te.json",
+    "title": "Benedetto Signore Cerco Solo Te",
+    "author": "",
+    "categories": [
+      "Comunione"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "benedetto-tu-signore",
+    "file": "benedetto-tu-signore.json",
+    "title": "Benedetto Tu Signore",
+    "author": "",
+    "categories": [
+      "Offertorio"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "benedici-o-signore",
+    "file": "benedici-o-signore.json",
+    "title": "Benedici, O Signore",
+    "author": "",
+    "categories": [
+      "Offertorio"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "camminero",
+    "file": "camminero.json",
+    "title": "Camminerò",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "chi",
+    "file": "chi.json",
+    "title": "Chi?",
+    "author": "",
+    "categories": [
+      "Comunione"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "chiamati-per-nome",
+    "file": "chiamati-per-nome.json",
+    "title": "Chiamati Per Nome",
+    "author": "",
+    "categories": [
+      "Ingresso"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "cieli-nuovi-e-terra-nuova",
+    "file": "cieli-nuovi-e-terra-nuova.json",
+    "title": "Cieli Nuovi E Terra Nuova",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "colori",
+    "file": "colori.json",
+    "title": "Colori",
+    "author": "",
+    "categories": [
+      "Ingresso"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "come-fuoco-vivo",
+    "file": "come-fuoco-vivo.json",
+    "title": "Come Fuoco Vivo",
+    "author": "",
+    "categories": [
+      "Comunione"
+    ],
+    "firstLine": ""
   }
 ]
