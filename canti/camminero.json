@@ -1,0 +1,89 @@
+{
+  "id": "camminero",
+  "title": "Camminerò",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Camminerò  Ritornello  Camminerò, camminerò nella tua strada, Signor.  Dammi la mano, voglio restar per sempre insieme a te.  Strofa 1  Quando ero solo, solo e stanco del mondo, quando non c'era l'Amor,  tante persone vidi intorno a me, sentivo cantare così:  Ritornello  Strofa 2  Io non capivo, ma rimasi a sentire quando il Signor mi parlò:  lui mi chiamava, chiamava anche me e la mia risposta si alzò:  Ritornello  Strofa 3  Ora non m'importa se uno ride di me, lui certamente non sa  del gran regalo che ebbi quel dì; che dissi al Signore così:",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Camminerò, camminerò nella tua strada, Signor."
+    },
+    {
+      "t": "l",
+      "v": "Dammi la mano, voglio restar per sempre insieme a te."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Quando ero solo, solo e stanco del mondo, quando non c'era l'Amor,"
+    },
+    {
+      "t": "l",
+      "v": "tante persone vidi intorno a me, sentivo cantare così:"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Io non capivo, ma rimasi a sentire quando il Signor mi parlò:"
+    },
+    {
+      "t": "l",
+      "v": "lui mi chiamava, chiamava anche me e la mia risposta si alzò:"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Ora non m'importa se uno ride di me, lui certamente non sa"
+    },
+    {
+      "t": "l",
+      "v": "del gran regalo che ebbi quel dì; che dissi al Signore così:"
+    }
+  ]
+}

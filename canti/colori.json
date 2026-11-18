@@ -1,0 +1,84 @@
+{
+  "id": "colori",
+  "title": "Colori",
+  "sub": "",
+  "category": "Ingresso",
+  "categories": [
+    "Ingresso"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Colori  Strofa 1  Questo prato verde ti ricorderà  la speranza del mattino:  non smarrirla, amico mio,  perché Io, perché Io ritornerò.  Strofa 2  Questo, cielo azzurro ti ricorderà  la fiducia nella vita:  non deporla, amico mio,  perché Io, perché Io ritornerò.  Strofa 3  Questa rosa rossa ti ricorderà  la bellezza del tuo amore:  non tradirlo, amico mio,  perché Io, perché Io ritornerò.",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Questo prato verde ti ricorderà"
+    },
+    {
+      "t": "l",
+      "v": "la speranza del mattino:"
+    },
+    {
+      "t": "l",
+      "v": "non smarrirla, amico mio,"
+    },
+    {
+      "t": "l",
+      "v": "perché Io, perché Io ritornerò."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Questo, cielo azzurro ti ricorderà"
+    },
+    {
+      "t": "l",
+      "v": "la fiducia nella vita:"
+    },
+    {
+      "t": "l",
+      "v": "non deporla, amico mio,"
+    },
+    {
+      "t": "l",
+      "v": "perché Io, perché Io ritornerò."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Questa rosa rossa ti ricorderà"
+    },
+    {
+      "t": "l",
+      "v": "la bellezza del tuo amore:"
+    },
+    {
+      "t": "l",
+      "v": "non tradirlo, amico mio,"
+    },
+    {
+      "t": "l",
+      "v": "perché Io, perché Io ritornerò."
+    }
+  ]
+}

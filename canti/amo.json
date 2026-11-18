@@ -1,0 +1,121 @@
+{
+  "id": "amo",
+  "title": "Amo",
+  "sub": "",
+  "category": "Ingresso",
+  "categories": [
+    "Ingresso"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Amo  Ritornello  Amo il Signore perché ascolta  il grido della mia preghiera.  Su di me ha steso la mano  nel giorno che lo cercavo.  Strofa 1  Ho invocato il nome del Signore  ed egli mi ha risposto.  Buono e giusto è il nostro Dio:  protegge gli umili e gli oppressi.  Ritornello  Strofa 2  Anima mia torna alla tua pace:  il Signore ti ha ascoltato.  Ha liberato i tuoi occhi dalle lacrime  e non sono più caduto.  Ritornello  Strofa 3  Ho creduto anche quando dicevo:  sono troppo infelice.  Che cosa posso rendere al Signore  per quello che mi ha dato?",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Amo il Signore perché ascolta"
+    },
+    {
+      "t": "l",
+      "v": "il grido della mia preghiera."
+    },
+    {
+      "t": "l",
+      "v": "Su di me ha steso la mano"
+    },
+    {
+      "t": "l",
+      "v": "nel giorno che lo cercavo."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Ho invocato il nome del Signore"
+    },
+    {
+      "t": "l",
+      "v": "ed egli mi ha risposto."
+    },
+    {
+      "t": "l",
+      "v": "Buono e giusto è il nostro Dio:"
+    },
+    {
+      "t": "l",
+      "v": "protegge gli umili e gli oppressi."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Anima mia torna alla tua pace:"
+    },
+    {
+      "t": "l",
+      "v": "il Signore ti ha ascoltato."
+    },
+    {
+      "t": "l",
+      "v": "Ha liberato i tuoi occhi dalle lacrime"
+    },
+    {
+      "t": "l",
+      "v": "e non sono più caduto."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Ho creduto anche quando dicevo:"
+    },
+    {
+      "t": "l",
+      "v": "sono troppo infelice."
+    },
+    {
+      "t": "l",
+      "v": "Che cosa posso rendere al Signore"
+    },
+    {
+      "t": "l",
+      "v": "per quello che mi ha dato?"
+    }
+  ]
+}

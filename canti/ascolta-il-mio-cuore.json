@@ -1,0 +1,129 @@
+{
+  "id": "ascolta-il-mio-cuore",
+  "title": "Ascolta Il Mio Cuore",
+  "sub": "",
+  "category": "Comunione",
+  "categories": [
+    "Comunione"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Ascolta Il Mio Cuore  Strofa 1  Ascolta il mio cuore rispondi al mio grido  Ti invoco nella mia povertà custodisci i miei pensieri  Con il tuo immenso amore rinnova in me la tua fedeltà.  Ritornello  Per te canterò, per te io vivrò perché sei oltre i confini  Il Signore che vita mi dà per te danzerò, con te cambierò  Il mio pianto nel canto nuovo perché vivi in me  Sei risorto e con me resterai.  Strofa 2  Ritorno a te mio Dio accolgo il tuo perdono  La tua misericordia è per me dal profondo della terra  Mi hai chiamato a nuova vita per sempre grazie ti renderò.  Ritornello  Strofa 3  Per te canterò, per te io vivrò  Per te canterò, per te io vivrò  Per te danzerò, con te cambierò  Per te danzerò, con te cambierò  Perché sei oltre i confini Il Signore che vita mi dà.  Strofa 4  Per te danzerò, con te cambierò  Il mio pianto nel canto nuovo perché vivi in me  Sei risorto e con me resterai.",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Ascolta il mio cuore rispondi al mio grido"
+    },
+    {
+      "t": "l",
+      "v": "Ti invoco nella mia povertà custodisci i miei pensieri"
+    },
+    {
+      "t": "l",
+      "v": "Con il tuo immenso amore rinnova in me la tua fedeltà."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Per te canterò, per te io vivrò perché sei oltre i confini"
+    },
+    {
+      "t": "l",
+      "v": "Il Signore che vita mi dà per te danzerò, con te cambierò"
+    },
+    {
+      "t": "l",
+      "v": "Il mio pianto nel canto nuovo perché vivi in me"
+    },
+    {
+      "t": "l",
+      "v": "Sei risorto e con me resterai."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Ritorno a te mio Dio accolgo il tuo perdono"
+    },
+    {
+      "t": "l",
+      "v": "La tua misericordia è per me dal profondo della terra"
+    },
+    {
+      "t": "l",
+      "v": "Mi hai chiamato a nuova vita per sempre grazie ti renderò."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Per te canterò, per te io vivrò"
+    },
+    {
+      "t": "l",
+      "v": "Per te canterò, per te io vivrò"
+    },
+    {
+      "t": "l",
+      "v": "Per te danzerò, con te cambierò"
+    },
+    {
+      "t": "l",
+      "v": "Per te danzerò, con te cambierò"
+    },
+    {
+      "t": "l",
+      "v": "Perché sei oltre i confini Il Signore che vita mi dà."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 4"
+    },
+    {
+      "t": "l",
+      "v": "Per te danzerò, con te cambierò"
+    },
+    {
+      "t": "l",
+      "v": "Il mio pianto nel canto nuovo perché vivi in me"
+    },
+    {
+      "t": "l",
+      "v": "Sei risorto e con me resterai."
+    }
+  ]
+}

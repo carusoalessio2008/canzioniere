@@ -1,0 +1,82 @@
+{
+  "id": "come-fuoco-vivo",
+  "title": "Come Fuoco Vivo",
+  "sub": "",
+  "category": "Comunione",
+  "categories": [
+    "Comunione"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Come Fuoco Vivo  Ritornello  Come fuoco vivo si accende in noi un’immensa felicità  che mai più nessuno ci toglierà perché Tu sei ritornato.  Chi potrà tacere, da ora in poi, che sei Tu in cammino con noi,  che la morte è vinta per sempre, che ci hai ridonato la vita?  Strofa 1  Spezzi il pane davanti a noi mentre il sole è al tramonto:  ora gli occhi Ti vedono, sei Tu! Resta con noi.  Ritornello  Strofa 2  E per sempre Ti mostrerai in quel gesto d’amore:  mani che ancora spezzano pane d’eternità.  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Come fuoco vivo si accende in noi un’immensa felicità"
+    },
+    {
+      "t": "l",
+      "v": "che mai più nessuno ci toglierà perché Tu sei ritornato."
+    },
+    {
+      "t": "l",
+      "v": "Chi potrà tacere, da ora in poi, che sei Tu in cammino con noi,"
+    },
+    {
+      "t": "l",
+      "v": "che la morte è vinta per sempre, che ci hai ridonato la vita?"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Spezzi il pane davanti a noi mentre il sole è al tramonto:"
+    },
+    {
+      "t": "l",
+      "v": "ora gli occhi Ti vedono, sei Tu! Resta con noi."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "E per sempre Ti mostrerai in quel gesto d’amore:"
+    },
+    {
+      "t": "l",
+      "v": "mani che ancora spezzano pane d’eternità."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "id": "benedetto-signore-cerco-solo-te",
+  "title": "Benedetto Signore Cerco Solo Te",
+  "sub": "",
+  "category": "Comunione",
+  "categories": [
+    "Comunione"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Benedetto Signore Cerco Solo Te  Strofa 1  Cerco solo Te mio Signor  Perché solo Tu dai gioia al mio cuore  Si rallegra l'anima mia  Solo in Te, solo in Te  Strofa 2  Cerco solo Te mio Signor  Perché la Tua via conduce alla vita  Si rallegra l'anima mia  Solo in Te, solo in Te  Ritornello  Benedetto il Signore  Benedetto il Tuo nome  Come un tenero padre  Sei verso di me, mio Signor  Benedetto il Signore  Benedetto il Tuo nome  Dalle Tue mani questa mia vita  Riceve salvezza e amor  Strofa 3  Cerco solo Te mio Signor  Perché la Tua grazia rimane in eterno  Si rallegra l'anima mia  Solo in Te, solo in Te  Strofa 4  Cerco solo Te mio Signor  Perché mi colori di misericordia  Si rallegra l'anima mia  Solo in Te, solo in Te  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Cerco solo Te mio Signor"
+    },
+    {
+      "t": "l",
+      "v": "Perché solo Tu dai gioia al mio cuore"
+    },
+    {
+      "t": "l",
+      "v": "Si rallegra l'anima mia"
+    },
+    {
+      "t": "l",
+      "v": "Solo in Te, solo in Te"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Cerco solo Te mio Signor"
+    },
+    {
+      "t": "l",
+      "v": "Perché la Tua via conduce alla vita"
+    },
+    {
+      "t": "l",
+      "v": "Si rallegra l'anima mia"
+    },
+    {
+      "t": "l",
+      "v": "Solo in Te, solo in Te"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Benedetto il Signore"
+    },
+    {
+      "t": "l",
+      "v": "Benedetto il Tuo nome"
+    },
+    {
+      "t": "l",
+      "v": "Come un tenero padre"
+    },
+    {
+      "t": "l",
+      "v": "Sei verso di me, mio Signor"
+    },
+    {
+      "t": "l",
+      "v": "Benedetto il Signore"
+    },
+    {
+      "t": "l",
+      "v": "Benedetto il Tuo nome"
+    },
+    {
+      "t": "l",
+      "v": "Dalle Tue mani questa mia vita"
+    },
+    {
+      "t": "l",
+      "v": "Riceve salvezza e amor"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Cerco solo Te mio Signor"
+    },
+    {
+      "t": "l",
+      "v": "Perché la Tua grazia rimane in eterno"
+    },
+    {
+      "t": "l",
+      "v": "Si rallegra l'anima mia"
+    },
+    {
+      "t": "l",
+      "v": "Solo in Te, solo in Te"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 4"
+    },
+    {
+      "t": "l",
+      "v": "Cerco solo Te mio Signor"
+    },
+    {
+      "t": "l",
+      "v": "Perché mi colori di misericordia"
+    },
+    {
+      "t": "l",
+      "v": "Si rallegra l'anima mia"
+    },
+    {
+      "t": "l",
+      "v": "Solo in Te, solo in Te"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

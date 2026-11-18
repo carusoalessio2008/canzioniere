@@ -12,11 +12,42 @@
     "note": "DO",
     "mode": "maggiore"
   },
-  "search": "Alleluia  Ed Oggi Ancora  Strofa 1",
+  "search": "Alleluia  Ed Oggi Ancora  Ritornello  Alleluia, alleluia, alleluia, alleluia!  Alleluia, alleluia, alleluia, alleluia.  Strofa 1  Ed oggi ancora, mio Signore,  ascolterò la Tua Parola  che mi guida nel cammino  della vita.",
   "lines": [
     {
       "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Alleluia, alleluia, alleluia, alleluia!"
+    },
+    {
+      "t": "l",
+      "v": "Alleluia, alleluia, alleluia, alleluia."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
       "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Ed oggi ancora, mio Signore,"
+    },
+    {
+      "t": "l",
+      "v": "ascolterò la Tua Parola"
+    },
+    {
+      "t": "l",
+      "v": "che mi guida nel cammino"
+    },
+    {
+      "t": "l",
+      "v": "della vita."
     }
   ]
 }

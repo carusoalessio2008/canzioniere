@@ -1,0 +1,124 @@
+{
+  "id": "andate-per-le-strade",
+  "title": "Andate Per Le Strade",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Andate Per Le Strade  Ritornello  Andate per le strade in tutto il mondo,  chiamate i miei amici per fare festa,  c'è un posto per ciascuno alla mia mensa.  Strofa 1  Nel vostro cammino annunciate il vangelo  dicendo è vicino il regno dei cieli.  guarite i malati, mondate i lebbrosi,  rendete la vita a chi l'ha perduta.  Ritornello  Strofa 2  Vi è stato donato con amore gratuito,  ugualmente donate con gioia e con amore.  con voi non prendete né oro né argento,  perché l'operaio ha diritto al suo cibo.  Ritornello  Strofa 3  Entrando in una casa donatele la pace,  se c'è chi vi rifiuta e non accoglie il dono,  la pace torni a voi e uscite dalla casa  scuotendo la polvere dai vostri calzari.  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Andate per le strade in tutto il mondo,"
+    },
+    {
+      "t": "l",
+      "v": "chiamate i miei amici per fare festa,"
+    },
+    {
+      "t": "l",
+      "v": "c'è un posto per ciascuno alla mia mensa."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Nel vostro cammino annunciate il vangelo"
+    },
+    {
+      "t": "l",
+      "v": "dicendo è vicino il regno dei cieli."
+    },
+    {
+      "t": "l",
+      "v": "guarite i malati, mondate i lebbrosi,"
+    },
+    {
+      "t": "l",
+      "v": "rendete la vita a chi l'ha perduta."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Vi è stato donato con amore gratuito,"
+    },
+    {
+      "t": "l",
+      "v": "ugualmente donate con gioia e con amore."
+    },
+    {
+      "t": "l",
+      "v": "con voi non prendete né oro né argento,"
+    },
+    {
+      "t": "l",
+      "v": "perché l'operaio ha diritto al suo cibo."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Entrando in una casa donatele la pace,"
+    },
+    {
+      "t": "l",
+      "v": "se c'è chi vi rifiuta e non accoglie il dono,"
+    },
+    {
+      "t": "l",
+      "v": "la pace torni a voi e uscite dalla casa"
+    },
+    {
+      "t": "l",
+      "v": "scuotendo la polvere dai vostri calzari."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

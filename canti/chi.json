@@ -1,0 +1,138 @@
+{
+  "id": "chi",
+  "title": "Chi?",
+  "sub": "",
+  "category": "Comunione",
+  "categories": [
+    "Comunione"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Chi?  Strofa 1  Filtra un raggio di sole tra le nubi del cielo,  strappa la terra al gelo e nasce un fiore,  e poi mille corolle rivestite di poesia  in un gioco di armonia e di colori.  Ma chi veste i fiori dei campi,  chi ad ognuno da colore?  Strofa 2  Va col vento leggera una rondine in volo,  il suo canto sa solo di primavera,  e poi intreccio di ali, come giostra di allegria,  mille voli in fantasia tra terra e mari.  Ma chi nutre gli uccelli del cielo,  chi ad ognuno da un nido, chi?  Ritornello  Tu, creatore del mondo, Tu, che possiedi la vita,  Tu, sole infinito, Dio amore.  Tu, degli uomini il Padre, Tu, che abiti il cielo,  Tu, immenso mistero, Dio amore, Dio amore.  Strofa 3  Tu immagine viva del creatore del mondo,  un riflesso profondo della tua vita,  l’uomo al centro del cosmo ha un cuore per amare,  un mondo da plasmare con le sue mani.  Ma chi ha dato all’uomo la vita,  chi a lui ha dato un cuore, chi?  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Filtra un raggio di sole tra le nubi del cielo,"
+    },
+    {
+      "t": "l",
+      "v": "strappa la terra al gelo e nasce un fiore,"
+    },
+    {
+      "t": "l",
+      "v": "e poi mille corolle rivestite di poesia"
+    },
+    {
+      "t": "l",
+      "v": "in un gioco di armonia e di colori."
+    },
+    {
+      "t": "l",
+      "v": "Ma chi veste i fiori dei campi,"
+    },
+    {
+      "t": "l",
+      "v": "chi ad ognuno da colore?"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Va col vento leggera una rondine in volo,"
+    },
+    {
+      "t": "l",
+      "v": "il suo canto sa solo di primavera,"
+    },
+    {
+      "t": "l",
+      "v": "e poi intreccio di ali, come giostra di allegria,"
+    },
+    {
+      "t": "l",
+      "v": "mille voli in fantasia tra terra e mari."
+    },
+    {
+      "t": "l",
+      "v": "Ma chi nutre gli uccelli del cielo,"
+    },
+    {
+      "t": "l",
+      "v": "chi ad ognuno da un nido, chi?"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Tu, creatore del mondo, Tu, che possiedi la vita,"
+    },
+    {
+      "t": "l",
+      "v": "Tu, sole infinito, Dio amore."
+    },
+    {
+      "t": "l",
+      "v": "Tu, degli uomini il Padre, Tu, che abiti il cielo,"
+    },
+    {
+      "t": "l",
+      "v": "Tu, immenso mistero, Dio amore, Dio amore."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Tu immagine viva del creatore del mondo,"
+    },
+    {
+      "t": "l",
+      "v": "un riflesso profondo della tua vita,"
+    },
+    {
+      "t": "l",
+      "v": "l’uomo al centro del cosmo ha un cuore per amare,"
+    },
+    {
+      "t": "l",
+      "v": "un mondo da plasmare con le sue mani."
+    },
+    {
+      "t": "l",
+      "v": "Ma chi ha dato all’uomo la vita,"
+    },
+    {
+      "t": "l",
+      "v": "chi a lui ha dato un cuore, chi?"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

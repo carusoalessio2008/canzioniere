@@ -1,0 +1,84 @@
+{
+  "id": "astro-del-ciel",
+  "title": "Astro Del Ciel",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Astro Del Ciel  Strofa 1  Astro del ciel, Pargol divin, mite Agnello Redentor!  Tu che i Vati da lungi sognar, Tu che angeliche voci nunziar,  luce dona alle genti pace infondi nei cuor!  luce dona alle genti, pace infondi nei cuor!  Strofa 2  Astro del ciel, Pargol divin, mite Agnello Redentor!  Tu di stirpe regale decor, Tu virgineo, mistico fior,  luce dona alle genti, pace infondi nei cuor!  luce dona alle genti, pace infondi nei cuor!  Strofa 3  Astro del ciel, Pargol divin, mite Agnello Redentor!  Tu disceso a scontare l'error, Tu sol nato a parlare d'amor,  luce dona alle menti, pace infondi nei cuor!  luce dona alle genti, pace infondi nei cuor!",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Astro del ciel, Pargol divin, mite Agnello Redentor!"
+    },
+    {
+      "t": "l",
+      "v": "Tu che i Vati da lungi sognar, Tu che angeliche voci nunziar,"
+    },
+    {
+      "t": "l",
+      "v": "luce dona alle genti pace infondi nei cuor!"
+    },
+    {
+      "t": "l",
+      "v": "luce dona alle genti, pace infondi nei cuor!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Astro del ciel, Pargol divin, mite Agnello Redentor!"
+    },
+    {
+      "t": "l",
+      "v": "Tu di stirpe regale decor, Tu virgineo, mistico fior,"
+    },
+    {
+      "t": "l",
+      "v": "luce dona alle genti, pace infondi nei cuor!"
+    },
+    {
+      "t": "l",
+      "v": "luce dona alle genti, pace infondi nei cuor!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Astro del ciel, Pargol divin, mite Agnello Redentor!"
+    },
+    {
+      "t": "l",
+      "v": "Tu disceso a scontare l'error, Tu sol nato a parlare d'amor,"
+    },
+    {
+      "t": "l",
+      "v": "luce dona alle menti, pace infondi nei cuor!"
+    },
+    {
+      "t": "l",
+      "v": "luce dona alle genti, pace infondi nei cuor!"
+    }
+  ]
+}

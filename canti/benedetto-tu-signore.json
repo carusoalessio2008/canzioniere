@@ -1,0 +1,125 @@
+{
+  "id": "benedetto-tu-signore",
+  "title": "Benedetto Tu Signore",
+  "sub": "",
+  "category": "Offertorio",
+  "categories": [
+    "Offertorio"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Benedetto Tu Signore  Ritornello  Benedetto tu, Signore,  benedetto tu nei secoli  benedetto tu, Signore.  Strofa 1  Prendi da queste mani il pane  che offriamo a te,  fanne cibo che porterà la vita tua  Ritornello  Strofa 2  Prendi da queste mani il vino  che offriamo a te,  fanne linfa che porterà l’eternità.  Queste nostre offerte, accoglile, Signore,  e saranno offerte pure.  Questo nostro mondo accogli, o Signore,  e saranno cieli e terre  che tu farai, nuovi.  Ritornello  Strofa 3  Prendi da queste mani il cuore  che offriamo a te,  fanne dono che porterà la vita tua.",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Benedetto tu, Signore,"
+    },
+    {
+      "t": "l",
+      "v": "benedetto tu nei secoli"
+    },
+    {
+      "t": "l",
+      "v": "benedetto tu, Signore."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Prendi da queste mani il pane"
+    },
+    {
+      "t": "l",
+      "v": "che offriamo a te,"
+    },
+    {
+      "t": "l",
+      "v": "fanne cibo che porterà la vita tua"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Prendi da queste mani il vino"
+    },
+    {
+      "t": "l",
+      "v": "che offriamo a te,"
+    },
+    {
+      "t": "l",
+      "v": "fanne linfa che porterà l’eternità."
+    },
+    {
+      "t": "l",
+      "v": "Queste nostre offerte, accoglile, Signore,"
+    },
+    {
+      "t": "l",
+      "v": "e saranno offerte pure."
+    },
+    {
+      "t": "l",
+      "v": "Questo nostro mondo accogli, o Signore,"
+    },
+    {
+      "t": "l",
+      "v": "e saranno cieli e terre"
+    },
+    {
+      "t": "l",
+      "v": "che tu farai, nuovi."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Prendi da queste mani il cuore"
+    },
+    {
+      "t": "l",
+      "v": "che offriamo a te,"
+    },
+    {
+      "t": "l",
+      "v": "fanne dono che porterà la vita tua."
+    }
+  ]
+}

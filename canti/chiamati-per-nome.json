@@ -1,0 +1,126 @@
+{
+  "id": "chiamati-per-nome",
+  "title": "Chiamati Per Nome",
+  "sub": "",
+  "category": "Ingresso",
+  "categories": [
+    "Ingresso"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Chiamati Per Nome  Ritornello  Veniamo da te, chiamati per nome  Che festa, Signore, tu cammini con noi  Ci parli di te, per noi spezzi il pane  Ti riconosciamo e il cuore arde, sei tu  E noi tuo popolo siamo qui!  Strofa 1  Siamo come terra ed argilla  E la tua parola ci plasmerà  Brace pronta per la scintilla  E il tuo spirito soffierà, ci infiammerà!  Ritornello  Strofa 2  Siamo come semi nel solco  Come vigna che il suo frutto darà  Grano del Signore risorto  La tua messe che fiorirà, d'eternità!  Ritornello  Veniamo da te, chiamati per nome  Che festa, Signore, tu cammini con noi  Ci parli di te, per noi spezzi il pane  Ti riconosciamo e il cuore arde, sei tu  E noi tuo popolo siamo qui!  E noi tuo popolo siamo qui! (stop) siamo qui!",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Veniamo da te, chiamati per nome"
+    },
+    {
+      "t": "l",
+      "v": "Che festa, Signore, tu cammini con noi"
+    },
+    {
+      "t": "l",
+      "v": "Ci parli di te, per noi spezzi il pane"
+    },
+    {
+      "t": "l",
+      "v": "Ti riconosciamo e il cuore arde, sei tu"
+    },
+    {
+      "t": "l",
+      "v": "E noi tuo popolo siamo qui!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Siamo come terra ed argilla"
+    },
+    {
+      "t": "l",
+      "v": "E la tua parola ci plasmerà"
+    },
+    {
+      "t": "l",
+      "v": "Brace pronta per la scintilla"
+    },
+    {
+      "t": "l",
+      "v": "E il tuo spirito soffierà, ci infiammerà!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Siamo come semi nel solco"
+    },
+    {
+      "t": "l",
+      "v": "Come vigna che il suo frutto darà"
+    },
+    {
+      "t": "l",
+      "v": "Grano del Signore risorto"
+    },
+    {
+      "t": "l",
+      "v": "La tua messe che fiorirà, d'eternità!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Veniamo da te, chiamati per nome"
+    },
+    {
+      "t": "l",
+      "v": "Che festa, Signore, tu cammini con noi"
+    },
+    {
+      "t": "l",
+      "v": "Ci parli di te, per noi spezzi il pane"
+    },
+    {
+      "t": "l",
+      "v": "Ti riconosciamo e il cuore arde, sei tu"
+    },
+    {
+      "t": "l",
+      "v": "E noi tuo popolo siamo qui!"
+    },
+    {
+      "t": "l",
+      "v": "E noi tuo popolo siamo qui! (stop) siamo qui!"
+    }
+  ]
+}

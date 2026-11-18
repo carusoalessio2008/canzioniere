@@ -1,0 +1,114 @@
+{
+  "id": "cieli-nuovi-e-terra-nuova",
+  "title": "Cieli Nuovi E Terra Nuova",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Cieli Nuovi E Terra Nuova  Strofa 1  Cieli nuovi e terra nuova: è il destino dell'umanità!  Viene il tempo, arriva il tempo che ogni realtà si trasfigurerà.  E in cieli nuovi e terra nuova il nostro anelito si placherà!  La tua casa, la tua dimora su tutti i popoli si estenderà!  Ritornello  È il pane del cielo che ci fa vivere:  che chiama a vivere e andare nel mondo.  È il pane del cielo che ci fa vivere:  che chiama a vivere e andare a portare il tuo dono.  Strofa 2  Cieli nuovi e terra nuova: la speranza non inganna mai!  E Tu risorto ci fai risorti, tutto il creato un canto diverrà.  E in cieli nuovi e terra nuova  c'è il disegno che hai affidato a noi:  Gerusalemme dal cielo scende, Gerusalemme in terra troverà.  Ritornello  Strofa 3  Cieli nuovi e terra nuova:  è il destino dell'umanità!  Viene il tempo, arriva il tempo che ogni realtà si trasfigurerà.",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Cieli nuovi e terra nuova: è il destino dell'umanità!"
+    },
+    {
+      "t": "l",
+      "v": "Viene il tempo, arriva il tempo che ogni realtà si trasfigurerà."
+    },
+    {
+      "t": "l",
+      "v": "E in cieli nuovi e terra nuova il nostro anelito si placherà!"
+    },
+    {
+      "t": "l",
+      "v": "La tua casa, la tua dimora su tutti i popoli si estenderà!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "È il pane del cielo che ci fa vivere:"
+    },
+    {
+      "t": "l",
+      "v": "che chiama a vivere e andare nel mondo."
+    },
+    {
+      "t": "l",
+      "v": "È il pane del cielo che ci fa vivere:"
+    },
+    {
+      "t": "l",
+      "v": "che chiama a vivere e andare a portare il tuo dono."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Cieli nuovi e terra nuova: la speranza non inganna mai!"
+    },
+    {
+      "t": "l",
+      "v": "E Tu risorto ci fai risorti, tutto il creato un canto diverrà."
+    },
+    {
+      "t": "l",
+      "v": "E in cieli nuovi e terra nuova"
+    },
+    {
+      "t": "l",
+      "v": "c'è il disegno che hai affidato a noi:"
+    },
+    {
+      "t": "l",
+      "v": "Gerusalemme dal cielo scende, Gerusalemme in terra troverà."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Cieli nuovi e terra nuova:"
+    },
+    {
+      "t": "l",
+      "v": "è il destino dell'umanità!"
+    },
+    {
+      "t": "l",
+      "v": "Viene il tempo, arriva il tempo che ogni realtà si trasfigurerà."
+    }
+  ]
+}

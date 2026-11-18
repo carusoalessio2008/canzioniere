@@ -1,0 +1,46 @@
+{
+  "id": "alleluia-passeranno-i-cieli",
+  "title": "Alleluia",
+  "sub": "Passeranno I Cieli",
+  "category": "Alleluia",
+  "categories": [
+    "Alleluia",
+    "Canti vari"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Alleluia  Passeranno I Cieli  Ritornello  Alleluia, alleluia, alleluia, alleluia,  alleluia, alleluia, alleluia!  Strofa 1  Passeranno i cieli e passerà la terra,  la sua Parola non passerà! Alleluia, alleluia!",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Alleluia, alleluia, alleluia, alleluia,"
+    },
+    {
+      "t": "l",
+      "v": "alleluia, alleluia, alleluia!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Passeranno i cieli e passerà la terra,"
+    },
+    {
+      "t": "l",
+      "v": "la sua Parola non passerà! Alleluia, alleluia!"
+    }
+  ]
+}
