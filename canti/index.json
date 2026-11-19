@@ -1,339 +1,484 @@
 [
   {
     "id": "abbracciami",
-    "slug": "abbracciami",
+    "file": "abbracciami.json",
     "title": "Abbracciami",
-    "sub": "",
     "author": "",
-    "cat": "Comunione",
-    "category": "Comunione",
     "categories": [
       "Comunione"
     ],
-    "file": "abbracciami.json",
-    "search": "Abbracciami  Intro  Strofa 1  Gesù, Parola viva e vera sorgente che disseta e cura ogni ferita  Ferma su di me i tuoi occhi la tua mano stendi e donami la vita  Ritornello  Abbracciami Dio dell'eternità rifugio dell'anima, grazia che opera  Riscaldami fuoco che libera manda il tuo Spirito, Maranathà Gesù  Strofa 2  Gesù asciuga il nostro pianto leone vincitore della tribù di Giuda  Vieni nella tua potenza questo cuore sciogli con ogni sua paura  Ritornello  Ponte  Per sempre io canterò la tua immensa fedeltà  Il tuo spirito in me in eterno ti loderà"
+    "firstLine": ""
   },
   {
     "id": "acclamate-al-signore",
-    "slug": "acclamate-al-signore",
+    "file": "acclamate-al-signore.json",
     "title": "Acclamate Al Signore",
-    "sub": "",
     "author": "",
-    "cat": "Ingresso",
-    "category": "Ingresso",
     "categories": [
       "Ingresso"
     ],
-    "file": "acclamate-al-signore.json",
-    "search": "Acclamate Al Signore  Ritornello  Acclamate al Signore,  voi tutti della terra  servite il Signore nella gioia  presentatevi a Lui con esultanza  acclamate, acclamate, acclamate al Signor  Strofa 1  Riconoscete che il Signore è Dio,  Egli ci ha fatti e noi siamo suoi,  suo popolo e gregge del suo pascolo.  Ritornello  Strofa 2  Varcate le sue porte con degli inni di grazie,  i suoi atri con canti di lode,  lodatelo, benedite il suo nome.  Strofa 3  Poiché buono è il Signore,  eterna è la sua misericordia,  la sua fedeltà per ogni generazione"
+    "firstLine": ""
   },
   {
     "id": "acqua-siamo-noi",
-    "slug": "acqua-siamo-noi",
+    "file": "acqua-siamo-noi.json",
     "title": "Acqua Siamo Noi",
-    "sub": "",
     "author": "",
-    "cat": "Finale",
-    "category": "Finale",
     "categories": [
       "Finale"
     ],
-    "file": "acqua-siamo-noi.json",
-    "search": "Acqua Siamo Noi  Strofa 1  Acqua siamo noi dall’antica sorgente veniamo,  fiumi siamo noi se i ruscelli si mettono insieme,  mari siamo noi se i torrenti si danno la mano,  vita nuova c’è se Gesù è in mezzo a noi.  Ritornello  E allora diamoci la mano e tutti insieme camminiamo  ed un oceano di pace nascerà. E l’egoismo cancelliamo  un cuore limpido sentiamo è Dio che bagna  del suo amor l’umanità.  Strofa 2  Su nel cielo c’è Dio Padre che vive per l’uomo,  crea tutti noi e ci ama di amore infinito,  figli siamo noi e fratelli di Cristo Signore,  vita nuova c’è quando Lui è in mezzo a noi.  Ritornello  Strofa 3  Nuova umanità oggi nasce da chi crede in Lui,  nuovi siamo noi se l’amore è la legge di vita,  figli siamo noi se non siamo divisi da niente,  vita eterna c’è quando Lui è dentro a noi.  Ritornello"
+    "firstLine": ""
   },
   {
     "id": "adesso-la-pienezza",
-    "slug": "adesso-la-pienezza",
+    "file": "adesso-la-pienezza.json",
     "title": "Adesso La Pienezza",
-    "sub": "",
     "author": "",
-    "cat": "Finale",
-    "category": "Finale",
     "categories": [
       "Finale"
     ],
-    "file": "adesso-la-pienezza.json",
-    "search": "Adesso La Pienezza  Intro  Strofa 1  Dopo il tempo del deserto, adesso è il tempo di pianure fertili  Dopo il tempo delle nebbie, adesso s’apre l’orizzonte limpido  Dopo il tempo dell’attesa, adesso è il canto, la pienezza della gioia  L’immacolata Donna ha dato al mondo Dio  Strofa 2  La fanciulla più nascosta adesso è madre del Signore Altissimo.  La fanciulla più soave adesso illumina la terra e i secoli  La fanciulla del silenzio adesso è il canto, la pienezza della gioia:  l’immacolata Donna ha dato al mondo Dio  Ritornello  È nato, nato! È qualcosa di impensabile, eppure è nato, nato!  Noi non siamo soli, il Signore ci è a fianco. È nato!  Questa valle tornerà come un giardino. Il cuore già lo sa  È nata la speranza. È nata la speranza  Strofa 3  La potenza del creato  Adesso è il pianto di un bambino fragile  La potenza della gloria  Adesso sta in una capanna povera  La potenza dell’amore  Adesso è il canto, la pienezza della gioia  L’immacolata Donna ha dato al mondo Dio  Ritornello  Strofa 4  Tu adesso sei bimbo, tu adesso hai una madre  Tu l’hai creata bellissima e dormi nel suo grembo  È nato! È nato!  Questa valle tornerà come un giardino  Il cuore già lo sa  È nata la speranza, è nata la speranza"
+    "firstLine": ""
   },
   {
     "id": "alleluia-canto-per-cristo",
-    "slug": "alleluia-canto-per-cristo",
+    "file": "alleluia-canto-per-cristo.json",
     "title": "Alleluia",
-    "sub": "Canto Per Cristo",
-    "author": "Canto Per Cristo",
-    "cat": "Alleluia",
-    "category": "Alleluia",
+    "author": "",
     "categories": [
       "Alleluia"
     ],
-    "file": "alleluia-canto-per-cristo.json",
-    "search": "Alleluia  Canto Per Cristo  Ritornello  Alleluia, allelu, alleluia,  alleluia, alleluia!  Alleluia, allelu, alleluia,  alleluia, alleluia!  Strofa 1  Canto per Cristo che mi libererà quando verrà nella gloria,  quando la vita con lui rinascerà, alleluia, alleluia!  Ritornello  Strofa 2  Canto per Cristo in lui rifiorirà ogni speranza perduta,  ogni creatura con lui rinascerà, alleluia, alleluia!"
+    "firstLine": ""
   },
   {
     "id": "alleluia-e-poi",
-    "slug": "alleluia-e-poi",
+    "file": "alleluia-e-poi.json",
     "title": "Alleluia",
-    "sub": "E Poi",
-    "author": "E Poi",
-    "cat": "Alleluia",
-    "category": "Alleluia",
+    "author": "",
     "categories": [
       "Alleluia"
     ],
-    "file": "alleluia-e-poi.json",
-    "search": "Alleluia  E Poi  Strofa 1  Chiama, ed io verrò da te:  Figlio, nel silenzio, mi accoglierai.  Voce e poi la libertà,  nella tua Parola camminerò.  Ritornello  Alleluia, alleluia, alleluia,  alleluia, alle - lu - ia,  Alleluia, alleluia, alleluia,  alleluia, alle - lu - ia,  Strofa 2  Danza, ed io verrò con te: Figlio, la tua strada comprenderò.  Luce, e poi, nel tempo tuo oltre il desiderio riposerò"
+    "firstLine": ""
   },
   {
     "id": "alleluia-ed-oggi-ancora",
-    "slug": "alleluia-ed-oggi-ancora",
+    "file": "alleluia-ed-oggi-ancora.json",
     "title": "Alleluia",
-    "sub": "Ed Oggi Ancora",
-    "author": "Ed Oggi Ancora",
-    "cat": "Alleluia",
-    "category": "Alleluia",
+    "author": "",
     "categories": [
       "Alleluia"
     ],
-    "file": "alleluia-ed-oggi-ancora.json",
-    "search": "Alleluia  Ed Oggi Ancora  Ritornello  Alleluia, alleluia, alleluia, alleluia!  Alleluia, alleluia, alleluia, alleluia.  Strofa 1  Ed oggi ancora, mio Signore,  ascolterò la Tua Parola  che mi guida nel cammino  della vita."
+    "firstLine": ""
   },
   {
     "id": "alleluia-passeranno-i-cieli",
-    "slug": "alleluia-passeranno-i-cieli",
+    "file": "alleluia-passeranno-i-cieli.json",
     "title": "Alleluia",
-    "sub": "Passeranno I Cieli",
-    "author": "Passeranno I Cieli",
-    "cat": "Alleluia",
-    "category": "Alleluia",
+    "author": "",
     "categories": [
       "Alleluia",
       "Canti vari"
     ],
-    "file": "alleluia-passeranno-i-cieli.json",
-    "search": "Alleluia  Passeranno I Cieli  Ritornello  Alleluia, alleluia, alleluia, alleluia,  alleluia, alleluia, alleluia!  Strofa 1  Passeranno i cieli e passerà la terra,  la sua Parola non passerà! Alleluia, alleluia!"
+    "firstLine": ""
   },
   {
     "id": "alza-i-tuoi-occhi",
-    "slug": "alza-i-tuoi-occhi",
+    "file": "alza-i-tuoi-occhi.json",
     "title": "Alza I Tuoi Occhi",
-    "sub": "",
     "author": "",
-    "cat": "Ingresso",
-    "category": "Ingresso",
     "categories": [
       "Ingresso"
     ],
-    "file": "alza-i-tuoi-occhi.json",
-    "search": "Alza I Tuoi Occhi  Strofa 1  Cristo Gesù, figlio di Dio, ad ogni uomo il suo amore mostrò  Egli guarì e liberò, tutto se stesso donò  Sai che Gesù, se tu lo vuoi i suoi prodigi rinnova per te  Senza timor apriti a lui ti ama così come sei, come sei  Ritornello  Alza i tuoi occhi al cielo e vedrai  Nuovi orizzonti tu scoprirai  Lascia ogni cosa e insieme a noi  Canta al Dio dell'amor  Apri il tuo cuore a Cristo e vedrai  Nella tristezza più non vivrai  Lascia ogni cosa e insieme a noi  Canta al Dio dell'amor  Strofa 2  Cristo Gesù, figlio di Dio Parole eterne al mondo donò  Egli morì, risuscitò, la croce sua ci salvò  Sai che Gesù, se tu lo vuoi i suoi prodigi rinnova per te  Senza timor apriti a lui ti ama così come sei, come sei.  Ritornello  Strofa 3  Cristo Gesù, figlio di Dio, ai suoi amici la pace portò  Al ciel salì, ma vive in noi con il suo soffio d'amor  Sai che Gesù, se tu lo vuoi i suoi prodigi rinnova per te  Senza timor apriti a lui ti ama così come sei, come sei.  Ritornello"
+    "firstLine": ""
   },
   {
     "id": "amo",
-    "slug": "amo",
+    "file": "amo.json",
     "title": "Amo",
-    "sub": "",
     "author": "",
-    "cat": "Ingresso",
-    "category": "Ingresso",
     "categories": [
       "Ingresso"
     ],
-    "file": "amo.json",
-    "search": "Amo  Ritornello  Amo il Signore perché ascolta  il grido della mia preghiera.  Su di me ha steso la mano  nel giorno che lo cercavo.  Strofa 1  Ho invocato il nome del Signore  ed egli mi ha risposto.  Buono e giusto è il nostro Dio:  protegge gli umili e gli oppressi.  Ritornello  Strofa 2  Anima mia torna alla tua pace:  il Signore ti ha ascoltato.  Ha liberato i tuoi occhi dalle lacrime  e non sono più caduto.  Ritornello  Strofa 3  Ho creduto anche quando dicevo:  sono troppo infelice.  Che cosa posso rendere al Signore  per quello che mi ha dato?"
+    "firstLine": ""
   },
   {
     "id": "andate-per-le-strade",
-    "slug": "andate-per-le-strade",
+    "file": "andate-per-le-strade.json",
     "title": "Andate Per Le Strade",
-    "sub": "",
     "author": "",
-    "cat": "Finale",
-    "category": "Finale",
     "categories": [
       "Finale"
     ],
-    "file": "andate-per-le-strade.json",
-    "search": "Andate Per Le Strade  Ritornello  Andate per le strade in tutto il mondo,  chiamate i miei amici per fare festa,  c'è un posto per ciascuno alla mia mensa.  Strofa 1  Nel vostro cammino annunciate il vangelo  dicendo è vicino il regno dei cieli.  guarite i malati, mondate i lebbrosi,  rendete la vita a chi l'ha perduta.  Ritornello  Strofa 2  Vi è stato donato con amore gratuito,  ugualmente donate con gioia e con amore.  con voi non prendete né oro né argento,  perché l'operaio ha diritto al suo cibo.  Ritornello  Strofa 3  Entrando in una casa donatele la pace,  se c'è chi vi rifiuta e non accoglie il dono,  la pace torni a voi e uscite dalla casa  scuotendo la polvere dai vostri calzari.  Ritornello"
+    "firstLine": ""
   },
   {
     "id": "annunceremo-che-tu",
-    "slug": "annunceremo-che-tu",
+    "file": "annunceremo-che-tu.json",
     "title": "Annunceremo Che Tu",
-    "sub": "",
     "author": "",
-    "cat": "Finale",
-    "category": "Finale",
     "categories": [
       "Finale"
     ],
-    "file": "annunceremo-che-tu.json",
-    "search": "Annunceremo Che Tu  Ritornello  Annunceremo che Tu sei verità  lo grideremo dai tetti delle nostre città,  senza paura anche tu  lo puoi cantare.  Strofa 2  E non temere dai  che non ci vuole poi tanto  quello che non si sa  non resterà nascosto.  Se ti parlo nel buio  lo darai alla luce  ogni giorno è il momento di credere in Te.  Ritornello  Strofa 2  Con il coraggio tu,  porterai la Parola che salva  anche se ci sarà chi non vuole accogliere il dono.  Tu non devi fermarti ma continua a lottare  il mio Spirito sempre ti accompagnerà."
+    "firstLine": ""
   },
   {
     "id": "antica-eterna-danza",
-    "slug": "antica-eterna-danza",
+    "file": "antica-eterna-danza.json",
     "title": "Antica Eterna Danza",
-    "sub": "",
     "author": "",
-    "cat": "Offertorio",
-    "category": "Offertorio",
     "categories": [
       "Offertorio"
     ],
-    "file": "antica-eterna-danza.json",
-    "search": "Antica Eterna Danza  Strofa 1  Spighe d’oro al vento antica, eterna danza  per fare un solo pane spezzato sulla mensa.  Grappoli dei colli, profumo di letizia  per fare un solo vino bevanda della grazia.  Strofa 2  Con il pane e il vino Signore ti doniamo  le nostre gioie pure, le attese e le paure  frutti del lavoro e fede nel futuro  la voglia di cambiare e di ricominciare.  Strofa 3  Dio della speranza, sorgente d’ogni dono  accogli questa offerta che insieme ti portiamo.  Dio dell’universo raccogli chi è disperso  e facci tutti Chiesa, una cosa in te."
+    "firstLine": ""
   },
   {
     "id": "ascolta-il-mio-cuore",
-    "slug": "ascolta-il-mio-cuore",
+    "file": "ascolta-il-mio-cuore.json",
     "title": "Ascolta Il Mio Cuore",
-    "sub": "",
     "author": "",
-    "cat": "Comunione",
-    "category": "Comunione",
     "categories": [
       "Comunione"
     ],
-    "file": "ascolta-il-mio-cuore.json",
-    "search": "Ascolta Il Mio Cuore  Strofa 1  Ascolta il mio cuore rispondi al mio grido  Ti invoco nella mia povertà custodisci i miei pensieri  Con il tuo immenso amore rinnova in me la tua fedeltà.  Ritornello  Per te canterò, per te io vivrò perché sei oltre i confini  Il Signore che vita mi dà per te danzerò, con te cambierò  Il mio pianto nel canto nuovo perché vivi in me  Sei risorto e con me resterai.  Strofa 2  Ritorno a te mio Dio accolgo il tuo perdono  La tua misericordia è per me dal profondo della terra  Mi hai chiamato a nuova vita per sempre grazie ti renderò.  Ritornello  Strofa 3  Per te canterò, per te io vivrò  Per te canterò, per te io vivrò  Per te danzerò, con te cambierò  Per te danzerò, con te cambierò  Perché sei oltre i confini Il Signore che vita mi dà.  Strofa 4  Per te danzerò, con te cambierò  Il mio pianto nel canto nuovo perché vivi in me  Sei risorto e con me resterai."
+    "firstLine": ""
   },
   {
     "id": "astro-del-ciel",
-    "slug": "astro-del-ciel",
+    "file": "astro-del-ciel.json",
     "title": "Astro Del Ciel",
-    "sub": "",
     "author": "",
-    "cat": "Finale",
-    "category": "Finale",
     "categories": [
       "Finale"
     ],
-    "file": "astro-del-ciel.json",
-    "search": "Astro Del Ciel  Strofa 1  Astro del ciel, Pargol divin, mite Agnello Redentor!  Tu che i Vati da lungi sognar, Tu che angeliche voci nunziar,  luce dona alle genti pace infondi nei cuor!  luce dona alle genti, pace infondi nei cuor!  Strofa 2  Astro del ciel, Pargol divin, mite Agnello Redentor!  Tu di stirpe regale decor, Tu virgineo, mistico fior,  luce dona alle genti, pace infondi nei cuor!  luce dona alle genti, pace infondi nei cuor!  Strofa 3  Astro del ciel, Pargol divin, mite Agnello Redentor!  Tu disceso a scontare l'error, Tu sol nato a parlare d'amor,  luce dona alle menti, pace infondi nei cuor!  luce dona alle genti, pace infondi nei cuor!"
+    "firstLine": ""
   },
   {
     "id": "benedetto-signore-cerco-solo-te",
-    "slug": "benedetto-signore-cerco-solo-te",
+    "file": "benedetto-signore-cerco-solo-te.json",
     "title": "Benedetto Signore Cerco Solo Te",
-    "sub": "",
     "author": "",
-    "cat": "Comunione",
-    "category": "Comunione",
     "categories": [
       "Comunione"
     ],
-    "file": "benedetto-signore-cerco-solo-te.json",
-    "search": "Benedetto Signore Cerco Solo Te  Strofa 1  Cerco solo Te mio Signor  Perché solo Tu dai gioia al mio cuore  Si rallegra l'anima mia  Solo in Te, solo in Te  Strofa 2  Cerco solo Te mio Signor  Perché la Tua via conduce alla vita  Si rallegra l'anima mia  Solo in Te, solo in Te  Ritornello  Benedetto il Signore  Benedetto il Tuo nome  Come un tenero padre  Sei verso di me, mio Signor  Benedetto il Signore  Benedetto il Tuo nome  Dalle Tue mani questa mia vita  Riceve salvezza e amor  Strofa 3  Cerco solo Te mio Signor  Perché la Tua grazia rimane in eterno  Si rallegra l'anima mia  Solo in Te, solo in Te  Strofa 4  Cerco solo Te mio Signor  Perché mi colori di misericordia  Si rallegra l'anima mia  Solo in Te, solo in Te  Ritornello"
+    "firstLine": ""
   },
   {
     "id": "benedetto-tu-signore",
-    "slug": "benedetto-tu-signore",
+    "file": "benedetto-tu-signore.json",
     "title": "Benedetto Tu Signore",
-    "sub": "",
     "author": "",
-    "cat": "Offertorio",
-    "category": "Offertorio",
     "categories": [
       "Offertorio"
     ],
-    "file": "benedetto-tu-signore.json",
-    "search": "Benedetto Tu Signore  Ritornello  Benedetto tu, Signore,  benedetto tu nei secoli  benedetto tu, Signore.  Strofa 1  Prendi da queste mani il pane  che offriamo a te,  fanne cibo che porterà la vita tua  Ritornello  Strofa 2  Prendi da queste mani il vino  che offriamo a te,  fanne linfa che porterà l’eternità.  Queste nostre offerte, accoglile, Signore,  e saranno offerte pure.  Questo nostro mondo accogli, o Signore,  e saranno cieli e terre  che tu farai, nuovi.  Ritornello  Strofa 3  Prendi da queste mani il cuore  che offriamo a te,  fanne dono che porterà la vita tua."
+    "firstLine": ""
   },
   {
     "id": "benedici-o-signore",
-    "slug": "benedici-o-signore",
+    "file": "benedici-o-signore.json",
     "title": "Benedici, O Signore",
-    "sub": "",
     "author": "",
-    "cat": "Offertorio",
-    "category": "Offertorio",
     "categories": [
       "Offertorio"
     ],
-    "file": "benedici-o-signore.json",
-    "search": "Benedici, O Signore  Strofa 1  Nebbia e freddo, giorni lunghi e amari mentre il seme muore.  Poi il prodigio antico e sempre nuovo del primo filo d’erba  e nel vento dell’estate ondeggiano le spighe: avremo ancora pane.  Ritornello  Benedici, o Signore, questa offerta che portiamo a Te.  Facci uno come il pane che anche oggi hai dato a noi.  Strofa 2  Nei filari, dopo il lungo inverno fremono le viti.  La rugiada avvolge nel silenzio i primi tralci verdi,  poi i colori dell’autunno coi grappoli maturi: avremo ancora vino.  Ritornello  Benedici, o Signore, questa offerta che portiamo a Te.  Facci uno come il vino che anche oggi hai dato a noi."
+    "firstLine": ""
   },
   {
     "id": "camminero",
-    "slug": "camminero",
+    "file": "camminero.json",
     "title": "Camminerò",
-    "sub": "",
     "author": "",
-    "cat": "Finale",
-    "category": "Finale",
     "categories": [
       "Finale"
     ],
-    "file": "camminero.json",
-    "search": "Camminerò  Ritornello  Camminerò, camminerò nella tua strada, Signor.  Dammi la mano, voglio restar per sempre insieme a te.  Strofa 1  Quando ero solo, solo e stanco del mondo, quando non c'era l'Amor,  tante persone vidi intorno a me, sentivo cantare così:  Ritornello  Strofa 2  Io non capivo, ma rimasi a sentire quando il Signor mi parlò:  lui mi chiamava, chiamava anche me e la mia risposta si alzò:  Ritornello  Strofa 3  Ora non m'importa se uno ride di me, lui certamente non sa  del gran regalo che ebbi quel dì; che dissi al Signore così:"
+    "firstLine": ""
   },
   {
     "id": "chi",
-    "slug": "chi",
+    "file": "chi.json",
     "title": "Chi?",
-    "sub": "",
     "author": "",
-    "cat": "Comunione",
-    "category": "Comunione",
     "categories": [
       "Comunione"
     ],
-    "file": "chi.json",
-    "search": "Chi?  Strofa 1  Filtra un raggio di sole tra le nubi del cielo,  strappa la terra al gelo e nasce un fiore,  e poi mille corolle rivestite di poesia  in un gioco di armonia e di colori.  Ma chi veste i fiori dei campi,  chi ad ognuno da colore?  Strofa 2  Va col vento leggera una rondine in volo,  il suo canto sa solo di primavera,  e poi intreccio di ali, come giostra di allegria,  mille voli in fantasia tra terra e mari.  Ma chi nutre gli uccelli del cielo,  chi ad ognuno da un nido, chi?  Ritornello  Tu, creatore del mondo, Tu, che possiedi la vita,  Tu, sole infinito, Dio amore.  Tu, degli uomini il Padre, Tu, che abiti il cielo,  Tu, immenso mistero, Dio amore, Dio amore.  Strofa 3  Tu immagine viva del creatore del mondo,  un riflesso profondo della tua vita,  l’uomo al centro del cosmo ha un cuore per amare,  un mondo da plasmare con le sue mani.  Ma chi ha dato all’uomo la vita,  chi a lui ha dato un cuore, chi?  Ritornello"
+    "firstLine": ""
   },
   {
     "id": "chiamati-per-nome",
-    "slug": "chiamati-per-nome",
+    "file": "chiamati-per-nome.json",
     "title": "Chiamati Per Nome",
-    "sub": "",
     "author": "",
-    "cat": "Ingresso",
-    "category": "Ingresso",
     "categories": [
       "Ingresso"
     ],
-    "file": "chiamati-per-nome.json",
-    "search": "Chiamati Per Nome  Ritornello  Veniamo da te, chiamati per nome  Che festa, Signore, tu cammini con noi  Ci parli di te, per noi spezzi il pane  Ti riconosciamo e il cuore arde, sei tu  E noi tuo popolo siamo qui!  Strofa 1  Siamo come terra ed argilla  E la tua parola ci plasmerà  Brace pronta per la scintilla  E il tuo spirito soffierà, ci infiammerà!  Ritornello  Strofa 2  Siamo come semi nel solco  Come vigna che il suo frutto darà  Grano del Signore risorto  La tua messe che fiorirà, d'eternità!  Ritornello  Veniamo da te, chiamati per nome  Che festa, Signore, tu cammini con noi  Ci parli di te, per noi spezzi il pane  Ti riconosciamo e il cuore arde, sei tu  E noi tuo popolo siamo qui!  E noi tuo popolo siamo qui! (stop) siamo qui!"
+    "firstLine": ""
   },
   {
     "id": "cieli-nuovi-e-terra-nuova",
-    "slug": "cieli-nuovi-e-terra-nuova",
+    "file": "cieli-nuovi-e-terra-nuova.json",
     "title": "Cieli Nuovi E Terra Nuova",
-    "sub": "",
     "author": "",
-    "cat": "Finale",
-    "category": "Finale",
     "categories": [
       "Finale"
     ],
-    "file": "cieli-nuovi-e-terra-nuova.json",
-    "search": "Cieli Nuovi E Terra Nuova  Strofa 1  Cieli nuovi e terra nuova: è il destino dell'umanità!  Viene il tempo, arriva il tempo che ogni realtà si trasfigurerà.  E in cieli nuovi e terra nuova il nostro anelito si placherà!  La tua casa, la tua dimora su tutti i popoli si estenderà!  Ritornello  È il pane del cielo che ci fa vivere:  che chiama a vivere e andare nel mondo.  È il pane del cielo che ci fa vivere:  che chiama a vivere e andare a portare il tuo dono.  Strofa 2  Cieli nuovi e terra nuova: la speranza non inganna mai!  E Tu risorto ci fai risorti, tutto il creato un canto diverrà.  E in cieli nuovi e terra nuova  c'è il disegno che hai affidato a noi:  Gerusalemme dal cielo scende, Gerusalemme in terra troverà.  Ritornello  Strofa 3  Cieli nuovi e terra nuova:  è il destino dell'umanità!  Viene il tempo, arriva il tempo che ogni realtà si trasfigurerà."
+    "firstLine": ""
   },
   {
     "id": "colori",
-    "slug": "colori",
+    "file": "colori.json",
     "title": "Colori",
-    "sub": "",
     "author": "",
-    "cat": "Ingresso",
-    "category": "Ingresso",
     "categories": [
       "Ingresso"
     ],
-    "file": "colori.json",
-    "search": "Colori  Strofa 1  Questo prato verde ti ricorderà  la speranza del mattino:  non smarrirla, amico mio,  perché Io, perché Io ritornerò.  Strofa 2  Questo, cielo azzurro ti ricorderà  la fiducia nella vita:  non deporla, amico mio,  perché Io, perché Io ritornerò.  Strofa 3  Questa rosa rossa ti ricorderà  la bellezza del tuo amore:  non tradirlo, amico mio,  perché Io, perché Io ritornerò."
+    "firstLine": ""
   },
   {
     "id": "come-fuoco-vivo",
-    "slug": "come-fuoco-vivo",
+    "file": "come-fuoco-vivo.json",
     "title": "Come Fuoco Vivo",
-    "sub": "",
     "author": "",
-    "cat": "Comunione",
-    "category": "Comunione",
     "categories": [
       "Comunione"
     ],
-    "file": "come-fuoco-vivo.json",
-    "search": "Come Fuoco Vivo  Ritornello  Come fuoco vivo si accende in noi un’immensa felicità  che mai più nessuno ci toglierà perché Tu sei ritornato.  Chi potrà tacere, da ora in poi, che sei Tu in cammino con noi,  che la morte è vinta per sempre, che ci hai ridonato la vita?  Strofa 1  Spezzi il pane davanti a noi mentre il sole è al tramonto:  ora gli occhi Ti vedono, sei Tu! Resta con noi.  Ritornello  Strofa 2  E per sempre Ti mostrerai in quel gesto d’amore:  mani che ancora spezzano pane d’eternità.  Ritornello"
+    "firstLine": ""
+  },
+  {
+    "id": "come-maria",
+    "file": "come-maria.json",
+    "title": "Come Maria",
+    "author": "",
+    "categories": [
+      "Offertorio"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "come-un-prodigio",
+    "file": "come-un-prodigio.json",
+    "title": "Come Un Prodigio",
+    "author": "",
+    "categories": [
+      "Comunione"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "con-te-camminero",
+    "file": "con-te-camminero.json",
+    "title": "Con Te Camminerò",
+    "author": "",
+    "categories": [
+      "Comunione",
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "dallaurora-al-tramonto",
+    "file": "dallaurora-al-tramonto.json",
+    "title": "Dall'Aurora Al Tramonto",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "davanti-a-questo-amore",
+    "file": "davanti-a-questo-amore.json",
+    "title": "Davanti A Questo Amore",
+    "author": "",
+    "categories": [
+      "Comunione"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "e-bello-lodarti",
+    "file": "e-bello-lodarti.json",
+    "title": "È Bello Lodarti",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "e-lincontro-della-vita",
+    "file": "e-lincontro-della-vita.json",
+    "title": "È L'Incontro Della Vita",
+    "author": "",
+    "categories": [
+      "Ingresso"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "ecco-il-nostro-si",
+    "file": "ecco-il-nostro-si.json",
+    "title": "Ecco Il Nostro Si",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "ecco-il-pane",
+    "file": "ecco-il-pane.json",
+    "title": "Ecco Il Pane",
+    "author": "",
+    "categories": [
+      "Offertorio"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "frutto-della-nostra-terra",
+    "file": "frutto-della-nostra-terra.json",
+    "title": "Frutto Della Nostra Terra",
+    "author": "",
+    "categories": [
+      "Offertorio"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "fuoco-damore",
+    "file": "fuoco-damore.json",
+    "title": "Fuoco D'Amore",
+    "author": "",
+    "categories": [
+      "Comunione"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "giovane-donna",
+    "file": "giovane-donna.json",
+    "title": "Giovane Donna",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "gloria",
+    "file": "gloria.json",
+    "title": "Gloria",
+    "author": "",
+    "categories": [
+      "Gloria"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "grandi-cose",
+    "file": "grandi-cose.json",
+    "title": "Grandi Cose",
+    "author": "",
+    "categories": [
+      "Comunione"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "hai-detto-si",
+    "file": "hai-detto-si.json",
+    "title": "Hai Detto Si",
+    "author": "",
+    "categories": [
+      "Comunione"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "il-canto-dellamicizia",
+    "file": "il-canto-dellamicizia.json",
+    "title": "Il Canto Dell'Amicizia",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "il-canto-dellamore",
+    "file": "il-canto-dellamore.json",
+    "title": "Il Canto Dell'Amore",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "il-signore-e-la-luce",
+    "file": "il-signore-e-la-luce.json",
+    "title": "Il Signore È La Luce",
+    "author": "",
+    "categories": [
+      "Alleluia"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "in-eterno-cantero",
+    "file": "in-eterno-cantero.json",
+    "title": "In Eterno Canterò",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "iubilate-deo",
+    "file": "iubilate-deo.json",
+    "title": "Iubilate Deo",
+    "author": "",
+    "categories": [
+      "Canti vari"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "jesus-christ",
+    "file": "jesus-christ.json",
+    "title": "Jesus Christ",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "lemmanuel",
+    "file": "lemmanuel.json",
+    "title": "L'Emmanuel",
+    "author": "",
+    "categories": [
+      "Ingresso"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "la-tua-dimora",
+    "file": "la-tua-dimora.json",
+    "title": "La Tua Dimora",
+    "author": "",
+    "categories": [
+      "Finale"
+    ],
+    "firstLine": ""
+  },
+  {
+    "id": "laudato-sii-signore-mio",
+    "file": "laudato-sii-signore-mio.json",
+    "title": "Laudato Sii Signore Mio",
+    "author": "",
+    "categories": [
+      "Ingresso"
+    ],
+    "firstLine": ""
   }
 ]
