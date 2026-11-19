@@ -1,0 +1,91 @@
+{
+  "id": "lemmanuel",
+  "title": "L'Emmanuel",
+  "sub": "",
+  "category": "Ingresso",
+  "categories": [
+    "Ingresso"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "L'Emmanuel  Strofa 1  Dall'orizzonte una grande luce viaggia nella storia  e lungo gli anni ha vinto il buio facendosi memoria,  e illuminando la nostra vita, chiaro ci rivela  che non si vive se non si cerca la Verità  Strofa 2  Da mille strade arriviamo a Roma sui passi della fede,  sentiamo l'eco della Parola che risuona ancora  da queste mura, da questo cielo per il mondo intero:  è vivo oggi, è l'Uomo Vero Cristo tra noi.  Strofa 3  Siamo qui sotto la stessa luce  sotto la sua croce cantando ad una voce.  Ritornello x2  È l’Emmanuel, l’Emmanuel, l’Emmanuel.  È l’Emmanuel, l’Emmanuel.",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Dall'orizzonte una grande luce viaggia nella storia"
+    },
+    {
+      "t": "l",
+      "v": "e lungo gli anni ha vinto il buio facendosi memoria,"
+    },
+    {
+      "t": "l",
+      "v": "e illuminando la nostra vita, chiaro ci rivela"
+    },
+    {
+      "t": "l",
+      "v": "che non si vive se non si cerca la Verità"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Da mille strade arriviamo a Roma sui passi della fede,"
+    },
+    {
+      "t": "l",
+      "v": "sentiamo l'eco della Parola che risuona ancora"
+    },
+    {
+      "t": "l",
+      "v": "da queste mura, da questo cielo per il mondo intero:"
+    },
+    {
+      "t": "l",
+      "v": "è vivo oggi, è l'Uomo Vero Cristo tra noi."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Siamo qui sotto la stessa luce"
+    },
+    {
+      "t": "l",
+      "v": "sotto la sua croce cantando ad una voce."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello x2"
+    },
+    {
+      "t": "l",
+      "v": "È l’Emmanuel, l’Emmanuel, l’Emmanuel."
+    },
+    {
+      "t": "l",
+      "v": "È l’Emmanuel, l’Emmanuel."
+    }
+  ]
+}

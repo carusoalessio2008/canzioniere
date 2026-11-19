@@ -1,0 +1,126 @@
+{
+  "id": "con-te-camminero",
+  "title": "Con Te Camminerò",
+  "sub": "",
+  "category": "Comunione",
+  "categories": [
+    "Comunione",
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Con Te Camminerò  Strofa 1  Mi hai chiamato ed ora sono qui la mia vita ormai Signore  Trova senso solo in te cerco nel profondo e tu ci sei  Guardo intorno e poi ti trovo accanto a me  Ritornello  Insieme a te camminerò in ogni volto, in ogni pianto  Io ti riconoscerò ti seguirò ovunque andrai  Io con te camminerò  Strofa 2  Come servo sei venuto qui per chi è solo e chi è ferito  Per chi vive in povertà ora oh Signore, manda me  Segno del tuo amore per l’umanità  Ritornello  Strofa 3  Tu sei qui, sei con noi,  Sempre accanto a noi  Nel dolore di chi non ha più una casa  Tu sei lì  Nel silenzio di chi ha perso ogni speranza  Tu sei lì  Nei rimpianti, nei miei dubbi e nel buio delle mie fragilità  Tu sei lì  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Mi hai chiamato ed ora sono qui la mia vita ormai Signore"
+    },
+    {
+      "t": "l",
+      "v": "Trova senso solo in te cerco nel profondo e tu ci sei"
+    },
+    {
+      "t": "l",
+      "v": "Guardo intorno e poi ti trovo accanto a me"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Insieme a te camminerò in ogni volto, in ogni pianto"
+    },
+    {
+      "t": "l",
+      "v": "Io ti riconoscerò ti seguirò ovunque andrai"
+    },
+    {
+      "t": "l",
+      "v": "Io con te camminerò"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Come servo sei venuto qui per chi è solo e chi è ferito"
+    },
+    {
+      "t": "l",
+      "v": "Per chi vive in povertà ora oh Signore, manda me"
+    },
+    {
+      "t": "l",
+      "v": "Segno del tuo amore per l’umanità"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Tu sei qui, sei con noi,"
+    },
+    {
+      "t": "l",
+      "v": "Sempre accanto a noi"
+    },
+    {
+      "t": "l",
+      "v": "Nel dolore di chi non ha più una casa"
+    },
+    {
+      "t": "l",
+      "v": "Tu sei lì"
+    },
+    {
+      "t": "l",
+      "v": "Nel silenzio di chi ha perso ogni speranza"
+    },
+    {
+      "t": "l",
+      "v": "Tu sei lì"
+    },
+    {
+      "t": "l",
+      "v": "Nei rimpianti, nei miei dubbi e nel buio delle mie fragilità"
+    },
+    {
+      "t": "l",
+      "v": "Tu sei lì"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

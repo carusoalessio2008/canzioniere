@@ -1,0 +1,99 @@
+{
+  "id": "frutto-della-nostra-terra",
+  "title": "Frutto Della Nostra Terra",
+  "sub": "",
+  "category": "Offertorio",
+  "categories": [
+    "Offertorio"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Frutto Della Nostra Terra  Strofa 1  Frutto della nostra terra, del lavoro di ogni uomo:  Pane della nostra vita, cibo della quotidianità  Tu che lo prendevi un giorno, lo spezzavi per i tuoi  Oggi vieni in questo pane, cibo vero dell'umanità  Ritornello  E sarò pane, e sarò vino nella mia vita, nelle tue mani.  Ti accoglierò dentro di me farò di me un'offerta viva,  Un sacrificio gradito a te.  Strofa 2  Frutto della nostra terra, del lavoro di ogni uomo:  Vino delle nostre vigne, sulla mensa dei fratelli tuoi  Tu che lo prendevi un giorno, lo bevevi con i tuoi  Oggi vieni in questo vino e ti doni per la vita mia  Ritornello  E sarò pane, e sarò vino nella mia vita, nelle tue mani.  Ti accoglierò dentro di me farò di me un'offerta viva,  Un sacrificio gradito a te, un sacrificio gradito a te.",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Frutto della nostra terra, del lavoro di ogni uomo:"
+    },
+    {
+      "t": "l",
+      "v": "Pane della nostra vita, cibo della quotidianità"
+    },
+    {
+      "t": "l",
+      "v": "Tu che lo prendevi un giorno, lo spezzavi per i tuoi"
+    },
+    {
+      "t": "l",
+      "v": "Oggi vieni in questo pane, cibo vero dell'umanità"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "E sarò pane, e sarò vino nella mia vita, nelle tue mani."
+    },
+    {
+      "t": "l",
+      "v": "Ti accoglierò dentro di me farò di me un'offerta viva,"
+    },
+    {
+      "t": "l",
+      "v": "Un sacrificio gradito a te."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Frutto della nostra terra, del lavoro di ogni uomo:"
+    },
+    {
+      "t": "l",
+      "v": "Vino delle nostre vigne, sulla mensa dei fratelli tuoi"
+    },
+    {
+      "t": "l",
+      "v": "Tu che lo prendevi un giorno, lo bevevi con i tuoi"
+    },
+    {
+      "t": "l",
+      "v": "Oggi vieni in questo vino e ti doni per la vita mia"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "E sarò pane, e sarò vino nella mia vita, nelle tue mani."
+    },
+    {
+      "t": "l",
+      "v": "Ti accoglierò dentro di me farò di me un'offerta viva,"
+    },
+    {
+      "t": "l",
+      "v": "Un sacrificio gradito a te, un sacrificio gradito a te."
+    }
+  ]
+}

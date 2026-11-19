@@ -1,0 +1,153 @@
+{
+  "id": "fuoco-damore",
+  "title": "Fuoco D'Amore",
+  "sub": "",
+  "category": "Comunione",
+  "categories": [
+    "Comunione"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Fuoco D'Amore  Strofa 1  Fuoco d'amore, brucia nel mio cuore  L'acqua della vita zampilla dentro me  Oh, spirito creatore, vieni nel mio cuore  Consolatore, scendi su di me  Ritornello  Vieni, santo spirito  Vieni, Dio d'amore  Vieni, Dio di gioia  Scendi su di me  Strofa 2  Fuoco d'amore, brucia nel mio cuore  L'acqua della vita zampilla dentro me  Oh, balsamo d'amore, sana le ferite  Spirito di pace, scendi su di me  Ritornello x2  Strofa 3  Plasmami, guidami  Usami, salvami  Plasmami, guidami  Usami, salvami  Plasmami, guidami  Usami, salvami  Ritornello  Vieni, santo spirito  Vieni, Dio d'amore  Vieni, Dio di gioia  Scendi su di me  Vieni, spirito, vieni in me  Vieni, spirito, vieni in me",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Fuoco d'amore, brucia nel mio cuore"
+    },
+    {
+      "t": "l",
+      "v": "L'acqua della vita zampilla dentro me"
+    },
+    {
+      "t": "l",
+      "v": "Oh, spirito creatore, vieni nel mio cuore"
+    },
+    {
+      "t": "l",
+      "v": "Consolatore, scendi su di me"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Vieni, santo spirito"
+    },
+    {
+      "t": "l",
+      "v": "Vieni, Dio d'amore"
+    },
+    {
+      "t": "l",
+      "v": "Vieni, Dio di gioia"
+    },
+    {
+      "t": "l",
+      "v": "Scendi su di me"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Fuoco d'amore, brucia nel mio cuore"
+    },
+    {
+      "t": "l",
+      "v": "L'acqua della vita zampilla dentro me"
+    },
+    {
+      "t": "l",
+      "v": "Oh, balsamo d'amore, sana le ferite"
+    },
+    {
+      "t": "l",
+      "v": "Spirito di pace, scendi su di me"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello x2"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Plasmami, guidami"
+    },
+    {
+      "t": "l",
+      "v": "Usami, salvami"
+    },
+    {
+      "t": "l",
+      "v": "Plasmami, guidami"
+    },
+    {
+      "t": "l",
+      "v": "Usami, salvami"
+    },
+    {
+      "t": "l",
+      "v": "Plasmami, guidami"
+    },
+    {
+      "t": "l",
+      "v": "Usami, salvami"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Vieni, santo spirito"
+    },
+    {
+      "t": "l",
+      "v": "Vieni, Dio d'amore"
+    },
+    {
+      "t": "l",
+      "v": "Vieni, Dio di gioia"
+    },
+    {
+      "t": "l",
+      "v": "Scendi su di me"
+    },
+    {
+      "t": "l",
+      "v": "Vieni, spirito, vieni in me"
+    },
+    {
+      "t": "l",
+      "v": "Vieni, spirito, vieni in me"
+    }
+  ]
+}

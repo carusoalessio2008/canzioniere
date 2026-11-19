@@ -1,0 +1,110 @@
+{
+  "id": "e-bello-lodarti",
+  "title": "È Bello Lodarti",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "È Bello Lodarti  Ritornello  È bello cantare il Tuo amore,  è bello lodare il Tuo nome.  È bello cantare il Tuo amore,  è bello lodarti, Signore,  è bello cantare a Te! (x2)  Strofa 1  Tu, che sei l’Amore infinito  che neppure il cielo può contenere,  Ti sei fatto uomo,  Tu sei venuto qui  ad abitare in mezzo a noi, allora  Ritornello  Strofa 2  Tu che conti tutte le stelle  e le chiami ad una ad una per nome,  da mille sentieri  ci hai radunati qui,  ci hai chiamati figli Tuoi, allora  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "È bello cantare il Tuo amore,"
+    },
+    {
+      "t": "l",
+      "v": "è bello lodare il Tuo nome."
+    },
+    {
+      "t": "l",
+      "v": "È bello cantare il Tuo amore,"
+    },
+    {
+      "t": "l",
+      "v": "è bello lodarti, Signore,"
+    },
+    {
+      "t": "l",
+      "v": "è bello cantare a Te! (x2)"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Tu, che sei l’Amore infinito"
+    },
+    {
+      "t": "l",
+      "v": "che neppure il cielo può contenere,"
+    },
+    {
+      "t": "l",
+      "v": "Ti sei fatto uomo,"
+    },
+    {
+      "t": "l",
+      "v": "Tu sei venuto qui"
+    },
+    {
+      "t": "l",
+      "v": "ad abitare in mezzo a noi, allora"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Tu che conti tutte le stelle"
+    },
+    {
+      "t": "l",
+      "v": "e le chiami ad una ad una per nome,"
+    },
+    {
+      "t": "l",
+      "v": "da mille sentieri"
+    },
+    {
+      "t": "l",
+      "v": "ci hai radunati qui,"
+    },
+    {
+      "t": "l",
+      "v": "ci hai chiamati figli Tuoi, allora"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

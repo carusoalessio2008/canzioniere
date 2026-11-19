@@ -1,0 +1,131 @@
+{
+  "id": "come-maria",
+  "title": "Come Maria",
+  "sub": "",
+  "category": "Offertorio",
+  "categories": [
+    "Offertorio"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Come Maria  Strofa 1  Vogliamo vivere, Signore,  offrendo a Te la nostra vita,  con questo pane e questo vino  accetta quello che noi siamo.  Vogliamo vivere, Signore,  abbandonati alla Tua voce,  staccati dalle cose vane,  fissati nella vita vera.  Ritornello  Vogliamo vivere come Maria,  l'irraggiungibile,  la madre amata  che vince il mondo con l'Amore  e offrire sempre la tua vita  che viene dal Cielo.  Strofa 2  Accetta dalle nostre mani  come un'offerta a Te gradita  i desideri di ogni cuore,  le ansie della nostra vita.  Vogliamo vivere, Signore,  accesi dalle Tue parole  per riportare in ogni uomo  la fiamma viva del Tuo amore.  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Vogliamo vivere, Signore,"
+    },
+    {
+      "t": "l",
+      "v": "offrendo a Te la nostra vita,"
+    },
+    {
+      "t": "l",
+      "v": "con questo pane e questo vino"
+    },
+    {
+      "t": "l",
+      "v": "accetta quello che noi siamo."
+    },
+    {
+      "t": "l",
+      "v": "Vogliamo vivere, Signore,"
+    },
+    {
+      "t": "l",
+      "v": "abbandonati alla Tua voce,"
+    },
+    {
+      "t": "l",
+      "v": "staccati dalle cose vane,"
+    },
+    {
+      "t": "l",
+      "v": "fissati nella vita vera."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Vogliamo vivere come Maria,"
+    },
+    {
+      "t": "l",
+      "v": "l'irraggiungibile,"
+    },
+    {
+      "t": "l",
+      "v": "la madre amata"
+    },
+    {
+      "t": "l",
+      "v": "che vince il mondo con l'Amore"
+    },
+    {
+      "t": "l",
+      "v": "e offrire sempre la tua vita"
+    },
+    {
+      "t": "l",
+      "v": "che viene dal Cielo."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Accetta dalle nostre mani"
+    },
+    {
+      "t": "l",
+      "v": "come un'offerta a Te gradita"
+    },
+    {
+      "t": "l",
+      "v": "i desideri di ogni cuore,"
+    },
+    {
+      "t": "l",
+      "v": "le ansie della nostra vita."
+    },
+    {
+      "t": "l",
+      "v": "Vogliamo vivere, Signore,"
+    },
+    {
+      "t": "l",
+      "v": "accesi dalle Tue parole"
+    },
+    {
+      "t": "l",
+      "v": "per riportare in ogni uomo"
+    },
+    {
+      "t": "l",
+      "v": "la fiamma viva del Tuo amore."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "id": "e-lincontro-della-vita",
+  "title": "È L'Incontro Della Vita",
+  "sub": "",
+  "category": "Ingresso",
+  "categories": [
+    "Ingresso"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "È L'Incontro Della Vita  Strofa 1  È l'incontro della vita, è l'incontro intorno a te.  Tu che sei realtà infinita, tu ci chiami tutti a te.  E il tuo Spirito è una brezza, che dissolve ogni tristezza,  nell'amore che tu vuoi fra di noi,  nell'amore che tu vuoi fra di noi.  Strofa 2  È l'incontro della gioia, è l'incontro fra di noi.  Tu risplendi nella gloria, sei presente in mezzo a noi.  Non importa noi chi siamo, ciò che conta è che ci amiamo,  dell'amore che tu vuoi fra di noi,  dell'amore che tu vuoi fra di noi.  Ritornello  Nel tuo cuore, noi troviamo il Paradiso.  Nel tuo cuore, noi troviamo l'unità.  Nel tuo cuore, gli orizzonti più splendenti,  nel tuo cuore è l'umanità.  Strofa 3  È l'incontro dei fratelli tutti uniti qui con te.  E i propositi più belli, adesso nascono con te.  C'è la forza, la sorgente, la più pura delle fonti,  nell'amore che tu vuoi fra di noi,  nell'amore che tu vuoi fra di noi",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "È l'incontro della vita, è l'incontro intorno a te."
+    },
+    {
+      "t": "l",
+      "v": "Tu che sei realtà infinita, tu ci chiami tutti a te."
+    },
+    {
+      "t": "l",
+      "v": "E il tuo Spirito è una brezza, che dissolve ogni tristezza,"
+    },
+    {
+      "t": "l",
+      "v": "nell'amore che tu vuoi fra di noi,"
+    },
+    {
+      "t": "l",
+      "v": "nell'amore che tu vuoi fra di noi."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "È l'incontro della gioia, è l'incontro fra di noi."
+    },
+    {
+      "t": "l",
+      "v": "Tu risplendi nella gloria, sei presente in mezzo a noi."
+    },
+    {
+      "t": "l",
+      "v": "Non importa noi chi siamo, ciò che conta è che ci amiamo,"
+    },
+    {
+      "t": "l",
+      "v": "dell'amore che tu vuoi fra di noi,"
+    },
+    {
+      "t": "l",
+      "v": "dell'amore che tu vuoi fra di noi."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Nel tuo cuore, noi troviamo il Paradiso."
+    },
+    {
+      "t": "l",
+      "v": "Nel tuo cuore, noi troviamo l'unità."
+    },
+    {
+      "t": "l",
+      "v": "Nel tuo cuore, gli orizzonti più splendenti,"
+    },
+    {
+      "t": "l",
+      "v": "nel tuo cuore è l'umanità."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "È l'incontro dei fratelli tutti uniti qui con te."
+    },
+    {
+      "t": "l",
+      "v": "E i propositi più belli, adesso nascono con te."
+    },
+    {
+      "t": "l",
+      "v": "C'è la forza, la sorgente, la più pura delle fonti,"
+    },
+    {
+      "t": "l",
+      "v": "nell'amore che tu vuoi fra di noi,"
+    },
+    {
+      "t": "l",
+      "v": "nell'amore che tu vuoi fra di noi"
+    }
+  ]
+}

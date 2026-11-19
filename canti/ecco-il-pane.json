@@ -1,0 +1,79 @@
+{
+  "id": "ecco-il-pane",
+  "title": "Ecco Il Pane",
+  "sub": "",
+  "category": "Offertorio",
+  "categories": [
+    "Offertorio"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Ecco Il Pane  Strofa 1  Ecco il pane e il vino  della Cena insieme a te  Ecco questa vita che trasformi  Ritornello  Cieli e terre nuove in noi  Tu discendi dentro noi  Fatti come te, noi con te nell'anima  Strofa 2  Ecco il pane e il vino  della Cena insieme a te  Ecco questa vita che trasformi  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Ecco il pane e il vino"
+    },
+    {
+      "t": "l",
+      "v": "della Cena insieme a te"
+    },
+    {
+      "t": "l",
+      "v": "Ecco questa vita che trasformi"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Cieli e terre nuove in noi"
+    },
+    {
+      "t": "l",
+      "v": "Tu discendi dentro noi"
+    },
+    {
+      "t": "l",
+      "v": "Fatti come te, noi con te nell'anima"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Ecco il pane e il vino"
+    },
+    {
+      "t": "l",
+      "v": "della Cena insieme a te"
+    },
+    {
+      "t": "l",
+      "v": "Ecco questa vita che trasformi"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

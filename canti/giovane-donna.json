@@ -1,0 +1,67 @@
+{
+  "id": "giovane-donna",
+  "title": "Giovane Donna",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Giovane Donna  Strofa 1  Giovane donna, attesa dell’umanità, un desiderio d’amore e pura libertà.  Il Dio lontano è qui vicino a Te, voce silenzio, annuncio di verità.  Ritornello  Ave Maria, Ave Maria!  Strofa 2  Dio t’ha prescelta qual madre piena di bellezza,  ed il suo amore ti avvolgerà con la suo ombra.  Grembo di Dio, venuto sulla terra, Tu sarai madre di un uomo nuovo.  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Giovane donna, attesa dell’umanità, un desiderio d’amore e pura libertà."
+    },
+    {
+      "t": "l",
+      "v": "Il Dio lontano è qui vicino a Te, voce silenzio, annuncio di verità."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Ave Maria, Ave Maria!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Dio t’ha prescelta qual madre piena di bellezza,"
+    },
+    {
+      "t": "l",
+      "v": "ed il suo amore ti avvolgerà con la suo ombra."
+    },
+    {
+      "t": "l",
+      "v": "Grembo di Dio, venuto sulla terra, Tu sarai madre di un uomo nuovo."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

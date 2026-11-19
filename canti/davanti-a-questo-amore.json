@@ -1,0 +1,65 @@
+{
+  "id": "davanti-a-questo-amore",
+  "title": "Davanti A Questo Amore",
+  "sub": "",
+  "category": "Comunione",
+  "categories": [
+    "Comunione"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Davanti A Questo Amore  Strofa 1  Hai disteso le tue braccia anche per me, Gesù  Dal tuo cuore, come fonte, hai versato pace in me  Cerco ancora il mio peccato, ma non c'è  Tu da sempre vinci il mondo dal tuo trono di dolore  Ritornello  Dio, mia grazia, mia speranza, ricco e grande Redentore  Tu, Re umile e potente, risorto per amore risorgi per la vita  Vero agnello senza macchia mite e forte Salvatore sei  Tu, Re povero e glorioso, risorgi con potenza  Davanti a questo amore, la morte fuggirà",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Hai disteso le tue braccia anche per me, Gesù"
+    },
+    {
+      "t": "l",
+      "v": "Dal tuo cuore, come fonte, hai versato pace in me"
+    },
+    {
+      "t": "l",
+      "v": "Cerco ancora il mio peccato, ma non c'è"
+    },
+    {
+      "t": "l",
+      "v": "Tu da sempre vinci il mondo dal tuo trono di dolore"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Dio, mia grazia, mia speranza, ricco e grande Redentore"
+    },
+    {
+      "t": "l",
+      "v": "Tu, Re umile e potente, risorto per amore risorgi per la vita"
+    },
+    {
+      "t": "l",
+      "v": "Vero agnello senza macchia mite e forte Salvatore sei"
+    },
+    {
+      "t": "l",
+      "v": "Tu, Re povero e glorioso, risorgi con potenza"
+    },
+    {
+      "t": "l",
+      "v": "Davanti a questo amore, la morte fuggirà"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "in-eterno-cantero",
+  "title": "In Eterno Canterò",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "In Eterno Canterò  Ritornello x3  n eterno canterò la tua lode, mio Signor  Le mie labbra esalteranno la tua fedeltà  Io per sempre ti benedirò e annuncerò il tuo nome  In eterno io ti canterò  Strofa 1  Anche se la tempesta mi colpirà  La mia lode, a te, Signore, si eleverà  Sei tu la mia fiducia, io spero in te  Tu sei il mio Signore, il mio re  Ritornello  Strofa 2  Anche se nel deserto mi perderò  La tua strada, mio Signore, io cercherò  La luce del tuo amore mi guiderà  Riparo nella notte tu sarai  Ritornello  Strofa 3  Anche se dal dolore io passerò  La tua croce, mio Signore, contemplerò  Le mani verso il cielo innalzerò  La voce del tuo figlio ascolterai  Ritornello  In eterno canterò la tua lode, mio Signor  Le mie labbra esalteranno la tua fedeltà  Io per sempre ti benedirò e annuncerò il tuo nome  In eterno io ti canterò  In eterno canterò la tua lode, mio Signor  Le mie labbra esalteranno la tua fedeltà  Io per sempre ti benedirò e annuncerò il tuo nome  In eterno io ti canterò  Io per sempre ti benedirò e annuncerò il tuo nome  In eterno io ti canterò Signor  In eterno io ti canterò Signor",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello x3"
+    },
+    {
+      "t": "l",
+      "v": "n eterno canterò la tua lode, mio Signor"
+    },
+    {
+      "t": "l",
+      "v": "Le mie labbra esalteranno la tua fedeltà"
+    },
+    {
+      "t": "l",
+      "v": "Io per sempre ti benedirò e annuncerò il tuo nome"
+    },
+    {
+      "t": "l",
+      "v": "In eterno io ti canterò"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Anche se la tempesta mi colpirà"
+    },
+    {
+      "t": "l",
+      "v": "La mia lode, a te, Signore, si eleverà"
+    },
+    {
+      "t": "l",
+      "v": "Sei tu la mia fiducia, io spero in te"
+    },
+    {
+      "t": "l",
+      "v": "Tu sei il mio Signore, il mio re"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Anche se nel deserto mi perderò"
+    },
+    {
+      "t": "l",
+      "v": "La tua strada, mio Signore, io cercherò"
+    },
+    {
+      "t": "l",
+      "v": "La luce del tuo amore mi guiderà"
+    },
+    {
+      "t": "l",
+      "v": "Riparo nella notte tu sarai"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Anche se dal dolore io passerò"
+    },
+    {
+      "t": "l",
+      "v": "La tua croce, mio Signore, contemplerò"
+    },
+    {
+      "t": "l",
+      "v": "Le mani verso il cielo innalzerò"
+    },
+    {
+      "t": "l",
+      "v": "La voce del tuo figlio ascolterai"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "In eterno canterò la tua lode, mio Signor"
+    },
+    {
+      "t": "l",
+      "v": "Le mie labbra esalteranno la tua fedeltà"
+    },
+    {
+      "t": "l",
+      "v": "Io per sempre ti benedirò e annuncerò il tuo nome"
+    },
+    {
+      "t": "l",
+      "v": "In eterno io ti canterò"
+    },
+    {
+      "t": "l",
+      "v": "In eterno canterò la tua lode, mio Signor"
+    },
+    {
+      "t": "l",
+      "v": "Le mie labbra esalteranno la tua fedeltà"
+    },
+    {
+      "t": "l",
+      "v": "Io per sempre ti benedirò e annuncerò il tuo nome"
+    },
+    {
+      "t": "l",
+      "v": "In eterno io ti canterò"
+    },
+    {
+      "t": "l",
+      "v": "Io per sempre ti benedirò e annuncerò il tuo nome"
+    },
+    {
+      "t": "l",
+      "v": "In eterno io ti canterò Signor"
+    },
+    {
+      "t": "l",
+      "v": "In eterno io ti canterò Signor"
+    }
+  ]
+}

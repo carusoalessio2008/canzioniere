@@ -1,0 +1,138 @@
+{
+  "id": "ecco-il-nostro-si",
+  "title": "Ecco Il Nostro Si",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Ecco Il Nostro Si  Strofa 1  Fra tutte le donne scelte a Nazareth,  sul tuo volto risplende  il coraggio di quando hai detto “Sì”.  Insegna a questo cuore l’umiltà,  il silenzio d’amore,  la Speranza nel figlio tuo Gesù.  Ritornello  Ecco il nostro Sì, nuova luce che rischiara il giorno,  è bellissimo regalare al mondo la Speranza.  Ecco il nostro Sì, camminiamo insieme a te Maria,  Madre di Gesù, madre dell’umanità.  Strofa 2  Nella tua casa il verbo si rivelò  nel segreto del cuore  il respiro del figlio Emmanuel.  In segna a queste mani la fedeltà,  a costruire la pace,  una casa comune insieme a Te.  Ritornello  Strofa 3  Donna dei nostri giorni sostienici,  guida il nostro cammino  con la forza di quando hai detto “Sì”.  Insegnaci ad accogliere Gesù,  noi saremo Dimora,  la più bella poesia dell’anima.",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Fra tutte le donne scelte a Nazareth,"
+    },
+    {
+      "t": "l",
+      "v": "sul tuo volto risplende"
+    },
+    {
+      "t": "l",
+      "v": "il coraggio di quando hai detto “Sì”."
+    },
+    {
+      "t": "l",
+      "v": "Insegna a questo cuore l’umiltà,"
+    },
+    {
+      "t": "l",
+      "v": "il silenzio d’amore,"
+    },
+    {
+      "t": "l",
+      "v": "la Speranza nel figlio tuo Gesù."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Ecco il nostro Sì, nuova luce che rischiara il giorno,"
+    },
+    {
+      "t": "l",
+      "v": "è bellissimo regalare al mondo la Speranza."
+    },
+    {
+      "t": "l",
+      "v": "Ecco il nostro Sì, camminiamo insieme a te Maria,"
+    },
+    {
+      "t": "l",
+      "v": "Madre di Gesù, madre dell’umanità."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Nella tua casa il verbo si rivelò"
+    },
+    {
+      "t": "l",
+      "v": "nel segreto del cuore"
+    },
+    {
+      "t": "l",
+      "v": "il respiro del figlio Emmanuel."
+    },
+    {
+      "t": "l",
+      "v": "In segna a queste mani la fedeltà,"
+    },
+    {
+      "t": "l",
+      "v": "a costruire la pace,"
+    },
+    {
+      "t": "l",
+      "v": "una casa comune insieme a Te."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Donna dei nostri giorni sostienici,"
+    },
+    {
+      "t": "l",
+      "v": "guida il nostro cammino"
+    },
+    {
+      "t": "l",
+      "v": "con la forza di quando hai detto “Sì”."
+    },
+    {
+      "t": "l",
+      "v": "Insegnaci ad accogliere Gesù,"
+    },
+    {
+      "t": "l",
+      "v": "noi saremo Dimora,"
+    },
+    {
+      "t": "l",
+      "v": "la più bella poesia dell’anima."
+    }
+  ]
+}

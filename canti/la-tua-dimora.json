@@ -1,0 +1,133 @@
+{
+  "id": "la-tua-dimora",
+  "title": "La Tua Dimora",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "La Tua Dimora  Strofa 1  La tua dimora, la tua città  è sopra un fondamento che non si spezza:  apostoli, profeti e come pietra angolare Gesù  che dona vita e bellezza.  La tua dimora, la tua città  non conosce porte chiuse e cancelli,  qui concittadini dei santi e familiari di te ci ritroviamo fratelli.  Ritornello  Fai di noi il popolo tuo che parla ogni istante con te  chiamandoti \"Padre\".  Noi, figli di te, la vera famiglia di te,  raccolta da te nella tua casa.  Strofa 2  La tua dimora, la tua città  è il richiamo della gioia infinita,  coro di fratelli uniti nello stesso Spirito  che riempie il cuore di vita.  Ritornello  Strofa 3  La tua dimora, la tua città  dove il Verbo splende della tua luce,  Verbo che è fratello e che ci ha dato di abitare con te  nel dono della sua pace.  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "La tua dimora, la tua città"
+    },
+    {
+      "t": "l",
+      "v": "è sopra un fondamento che non si spezza:"
+    },
+    {
+      "t": "l",
+      "v": "apostoli, profeti e come pietra angolare Gesù"
+    },
+    {
+      "t": "l",
+      "v": "che dona vita e bellezza."
+    },
+    {
+      "t": "l",
+      "v": "La tua dimora, la tua città"
+    },
+    {
+      "t": "l",
+      "v": "non conosce porte chiuse e cancelli,"
+    },
+    {
+      "t": "l",
+      "v": "qui concittadini dei santi e familiari di te ci ritroviamo fratelli."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Fai di noi il popolo tuo che parla ogni istante con te"
+    },
+    {
+      "t": "l",
+      "v": "chiamandoti \"Padre\"."
+    },
+    {
+      "t": "l",
+      "v": "Noi, figli di te, la vera famiglia di te,"
+    },
+    {
+      "t": "l",
+      "v": "raccolta da te nella tua casa."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "La tua dimora, la tua città"
+    },
+    {
+      "t": "l",
+      "v": "è il richiamo della gioia infinita,"
+    },
+    {
+      "t": "l",
+      "v": "coro di fratelli uniti nello stesso Spirito"
+    },
+    {
+      "t": "l",
+      "v": "che riempie il cuore di vita."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "La tua dimora, la tua città"
+    },
+    {
+      "t": "l",
+      "v": "dove il Verbo splende della tua luce,"
+    },
+    {
+      "t": "l",
+      "v": "Verbo che è fratello e che ci ha dato di abitare con te"
+    },
+    {
+      "t": "l",
+      "v": "nel dono della sua pace."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

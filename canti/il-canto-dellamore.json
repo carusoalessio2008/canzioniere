@@ -1,0 +1,155 @@
+{
+  "id": "il-canto-dellamore",
+  "title": "Il Canto Dell'Amore",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Il Canto Dell'Amore  Strofa 1  Se dovrai attraversare il deserto  non temere io sarò con te  se dovrai camminare nel fuoco  la sua fiamma non ti brucerà  seguirai la mia luce nella notte  sentirai la mia forza nel cammino  io sono il tuo Dio, il Signore.  Strofa 2  Sono io che ti ho fatto e plasmato  ti ho chiamato per nome  io da sempre ti ho conosciuto  e ti ho dato il mio amore  perché tu sei prezioso ai miei occhi  vali più del più grande dei tesori  io sarò con te dovunque andrai  Strofa 3  Non pensare alle cose di ieri  cose nuove fioriscono già  aprirò nel deserto sentieri  darò acqua nell'aridità  perché tu sei prezioso ai miei occhi  vali più del più grande dei tesori  io sarò con te dovunque andrai.  Strofa 4  Perché tu sei prezioso ai miei occhi  vali più del più grande dei tesori  io sarò con te dovunque andrai.  Io ti sarò accanto sarò con te  per tutto il tuo viaggio sarò con te  io ti sarò accanto sarò con te  per tutto il tuo viaggio sarò con te.",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Se dovrai attraversare il deserto"
+    },
+    {
+      "t": "l",
+      "v": "non temere io sarò con te"
+    },
+    {
+      "t": "l",
+      "v": "se dovrai camminare nel fuoco"
+    },
+    {
+      "t": "l",
+      "v": "la sua fiamma non ti brucerà"
+    },
+    {
+      "t": "l",
+      "v": "seguirai la mia luce nella notte"
+    },
+    {
+      "t": "l",
+      "v": "sentirai la mia forza nel cammino"
+    },
+    {
+      "t": "l",
+      "v": "io sono il tuo Dio, il Signore."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Sono io che ti ho fatto e plasmato"
+    },
+    {
+      "t": "l",
+      "v": "ti ho chiamato per nome"
+    },
+    {
+      "t": "l",
+      "v": "io da sempre ti ho conosciuto"
+    },
+    {
+      "t": "l",
+      "v": "e ti ho dato il mio amore"
+    },
+    {
+      "t": "l",
+      "v": "perché tu sei prezioso ai miei occhi"
+    },
+    {
+      "t": "l",
+      "v": "vali più del più grande dei tesori"
+    },
+    {
+      "t": "l",
+      "v": "io sarò con te dovunque andrai"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Non pensare alle cose di ieri"
+    },
+    {
+      "t": "l",
+      "v": "cose nuove fioriscono già"
+    },
+    {
+      "t": "l",
+      "v": "aprirò nel deserto sentieri"
+    },
+    {
+      "t": "l",
+      "v": "darò acqua nell'aridità"
+    },
+    {
+      "t": "l",
+      "v": "perché tu sei prezioso ai miei occhi"
+    },
+    {
+      "t": "l",
+      "v": "vali più del più grande dei tesori"
+    },
+    {
+      "t": "l",
+      "v": "io sarò con te dovunque andrai."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 4"
+    },
+    {
+      "t": "l",
+      "v": "Perché tu sei prezioso ai miei occhi"
+    },
+    {
+      "t": "l",
+      "v": "vali più del più grande dei tesori"
+    },
+    {
+      "t": "l",
+      "v": "io sarò con te dovunque andrai."
+    },
+    {
+      "t": "l",
+      "v": "Io ti sarò accanto sarò con te"
+    },
+    {
+      "t": "l",
+      "v": "per tutto il tuo viaggio sarò con te"
+    },
+    {
+      "t": "l",
+      "v": "io ti sarò accanto sarò con te"
+    },
+    {
+      "t": "l",
+      "v": "per tutto il tuo viaggio sarò con te."
+    }
+  ]
+}

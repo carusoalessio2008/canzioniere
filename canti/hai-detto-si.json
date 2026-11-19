@@ -1,0 +1,110 @@
+{
+  "id": "hai-detto-si",
+  "title": "Hai Detto Si",
+  "sub": "",
+  "category": "Comunione",
+  "categories": [
+    "Comunione"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Hai Detto Si  Strofa 1  Beata sei tu che hai creduto  Da quel momento tutto è cambiato  Hai detto sì, tu per prima  mentre tessevi il nuovo velo del tempio  Strofa 2  Quanto coraggio hai avuto  Non conoscevi il piano di Dio  Hai detto sì, tu per prima  con la fede e la volontà  Ritornello  Come te Maria rispondiamo “Eccomi”  Come te Maria noi vogliamo fidarci così  Che si compia per noi la Parola di Dio  Strofa 3  Fra tutte le donne benedetta  Madre vestita del Verbo di Dio  Con umiltà tu ci guidi  e ci insegni ad amare di più  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Beata sei tu che hai creduto"
+    },
+    {
+      "t": "l",
+      "v": "Da quel momento tutto è cambiato"
+    },
+    {
+      "t": "l",
+      "v": "Hai detto sì, tu per prima"
+    },
+    {
+      "t": "l",
+      "v": "mentre tessevi il nuovo velo del tempio"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Quanto coraggio hai avuto"
+    },
+    {
+      "t": "l",
+      "v": "Non conoscevi il piano di Dio"
+    },
+    {
+      "t": "l",
+      "v": "Hai detto sì, tu per prima"
+    },
+    {
+      "t": "l",
+      "v": "con la fede e la volontà"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Come te Maria rispondiamo “Eccomi”"
+    },
+    {
+      "t": "l",
+      "v": "Come te Maria noi vogliamo fidarci così"
+    },
+    {
+      "t": "l",
+      "v": "Che si compia per noi la Parola di Dio"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Fra tutte le donne benedetta"
+    },
+    {
+      "t": "l",
+      "v": "Madre vestita del Verbo di Dio"
+    },
+    {
+      "t": "l",
+      "v": "Con umiltà tu ci guidi"
+    },
+    {
+      "t": "l",
+      "v": "e ci insegni ad amare di più"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "iubilate-deo",
+  "title": "Iubilate Deo",
+  "sub": "",
+  "category": "Canti vari",
+  "categories": [
+    "Canti vari"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Iubilate Deo  Strofa 1  Iubilate Deo, omnis terra.  Servite Domino in laetitia.  Strofa 2  Alleluia, alleluia, in laetitia!  Alleluia, alleluia, in laetitia!",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Iubilate Deo, omnis terra."
+    },
+    {
+      "t": "l",
+      "v": "Servite Domino in laetitia."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Alleluia, alleluia, in laetitia!"
+    },
+    {
+      "t": "l",
+      "v": "Alleluia, alleluia, in laetitia!"
+    }
+  ]
+}

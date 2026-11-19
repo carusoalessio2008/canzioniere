@@ -1,0 +1,130 @@
+{
+  "id": "laudato-sii-signore-mio",
+  "title": "Laudato Sii Signore Mio",
+  "sub": "",
+  "category": "Ingresso",
+  "categories": [
+    "Ingresso"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Laudato Sii Signore Mio  Ritornello  Laudato sii, Signore mio.  Laudato sii, Signore mio.  Laudato sii, Signore mio.  Laudato sii, Signore mio.  Strofa 1  Per il sole di ogni giorno,  che riscalda e dona vita,  egli illumina il cammino,  di chi cerca te, Signore,  Per la luna e le stelle,  io le sento mie sorelle;  le hai formate su nel cielo  e le doni a chi è nel buio.  Ritornello  Strofa 2  Per la nostra madre terra,  che ci dona fiori ed erba;  su di lei noi fatichiamo,  per il pane di ogni giorno.  Per chi soffre con coraggio  e perdona nel tuo amore:  tu gli dai la pace tua,  alla sera della vita.  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Laudato sii, Signore mio."
+    },
+    {
+      "t": "l",
+      "v": "Laudato sii, Signore mio."
+    },
+    {
+      "t": "l",
+      "v": "Laudato sii, Signore mio."
+    },
+    {
+      "t": "l",
+      "v": "Laudato sii, Signore mio."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Per il sole di ogni giorno,"
+    },
+    {
+      "t": "l",
+      "v": "che riscalda e dona vita,"
+    },
+    {
+      "t": "l",
+      "v": "egli illumina il cammino,"
+    },
+    {
+      "t": "l",
+      "v": "di chi cerca te, Signore,"
+    },
+    {
+      "t": "l",
+      "v": "Per la luna e le stelle,"
+    },
+    {
+      "t": "l",
+      "v": "io le sento mie sorelle;"
+    },
+    {
+      "t": "l",
+      "v": "le hai formate su nel cielo"
+    },
+    {
+      "t": "l",
+      "v": "e le doni a chi è nel buio."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Per la nostra madre terra,"
+    },
+    {
+      "t": "l",
+      "v": "che ci dona fiori ed erba;"
+    },
+    {
+      "t": "l",
+      "v": "su di lei noi fatichiamo,"
+    },
+    {
+      "t": "l",
+      "v": "per il pane di ogni giorno."
+    },
+    {
+      "t": "l",
+      "v": "Per chi soffre con coraggio"
+    },
+    {
+      "t": "l",
+      "v": "e perdona nel tuo amore:"
+    },
+    {
+      "t": "l",
+      "v": "tu gli dai la pace tua,"
+    },
+    {
+      "t": "l",
+      "v": "alla sera della vita."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

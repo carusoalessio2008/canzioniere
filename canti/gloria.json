@@ -1,0 +1,120 @@
+{
+  "id": "gloria",
+  "title": "Gloria",
+  "sub": "Gen Verde",
+  "category": "Gloria",
+  "categories": [
+    "Gloria"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Gloria  Gen Verde  Ritornello  Gloria, gloria a Dio! Gloria, gloria nell’alto dei cieli.  Pace in terra agli uomini amati dal Signor. Gloria!  Strofa 1  Noi ti lodiamo, ti benediciamo, ti adoriamo, glorifichiamo te,  ti rendiamo grazie per la tua immensa gloria!  Signore Dio, gloria! Re del cielo, gloria!  Dio Padre, Dio onnipotente, gloria!  Ritornello  Strofa 2  Signore, Figlio unigenito, Gesù Cristo,  Signore, Agnello di Dio, Figlio del Padre.  Tu che togli i peccati del mondo, abbi pietà di noi;  Tu che togli i peccati del mondo, accogli la nostra supplica;  Tu che siedi alla destra del Padre, abbi pietà di noi!  Ritornello  Strofa 3  Perché Tu solo il Santo, il Signore,  Tu l’Altissimo, Cristo Gesù.  Con lo Spirito Santo nella gloria del Padre!  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Gloria, gloria a Dio! Gloria, gloria nell’alto dei cieli."
+    },
+    {
+      "t": "l",
+      "v": "Pace in terra agli uomini amati dal Signor. Gloria!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Noi ti lodiamo, ti benediciamo, ti adoriamo, glorifichiamo te,"
+    },
+    {
+      "t": "l",
+      "v": "ti rendiamo grazie per la tua immensa gloria!"
+    },
+    {
+      "t": "l",
+      "v": "Signore Dio, gloria! Re del cielo, gloria!"
+    },
+    {
+      "t": "l",
+      "v": "Dio Padre, Dio onnipotente, gloria!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Signore, Figlio unigenito, Gesù Cristo,"
+    },
+    {
+      "t": "l",
+      "v": "Signore, Agnello di Dio, Figlio del Padre."
+    },
+    {
+      "t": "l",
+      "v": "Tu che togli i peccati del mondo, abbi pietà di noi;"
+    },
+    {
+      "t": "l",
+      "v": "Tu che togli i peccati del mondo, accogli la nostra supplica;"
+    },
+    {
+      "t": "l",
+      "v": "Tu che siedi alla destra del Padre, abbi pietà di noi!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Perché Tu solo il Santo, il Signore,"
+    },
+    {
+      "t": "l",
+      "v": "Tu l’Altissimo, Cristo Gesù."
+    },
+    {
+      "t": "l",
+      "v": "Con lo Spirito Santo nella gloria del Padre!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

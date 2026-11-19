@@ -1,0 +1,128 @@
+{
+  "id": "jesus-christ",
+  "title": "Jesus Christ",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Jesus Christ  Ritornello  Jesus Christ, you are my life  Halleluja, Halleluja  Jesus Christ, you are my life  You are my life, Halleluja  Strofa 1  Tu sei via, sei verità  Tu sei la nostra vita  Camminando insieme a te  Vivremo in te per sempre  Ritornello  Strofa 2  Ci accogli nell'unità  Riuniti nell'amore  Nella gioia dinanzi a te  Cantando la tua gloria  Ritornello  Strofa 3  Nella gioia camminerem  Portando il tuo Vangelo  Testimoni di carità  Figli di Dio nel mondo  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Jesus Christ, you are my life"
+    },
+    {
+      "t": "l",
+      "v": "Halleluja, Halleluja"
+    },
+    {
+      "t": "l",
+      "v": "Jesus Christ, you are my life"
+    },
+    {
+      "t": "l",
+      "v": "You are my life, Halleluja"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Tu sei via, sei verità"
+    },
+    {
+      "t": "l",
+      "v": "Tu sei la nostra vita"
+    },
+    {
+      "t": "l",
+      "v": "Camminando insieme a te"
+    },
+    {
+      "t": "l",
+      "v": "Vivremo in te per sempre"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Ci accogli nell'unità"
+    },
+    {
+      "t": "l",
+      "v": "Riuniti nell'amore"
+    },
+    {
+      "t": "l",
+      "v": "Nella gioia dinanzi a te"
+    },
+    {
+      "t": "l",
+      "v": "Cantando la tua gloria"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 3"
+    },
+    {
+      "t": "l",
+      "v": "Nella gioia camminerem"
+    },
+    {
+      "t": "l",
+      "v": "Portando il tuo Vangelo"
+    },
+    {
+      "t": "l",
+      "v": "Testimoni di carità"
+    },
+    {
+      "t": "l",
+      "v": "Figli di Dio nel mondo"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

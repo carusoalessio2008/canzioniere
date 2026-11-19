@@ -1,0 +1,76 @@
+{
+  "id": "grandi-cose",
+  "title": "Grandi Cose",
+  "sub": "",
+  "category": "Comunione",
+  "categories": [
+    "Comunione"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Grandi Cose  Ritornello  Grandi cose ha fatto il Signore per noi,  ha fatto germogliare i fiori fra le rocce.  Grandi cose ha fatto il Signore per noi,  ci ha riportati liberi alla nostra terra.  Ed ora possiamo cantare, possiamo gridare  l'amore che Dio ha versato su noi.  Strofa 1  Tu che sai strappare dalla morte,  hai sollevato il nostro viso dalla polvere.  Tu che hai sentito il nostro pianto,  nel nostro cuore hai messo un seme di felicità.  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Grandi cose ha fatto il Signore per noi,"
+    },
+    {
+      "t": "l",
+      "v": "ha fatto germogliare i fiori fra le rocce."
+    },
+    {
+      "t": "l",
+      "v": "Grandi cose ha fatto il Signore per noi,"
+    },
+    {
+      "t": "l",
+      "v": "ci ha riportati liberi alla nostra terra."
+    },
+    {
+      "t": "l",
+      "v": "Ed ora possiamo cantare, possiamo gridare"
+    },
+    {
+      "t": "l",
+      "v": "l'amore che Dio ha versato su noi."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Tu che sai strappare dalla morte,"
+    },
+    {
+      "t": "l",
+      "v": "hai sollevato il nostro viso dalla polvere."
+    },
+    {
+      "t": "l",
+      "v": "Tu che hai sentito il nostro pianto,"
+    },
+    {
+      "t": "l",
+      "v": "nel nostro cuore hai messo un seme di felicità."
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

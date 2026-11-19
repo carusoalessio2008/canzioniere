@@ -1,0 +1,123 @@
+{
+  "id": "il-canto-dellamicizia",
+  "title": "Il Canto Dell'Amicizia",
+  "sub": "",
+  "category": "Finale",
+  "categories": [
+    "Finale"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Il Canto Dell'Amicizia  Strofa 1  In un mondo di maschere  Dove sembra impossibile  Riuscire a sconfiggere  Tutto ciò che annienta l'uomo  Il potere la falsità  La violenza e l'avidità  Sono mostri da abbattere  Noi però non siamo soli  Ritornello  Canta con noi, batti le mani  Alzale in alto, muovile al ritmo del canto  Stringi la mano del tuo vicino  E scoprirai che è meno duro il cammino così  Strofa 2  Ci hai promesso il tuo Spirito  Lo sentiamo in mezzo a noi  E così possiamo credere  Che ogni cosa può cambiare  Non possiamo più assistere  Impotenti ed attoniti  Perché siam responsabili  Della vita intorno a noi  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "In un mondo di maschere"
+    },
+    {
+      "t": "l",
+      "v": "Dove sembra impossibile"
+    },
+    {
+      "t": "l",
+      "v": "Riuscire a sconfiggere"
+    },
+    {
+      "t": "l",
+      "v": "Tutto ciò che annienta l'uomo"
+    },
+    {
+      "t": "l",
+      "v": "Il potere la falsità"
+    },
+    {
+      "t": "l",
+      "v": "La violenza e l'avidità"
+    },
+    {
+      "t": "l",
+      "v": "Sono mostri da abbattere"
+    },
+    {
+      "t": "l",
+      "v": "Noi però non siamo soli"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Canta con noi, batti le mani"
+    },
+    {
+      "t": "l",
+      "v": "Alzale in alto, muovile al ritmo del canto"
+    },
+    {
+      "t": "l",
+      "v": "Stringi la mano del tuo vicino"
+    },
+    {
+      "t": "l",
+      "v": "E scoprirai che è meno duro il cammino così"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Ci hai promesso il tuo Spirito"
+    },
+    {
+      "t": "l",
+      "v": "Lo sentiamo in mezzo a noi"
+    },
+    {
+      "t": "l",
+      "v": "E così possiamo credere"
+    },
+    {
+      "t": "l",
+      "v": "Che ogni cosa può cambiare"
+    },
+    {
+      "t": "l",
+      "v": "Non possiamo più assistere"
+    },
+    {
+      "t": "l",
+      "v": "Impotenti ed attoniti"
+    },
+    {
+      "t": "l",
+      "v": "Perché siam responsabili"
+    },
+    {
+      "t": "l",
+      "v": "Della vita intorno a noi"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}

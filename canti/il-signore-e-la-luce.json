@@ -1,0 +1,75 @@
+{
+  "id": "il-signore-e-la-luce",
+  "title": "Il Signore È La Luce",
+  "sub": "",
+  "category": "Alleluia",
+  "categories": [
+    "Alleluia"
+  ],
+  "capo": null,
+  "compactRepeats": true,
+  "key": {
+    "note": "DO",
+    "mode": "maggiore"
+  },
+  "search": "Il Signore È La Luce  Strofa 1  Il Signore è la luce  Che vince la notte!  Ritornello  Gloria! Gloria!  Cantiamo al Signore  Gloria! Gloria!  Cantiamo al Signore  Strofa 2  Il Signore è la vita  Che vince la morte!  Ritornello",
+  "lines": [
+    {
+      "t": "h",
+      "v": "Strofa 1"
+    },
+    {
+      "t": "l",
+      "v": "Il Signore è la luce"
+    },
+    {
+      "t": "l",
+      "v": "Che vince la notte!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    },
+    {
+      "t": "l",
+      "v": "Gloria! Gloria!"
+    },
+    {
+      "t": "l",
+      "v": "Cantiamo al Signore"
+    },
+    {
+      "t": "l",
+      "v": "Gloria! Gloria!"
+    },
+    {
+      "t": "l",
+      "v": "Cantiamo al Signore"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Strofa 2"
+    },
+    {
+      "t": "l",
+      "v": "Il Signore è la vita"
+    },
+    {
+      "t": "l",
+      "v": "Che vince la morte!"
+    },
+    {
+      "t": "s"
+    },
+    {
+      "t": "h",
+      "v": "Ritornello"
+    }
+  ]
+}
